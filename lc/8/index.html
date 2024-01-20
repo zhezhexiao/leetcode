@@ -77026,7 +77026,7 @@
 <p>遍历结束后，我们根据正负号返回结果。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 为字符串的长度。我们只需要依次处理所有字符。空间复杂度 $O(1)$。</p>
 <p>同<a href="/lcof/面试题67.%20把字符串转换成整数/README.md">面试题 67. 把字符串转换成整数</a>。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">Go</label><label for="__tabbed_1_4">JavaScript</label><label for="__tabbed_1_5">C#</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">Go</label><label for="__tabbed_1_4">JavaScript</label><label for="__tabbed_1_5">C#</label><label for="__tabbed_1_6">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
@@ -77199,6 +77199,26 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">result</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param string $s</span>
+<span class="x">     * @return int</span>
+<span class="x">     */</span>
+
+<span class="x">    function myAtoi($s) {</span>
+<span class="x">        $s = str_replace(&#39;e&#39;, &#39;x&#39;, $s);</span>
+<span class="x">        if (intval($s) &lt; pow(-2, 31)) {</span>
+<span class="x">            return -2147483648;</span>
+<span class="x">        }</span>
+<span class="x">        if (intval($s) &gt; pow(2, 31) - 1) {</span>
+<span class="x">            return 2147483647;</span>
+<span class="x">        }</span>
+<span class="x">        return intval($s);</span>
+<span class="x">    }</span>
+<span class="x">}</span>
 </code></pre></div>
 </div>
 </div>
