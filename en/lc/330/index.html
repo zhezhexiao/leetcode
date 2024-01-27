@@ -13515,9 +13515,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy
     </span>
   </a>
   
@@ -72611,7 +72611,22 @@ Explanation: The two patches can be [2, 4].
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy">Solution 1: Greedy</h3>
+<p>Let's assume that the number $x$ is the smallest positive integer that cannot be represented. Then all the numbers in $[1,..x-1]$ can be represented. In order to represent the number $x$, we need to add a number that is less than or equal to $x$:</p>
+<ul>
+<li>If the added number equals $x$, since all numbers in $[1,..x-1]$ can be represented, after adding $x$, all numbers in the range $[1,..2x-1]$ can be represented, and the smallest positive integer that cannot be represented becomes $2x$.</li>
+<li>If the added number is less than $x$, let's assume it's $x'$, since all numbers in $[1,..x-1]$ can be represented, after adding $x'$, all numbers in the range $[1,..x+x'-1]$ can be represented, and the smallest positive integer that cannot be represented becomes $x+x' \lt 2x$.</li>
+</ul>
+<p>Therefore, we should greedily add the number $x$ to cover a larger range.</p>
+<p>We use a variable $x$ to record the current smallest positive integer that cannot be represented, initialized to $1$. At this time, $[1,..x-1]$ is empty, indicating that no number can be covered; we use a variable $i$ to record the current index of the array being traversed.</p>
+<p>We perform the following operations in a loop:</p>
+<ul>
+<li>If $i$ is within the range of the array and $nums[i] \le x$, it means that the current number can be covered, so we add the value of $nums[i]$ to $x$, and increment $i$ by $1$.</li>
+<li>Otherwise, it means that $x$ is not covered, so we need to supplement a number $x$ in the array, and then update $x$ to $2x$.</li>
+<li>Repeat the above operations until the value of $x$ is greater than $n$.</li>
+</ul>
+<p>The final answer is the number of supplemented numbers.</p>
+<p>The time complexity is $O(m + \log n)$, where $m$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
