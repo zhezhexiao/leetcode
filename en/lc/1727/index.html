@@ -42862,9 +42862,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-preprocessing-sorting" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Preprocessing + Sorting
     </span>
   </a>
   
@@ -72725,7 +72725,12 @@ The largest submatrix of 1s, in bold, has an area of 3.
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-preprocessing-sorting">Solution 1: Preprocessing + Sorting</h3>
+<p>Since the matrix is rearranged by columns according to the problem, we can first preprocess each column of the matrix.</p>
+<p>For each element with a value of $1$, we update its value to the maximum consecutive number of $1$s above it, that is, $matrix[i][j] = matrix[i-1][j] + 1$.</p>
+<p>Next, we can sort each row of the updated matrix. Then traverse each row, calculate the area of the largest sub-matrix full of $1$s with this row as the bottom edge. The specific calculation logic is as follows:</p>
+<p>For a row of the matrix, we denote the value of the $k$-th largest element as $val_k$, where $k \geq 1$, then there are at least $k$ elements in this row that are not less than $val_k$, forming a sub-matrix full of $1$s with an area of $val_k \times k$. Traverse each element of this row from large to small, take the maximum value of $val_k \times k$, and update the answer.</p>
+<p>The time complexity is $O(m \times n \times \log n)$. Here, $m$ and $n$ are the number of rows and columns of the matrix, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

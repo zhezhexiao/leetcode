@@ -77344,7 +77344,7 @@
 <p>对于每个值为 $1$ 的元素，我们更新其值为该元素向上的最大连续的 $1$ 的个数，即 $matrix[i][j]=matrix[i-1][j]+1$。</p>
 <p>接下来，我们可以对更新后的矩阵的每一行进行排序。然后遍历每一行，计算以该行作为底边的最大全 $1$ 子矩阵的面积。具体计算逻辑如下：</p>
 <p>对于矩阵的某一行，我们记第 $k$ 大元素的值为 $val_k$，其中 $k \geq 1$，那么该行至少有 $k$ 个元素不小于 $val_k$，组成的全 $1$ 子矩阵面积为 $val_k \times k$。从大到小遍历矩阵该行的每个元素，取 $val_k \times k$ 的最大值，更新答案。</p>
-<p>时间复杂度 $O(m\times n\times \log n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。</p>
+<p>时间复杂度 $O(m \times n \times \log n)$。其中 $m$ 和 $n$ 分别为矩阵的行数和列数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
