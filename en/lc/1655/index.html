@@ -41350,9 +41350,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-state-compression-dynamic-programming-subset-enumeration" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: State Compression Dynamic Programming + Subset Enumeration
     </span>
   </a>
   
@@ -72732,7 +72732,14 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-state-compression-dynamic-programming-subset-enumeration">Solution 1: State Compression Dynamic Programming + Subset Enumeration</h3>
+<p>First, we count the occurrence of each number in the array <code>nums</code>, and record it in the hash table <code>cnt</code>. Then we store the values in the hash table into the array <code>arr</code>. We denote the length of the array <code>arr</code> as <code>n</code>.</p>
+<p>Note that the length of the array <code>quantity</code> does not exceed 10, so we can use a binary number to represent a subset of <code>quantity</code>. That is, the number <code>j</code> represents a subset of <code>quantity</code>, where the <code>i</code>-th bit of the binary representation of <code>j</code> is <code>1</code> means the <code>i</code>-th number in <code>quantity</code> is selected, and <code>0</code> means the <code>i</code>-th number is not selected.</p>
+<p>We can preprocess an array <code>s</code>, where <code>s[j]</code> represents the sum of all numbers in the subset <code>j</code> of <code>quantity</code>.</p>
+<p>Next, we define <code>f[i][j]</code> to represent whether the numbers in <code>arr[0,..i-1]</code> can be successfully allocated to the subset <code>j</code> of <code>quantity</code>, where <code>i</code> ranges from <code>[0,..n-1]</code>, and <code>j</code> ranges from <code>[0,2^m-1]</code>, where <code>m</code> is the length of <code>quantity</code>.</p>
+<p>Considering <code>f[i][j]</code>, if there exists a subset <code>k</code> in <code>j</code> such that <code>s[k] &lt;= arr[i]</code>, and <code>f[i-1][j XOR k]</code> is true, then <code>f[i][j]</code> is true, otherwise <code>f[i][j]</code> is false.</p>
+<p>The answer is <code>f[n-1][2^m-1]</code>.</p>
+<p>The time complexity is <code>O(n * 3^m)</code>, and the space complexity is <code>O(n * 2^m)</code>. Here, <code>n</code> is the number of different integers in the array <code>nums</code>, and <code>m</code> is the length of the array <code>quantity</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

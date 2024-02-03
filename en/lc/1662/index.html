@@ -41497,18 +41497,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-string-concatenation" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: String Concatenation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-direct-traversal" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Direct Traversal
     </span>
   </a>
   
@@ -72732,7 +72732,9 @@ The strings are the same, so return true.</pre>
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-string-concatenation">Solution 1: String Concatenation</h3>
+<p>Concatenate the strings in the two arrays into two strings, then compare whether the two strings are equal.</p>
+<p>The time complexity is $O(m)$, and the space complexity is $O(m)$. Here, $m$ is the total length of the strings in the arrays.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -72804,7 +72806,12 @@ The strings are the same, so return true.</pre>
 </div>
 </div>
 </div>
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-direct-traversal">Solution 2: Direct Traversal</h3>
+<p>In Solution 1, we concatenated the strings in the two arrays into two new strings, which has additional space overhead. We can also directly traverse the two arrays and compare the characters one by one.</p>
+<p>We use two pointers $i$ and $j$ to point to the two string arrays, and another two pointers $x$ and $y$ to point to the corresponding characters in the strings. Initially, $i = j = x = y = 0$.</p>
+<p>Each time we compare $word1[i][x]$ and $word2[j][y]$. If they are not equal, we directly return <code>false</code>. Otherwise, we increment $x$ and $y$ by $1$. If $x$ or $y$ exceeds the length of the corresponding string, we increment the corresponding string pointer $i$ or $j$ by $1$, and then reset $x$ and $y$ to $0$.</p>
+<p>If both string arrays are traversed, we return <code>true</code>, otherwise, we return <code>false</code>.</p>
+<p>The time complexity is $O(m)$, and the space complexity is $O(1)$. Here, $m$ is the total length of the strings in the arrays.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

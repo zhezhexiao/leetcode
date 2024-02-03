@@ -41560,9 +41560,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy-custom-sorting" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy + Custom Sorting
     </span>
   </a>
   
@@ -72746,7 +72746,22 @@ Starting with 27 energy, we finish the tasks in the following order:
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy-custom-sorting">Solution 1: Greedy + Custom Sorting</h3>
+<p>Assume the number of tasks is $n$ and the initial energy level is $E$. Consider completing the last task. This requires that after completing the first $n-1$ tasks, the remaining energy level is not less than the energy level required to complete the last task $m_n$, i.e.,</p>
+<p>$$
+E-\sum_{i=1}^{n-1} a_i \geq m_n
+$$</p>
+<p>We can express $m_n$ as $a_n+(m_n - a_n)$, and then transform the above formula to get:</p>
+<p>$$
+E-\sum_{i=1}^{n-1} a_i \geq a_n+(m_n - a_n)
+$$</p>
+<p>Rearranging, we get:</p>
+<p>$$
+E \geq \sum_{i=1}^{n} a_i + (m_n - a_n)
+$$</p>
+<p>Where $\sum_{i=1}^{n} a_i$ is fixed. To minimize the initial energy level $E$, we need to minimize $m_n - a_n$, i.e., maximize $a_n-m_n$.</p>
+<p>Therefore, we can sort the tasks in ascending order of $a_i-m_i$. Then we traverse the tasks from front to back. For each task, if the current energy level $cur$ is less than $m_i$, we need to increase the energy level by $m_i - cur$ to make the current energy level exactly equal to $m_i$. Then we complete the task and update $cur = cur - a_i$. Continue traversing until all tasks are completed, and we can get the minimum initial energy level required.</p>
+<p>The time complexity is $O(n\times \log n)$, where $n$ is the number of tasks. Ignoring the space overhead of sorting, the space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

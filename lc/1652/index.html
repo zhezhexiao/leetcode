@@ -70139,7 +70139,7 @@
         
   
   <span class="md-ellipsis">
-    3023. Find Pattern in Infinite Stream I
+    3023. 在无限流中寻找模式 I
   </span>
   
 
@@ -77347,17 +77347,17 @@
 
 <h2 id="_2">解法</h2>
 <h3 id="_3">方法一：模拟</h3>
-<p>定义答案数组 <code>ans</code>，长度为 $n$，初始时所有元素都为 $0$。根据题意，若 $k$ 为 $0$，直接返回 <code>ans</code>。</p>
+<p>我们定义一个长度为 $n$ 的答案数组 $ans$，初始时所有元素都为 $0$。根据题意，若 $k$ 为 $0$，直接返回 $ans$。</p>
 <p>否则，遍历每个位置 $i$：</p>
 <p>若 $k$ 为正数，那么 $i$ 位置的值为 $i$ 位置后 $k$ 个位置的值之和，即：</p>
 <p>$$
-ans[i] = \sum_{j=i+1}^{i+k} code[j\mod{n}]
+ans[i] = \sum_{j=i+1}^{i+k} code[j \bmod n]
 $$</p>
 <p>若 $k$ 为负数，那么 $i$ 位置的值为 $i$ 位置前 $|k|$ 个位置的值之和，即：</p>
 <p>$$
-ans[i] = \sum_{j=i+k}^{i-1} code[(j+n)\mod{n}]
+ans[i] = \sum_{j=i+k}^{i-1} code[(j+n) \bmod n]
 $$</p>
-<p>时间复杂度 $O(n\times|k|)$，忽略答案的空间消耗，空间复杂度 $O(1)$。</p>
+<p>时间复杂度 $O(n \times |k|)$，忽略答案的空间消耗，空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -77486,7 +77486,7 @@ $$</p>
 </div>
 <h3 id="_4">方法二：前缀和</h3>
 <p>在方法一中，对于每个位置 $i$，都需要遍历 $k$ 个位置，有很多重复计算的操作。我们可以利用前缀和来优化。</p>
-<p>我们将 <code>code</code> 数组复制一份（可以不用执行复制操作，直接通过循环遍历取模实现），得到两倍长度的数组，对其求前缀和，得到长度为 $2\times n + 1$ 的前缀和数组 $s$。</p>
+<p>我们将 <code>code</code> 数组复制一份（可以不用执行复制操作，直接通过循环遍历取模实现），得到两倍长度的数组，对其求前缀和，得到长度为 $2 \times n + 1$ 的前缀和数组 $s$。</p>
 <p>若 $k$ 为正数，那么 $i$ 位置的值为 $i$ 位置后 $k$ 个位置的值之和，即 $ans[i] = s[i + k + 1] - s[i + 1]$。</p>
 <p>若 $k$ 为负数，那么 $i$ 位置的值为 $i$ 位置前 $|k|$ 个位置的值之和，即 $ans[i] = s[i + n] - s[i + k + n]$。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为 <code>code</code> 数组的长度。</p>

@@ -41287,18 +41287,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-simulation" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Simulation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-prefix-sum" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Prefix Sum
     </span>
   </a>
   
@@ -72742,7 +72742,22 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-simulation">Solution 1: Simulation</h3>
+<p>We define an answer array <code>ans</code> of length <code>n</code>, initially all elements are <code>0</code>. According to the problem, if <code>k</code> is <code>0</code>, return <code>ans</code> directly.</p>
+<p>Otherwise, we traverse each position <code>i</code>:</p>
+<ul>
+<li>If <code>k</code> is a positive number, then the value at position <code>i</code> is the sum of the values at the <code>k</code> positions after position <code>i</code>, that is:</li>
+</ul>
+<p>$$
+ans[i] = \sum_{j=i+1}^{i+k} code[j \bmod n]
+$$</p>
+<ul>
+<li>If <code>k</code> is a negative number, then the value at position <code>i</code> is the sum of the values at the <code>|k|</code> positions before position <code>i</code>, that is:</li>
+</ul>
+<p>$$
+ans[i] = \sum_{j=i+k}^{i-1} code[(j+n) \bmod n]
+$$</p>
+<p>The time complexity is $O(n \times |k|)$, ignoring the space consumption of the answer, the space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -72869,7 +72884,12 @@
 </div>
 </div>
 </div>
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-prefix-sum">Solution 2: Prefix Sum</h3>
+<p>In Solution 1, for each position $i$, we need to traverse $k$ positions, which involves a lot of repeated calculations. We can optimize this by using prefix sums.</p>
+<p>We duplicate the <code>code</code> array (this can be achieved without actually duplicating the array, but by cyclically traversing with modulo operation), resulting in an array of twice the length. We then calculate the prefix sum of this array, resulting in a prefix sum array $s$ of length $2 \times n + 1$.</p>
+<p>If $k$ is a positive number, then the value at position $i$ is the sum of the values at the $k$ positions after position $i$, i.e., $ans[i] = s[i + k + 1] - s[i + 1]$.</p>
+<p>If $k$ is a negative number, then the value at position $i$ is the sum of the values at the $|k|$ positions before position $i$, i.e., $ans[i] = s[i + n] - s[i + k + n]$.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the <code>code</code> array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -70130,7 +70130,7 @@
         
   
   <span class="md-ellipsis">
-    3023. Find Pattern in Infinite Stream I
+    3023. 在无限流中寻找模式 I
   </span>
   
 
@@ -77386,6 +77386,9 @@ $$</p>
 <p>其中 $\sum_{k = j + 1}^i \text{cost}(k)$ 表示通过一次运输，把 $[j+1,..i]$ 这些箱子送往对应的码头所需要的行程数。这部分行程数可以通过前缀和快速计算出来。</p>
 <p>简单举个例子，假设我们取出了 $1, 2, 3$ 这三个箱子，需要送往 $4, 4, 5$ 这三个码头，那么我们首先要从仓库到 $4$ 号码头，然后再从 $4$ 号码头到 $5$ 号码头，最后再从 $5$ 号码头回到仓库。可以发现，从仓库到码头，以及从码头到仓库，需要花费 $2$ 趟行程，而从码头到码头的行程数，取决于相邻两个码头是否相同，如果不相同，那么行程数会增加 $1$，否则不变。因此，我们可以通过前缀和，计算出码头之间的行程数，再加上首尾两趟行程，就能把 $[j+1,..i]$ 这些箱子送往对应的码头所需要的行程数计算出来。</p>
 <p>代码实现如下：</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># 33/39 个通过测试用例，超出时间限制</span>
 <span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">boxDelivering</span><span class="p">(</span>
@@ -77403,6 +77406,8 @@ $$</p>
                     <span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">f</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">cs</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">cs</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">f</span><span class="p">[</span><span class="n">n</span><span class="p">]</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1">// 35/39 个通过测试用例，超出时间限制</span>
 <span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">boxDelivering</span><span class="p">(</span><span class="kt">int</span><span class="o">[][]</span><span class="w"> </span><span class="n">boxes</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">portsCount</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxBoxes</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">maxWeight</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -77430,6 +77435,8 @@ $$</p>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1">// 35/39 个通过测试用例，超出时间限制</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
@@ -77457,6 +77464,8 @@ $$</p>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div>
+</div>
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1">// 35/39 个通过测试用例，超出时间限制</span>
 <span class="kd">func</span><span class="w"> </span><span class="nx">boxDelivering</span><span class="p">(</span><span class="nx">boxes</span><span class="w"> </span><span class="p">[][]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">portsCount</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">maxBoxes</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">maxWeight</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">n</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">boxes</span><span class="p">)</span>
@@ -77485,13 +77494,16 @@ $$</p>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">f</span><span class="p">[</span><span class="nx">n</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
+</div>
+</div>
+</div>
 <p>本题数据规模达到 $10^5$，而以上代码的时间复杂度为 $O(n^2)$，会超出时间限制。我们仔细观察：</p>
 <p>$$
 f[i] = \min(f[i], f[j] + cs[i - 1] - cs[j] + 2)
 $$</p>
 <p>实际上我们是要在 $[i-maxBoxes,..i-1]$ 这个窗口内找到一个 $j$，使得 $f[j] - cs[j]$ 的值最小，求滑动窗口的最小值，一种常用的做法是使用单调队列，可以在 $O(1)$ 时间内获取到满足条件的最小值。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是题目中箱子的数量。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>

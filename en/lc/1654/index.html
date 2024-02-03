@@ -41329,9 +41329,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-bfs" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: BFS
     </span>
   </a>
   
@@ -72734,7 +72734,19 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-bfs">Solution 1: BFS</h3>
+<p>We can use the position and jumping direction of the flea as the state, and use BFS to search for the shortest path. The key point of this problem is to determine the right boundary, that is, how far the flea can jump.</p>
+<p>If $a \geq b$, that is, the distance to jump forward is greater than the distance to jump backward, then if the flea is in a position greater than $x+b$, it can no longer jump forward, because the flea cannot jump backward consecutively. If it continues to jump forward, it will never be able to jump to the position $x$. Therefore, if $a \geq b$, the right boundary can be $x+b$.</p>
+<p>If $a &lt; b$, that is, the distance to jump forward is less than the distance to jump backward, then if the position of the flea minus $b$ exceeds $2000$, choose to jump backward, otherwise jump forward. Therefore, if $a &lt; b$, the right boundary does not exceed $6000$.</p>
+<p>In summary, we can set the right boundary to $6000$.</p>
+<p>Next, we use BFS to search for the shortest path. We use a queue, initially adding the position and jumping direction of the flea as the state to the queue. Each time we take a state from the queue, if the position of this state is equal to $x$, then we have found a path from the initial state to the target state, and we can return the current number of steps. Otherwise, we add the next state of the current state to the queue. There are two cases for the next state:</p>
+<ul>
+<li>Jump forward, the jumping direction is $1$;</li>
+<li>When the current jumping direction is $1$, jump backward, the jumping direction is $0$.</li>
+</ul>
+<p>Note that we need to judge whether the next state is legal, that is, the position of the next state does not exceed the right boundary, is not in the forbidden position, and has not been visited.</p>
+<p>If the queue is empty, it means that the target position cannot be reached, return $-1$.</p>
+<p>The time complexity is $O(M)$, and the space complexity is $O(M)$. Here, $M$ is the right boundary, and in this problem, $M \leq 6000$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
