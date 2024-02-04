@@ -12727,9 +12727,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-finding-the-pattern" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Finding the Pattern
     </span>
   </a>
   
@@ -72729,7 +72729,18 @@ In all outcomes, your friend wins.
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-finding-the-pattern">Solution 1: Finding the Pattern</h3>
+<p>The first player who gets a multiple of $4$ (i.e., $n$ can be divided by $4$) will lose the game.</p>
+<p>Proof:</p>
+<ol>
+<li>When $n \lt 4$, the first player can directly take all the stones, so the first player will win the game.</li>
+<li>When $n = 4$, no matter whether the first player chooses $1, 2, 3$, the second player can always choose the remaining number, so the first player will lose the game.</li>
+<li>When $4 \lt n \lt 8$, i.e., $n = 5, 6, 7$, the first player can correspondingly reduce the number to $4$, then the "death number" $4$ is given to the second player, and the second player will lose the game.</li>
+<li>When $n = 8$, no matter whether the first player chooses $1, 2, 3$, it will leave a number between $4 \lt n \lt 8$ to the second player, so the first player will lose the game.</li>
+<li>...</li>
+<li>By induction, when a player gets the number $n$, and $n$ can be divided by $4$, he will lose the game, otherwise, he will win the game.</li>
+</ol>
+<p>The time complexity is $O(1)$, and the space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

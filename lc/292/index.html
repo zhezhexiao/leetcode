@@ -12769,7 +12769,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一：数学推理
+      方法一：找规律
     </span>
   </a>
   
@@ -77333,17 +77333,18 @@
 </ul>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一：数学推理</h3>
+<h3 id="_3">方法一：找规律</h3>
 <p>第一个得到 $4$ 的倍数（即 $n$ 能被 $4$ 整除）的将会输掉比赛。</p>
 <p>证明：</p>
 <ol>
-<li>当 $n=4$，无论第一个玩家选择 $1/2/3$ 哪个数字，第二个玩家总能选择剩下的数字，<strong>第一个玩家将会输掉比赛</strong>。</li>
-<li>当 $4&lt;n&lt;8$，即 ($n=5,6,7$)，第一个玩家可以相应地将数字减少为 $4$，那么 $4$ 这个死亡数字给到了第二个玩家，第二个玩家将会输掉比赛。</li>
-<li>当 $n=8$，无论第一个玩家选择 $1/2/3$ 哪个数字，都会把 $4&lt;n&lt;8$ 的数字留给第二个，<strong>第一个玩家将会输掉比赛</strong>。</li>
+<li>当 $n \lt 4$ 时，第一个玩家可以直接拿走所有的石头，所以第一个玩家将会赢得比赛。</li>
+<li>当 $n = 4$，无论第一个玩家选择 $1, 2, 3$ 哪个数字，第二个玩家总能选择剩下的数字，所以第一个玩家将会输掉比赛。</li>
+<li>当 $4 \lt n \lt 8$ 时，即 $n = 5, 6, 7$，第一个玩家可以相应地将数字减少为 $4$，那么 $4$ 这个死亡数字给到了第二个玩家，第二个玩家将会输掉比赛。</li>
+<li>当 $n = 8$，无论第一个玩家选择 $1, 2, 3$ 哪个数字，都会把 $4 \lt n \lt 8$ 的数字留给第二个，所以第一个玩家将会输掉比赛。</li>
 <li>...</li>
 <li>依次类推，当玩家拿到 $n$ 这个数字，且 $n$ 能被 $4$ 整除，他将会输掉比赛，否则他将赢得比赛。</li>
 </ol>
-<p>时间复杂度 $O(1)$。</p>
+<p>时间复杂度 $O(1)$，空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
