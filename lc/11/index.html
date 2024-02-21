@@ -77895,7 +77895,7 @@
 <p>当前柱子是最两侧的柱子，水的宽度最大，其他的组合，水的宽度都比这个小。不妨假设左侧柱子的高度小于等于右侧柱子的高度，那么水的高度就是左侧柱子的高度。如果我们移动右侧柱子，那么水的宽度就减小了，而水的高度却不会增加，因此水的容量一定减少。所以我们移动左侧柱子，更新最大容量。</p>
 <p>循环此过程，直到两个柱子相遇。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 是数组 <code>height</code> 的长度。空间复杂度 $O(1)$。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label><label for="__tabbed_1_8">C#</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:9"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label><label for="__tabbed_1_8">C#</label><label for="__tabbed_1_9">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
@@ -78043,6 +78043,35 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param int[] $height</span>
+<span class="x">     * @return int</span>
+<span class="x">     */</span>
+
+<span class="x">    function maxArea($height) {</span>
+<span class="x">        $left = 0;</span>
+<span class="x">        $right = count($height) - 1;</span>
+<span class="x">        $maxArea = 0;</span>
+
+<span class="x">        while ($left &lt; $right) {</span>
+<span class="x">            $area = min($height[$left], $height[$right]) * ($right - $left);</span>
+
+<span class="x">            $maxArea = max($maxArea, $area);</span>
+
+<span class="x">            if ($height[$left] &lt; $height[$right]) {</span>
+<span class="x">                $left++;</span>
+<span class="x">            } else {</span>
+<span class="x">                $right--;</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+
+<span class="x">        return $maxArea;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
 </code></pre></div>
 </div>
 </div>
