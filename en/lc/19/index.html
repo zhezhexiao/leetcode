@@ -73287,7 +73287,7 @@
 <p>We define two pointers <code>fast</code> and <code>slow</code>, both initially pointing to the dummy head node of the linked list.</p>
 <p>Next, the <code>fast</code> pointer moves forward $n$ steps first, then <code>fast</code> and <code>slow</code> pointers move forward together until the <code>fast</code> pointer reaches the end of the linked list. At this point, the node pointed to by <code>slow.next</code> is the predecessor of the $n$-th node from the end, and we can delete it.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the linked list. The space complexity is $O(1)$.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label><label for="__tabbed_1_8">Ruby</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:9"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label><label for="__tabbed_1_8">Ruby</label><label for="__tabbed_1_9">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># Definition for singly-linked list.</span>
@@ -73506,6 +73506,49 @@
 <span class="w">    </span><span class="n">slow</span><span class="o">.</span><span class="n">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">slow</span><span class="o">.</span><span class="n">next</span><span class="o">.</span><span class="n">next</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">dummy</span><span class="o">.</span><span class="n">next</span>
 <span class="k">end</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x"># Definition for singly-linked list.</span>
+<span class="x"># class ListNode {</span>
+<span class="x">#     public $val;</span>
+<span class="x">#     public $next;</span>
+
+<span class="x">#     public function __construct($val = 0, $next = null)</span>
+<span class="x">#     {</span>
+<span class="x">#         $this-&gt;val = $val;</span>
+<span class="x">#         $this-&gt;next = $next;</span>
+<span class="x">#     }</span>
+<span class="x"># }</span>
+
+<span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param ListNode $head</span>
+<span class="x">     * @param int $n</span>
+<span class="x">     * @return ListNode</span>
+<span class="x">     */</span>
+
+<span class="x">    function removeNthFromEnd($head, $n) {</span>
+<span class="x">        $dummy = new ListNode(0);</span>
+<span class="x">        $dummy-&gt;next = $head;</span>
+
+<span class="x">        $first = $dummy;</span>
+<span class="x">        $second = $dummy;</span>
+
+<span class="x">        for ($i = 0; $i &lt;= $n; $i++) {</span>
+<span class="x">            $second = $second-&gt;next;</span>
+<span class="x">        }</span>
+
+<span class="x">        while ($second != null) {</span>
+<span class="x">            $first = $first-&gt;next;</span>
+<span class="x">            $second = $second-&gt;next;</span>
+<span class="x">        }</span>
+
+<span class="x">        $first-&gt;next = $first-&gt;next-&gt;next;</span>
+
+<span class="x">        return $dummy-&gt;next;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
 </code></pre></div>
 </div>
 </div>
