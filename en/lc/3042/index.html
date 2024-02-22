@@ -70547,9 +70547,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-trie" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Trie
     </span>
   </a>
   
@@ -73228,13 +73228,54 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#trie" class="md-tag">Trie</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#array" class="md-tag">Array</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#string" class="md-tag">String</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#string-matching" class="md-tag">String Matching</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#hash-function" class="md-tag">Hash Function</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#rolling-hash" class="md-tag">Rolling Hash</a>
+    
+  
+</nav>
+
 
   
   
 
 
 <h1 id="3042-count-prefix-and-suffix-pairs-i"><a href="https://leetcode.com/problems/count-prefix-and-suffix-pairs-i">3042. Count Prefix and Suffix Pairs I</a></h1>
-<!-- tags: -->
+<!-- tags:Trie,Array,String,String Matching,Hash Function,Rolling Hash -->
 
 <h2 id="description">Description</h2>
 <p>You are given a <strong>0-indexed</strong> string array <code>words</code>.</p>
@@ -73374,7 +73415,10 @@ Therefore, the answer is 0.</pre>
 </div>
 </div>
 </div>
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-trie">Solution 2: Trie</h3>
+<p>We can treat each string $s$ in the string array as a list of character pairs, where each character pair $(s[i], s[m - i - 1])$ represents the $i$th character pair of the prefix and suffix of string $s$.</p>
+<p>We can use a trie to store all the character pairs, and then for each string $s$, we search for all the character pairs $(s[i], s[m - i - 1])$ in the trie, and add their counts to the answer.</p>
+<p>The time complexity is $O(n \times m)$, and the space complexity is $O(n \times m)$. Here, $n$ and $m$ are the lengths of <code>words</code> and the maximum length of the strings, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

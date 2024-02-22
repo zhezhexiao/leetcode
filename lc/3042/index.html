@@ -23141,7 +23141,7 @@
         
   
   <span class="md-ellipsis">
-    786. 第 K 个最小的素数分数
+    786. 第 K 个最小的质数分数
   </span>
   
 
@@ -24821,7 +24821,7 @@
         
   
   <span class="md-ellipsis">
-    866. 回文素数
+    866. 回文质数
   </span>
   
 
@@ -70412,7 +70412,7 @@
         
   
   <span class="md-ellipsis">
-    3037. Find Pattern in Infinite Stream II
+    3037. 在无限流中寻找模式 II
   </span>
   
 
@@ -70641,7 +70641,7 @@
         
   
   <span class="md-ellipsis">
-    3044. 出现频率最高的素数
+    3044. 出现频率最高的质数
   </span>
   
 
@@ -77828,13 +77828,54 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">字典树</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">数组</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">字符串</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">字符串匹配</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">哈希函数</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">滚动哈希</a>
+    
+  
+</nav>
+
 
   
   
 
 
 <h1 id="3042-i"><a href="https://leetcode.cn/problems/count-prefix-and-suffix-pairs-i">3042. 统计前后缀下标对 I</a></h1>
-<!-- tags: -->
+<!-- tags:字典树,数组,字符串,字符串匹配,哈希函数,滚动哈希 -->
 
 <h2 id="_1">题目描述</h2>
 <!-- 这里写题目描述 -->
@@ -77979,6 +78020,9 @@ i = 2 且 j = 3 ，因为 isPrefixAndSuffix("ma", "mama") 为 true 。
 </div>
 </div>
 <h3 id="_4">方法二：字典树</h3>
+<p>我们可以把字符串数组中的每个字符串 $s$ 当作一个字符对的列表，其中每个字符对 $(s[i], s[m - i - 1])$ 表示字符串 $s$ 的前缀和后缀的第 $i$ 个字符对。</p>
+<p>我们可以使用字典树来存储所有的字符对，然后对于每个字符串 $s$，我们在字典树中查找所有的字符对 $(s[i], s[m - i - 1])$，并将其计数加到答案中。</p>
+<p>时间复杂度 $O(n \times m)$，空间复杂度 $O(n \times m)$。其中 $n$ 和 $m$ 分别为 <code>words</code> 的长度和字符串的最大长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

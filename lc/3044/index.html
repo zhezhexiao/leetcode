@@ -26,7 +26,7 @@
     
     
       
-        <title>3044. 出现频率最高的素数 - LeetCode Wiki</title>
+        <title>3044. 出现频率最高的质数 - LeetCode Wiki</title>
       
     
     
@@ -114,7 +114,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3044. 出现频率最高的素数
+              3044. 出现频率最高的质数
             
           </span>
         </div>
@@ -23141,7 +23141,7 @@
         
   
   <span class="md-ellipsis">
-    786. 第 K 个最小的素数分数
+    786. 第 K 个最小的质数分数
   </span>
   
 
@@ -24821,7 +24821,7 @@
         
   
   <span class="md-ellipsis">
-    866. 回文素数
+    866. 回文质数
   </span>
   
 
@@ -70412,7 +70412,7 @@
         
   
   <span class="md-ellipsis">
-    3037. Find Pattern in Infinite Stream II
+    3037. 在无限流中寻找模式 II
   </span>
   
 
@@ -70568,7 +70568,7 @@
           
   
   <span class="md-ellipsis">
-    3044. 出现频率最高的素数
+    3044. 出现频率最高的质数
   </span>
   
 
@@ -70579,7 +70579,7 @@
         
   
   <span class="md-ellipsis">
-    3044. 出现频率最高的素数
+    3044. 出现频率最高的质数
   </span>
   
 
@@ -77819,13 +77819,60 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">数组</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">哈希表</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">数学</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">计数</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">枚举</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">矩阵</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">数论</a>
+    
+  
+</nav>
+
 
   
   
 
 
-<h1 id="3044"><a href="https://leetcode.cn/problems/most-frequent-prime">3044. 出现频率最高的素数</a></h1>
-<!-- tags: -->
+<h1 id="3044"><a href="https://leetcode.cn/problems/most-frequent-prime">3044. 出现频率最高的质数</a></h1>
+<!-- tags:数组,哈希表,数学,计数,枚举,矩阵,数论 -->
 
 <h2 id="_1">题目描述</h2>
 <!-- 这里写题目描述 -->
@@ -77838,7 +77885,7 @@
     <li>注意，每一步都会生成数字，例如，如果路径上的数字是 <code>1, 9, 1</code>，那么在这个方向上会生成三个数字：<code>1, 19, 191</code> 。</li>
 </ul>
 
-<p>返回在遍历矩阵所创建的所有数字中，出现频率最高的、<strong>大于</strong> <code>10</code>的<span data-keyword="prime-number">素数</span>；如果不存在这样的素数，则返回 <code>-1</code><em> </em>。如果存在多个出现频率最高的素数，那么返回其中最大的那个。</p>
+<p>返回在遍历矩阵所创建的所有数字中，出现频率最高的、<strong>大于</strong> <code>10</code>的<span data-keyword="prime-number">质数</span>；如果不存在这样的质数，则返回 <code>-1</code><em> </em>。如果存在多个出现频率最高的质数，那么返回其中最大的那个。</p>
 
 <p><strong>注意：</strong>移动过程中不允许改变方向。</p>
 
@@ -77858,14 +77905,14 @@
 从单元格 (1,1) 出发，所有可能方向上生成的大于 10 的数字有：[91,91,99,91,91] 。
 从单元格 (2,0) 出发，所有可能方向上生成的大于 10 的数字有：[11,19,191,19] 。
 从单元格 (2,1) 出发，所有可能方向上生成的大于 10 的数字有：[11,19,19,191] 。
-在所有生成的数字中，出现频率最高的素数是 19 。</pre>
+在所有生成的数字中，出现频率最高的质数是 19 。</pre>
 
 <p><strong class="example">示例 2：</strong></p>
 
 <pre>
 <strong>输入：</strong>mat = [[7]]
 <strong>输出：</strong>-1
-<strong>解释：</strong>唯一可以生成的数字是 7 。它是一个素数，但不大于 10 ，所以返回 -1 。</pre>
+<strong>解释：</strong>唯一可以生成的数字是 7 。它是一个质数，但不大于 10 ，所以返回 -1 。</pre>
 
 <p><strong class="example">示例 3：</strong></p>
 
@@ -77882,7 +77929,7 @@
 从单元格 (2,0) 出发，所有可能方向上生成的大于 10 的数字有: [28,286,24,249,26,268] 。
 从单元格 (2,1) 出发，所有可能方向上生成的大于 10 的数字有: [86,82,84,86,867,85] 。
 从单元格 (2,2) 出发，所有可能方向上生成的大于 10 的数字有: [68,682,66,669,65,658] 。
-在所有生成的数字中，出现频率最高的素数是 97 。
+在所有生成的数字中，出现频率最高的质数是 97 。
 </pre>
 
 <p>&nbsp;</p>
@@ -77900,7 +77947,7 @@
 <h3 id="_3">方法一：哈希表 + 枚举</h3>
 <p>我们可以使用哈希表来统计每个大于 10 的素数出现的次数。</p>
 <p>对于每个单元格，我们可以从它出发，沿着 8 个方向之一生成数字，然后判断生成的数字是否是大于 $10$ 的素数，如果是的话，就将它加入到哈希表中。</p>
-<p>最后，我们遍历哈希表，找到出现频率最高的素数，如果有多个出现频率最高的素数，那么返回其中最大的那个。</p>
+<p>最后，我们遍历哈希表，找到出现频率最高的质数，如果有多个出现频率最高的质数，那么返回其中最大的那个。</p>
 <p>时间复杂度 $O(m \times n \times \max(m, n) \times {10}^{\frac{\max(m, n)}{2}})$，空间复杂度 $O(m \times n \times \max(m, n))$。其中 $m$ 和 $n$ 分别是 <code>mat</code> 的行数和列数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">

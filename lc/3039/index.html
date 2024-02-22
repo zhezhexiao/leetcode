@@ -23141,7 +23141,7 @@
         
   
   <span class="md-ellipsis">
-    786. 第 K 个最小的素数分数
+    786. 第 K 个最小的质数分数
   </span>
   
 
@@ -24821,7 +24821,7 @@
         
   
   <span class="md-ellipsis">
-    866. 回文素数
+    866. 回文质数
   </span>
   
 
@@ -70412,7 +70412,7 @@
         
   
   <span class="md-ellipsis">
-    3037. Find Pattern in Infinite Stream II
+    3037. 在无限流中寻找模式 II
   </span>
   
 
@@ -70517,7 +70517,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：哈希表或数组
     </span>
   </a>
   
@@ -70632,7 +70632,7 @@
         
   
   <span class="md-ellipsis">
-    3044. 出现频率最高的素数
+    3044. 出现频率最高的质数
   </span>
   
 
@@ -77819,13 +77819,42 @@
               <article class="md-content__inner md-typeset">
                 
                   
+  
+<nav class="md-tags" >
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">数组</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">哈希表</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">计数</a>
+    
+  
+    
+    
+    
+      <a href="../../tags/#" class="md-tag">排序</a>
+    
+  
+</nav>
+
 
   
   
 
 
 <h1 id="3039"><a href="https://leetcode.cn/problems/apply-operations-to-make-string-empty">3039. 进行操作使字符串为空</a></h1>
-<!-- tags: -->
+<!-- tags:数组,哈希表,计数,排序 -->
 
 <h2 id="_1">题目描述</h2>
 <!-- 这里写题目描述 -->
@@ -77835,10 +77864,18 @@
 <p>请你进行以下操作直到 <code>s</code>&nbsp;为 <strong>空</strong>&nbsp;：</p>
 
 <ul>
-    <li>每次操作 <strong>依次</strong> 遍历 <code>'a'</code> 到 <code>'z'</code>，如果当前字符出现在 <code>s</code> 中，那么删除出现位置&nbsp;<strong>最早</strong>&nbsp;的该字符。</li>
+    <li>每次操作 <strong>依次</strong> 遍历 <code>'a'</code> 到 <code>'z'</code>，如果当前字符出现在 <code>s</code> 中，那么删除出现位置&nbsp;<strong>最早</strong>&nbsp;的该字符（如果存在的话）。</li>
 </ul>
 
-<p>请你返回进行 <strong>最后</strong>&nbsp;一次操作 <strong>之前</strong>&nbsp;的字符串<em>&nbsp;</em><code>s</code><em>&nbsp;</em>。</p>
+<p>例如，最初 <code>s = "aabcbbca"</code>。我们执行下述操作：</p>
+
+<ul>
+    <li>移除下划线的字符&nbsp; <code>s = "<u><strong>a</strong></u>a<u><strong>bc</strong></u>bbca"</code>。结果字符串为 <code>s = "abbca"</code>。</li>
+    <li>移除下划线的字符&nbsp; <code>s = "<u><strong>ab</strong></u>b<u><strong>c</strong></u>a"</code>。结果字符串为 <code>s = "ba"</code>。</li>
+    <li>移除下划线的字符&nbsp; <code>s = "<u><strong>ba</strong></u>"</code>。结果字符串为 <code>s = ""</code>。</li>
+</ul>
+
+<p>请你返回进行 <strong>最后</strong>&nbsp;一次操作 <strong>之前</strong>&nbsp;的字符串<em>&nbsp;</em><code>s</code><em>&nbsp;</em>。在上面的例子中，答案是&nbsp;<code>"ba"</code>。</p>
 
 <p>&nbsp;</p>
 
@@ -77847,11 +77884,7 @@
 <pre>
 <b>输入：</b>s = "aabcbbca"
 <b>输出：</b>"ba"
-<b>解释：</b>我们进行以下操作：
-- 删除 s = "<em><strong>a</strong></em>a<em><strong>bc</strong></em>bbca" 中加粗加斜字符，得到字符串 s = "abbca" 。
-- 删除 s = "<em><strong>ab</strong></em>b<em><strong>c</strong></em>a" 中加粗加斜字符，得到字符串 s = "ba" 。
-- 删除 s = "<em><strong>ba</strong></em>" 中加粗加斜字符，得到字符串 s = "" 。
-进行最后一次操作之前的字符串为 "ba" 。
+<b>解释：</b>已经在题目描述中解释。
 </pre>
 
 <p><strong class="example">示例 2：</strong></p>
@@ -77874,7 +77907,11 @@
 </ul>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：哈希表或数组</h3>
+<p>我们用一个哈希表或数组 $cnt$ 记录字符串 $s$ 中每个字符的出现次数，用一个哈希表或数组 $last$ 记录字符串 $s$ 中每个字符最后一次出现的位置。字符串 $s$ 中出现次数最多的字符的出现次数记为 $mx$。</p>
+<p>然后我们遍历字符串 $s$，如果当前字符的出现次数等于 $mx$ 且当前字符所在位置等于该字符最后一次出现的位置，那么我们将当前字符加入答案中。</p>
+<p>遍历结束后，返回答案即可。</p>
+<p>时间复杂度 $O(n)$，空间复杂度 $O(|\Sigma|)$，其中 $n$ 是字符串 $s$ 的长度，而 $\Sigma$ 是字符集，本题中 $\Sigma$ 为小写英文字母。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
