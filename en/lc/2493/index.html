@@ -59009,9 +59009,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-dfs-bfs" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: DFS + BFS
     </span>
   </a>
   
@@ -73301,7 +73301,10 @@ It can be shown that no grouping is possible.
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-dfs-bfs">Solution 1: DFS + BFS</h3>
+<p>Notice that the graph may not be connected, so we can find each connected component through DFS.</p>
+<p>Then for each connected component, enumerate each node in the component as the starting point, and use BFS to layer the graph. After the layering is finished, check whether it is valid. If it is valid, update the maximum value of the connected component. If there is no valid layering in a connected component, it means that it is impossible to group under the given conditions, and directly return $-1$. Otherwise, add the maximum value of the connected component to the answer.</p>
+<p>The time complexity is $O(n \times (n + m))$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the number of nodes and edges, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

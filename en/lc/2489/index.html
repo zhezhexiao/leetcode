@@ -58925,9 +58925,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-prefix-sum-counting" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Prefix Sum + Counting
     </span>
   </a>
   
@@ -73306,7 +73306,18 @@ It can be shown that there are no more ratio substrings.
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-prefix-sum-counting">Solution 1: Prefix Sum + Counting</h3>
+<p>We use $one[i]$ to represent the number of $1$s in the substring $s[0,..i]$, and $zero[i]$ to represent the number of $0$s in the substring $s[0,..i]$. A substring meets the condition if</p>
+<p>$$
+\frac{zero[j] - zero[i]}{one[j] - one[i]} = \frac{num1}{num2}
+$$</p>
+<p>where $i &lt; j$. We can transform the above equation into</p>
+<p>$$
+one[j] \times num1 - zero[j] \times num2 = one[i] \times num1 - zero[i] \times num2
+$$</p>
+<p>When we iterate to index $j$, we only need to count how many indices $i$ satisfy the above equation. Therefore, we can use a hash table to record the number of occurrences of $one[i] \times num1 - zero[i] \times num2$, and when we iterate to index $j$, we only need to count the number of occurrences of $one[j] \times num1 - zero[j] \times num2$.</p>
+<p>The hash table initially only has one key-value pair $(0, 1)$.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
