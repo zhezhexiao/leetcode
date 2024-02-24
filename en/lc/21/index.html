@@ -73570,7 +73570,7 @@
 <p>First, we define a dummy head node $dummy$, then loop through the two linked lists, compare the head nodes of the two linked lists, add the smaller node to the end of $dummy$, until one of the linked lists is empty, then add the remaining part of the other linked list to the end of $dummy$.</p>
 <p>Finally, return $dummy.next$.</p>
 <p>The time complexity is $O(m + n)$, where $m$ and $n$ are the lengths of the two linked lists respectively. Ignoring the space consumption of the answer linked list, the space complexity is $O(1)$.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:7"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label><label for="__tabbed_2_7">JavaScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:8"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label><label for="__tabbed_2_7">JavaScript</label><label for="__tabbed_2_8">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># Definition for singly-linked list.</span>
@@ -73792,6 +73792,49 @@
 <span class="w">    </span><span class="nx">curr</span><span class="p">.</span><span class="nx">next</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">list1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">list2</span><span class="p">;</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dummy</span><span class="p">.</span><span class="nx">next</span><span class="p">;</span>
 <span class="p">};</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x"># Definition for singly-linked list.</span>
+<span class="x"># class ListNode {</span>
+<span class="x">#     public $val;</span>
+<span class="x">#     public $next;</span>
+<span class="x">#     public function __construct($val = 0, $next = null)</span>
+<span class="x">#     {</span>
+<span class="x">#         $this-&gt;val = $val;</span>
+<span class="x">#         $this-&gt;next = $next;</span>
+<span class="x">#     }</span>
+<span class="x"># }</span>
+
+<span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param ListNode $list1</span>
+<span class="x">     * @param ListNode $list2</span>
+<span class="x">     * @return ListNode</span>
+<span class="x">     */</span>
+
+<span class="x">    function mergeTwoLists($list1, $list2) {</span>
+<span class="x">        $dummy = new ListNode(0);</span>
+<span class="x">        $current = $dummy;</span>
+
+<span class="x">        while ($list1 != null &amp;&amp; $list2 != null) {</span>
+<span class="x">            if ($list1-&gt;val &lt;= $list2-&gt;val) {</span>
+<span class="x">                $current-&gt;next = $list1;</span>
+<span class="x">                $list1 = $list1-&gt;next;</span>
+<span class="x">            } else {</span>
+<span class="x">                $current-&gt;next = $list2;</span>
+<span class="x">                $list2 = $list2-&gt;next;</span>
+<span class="x">            }</span>
+<span class="x">            $current = $current-&gt;next;</span>
+<span class="x">        }</span>
+<span class="x">        if ($list1 != null) {</span>
+<span class="x">            $current-&gt;next = $list1;</span>
+<span class="x">        } elseif ($list2 != null) {</span>
+<span class="x">            $current-&gt;next = $list2;</span>
+<span class="x">        }</span>
+<span class="x">        return $dummy-&gt;next;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
 </code></pre></div>
 </div>
 </div>

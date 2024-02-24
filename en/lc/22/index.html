@@ -73444,7 +73444,7 @@
 </div>
 </div>
 <h3 id="solution-2">Solution 2</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Rust</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Rust</label><label for="__tabbed_2_2">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span>
@@ -73475,6 +73475,34 @@
 <span class="w">        </span><span class="n">dp</span><span class="p">[</span><span class="n">n</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">usize</span><span class="p">].</span><span class="n">clone</span><span class="p">()</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param int $n</span>
+<span class="x">     * @return string[]</span>
+<span class="x">     */</span>
+
+<span class="x">    function generateParenthesis($n) {</span>
+<span class="x">        $result = [];</span>
+<span class="x">        $this-&gt;backtrack($result, &#39;&#39;, 0, 0, $n);</span>
+<span class="x">        return $result;</span>
+<span class="x">    }</span>
+
+<span class="x">    function backtrack(&amp;$result, $current, $open, $close, $max) {</span>
+<span class="x">        if (strlen($current) === $max * 2) {</span>
+<span class="x">            $result[] = $current;</span>
+<span class="x">            return;</span>
+<span class="x">        }</span>
+<span class="x">        if ($open &lt; $max) {</span>
+<span class="x">            $this-&gt;backtrack($result, $current . &#39;(&#39;, $open + 1, $close, $max);</span>
+<span class="x">        }</span>
+<span class="x">        if ($close &lt; $open) {</span>
+<span class="x">            $this-&gt;backtrack($result, $current . &#39;)&#39;, $open, $close + 1, $max);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
 </code></pre></div>
 </div>
 </div>
