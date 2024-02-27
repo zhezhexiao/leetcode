@@ -70778,7 +70778,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：窗口函数 + 条件连接
     </span>
   </a>
   
@@ -78233,11 +78233,26 @@ There are only four different combinations possible with the three topings:
 Output table is ordered by the total cost in descending order.</pre>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：窗口函数 + 条件连接</h3>
+<p>我们先使用窗口函数，按照 <code>topping_name</code> 字段对表进行排序，并为每一行添加一个 <code>rk</code> 字段，表示当前行的排名。</p>
+<p>然后我们使用条件连接，连接三次表 <code>T</code>，分别为 <code>t1</code>, <code>t2</code>, <code>t3</code>。连接条件是 <code>t1.rk &lt; t2.rk</code> 和 <code>t2.rk &lt; t3.rk</code>。然后我们计算三个配料的总价，按照总价降序排序，再按照配料名升序排序。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
+<span class="k">WITH</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">topping_name</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">rk</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">Toppings</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">topping_name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">topping_name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">topping_name</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">pizza</span><span class="p">,</span>
+<span class="w">    </span><span class="n">t1</span><span class="p">.</span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">cost</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">cost</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_cost</span>
+<span class="k">FROM</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t1</span>
+<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">rk</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">rk</span>
+<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t3</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">rk</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">t3</span><span class="p">.</span><span class="n">rk</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ASC</span><span class="p">;</span>
 </code></pre></div>
 </div>
 </div>
