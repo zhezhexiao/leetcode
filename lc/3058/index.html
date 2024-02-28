@@ -70946,7 +70946,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：子查询
     </span>
   </a>
   
@@ -78228,11 +78228,29 @@ Friends table:
 Output table is ordered by user_id1 in ascending order.</pre>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：子查询</h3>
+<p>我们先把所有的朋友关系都列出来，记录在 <code>T</code> 表中。然后再找出没有共同朋友的朋友对。</p>
+<p>接下来，我们可以使用子查询来找出没有共同朋友的朋友对，即这个朋友对不属于其他某个人的朋友。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
+<span class="k">WITH</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">user_id1</span><span class="p">,</span><span class="w"> </span><span class="n">user_id2</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Friends</span>
+<span class="w">        </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">user_id2</span><span class="p">,</span><span class="w"> </span><span class="n">user_id1</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">Friends</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">user_id1</span><span class="p">,</span><span class="w"> </span><span class="n">user_id2</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Friends</span>
+<span class="k">WHERE</span>
+<span class="w">    </span><span class="p">(</span><span class="n">user_id1</span><span class="p">,</span><span class="w"> </span><span class="n">user_id2</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">user_id1</span><span class="p">,</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">user_id1</span>
+<span class="w">        </span><span class="k">FROM</span>
+<span class="w">            </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t1</span>
+<span class="w">            </span><span class="k">JOIN</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">t1</span><span class="p">.</span><span class="n">user_id2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">t2</span><span class="p">.</span><span class="n">user_id2</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 </div>
