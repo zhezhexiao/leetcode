@@ -70925,7 +70925,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：分组统计 + 等值连接
     </span>
   </a>
   
@@ -78249,11 +78249,32 @@ Result table orderd by employee_id, project_id in ascending order.
 </pre>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：分组统计 + 等值连接</h3>
+<p>我们先根据 <code>employee_id</code> 连接 <code>Project</code> 表和 <code>Employees</code> 表，然后再根据 <code>team</code> 分组统计每个团队的平均工作量，记录在临时表 <code>T</code> 中。</p>
+<p>然后，我们再次连接 <code>Project</code> 表和 <code>Employees</code> 表，同时连接 <code>T</code> 表，找出工作量大于团队平均工作量的员工，并且按照 <code>employee_id</code> 和 <code>project_id</code> 排序。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
+<span class="k">WITH</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">team</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">workload</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">avg_workload</span>
+<span class="w">        </span><span class="k">FROM</span>
+<span class="w">            </span><span class="n">Project</span>
+<span class="w">            </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Employees</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">employee_id</span><span class="p">)</span>
+<span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">employee_id</span><span class="p">,</span>
+<span class="w">    </span><span class="n">project_id</span><span class="p">,</span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">employee_name</span><span class="p">,</span>
+<span class="w">    </span><span class="n">workload</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">project_workload</span>
+<span class="k">FROM</span>
+<span class="w">    </span><span class="n">Project</span>
+<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Employees</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">employee_id</span><span class="p">)</span>
+<span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">team</span><span class="p">)</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">workload</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">avg_workload</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span>
 </code></pre></div>
 </div>
 </div>
