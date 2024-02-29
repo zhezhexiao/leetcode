@@ -71017,7 +71017,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：窗口函数 + 求和
     </span>
   </a>
   
@@ -78321,11 +78321,33 @@ The elevation map depicted above (in the black section) is graphically represent
 </pre>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
+<h3 id="_3">方法一：窗口函数 + 求和</h3>
+<p>我们使用窗口函数 <code>MAX(height) OVER (ORDER BY id)</code> 来计算每个位置及其左边的最大高度，使用 <code>MAX(height) OVER (ORDER BY id DESC)</code> 来计算每个位置及其右边的最大高度，分别记为 <code>l</code> 和 <code>r</code>。那么每个位置上的蓄水量就是 <code>min(l, r) - height</code>，最后求和即可。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label><label for="__tabbed_1_2">Python3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>
+<div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
+<span class="k">WITH</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span>
+<span class="w">            </span><span class="o">*</span><span class="p">,</span>
+<span class="w">            </span><span class="k">MAX</span><span class="p">(</span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">l</span><span class="p">,</span>
+<span class="w">            </span><span class="k">MAX</span><span class="p">(</span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">r</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">Heights</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">LEAST</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">height</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_trapped_water</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">T</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="k">def</span> <span class="nf">calculate_trapped_rain_water</span><span class="p">(</span><span class="n">heights</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">heights</span><span class="p">[</span><span class="s2">&quot;l&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heights</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">cummax</span><span class="p">()</span>
+    <span class="n">heights</span><span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heights</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cummax</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">heights</span><span class="p">[</span><span class="s2">&quot;trapped_water&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">heights</span><span class="p">[[</span><span class="s2">&quot;l&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">heights</span><span class="p">[</span><span class="s2">&quot;height&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;total_trapped_water&quot;</span><span class="p">:</span> <span class="p">[</span><span class="n">heights</span><span class="p">[</span><span class="s2">&quot;trapped_water&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()]})</span>
 </code></pre></div>
 </div>
 </div>
