@@ -78266,7 +78266,7 @@ All percentages in output table rounded to the two decimal places.
 <h2 id="_2">解法</h2>
 <h3 id="_3">方法一：等值连接 + 分组求和</h3>
 <p>我们可以通过等值连接，将 <code>Activities</code> 表和 <code>Age</code> 表按照 <code>user_id</code> 进行连接，然后再按照 <code>age_bucket</code> 进行分组，最后计算每个年龄段的发送和打开的百分比。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label><label for="__tabbed_1_2">Python3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
@@ -78278,6 +78278,30 @@ All percentages in output table rounded to the two decimal places.
 <span class="w">    </span><span class="n">Activities</span>
 <span class="w">    </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Age</span><span class="w"> </span><span class="k">USING</span><span class="w"> </span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="k">def</span> <span class="nf">snap_analysis</span><span class="p">(</span><span class="n">activities</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">age</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">activities</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;user_id&quot;</span><span class="p">)</span>
+    <span class="n">total_time_per_age_activity</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">merged_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;age_bucket&quot;</span><span class="p">,</span> <span class="s2">&quot;activity_type&quot;</span><span class="p">])[</span><span class="s2">&quot;time_spent&quot;</span><span class="p">]</span>
+        <span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">pivot_df</span> <span class="o">=</span> <span class="n">total_time_per_age_activity</span><span class="o">.</span><span class="n">pivot</span><span class="p">(</span>
+        <span class="n">index</span><span class="o">=</span><span class="s2">&quot;age_bucket&quot;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="s2">&quot;activity_type&quot;</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="s2">&quot;time_spent&quot;</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="n">pivot_df</span> <span class="o">=</span> <span class="n">pivot_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">pivot_df</span><span class="p">[</span><span class="s2">&quot;send_perc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span>
+        <span class="mi">100</span> <span class="o">*</span> <span class="n">pivot_df</span><span class="p">[</span><span class="s2">&quot;send&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">pivot_df</span><span class="p">[</span><span class="s2">&quot;send&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">pivot_df</span><span class="p">[</span><span class="s2">&quot;open&quot;</span><span class="p">]),</span> <span class="mi">2</span>
+    <span class="p">)</span>
+    <span class="n">pivot_df</span><span class="p">[</span><span class="s2">&quot;open_perc&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span>
+        <span class="mi">100</span> <span class="o">*</span> <span class="n">pivot_df</span><span class="p">[</span><span class="s2">&quot;open&quot;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">pivot_df</span><span class="p">[</span><span class="s2">&quot;send&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">pivot_df</span><span class="p">[</span><span class="s2">&quot;open&quot;</span><span class="p">]),</span> <span class="mi">2</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">pivot_df</span><span class="p">[[</span><span class="s2">&quot;age_bucket&quot;</span><span class="p">,</span> <span class="s2">&quot;send_perc&quot;</span><span class="p">,</span> <span class="s2">&quot;open_perc&quot;</span><span class="p">]]</span>
 </code></pre></div>
 </div>
 </div>

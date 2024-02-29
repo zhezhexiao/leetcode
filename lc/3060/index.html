@@ -78236,7 +78236,7 @@ Output table is ordered by user_id in increasing order.
 <h2 id="_2">解法</h2>
 <h3 id="_3">方法一：窗口函数 + 时间函数</h3>
 <p>我们先使用 <code>LAG</code> 窗口函数，找到每个用户相同类型的会话的上一个会话的结束时间，记为 <code>prev_session_end</code>。然后我们使用 <code>TIMESTAMPDIFF</code> 函数计算当前会话的开始时间与上一个会话的结束时间的时间差，如果时间差小于等于 12 小时，那么这个用户就符合题目要求。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label><label for="__tabbed_1_2">Python3</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
@@ -78255,6 +78255,22 @@ Output table is ordered by user_id in increasing order.
 <span class="w">    </span><span class="n">user_id</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">T</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">TIMESTAMPDIFF</span><span class="p">(</span><span class="n">HOUR</span><span class="p">,</span><span class="w"> </span><span class="n">prev_session_end</span><span class="p">,</span><span class="w"> </span><span class="n">session_start</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">12</span><span class="p">;</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="k">def</span> <span class="nf">user_activities</span><span class="p">(</span><span class="n">sessions</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="n">sessions</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="s2">&quot;session_start&quot;</span><span class="p">])</span>
+    <span class="n">sessions</span><span class="p">[</span><span class="s2">&quot;prev_session_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sessions</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="s2">&quot;session_type&quot;</span><span class="p">])[</span>
+        <span class="s2">&quot;session_end&quot;</span>
+    <span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">sessions_filtered</span> <span class="o">=</span> <span class="n">sessions</span><span class="p">[</span>
+        <span class="n">sessions</span><span class="p">[</span><span class="s2">&quot;session_start&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">sessions</span><span class="p">[</span><span class="s2">&quot;prev_session_end&quot;</span><span class="p">]</span>
+        <span class="o">&lt;=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="n">sessions_filtered</span><span class="p">[</span><span class="s2">&quot;user_id&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()})</span>
 </code></pre></div>
 </div>
 </div>
