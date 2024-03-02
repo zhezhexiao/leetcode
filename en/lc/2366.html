@@ -56385,9 +56385,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy-approach" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy Approach
     </span>
   </a>
   
@@ -73731,7 +73731,15 @@ There are 2 steps to sort the array in non-decreasing order. Therefore, we retur
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy-approach">Solution 1: Greedy Approach</h3>
+<p>We observe that to make the array $nums$ non-decreasing or monotonically increasing, the elements towards the end of the array should be as large as possible. Therefore, it is unnecessary to replace the last element $nums[n-1]$ of the array $nums$ with multiple smaller numbers.</p>
+<p>In other words, we can traverse the array $nums$ from the end to the beginning, maintaining the current maximum value $mx$, initially $mx = nums[n-1]$.</p>
+<ul>
+<li>If the current element $nums[i] \leq mx$, there is no need to replace $nums[i]$. We simply update $mx = nums[i]$.</li>
+<li>Otherwise, we need to replace $nums[i]$ with multiple numbers that sum to $nums[i]$. The maximum of these numbers is $mx$, and the total number of replacements is $k=\left \lceil \frac{nums[i]}{mx} \right \rceil$. Therefore, we need to perform $k-1$ operations, which are added to the answer. Among these $k$ numbers, the smallest number is $\left \lfloor \frac{nums[i]}{k} \right \rfloor$. Therefore, we update $mx = \left \lfloor \frac{nums[i]}{k} \right \rfloor$.</li>
+</ul>
+<p>After the traversal, we return the total number of operations.</p>
+<p>The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -56364,9 +56364,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-hash-table-simulation" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Hash Table + Simulation
     </span>
   </a>
   
@@ -73752,7 +73752,11 @@ It can be shown that the tasks cannot be completed in less than 6 days.
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-hash-table-simulation">Solution 1: Hash Table + Simulation</h3>
+<p>We can use a hash table $day$ to record the next time each task can be executed. Initially, all values in $day$ are $0$. We use a variable $ans$ to record the current time.</p>
+<p>We iterate through the array $tasks$. For each task $task$, we increment the current time $ans$ by one, indicating that one day has passed since the last task execution. If $day[task] &gt; ans$ at this time, it means that task $task$ can only be executed on the $day[task]$ day. Therefore, we update the current time $ans = \max(ans, day[task])$. Then we update the value of $day[task]$ to $ans + space + 1$, indicating that the next time task $task$ can be executed is at $ans + space + 1$.</p>
+<p>After the iteration, we return $ans$.</p>
+<p>The time complexity is $O(n)$ and the space complexity is $O(n)$, where $n$ is the length of the array $tasks$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
