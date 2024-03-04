@@ -78540,7 +78540,7 @@ myQueue.empty(); // return false
 
 <h2 id="_2">解法</h2>
 <h3 id="_3">方法一：双栈</h3>
-<p>使用两个栈，其中栈 <code>stk1</code>用于入队，另一个栈 <code>stk2</code> 用于出队。</p>
+<p>我们使用两个栈，其中栈 <code>stk1</code>用于入队，另一个栈 <code>stk2</code> 用于出队。</p>
 <p>入队时，直接将元素入栈 <code>stk1</code>。时间复杂度 $O(1)$。</p>
 <p>出队时，先判断栈 <code>stk2</code> 是否为空，如果为空，则将栈 <code>stk1</code> 中的元素全部出栈并入栈 <code>stk2</code>，然后再从栈 <code>stk2</code> 中出栈一个元素。如果栈 <code>stk2</code> 不为空，则直接从栈 <code>stk2</code> 中出栈一个元素。均摊时间复杂度 $O(1)$。</p>
 <p>获取队首元素时，先判断栈 <code>stk2</code> 是否为空，如果为空，则将栈 <code>stk1</code> 中的元素全部出栈并入栈 <code>stk2</code>，然后再从栈 <code>stk2</code> 中获取栈顶元素。如果栈 <code>stk2</code> 不为空，则直接从栈 <code>stk2</code> 中获取栈顶元素。均摊时间复杂度 $O(1)$。</p>
@@ -78951,7 +78951,7 @@ myQueue.empty(); // return false
 
 <span class="w">    </span><span class="nx">peek</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">move</span><span class="p">();</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">stk2</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">stk2</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">];</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">stk2</span><span class="p">.</span><span class="nx">at</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="nx">empty</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">{</span>
@@ -78961,7 +78961,7 @@ myQueue.empty(); // return false
 <span class="w">    </span><span class="nx">move</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">this</span><span class="p">.</span><span class="nx">stk2</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">stk1</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">stk2</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">stk1</span><span class="p">.</span><span class="nx">pop</span><span class="p">());</span>
+<span class="w">                </span><span class="k">this</span><span class="p">.</span><span class="nx">stk2</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">stk1</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span><span class="o">!</span><span class="p">);</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
