@@ -340,23 +340,6 @@
   
 
       
-        
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../contest.html" class="md-tabs__link">
-        
-  
-    
-  
-  Contest
-
-      </a>
-    </li>
-  
-
-      
     </ul>
   </div>
 </nav>
@@ -44261,9 +44244,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-dynamic-programming" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Dynamic Programming
     </span>
   </a>
   
@@ -73872,26 +73855,6 @@
   
 
     
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../contest.html" class="md-nav__link">
-        
-  
-  <span class="md-ellipsis">
-    Contest
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-    
   </ul>
 </nav>
                   </div>
@@ -73974,7 +73937,22 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
+<p>Notice that after modifying the array <code>nums</code>, the XOR result of any interval of length $k$ is equal to $0$. Therefore, for any $i$, we have:</p>
+<p>$$
+nums[i] \oplus nums[i+1] \oplus ... \oplus nums[i+k-1] = 0
+$$</p>
+<p>and</p>
+<p>$$
+nums[i+1] \oplus nums[i+2] \oplus ... \oplus nums[i+k] = 0
+$$</p>
+<p>Combining the two equations and the properties of XOR operation, we can get $nums[i] \oplus nums[i+k] = 0$, which means $nums[i]=nums[i+k]$. We find that the elements in the modified array <code>nums</code> are cyclic with a period of $k$. The numbers congruent modulo $k$ can only take a fixed value, and the XOR result of the first $k$ numbers must be $0$.</p>
+<p>First, we count each group $i$, the number of elements in each group is $size[i]$, and the number of elements with value $v$ in each group is $cnt[i][v]$.</p>
+<p>Next, we can use dynamic programming to solve it. Let $f[i][j]$ represent the minimum number of modifications with the XOR sum of the first $i+1$ groups being $j$. Since the value of each group is only related to the value of the previous group, we can use a rolling array to optimize the space complexity.</p>
+<p>Redefine $f[j]$ to represent the minimum number of modifications with the XOR sum being $j$ when processing to the current group.</p>
+<p>When transitioning states, there are two choices: one is to modify all the numbers in the current group to the same value, then we can choose the one with the smallest previous cost, plus the number of elements $size[i]$ in this group, the cost is $\min{f[0..n]} + size[i]$; the second is to modify all the numbers in the current group to some value $j$ of the current group, enumerate $j$ and the element $v$ of the current group, then the previous cost is $f[j \oplus v]$, the cost is $f[j \oplus v] + size[i] - cnt[i][v]$. Take the minimum value.</p>
+<p>The final answer is $f[0]$.</p>
+<p>The time complexity is $O(2^{C}\times k + n)$. Where $n$ is the length of the array <code>nums</code>, and $C$ is the maximum number of bits in the binary representation of the elements in <code>nums</code>, in this problem $C=10$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
