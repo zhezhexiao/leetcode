@@ -73968,7 +73968,7 @@ The substring starting at 12 is &quot;thefoobar&quot;. It is the concatenation o
 <p>We can enumerate the starting point $i$ of the sliding window, where $0 \lt i &lt; k$. For each starting point, we maintain a sliding window with the left boundary as $l$, the right boundary as $r$, and the number of words in the sliding window as $t$. Additionally, we use a hash table $cnt1$ to count the number of times each word appears in the sliding window.</p>
 <p>Each time, we extract the string $s[r:r+k]$. If $s[r:r+k]$ is not in the hash table $cnt$, it means that the words in the current sliding window are not valid. We update the left boundary $l$ to $r$, clear the hash table $cnt1$, and reset the word count $t$ to 0. If $s[r:r+k]$ is in the hash table $cnt$, it means that the words in the current sliding window are valid. We increase the word count $t$ by 1, and increase the count of $s[r:r+k]$ in the hash table $cnt1$ by 1. If $cnt1[s[r:r+k]]$ is greater than $cnt[s[r:r+k]]$, it means that $s[r:r+k]$ appears too many times in the current sliding window. We need to move the left boundary $l$ to the right until $cnt1[s[r:r+k]] = cnt[s[r:r+k]]$. If $t = n$, it means that the words in the current sliding window are exactly valid, and we add the left boundary $l$ to the answer array.</p>
 <p>The time complexity is $O(m \times k)$, and the space complexity is $O(n \times k)$. Here, $m$ and $n$ are the lengths of the string $s$ and the string array $words$ respectively, and $k$ is the length of the words in the string array $words$.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">C#</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">C#</label><label for="__tabbed_1_7">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -74408,6 +74408,114 @@ The substring starting at 12 is &quot;thefoobar&quot;. It is the concatenation o
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param String $s</span>
+<span class="x">     * @param String[] $words</span>
+<span class="x">     * @return Integer[]</span>
+<span class="x">     */</span>
+<span class="x">    function findSubstring($s, $words) {</span>
+<span class="x">        $cnt = [];</span>
+<span class="x">        foreach ($words as $w) {</span>
+<span class="x">            if (!isset($cnt[$w])) {</span>
+<span class="x">                $cnt[$w] = 1;</span>
+<span class="x">            } else {</span>
+<span class="x">                $cnt[$w]++;</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+<span class="x">        $m = strlen($s);</span>
+<span class="x">        $n = count($words);</span>
+<span class="x">        $k = strlen($words[0]);</span>
+<span class="x">        $ans = [];</span>
+<span class="x">        for ($i = 0; $i &lt; $k; ++$i) {</span>
+<span class="x">            $cnt1 = [];</span>
+<span class="x">            $l = $i;</span>
+<span class="x">            $r = $i;</span>
+<span class="x">            $t = 0;</span>
+<span class="x">            while ($r + $k &lt;= $m) {</span>
+<span class="x">                $w = substr($s, $r, $k);</span>
+<span class="x">                $r += $k;</span>
+<span class="x">                if (!array_key_exists($w, $cnt)) {</span>
+<span class="x">                    $cnt1 = [];</span>
+<span class="x">                    $l = $r;</span>
+<span class="x">                    $t = 0;</span>
+<span class="x">                    continue;</span>
+<span class="x">                }</span>
+<span class="x">                if (!isset($cnt1[$w])) {</span>
+<span class="x">                    $cnt1[$w] = 1;</span>
+<span class="x">                } else {</span>
+<span class="x">                    $cnt1[$w]++;</span>
+<span class="x">                }</span>
+<span class="x">                ++$t;</span>
+<span class="x">                while ($cnt1[$w] &gt; $cnt[$w]) {</span>
+<span class="x">                    $remove = substr($s, $l, $k);</span>
+<span class="x">                    $l += $k;</span>
+<span class="x">                    $cnt1[$remove]--;</span>
+<span class="x">                    $t--;</span>
+<span class="x">                }</span>
+<span class="x">                if ($t == $n) {</span>
+<span class="x">                    $ans[] = $l;</span>
+<span class="x">                }</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+<span class="x">        return $ans;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>

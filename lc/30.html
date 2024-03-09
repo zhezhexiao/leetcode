@@ -78571,7 +78571,7 @@ s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接�
 <p>我们可以枚举滑动窗口的起点 $i$，其中 $0 \lt i \lt k$。对于每个起点，我们维护一个滑动窗口，左边界为 $l$，右边界为 $r$，滑动窗口中的单词个数为 $t$，另外用一个哈希表 $cnt1$ 统计滑动窗口中每个单词出现的次数。</p>
 <p>每一次，我们提取字符串 $s[r:r+k]$，如果 $s[r:r+k]$ 不在哈希表 $cnt$ 中，说明当前滑动窗口中的单词不合法，我们将左边界 $l$ 更新为 $r$，同时将哈希表 $cnt1$ 清空，单词个数 $t$ 重置为 0。如果 $s[r:r+k]$ 在哈希表 $cnt$ 中，说明当前滑动窗口中的单词合法，我们将单词个数 $t$ 加 1，将哈希表 $cnt1$ 中 $s[r:r+k]$ 的次数加 1。如果 $cnt1[s[r:r+k]]$ 大于 $cnt[s[r:r+k]]$，说明当前滑动窗口中 $s[r:r+k]$ 出现的次数过多，我们需要将左边界 $l$ 右移，直到 $cnt1[s[r:r+k]] = cnt[s[r:r+k]]$。如果 $t = n$，说明当前滑动窗口中的单词正好合法，我们将左边界 $l$ 加入答案数组。</p>
 <p>时间复杂度 $O(m \times k)$，空间复杂度 $O(n \times k)$。其中 $m$ 和 $n$ 分别是字符串 $s$ 和字符串数组 $words$ 的长度，而 $k$ 是字符串数组 $words$ 中单词的长度。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">C#</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">C#</label><label for="__tabbed_1_7">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -79011,6 +79011,114 @@ s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接�
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param String $s</span>
+<span class="x">     * @param String[] $words</span>
+<span class="x">     * @return Integer[]</span>
+<span class="x">     */</span>
+<span class="x">    function findSubstring($s, $words) {</span>
+<span class="x">        $cnt = [];</span>
+<span class="x">        foreach ($words as $w) {</span>
+<span class="x">            if (!isset($cnt[$w])) {</span>
+<span class="x">                $cnt[$w] = 1;</span>
+<span class="x">            } else {</span>
+<span class="x">                $cnt[$w]++;</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+<span class="x">        $m = strlen($s);</span>
+<span class="x">        $n = count($words);</span>
+<span class="x">        $k = strlen($words[0]);</span>
+<span class="x">        $ans = [];</span>
+<span class="x">        for ($i = 0; $i &lt; $k; ++$i) {</span>
+<span class="x">            $cnt1 = [];</span>
+<span class="x">            $l = $i;</span>
+<span class="x">            $r = $i;</span>
+<span class="x">            $t = 0;</span>
+<span class="x">            while ($r + $k &lt;= $m) {</span>
+<span class="x">                $w = substr($s, $r, $k);</span>
+<span class="x">                $r += $k;</span>
+<span class="x">                if (!array_key_exists($w, $cnt)) {</span>
+<span class="x">                    $cnt1 = [];</span>
+<span class="x">                    $l = $r;</span>
+<span class="x">                    $t = 0;</span>
+<span class="x">                    continue;</span>
+<span class="x">                }</span>
+<span class="x">                if (!isset($cnt1[$w])) {</span>
+<span class="x">                    $cnt1[$w] = 1;</span>
+<span class="x">                } else {</span>
+<span class="x">                    $cnt1[$w]++;</span>
+<span class="x">                }</span>
+<span class="x">                ++$t;</span>
+<span class="x">                while ($cnt1[$w] &gt; $cnt[$w]) {</span>
+<span class="x">                    $remove = substr($s, $l, $k);</span>
+<span class="x">                    $l += $k;</span>
+<span class="x">                    $cnt1[$remove]--;</span>
+<span class="x">                    $t--;</span>
+<span class="x">                }</span>
+<span class="x">                if ($t == $n) {</span>
+<span class="x">                    $ans[] = $l;</span>
+<span class="x">                }</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+<span class="x">        return $ans;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>

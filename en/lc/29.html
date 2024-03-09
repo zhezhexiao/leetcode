@@ -73932,7 +73932,7 @@
 <p>Division is essentially subtraction. The problem requires us to calculate the integer result after dividing two numbers, which is actually calculating how many divisors and a number less than the divisor constitute the dividend. However, only one subtraction can be done in one loop, which is too inefficient and will lead to timeout. This can be optimized by using the idea of fast power.</p>
 <p>It should be noted that since the problem explicitly requires that only 32-bit signed integers can be used at most, the divisor and dividend need to be converted to negative numbers for calculation. Because converting to positive numbers may cause overflow, such as when the dividend is <code>INT32_MIN</code>, it will be greater than <code>INT32_MAX</code> when converted to a positive number.</p>
 <p>Assuming the dividend is $a$ and the divisor is $b$, the time complexity is $O(\log a \times \log b)$, and the space complexity is $O(1)$.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">C#</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">C#</label><label for="__tabbed_1_7">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -74256,6 +74256,78 @@
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">sign</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="o">-</span><span class="n">ans</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param integer $a</span>
+<span class="x">     * @param integer $b</span>
+<span class="x">     * @return integer</span>
+<span class="x">     */</span>
+
+<span class="x">    function divide($a, $b) {</span>
+<span class="x">        if ($b == 0) {</span>
+<span class="x">            throw new Exception(&#39;Can not divide by 0&#39;);</span>
+<span class="x">        } elseif ($a == 0) {</span>
+<span class="x">            return 0;</span>
+<span class="x">        }</span>
+<span class="x">        if ($a == -2147483648 &amp;&amp; $b == -1) {</span>
+<span class="x">            return 2147483647;</span>
+<span class="x">        }</span>
+<span class="x">        $sign = $a &lt; 0 != $b &lt; 0;</span>
+
+<span class="x">        $a = abs($a);</span>
+<span class="x">        $b = abs($b);</span>
+<span class="x">        $ans = 0;</span>
+<span class="x">        while ($a &gt;= $b) {</span>
+<span class="x">            $x = $b;</span>
+<span class="x">            $cnt = 1;</span>
+<span class="x">            while ($a &gt;= $x &lt;&lt; 1) {</span>
+<span class="x">                $x &lt;&lt;= 1;</span>
+<span class="x">                $cnt &lt;&lt;= 1;</span>
+<span class="x">            }</span>
+<span class="x">            $a -= $x;</span>
+<span class="x">            $ans += $cnt;</span>
+<span class="x">        }</span>
+
+<span class="x">        return $sign ? -$ans : $ans;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
