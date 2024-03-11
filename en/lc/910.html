@@ -25852,9 +25852,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy-enumeration" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy + Enumeration
     </span>
   </a>
   
@@ -74078,7 +74078,10 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy-enumeration">Solution 1: Greedy + Enumeration</h3>
+<p>According to the problem requirements, we need to find the minimum difference between the maximum and minimum values in the array. Each element can be increased or decreased by $k$, so we can divide the elements in the array into two parts, one part increased by $k$ and the other part decreased by $k$. Therefore, we should decrease the larger values in the array by $k$ and increase the smaller values by $k$ to ensure the minimum difference between the maximum and minimum values.</p>
+<p>Therefore, we can first sort the array, then enumerate each element in the array, divide it into two parts, one part increased by $k$ and the other part decreased by $k$, and calculate the difference between the maximum and minimum values. Finally, take the minimum value among all differences.</p>
+<p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$, where $n$ is the length of the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
