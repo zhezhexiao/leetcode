@@ -26125,9 +26125,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-enumeration" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Enumeration
     </span>
   </a>
   
@@ -74088,7 +74088,11 @@ and two 2s from [2,2,2,2] in 6 ways.
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
+<p>First, we use an array <code>cnt</code> of length $101$ to record the number of occurrences of each element in the array <code>arr</code>.</p>
+<p>Then, we enumerate the elements in the array <code>arr</code> as the second element $b$ of the triplet, and first subtract one $b$ from <code>cnt</code>. Then, starting from the beginning of the array <code>arr</code>, we enumerate the first element $a$, and the third element $c$ is $target - a - b$. If the value of $c$ is within the range of the array <code>cnt</code>, then the answer is increased by $cnt[c]$.</p>
+<p>Note the modulo operation of the answer.</p>
+<p>The time complexity is $O(n^2)$, and the space complexity is $O(C)$. Where $n$ is the length of the array <code>arr</code>; and $C$ is the length of the array <code>cnt</code>, in this problem $C = 101$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -74387,7 +74391,7 @@ and two 2s from [2,2,2,2] in 6 ways.
       <div class="md-copyright">
   
     <div class="md-copyright__highlight">
-      Copyright &copy; 2024 <a href="https://github.com/doocs">Doocs</a>
+      Copyright &copy; 2024 <a href="https://github.com/doocs">Doocs</a><br>This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
     </div>
   
   
