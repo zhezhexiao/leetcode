@@ -62,32 +62,6 @@
 
     
     
-      
-        <meta  property="og:type"  content="website" >
-      
-        <meta  property="og:title"  content="2789. 合并后数组中的最大元素 - LeetCode Wiki" >
-      
-        <meta  property="og:description"  content="多种编程语言实现 LeetCode、《剑指 Offer（第 2 版）》、《程序员面试金典（第 6 版）》题解" >
-      
-        <meta  property="og:image"  content="https://doocs.github.io/leetcode/assets/images/social/lc/2789.png" >
-      
-        <meta  property="og:image:type"  content="image/png" >
-      
-        <meta  property="og:image:width"  content="1200" >
-      
-        <meta  property="og:image:height"  content="630" >
-      
-        <meta  property="og:url"  content="https://doocs.github.io/leetcode/lc/2789.html" >
-      
-        <meta  name="twitter:card"  content="summary_large_image" >
-      
-        <meta  name="twitter:title"  content="2789. 合并后数组中的最大元素 - LeetCode Wiki" >
-      
-        <meta  name="twitter:description"  content="多种编程语言实现 LeetCode、《剑指 Offer（第 2 版）》、《程序员面试金典（第 6 版）》题解" >
-      
-        <meta  name="twitter:image"  content="https://doocs.github.io/leetcode/assets/images/social/lc/2789.png" >
-      
-    
     
   </head>
   
@@ -65379,7 +65353,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：倒序合并
     </span>
   </a>
   
@@ -78694,7 +78668,11 @@
 </ul>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：倒序合并</h3>
+<p>根据题目描述，为了最大化合并后的数组中的最大元素，我们应该先合并右侧的元素，使得右侧的元素尽可能大，从而尽可能多地执行合并操作，最终得到最大的元素。</p>
+<p>因此，我们可以从右向左遍历数组，对于每个位置 $i$，其中 $i \in [0, n - 2]$，如果 $nums[i] \leq nums[i + 1]$，我们就将 $nums[i]$ 更新为 $nums[i] + nums[i + 1]$。这样做，相当于将 $nums[i]$ 与 $nums[i + 1]$ 合并，并且删掉 $nums[i]$。</p>
+<p>最终，数组中的最大元素就是合并后的数组中的最大元素。</p>
+<p>时间复杂度 $O(n)$，其中 $n$ 为数组的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

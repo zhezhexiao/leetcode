@@ -62,32 +62,6 @@
 
     
     
-      
-        <meta  property="og:type"  content="website" >
-      
-        <meta  property="og:title"  content="2789. Largest Element in an Array after Merge Operations - LeetCode Wiki" >
-      
-        <meta  property="og:description"  content="LeetCode solutions in any programming language" >
-      
-        <meta  property="og:image"  content="https://doocs.github.io/leetcode/en/assets/images/social/lc/2789.png" >
-      
-        <meta  property="og:image:type"  content="image/png" >
-      
-        <meta  property="og:image:width"  content="1200" >
-      
-        <meta  property="og:image:height"  content="630" >
-      
-        <meta  property="og:url"  content="https://doocs.github.io/leetcode/en/lc/2789.html" >
-      
-        <meta  name="twitter:card"  content="summary_large_image" >
-      
-        <meta  name="twitter:title"  content="2789. Largest Element in an Array after Merge Operations - LeetCode Wiki" >
-      
-        <meta  name="twitter:description"  content="LeetCode solutions in any programming language" >
-      
-        <meta  name="twitter:image"  content="https://doocs.github.io/leetcode/en/assets/images/social/lc/2789.png" >
-      
-    
     
   </head>
   
@@ -65337,9 +65311,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-merge-in-reverse-order" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Merge in Reverse Order
     </span>
   </a>
   
@@ -74092,7 +74066,11 @@ There is only one element in the final array, which is 11.
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-merge-in-reverse-order">Solution 1: Merge in Reverse Order</h3>
+<p>According to the problem description, in order to maximize the maximum element in the merged array, we should merge the elements on the right first, making the elements on the right as large as possible, so as to perform as many merge operations as possible and finally get the maximum element.</p>
+<p>Therefore, we can traverse the array from right to left. For each position $i$, where $i \in [0, n - 2]$, if $nums[i] \leq nums[i + 1]$, we update $nums[i]$ to $nums[i] + nums[i + 1]$. Doing so is equivalent to merging $nums[i]$ and $nums[i + 1]$ and deleting $nums[i]$.</p>
+<p>In the end, the maximum element in the array is the maximum element in the merged array.</p>
+<p>The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
