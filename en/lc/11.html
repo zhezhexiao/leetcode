@@ -74476,16 +74476,16 @@
 <span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">max_area</span><span class="p">(</span><span class="n">height</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">height</span><span class="p">.</span><span class="n">len</span><span class="p">()</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">min</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">((</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">));</span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="p">.</span><span class="n">max</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">min</span><span class="p">(</span><span class="n">height</span><span class="p">[</span><span class="n">j</span><span class="p">])</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="p">((</span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="kt">i32</span><span class="p">));</span>
 <span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">height</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">i</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">            </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">                </span><span class="n">j</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">res</span>
+<span class="w">        </span><span class="n">ans</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -74585,35 +74585,25 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
 <span class="x">    /**</span>
-<span class="x">     * @param int[] $height</span>
-<span class="x">     * @return int</span>
+<span class="x">     * @param Integer[] $height</span>
+<span class="x">     * @return Integer</span>
 <span class="x">     */</span>
-
 <span class="x">    function maxArea($height) {</span>
-<span class="x">        $left = 0;</span>
-<span class="x">        $right = count($height) - 1;</span>
-<span class="x">        $maxArea = 0;</span>
-
-<span class="x">        while ($left &lt; $right) {</span>
-<span class="x">            $area = min($height[$left], $height[$right]) * ($right - $left);</span>
-
-<span class="x">            $maxArea = max($maxArea, $area);</span>
-
-<span class="x">            if ($height[$left] &lt; $height[$right]) {</span>
-<span class="x">                $left++;</span>
+<span class="x">        $i = 0;</span>
+<span class="x">        $j = count($height) - 1;</span>
+<span class="x">        $ans = 0;</span>
+<span class="x">        while ($i &lt; $j) {</span>
+<span class="x">            $t = min($height[$i], $height[$j]) * ($j - $i);</span>
+<span class="x">            $ans = max($ans, $t);</span>
+<span class="x">            if ($height[$i] &lt; $height[$j]) {</span>
+<span class="x">                ++$i;</span>
 <span class="x">            } else {</span>
-<span class="x">                $right--;</span>
+<span class="x">                --$j;</span>
 <span class="x">            }</span>
 <span class="x">        }</span>
-
-<span class="x">        return $maxArea;</span>
+<span class="x">        return $ans;</span>
 <span class="x">    }</span>
 <span class="x">}</span>
 </code></pre></div></td></tr></table></div>

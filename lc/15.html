@@ -79527,63 +79527,39 @@ nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0 。
 <span class="normal">32</span>
 <span class="normal">33</span>
 <span class="normal">34</span>
-<span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
 <span class="x">    /**</span>
-<span class="x">     * @param int[] $nums</span>
-<span class="x">     * @return int[][];</span>
+<span class="x">     * @param Integer[] $nums</span>
+<span class="x">     * @return Integer[][]</span>
 <span class="x">     */</span>
-
 <span class="x">    function threeSum($nums) {</span>
-<span class="x">        $result = [];</span>
-<span class="x">        $n = count($nums);</span>
-
 <span class="x">        sort($nums);</span>
-<span class="x">        for ($i = 0; $i &lt; $n - 2; $i++) {</span>
-<span class="x">            if ($i &gt; 0 &amp;&amp; $nums[$i] === $nums[$i - 1]) {</span>
+<span class="x">        $ans = [];</span>
+<span class="x">        $n = count($nums);</span>
+<span class="x">        for ($i = 0; $i &lt; $n - 2 &amp;&amp; $nums[$i] &lt;= 0; ++$i) {</span>
+<span class="x">            if ($i &gt; 0 &amp;&amp; $nums[$i] == $nums[$i - 1]) {</span>
 <span class="x">                continue;</span>
 <span class="x">            }</span>
-
-<span class="x">            $left = $i + 1;</span>
-<span class="x">            $right = $n - 1;</span>
-
-<span class="x">            while ($left &lt; $right) {</span>
-<span class="x">                $sum = $nums[$i] + $nums[$left] + $nums[$right];</span>
-
-<span class="x">                if ($sum === 0) {</span>
-<span class="x">                    $triplet = [$nums[$i], $nums[$left], $nums[$right]];</span>
-<span class="x">                    $result[] = $triplet;</span>
-
-<span class="x">                    while ($left &lt; $right &amp;&amp; $nums[$left] === $nums[$left + 1]) {</span>
-<span class="x">                        $left++;</span>
-<span class="x">                    }</span>
-
-<span class="x">                    while ($left &lt; $right &amp;&amp; $nums[$right] === $nums[$right - 1]) {</span>
-<span class="x">                        $right--;</span>
-<span class="x">                    }</span>
-
-<span class="x">                    $left++;</span>
-<span class="x">                    $right--;</span>
-<span class="x">                } elseif ($sum &lt; 0) {</span>
-<span class="x">                    $left++;</span>
+<span class="x">            $j = $i + 1;</span>
+<span class="x">            $k = $n - 1;</span>
+<span class="x">            while ($j &lt; $k) {</span>
+<span class="x">                $x = $nums[$i] + $nums[$j] + $nums[$k];</span>
+<span class="x">                if ($x &lt; 0) {</span>
+<span class="x">                    ++$j;</span>
+<span class="x">                } elseif ($x &gt; 0) {</span>
+<span class="x">                    --$k;</span>
 <span class="x">                } else {</span>
-<span class="x">                    $right--;</span>
+<span class="x">                    $ans[] = [$nums[$i], $nums[$j++], $nums[$k--]];</span>
+<span class="x">                    while ($j &lt; $k &amp;&amp; $nums[$j] == $nums[$j - 1]) {</span>
+<span class="x">                        ++$j;</span>
+<span class="x">                    }</span>
+<span class="x">                    while ($j &lt; $k &amp;&amp; $nums[$k] == $nums[$k + 1]) {</span>
+<span class="x">                        --$k;</span>
+<span class="x">                    }</span>
 <span class="x">                }</span>
 <span class="x">            }</span>
 <span class="x">        }</span>
-
-<span class="x">        return $result;</span>
+<span class="x">        return $ans;</span>
 <span class="x">    }</span>
 <span class="x">}</span>
 </code></pre></div></td></tr></table></div>
