@@ -7581,18 +7581,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1-sorting-pruning-backtracking-two-implementations" class="md-nav__link">
+  <a href="#solution-1-sorting-pruning-backtracking" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1: Sorting + Pruning + Backtracking (Two Implementations)
+      Solution 1: Sorting + Pruning + Backtracking
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-sorting-pruning-backtrackinganother-form" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Sorting + Pruning + Backtracking(Another Form)
     </span>
   </a>
   
@@ -74305,11 +74305,10 @@ These are the only two combinations.
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1-sorting-pruning-backtracking-two-implementations">Solution 1: Sorting + Pruning + Backtracking (Two Implementations)</h3>
+<h3 id="solution-1-sorting-pruning-backtracking">Solution 1: Sorting + Pruning + Backtracking</h3>
 <p>We can first sort the array to facilitate pruning.</p>
 <p>Next, we design a function $dfs(i, s)$, which means starting the search from index $i$ with a remaining target value of $s$. Here, $i$ and $s$ are both non-negative integers, the current search path is $t$, and the answer is $ans$.</p>
 <p>In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $s \lt candidates[i]$, it means that the elements of the current index and the following indices are all greater than the remaining target value $s$, and the path is invalid, so we return directly. Otherwise, we start the search from index $i$, and the search index range is $j \in [i, n)$, where $n$ is the length of the array $candidates$. During the search, we add the element of the current index to the search path $t$, recursively call the function $dfs(j, s - candidates[j])$, and after the recursion ends, we remove the element of the current index from the search path $t$.</p>
-<p>We can also change the implementation logic of the function $dfs(i, s)$ to another form. In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $i \geq n$ or $s \lt candidates[i]$, the path is invalid, so we return directly. Otherwise, we consider two situations, one is not selecting the element of the current index, that is, recursively calling the function $dfs(i + 1, s)$, and the other is selecting the element of the current index, that is, recursively calling the function $dfs(i, s - candidates[i])$.</p>
 <p>In the main function, we just need to call the function $dfs(0, target)$ to get the answer.</p>
 <p>The time complexity is $O(2^n \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n \times n)$.</p>
 <p>Similar problems:</p>
@@ -74658,7 +74657,9 @@ These are the only two combinations.
 </div>
 </div>
 </div>
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-sorting-pruning-backtrackinganother-form">Solution 2: Sorting + Pruning + Backtracking(Another Form)</h3>
+<p>We can also change the implementation logic of the function $dfs(i, s)$ to another form. In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $i \geq n$ or $s \lt candidates[i]$, the path is invalid, so we return directly. Otherwise, we consider two situations, one is not selecting the element of the current index, that is, recursively calling the function $dfs(i + 1, s)$, and the other is selecting the element of the current index, that is, recursively calling the function $dfs(i, s - candidates[i])$.</p>
+<p>The time complexity is $O(2^n \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n \times n)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:7"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label><label for="__tabbed_2_7">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -7644,7 +7644,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一：排序 + 剪枝 + 回溯（两种写法）
+      方法一：排序 + 剪枝 + 回溯
     </span>
   </a>
   
@@ -7653,7 +7653,7 @@
           <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      方法二
+      方法二：排序 + 剪枝 + 回溯（写法二）
     </span>
   </a>
   
@@ -78905,11 +78905,10 @@
 </ul>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一：排序 + 剪枝 + 回溯（两种写法）</h3>
+<h3 id="_3">方法一：排序 + 剪枝 + 回溯</h3>
 <p>我们可以先对数组进行排序，方便剪枝以及跳过重复的数字。</p>
 <p>接下来，我们设计一个函数 $dfs(i, s)$，表示从下标 $i$ 开始搜索，且剩余目标值为 $s$，其中 $i$ 和 $s$ 都是非负整数，当前搜索路径为 $t$，答案为 $ans$。</p>
 <p>在函数 $dfs(i, s)$ 中，我们先判断 $s$ 是否为 $0$，如果是，则将当前搜索路径 $t$ 加入答案 $ans$ 中，然后返回。如果 $i \geq n$，或者 $s \lt candidates[i]$，说明当前路径不合法，直接返回。否则，我们从下标 $i$ 开始搜索，搜索的下标范围是 $j \in [i, n)$，其中 $n$ 为数组 $candidates$ 的长度。在搜索的过程中，如果 $j \gt i$ 并且 $candidates[j] = candidates[j - 1]$，说明当前数字与上一个数字相同，我们可以跳过当前数字，因为上一个数字已经搜索过了。否则，我们将当前数字加入搜索路径 $t$ 中，然后递归调用函数 $dfs(j + 1, s - candidates[j])$，然后将当前数字从搜索路径 $t$ 中移除。</p>
-<p>我们也可以将函数 $dfs(i, s)$ 的实现逻辑改为另一种写法。如果我们选择当前数字，那么我们将当前数字加入搜索路径 $t$ 中，然后递归调用函数 $dfs(i + 1, s - candidates[i])$，然后将当前数字从搜索路径 $t$ 中移除。如果我们不选择当前数字，那么我们可以跳过与当前数字相同的所有数字，然后递归调用函数 $dfs(j, s)$，其中 $j$ 为第一个与当前数字不同的数字的下标。</p>
 <p>在主函数中，我们只要调用函数 $dfs(0, target)$，即可得到答案。</p>
 <p>时间复杂度 $O(2^n \times n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $candidates$ 的长度。由于剪枝，实际的时间复杂度要远小于 $O(2^n \times n)$。</p>
 <p>相似题目：</p>
@@ -79360,7 +79359,9 @@
 </div>
 </div>
 </div>
-<h3 id="_4">方法二</h3>
+<h3 id="_4">方法二：排序 + 剪枝 + 回溯（写法二）</h3>
+<p>我们也可以将函数 $dfs(i, s)$ 的实现逻辑改为另一种写法。如果我们选择当前数字，那么我们将当前数字加入搜索路径 $t$ 中，然后递归调用函数 $dfs(i + 1, s - candidates[i])$，然后将当前数字从搜索路径 $t$ 中移除。如果我们不选择当前数字，那么我们可以跳过与当前数字相同的所有数字，然后递归调用函数 $dfs(j, s)$，其中 $j$ 为第一个与当前数字不同的数字的下标。</p>
+<p>时间复杂度 $O(2^n \times n)$，空间复杂度 $O(n)$。其中 $n$ 为数组 $candidates$ 的长度。由于剪枝，实际的时间复杂度要远小于 $O(2^n \times n)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:8"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label><label for="__tabbed_2_7">JavaScript</label><label for="__tabbed_2_8">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
