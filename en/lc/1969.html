@@ -48111,9 +48111,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy-fast-power" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy + Fast Power
     </span>
   </a>
   
@@ -74313,7 +74313,11 @@ The array product is 1 * 6 * 1 * 6 * 1 * 6 * 7 = 1512, which is the minimum poss
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy-fast-power">Solution 1: Greedy + Fast Power</h3>
+<p>We notice that each operation does not change the sum of the elements. When the sum of the elements remains unchanged, to minimize the product, we should maximize the difference between the elements as much as possible.</p>
+<p>Since the largest element is $2^p - 1$, no matter which element it exchanges with, it will not increase the difference. Therefore, we do not need to consider the case of exchanging with the largest element.</p>
+<p>For the other elements in $[1,..2^p-2]$, we pair the first and last elements one by one, that is, pair $x$ with $2^p-1-x$. After several operations, each pair of elements becomes $(1, 2^p-2)$. The final product is $(2^p-1) \times (2<sup 2_p-1="2^{p-1">p-2)</sup>$.}-1</p>
+<p>The time complexity is $O(p)$, and the space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
