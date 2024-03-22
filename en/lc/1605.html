@@ -40469,9 +40469,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy-construction" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy + Construction
     </span>
   </a>
   
@@ -74324,7 +74324,13 @@ Another possible matrix is: [[1,2],
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy-construction">Solution 1: Greedy + Construction</h3>
+<p>We can first initialize an $m$ by $n$ answer matrix $ans$.</p>
+<p>Next, we traverse each position $(i, j)$ in the matrix, set the element at this position to $x = \min(rowSum[i], colSum[j])$, and subtract $x$ from $rowSum[i]$ and $colSum[j]$ respectively. After traversing all positions, we can get a matrix $ans$ that meets the requirements of the problem.</p>
+<p>The correctness of the above strategy is explained as follows:</p>
+<p>According to the requirements of the problem, we know that the sum of $rowSum$ and $colSum$ is equal, so $rowSum[0]$ must be less than or equal to $\sum_{j = 0}^{n - 1} colSum[j]$. Therefore, after $n$ operations, $rowSum[0]$ can definitely be made $0$, and for any $j \in [0, n - 1]$, $colSum[j] \geq 0$ is guaranteed.</p>
+<p>Therefore, we reduce the original problem to a subproblem with $m-1$ rows and $n$ columns, continue the above operations, until all elements in $rowSum$ and $colSum$ are $0$, we can get a matrix $ans$ that meets the requirements of the problem.</p>
+<p>The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the lengths of $rowSum$ and $colSum$ respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

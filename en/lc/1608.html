@@ -40532,18 +40532,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-brute-force-enumeration" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Brute Force Enumeration
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-sorting-binary-search" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Sorting + Binary Search
     </span>
   </a>
   
@@ -74335,7 +74335,9 @@ x cannot be greater since there are only 2 numbers in nums.
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-brute-force-enumeration">Solution 1: Brute Force Enumeration</h3>
+<p>We enumerate $x$ in the range of $[1..n]$, and then count the number of elements in the array that are greater than or equal to $x$, denoted as $cnt$. If there exists $cnt$ equal to $x$, return $x$ directly.</p>
+<p>The time complexity is $O(n^2)$, where $n$ is the length of the array. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -74500,7 +74502,10 @@ x cannot be greater since there are only 2 numbers in nums.
 </div>
 </div>
 </div>
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-sorting-binary-search">Solution 2: Sorting + Binary Search</h3>
+<p>We can also sort <code>nums</code> first.</p>
+<p>Next, we still enumerate $x$, and use binary search to find the first element in <code>nums</code> that is greater than or equal to $x$, quickly counting the number of elements in <code>nums</code> that are greater than or equal to $x$.</p>
+<p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

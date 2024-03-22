@@ -78942,8 +78942,8 @@ x 不能取更大的值，因为 nums 中只有两个元素。</pre>
 
 <h2 id="_2">解法</h2>
 <h3 id="_3">方法一：暴力枚举</h3>
-<p>在 $[1..n]$ 范围内枚举 $x$，然后统计数组中大于等于 $x$ 的元素个数，记为 $cnt$。若存在 $cnt$ 与 $x$ 相等，直接返回 $x$。</p>
-<p>时间复杂度 $O(n^2)$。</p>
+<p>我们在 $[1..n]$ 范围内枚举 $x$，然后统计数组中大于等于 $x$ 的元素个数，记为 $cnt$。若存在 $cnt$ 与 $x$ 相等，直接返回 $x$。</p>
+<p>时间复杂度 $O(n^2)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -79111,7 +79111,7 @@ x 不能取更大的值，因为 nums 中只有两个元素。</pre>
 <h3 id="_4">方法二：排序 + 二分查找</h3>
 <p>我们也可以先对 <code>nums</code> 进行排序。</p>
 <p>接下来同样枚举 $x$，利用二分查找，找到 <code>nums</code> 中第一个大于等于 $x$ 的元素，快速统计出 <code>nums</code> 中大于等于 $x$ 的元素个数。</p>
-<p>时间复杂度 $O(n\log n)$。</p>
+<p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组的长度。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
