@@ -74689,6 +74689,11 @@ The random pointer of node 7 is node 1, so it is represented as [7, 0] where 0 i
 <script>
     var giscus = document.querySelector("script[src*=giscus]")
 
+    /* Set language on initial load */
+    var lang = document.querySelector("html").lang
+    const dataLang = lang === "en" ? "en" : "zh-CN"
+    giscus.setAttribute("data-lang", dataLang)
+
     /* Set palette on initial load */
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {

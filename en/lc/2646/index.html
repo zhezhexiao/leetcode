@@ -74915,6 +74915,11 @@ The total price sum of all trips is 1. It can be proven, that 1 is the minimum a
 <script>
     var giscus = document.querySelector("script[src*=giscus]")
 
+    /* Set language on initial load */
+    var lang = document.querySelector("html").lang
+    const dataLang = lang === "en" ? "en" : "zh-CN"
+    giscus.setAttribute("data-lang", dataLang)
+
     /* Set palette on initial load */
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {

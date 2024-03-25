@@ -79266,6 +79266,11 @@ X 矩阵应该满足：绿色元素（对角线上）都不是 0 ，红色元素
 <script>
     var giscus = document.querySelector("script[src*=giscus]")
 
+    /* Set language on initial load */
+    var lang = document.querySelector("html").lang
+    const dataLang = lang === "en" ? "en" : "zh-CN"
+    giscus.setAttribute("data-lang", dataLang)
+
     /* Set palette on initial load */
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {

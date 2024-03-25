@@ -78240,7 +78240,7 @@ If you are in the top 5% of the contest rating, you’ll get the “Guardian” 
 </table>
 <p>For top 10 users (excluding LCCN users), your LeetCode ID will be colored orange on the ranking board. You'll also have the honor with you when you post/comment under discuss.</p>
 <h2 id="rating-predictor">Rating Predictor</h2>
-<p>Get your rating changes right after the completion of LeetCode contests, https://lccn.lbao.site</p>
+<p>If you want to estimate your score changes after the contest ends, you can visit the website <a href="https://lccn.lbao.site/">LeetCode Contest Rating Predictor</a>.</p>
 <h2 id="past-contests">Past Contests</h2>
 <h4 id="weekly-contest-390">Weekly Contest 390</h4>
 <ul>
@@ -81315,6 +81315,11 @@ If you are in the top 5% of the contest rating, you’ll get the “Guardian” 
 <!-- Synchronize giscus theme with palette -->
 <script>
     var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set language on initial load */
+    var lang = document.querySelector("html").lang
+    const dataLang = lang === "en" ? "en" : "zh-CN"
+    giscus.setAttribute("data-lang", dataLang)
 
     /* Set palette on initial load */
     var palette = __md_get("__palette")

@@ -79006,6 +79006,11 @@ DataFrame 已从宽格式重塑为长格式。每一行表示一个季度内产�
 <script>
     var giscus = document.querySelector("script[src*=giscus]")
 
+    /* Set language on initial load */
+    var lang = document.querySelector("html").lang
+    const dataLang = lang === "en" ? "en" : "zh-CN"
+    giscus.setAttribute("data-lang", dataLang)
+
     /* Set palette on initial load */
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {

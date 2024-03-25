@@ -79643,6 +79643,11 @@ s 中没有子串长度为 16 并且等于 words 的任何顺序排列的连接�
 <script>
     var giscus = document.querySelector("script[src*=giscus]")
 
+    /* Set language on initial load */
+    var lang = document.querySelector("html").lang
+    const dataLang = lang === "en" ? "en" : "zh-CN"
+    giscus.setAttribute("data-lang", dataLang)
+
     /* Set palette on initial load */
     var palette = __md_get("__palette")
     if (palette && typeof palette.color === "object") {

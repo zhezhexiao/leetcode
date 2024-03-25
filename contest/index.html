@@ -82838,9 +82838,7 @@
 </table>
 <p>力扣竞赛 <strong>全国排名前 10</strong> 的用户，全站用户名展示为品牌橙色。</p>
 <h2 id="_3">赛后估分网站</h2>
-<ul>
-<li>https://lccn.lbao.site</li>
-</ul>
+<p>如果你想在比赛结束后估算自己的积分变化，可以访问网站 <a href="https://lccn.lbao.site/">LeetCode Contest Rating Predictor</a>。</p>
 <h2 id="_4">往期竞赛</h2>
 <h4 id="390-2024-03-24-1030-90-4817">第 390 场周赛(2024-03-24 10:30, 90 分钟) 参赛人数 4817</h4>
 <ul>
@@ -85915,6 +85913,11 @@
 <!-- Synchronize giscus theme with palette -->
 <script>
     var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set language on initial load */
+    var lang = document.querySelector("html").lang
+    const dataLang = lang === "en" ? "en" : "zh-CN"
+    giscus.setAttribute("data-lang", dataLang)
 
     /* Set palette on initial load */
     var palette = __md_get("__palette")

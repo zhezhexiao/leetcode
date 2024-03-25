@@ -17560,9 +17560,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy
     </span>
   </a>
   
@@ -74367,7 +74367,18 @@ It&#39;s impossible to make all three washing machines have the same number of d
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy">Solution 1: Greedy</h3>
+<p>If the total number of clothes in the washing machines cannot be divided evenly by the number of washing machines, it is impossible to make the number of clothes in each washing machine equal, so we directly return $-1$.</p>
+<p>Otherwise, suppose the total number of clothes in the washing machines is $s$, then the number of clothes in each washing machine will eventually become $k = s / n$.</p>
+<p>We define $a_i$ as the difference between the number of clothes in the $i$-th washing machine and $k$, that is, $a_i = \text{machines}[i] - k$. If $a_i &gt; 0$, it means that the $i$-th washing machine has extra clothes and needs to pass them to the adjacent washing machine; if $a_i &lt; 0$, it means that the $i$-th washing machine lacks clothes and needs to get them from the adjacent washing machine.</p>
+<p>We define the sum of the differences in the number of clothes in the first $i$ washing machines as $s_i = \sum_{j=0}^{i-1} a_j$. If we regard the first $i$ washing machines as one group and the remaining washing machines as another group. Then if $s_i$ is a positive number, it means that the first group of washing machines has extra clothes and needs to pass them to the second group of washing machines; if $s_i$ is a negative number, it means that the first group of washing machines lacks clothes and needs to get them from the second group of washing machines.</p>
+<p>Then there are the following two situations:</p>
+<ol>
+<li>The maximum number of times clothes need to be moved between the two groups is $\max_{i=0}^{n-1} \lvert s_i \rvert$;</li>
+<li>A washing machine in the group has too many clothes and needs to move clothes to both sides, the maximum number of times clothes need to be moved is $\max_{i=0}^{n-1} a_i$.</li>
+</ol>
+<p>We take the maximum of the two.</p>
+<p>The time complexity is $O(n)$, where $n$ is the number of washing machines. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -74604,6 +74615,11 @@ It&#39;s impossible to make all three washing machines have the same number of d
 <!-- Synchronize giscus theme with palette -->
 <script>
     var giscus = document.querySelector("script[src*=giscus]")
+
+    /* Set language on initial load */
+    var lang = document.querySelector("html").lang
+    const dataLang = lang === "en" ? "en" : "zh-CN"
+    giscus.setAttribute("data-lang", dataLang)
 
     /* Set palette on initial load */
     var palette = __md_get("__palette")
