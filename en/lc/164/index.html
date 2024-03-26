@@ -10147,9 +10147,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-discuss-different-cases" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Discuss Different Cases
     </span>
   </a>
   
@@ -74362,7 +74362,16 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-discuss-different-cases">Solution 1: Discuss Different Cases</h3>
+<p>Let $m$ represent the length of string $s$, and $n$ represent the length of string $t$. We can assume that $m$ is always greater than or equal to $n$.</p>
+<p>If $m-n &gt; 1$, return false directly;</p>
+<p>Otherwise, iterate through $s$ and $t$, if $s[i]$ is not equal to $t[i]$:</p>
+<ul>
+<li>If $m \neq n$, compare $s[i+1:]$ with $t[i:]$, return true if they are equal, otherwise return false;</li>
+<li>If $m = n$, compare $s[i:]$ with $t[i:]$, return true if they are equal, otherwise return false.</li>
+</ul>
+<p>If the iteration ends, it means that all the characters of $s$ and $t$ that have been iterated are equal, at this time it needs to satisfy $m=n+1$.</p>
+<p>The time complexity is $O(m)$, where $m$ is the length of string $s$. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
