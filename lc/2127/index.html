@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -78938,7 +78947,7 @@
 
 <p><strong>示例 1：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/ex1.png" style="width: 236px; height: 195px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/ex1.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/ex1.png" style="width: 236px; height: 195px;" /></a></p>
 
 <pre>
 <b>输入：</b>favorite = [2,2,1,2]
@@ -78966,7 +78975,7 @@
 
 <p><strong>示例 3：</strong></p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/ex2.png" style="width: 219px; height: 220px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/ex2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/ex2.png" style="width: 219px; height: 220px;" /></a></p>
 
 <pre>
 <b>输入：</b>favorite = [3,0,1,4,1]
@@ -78993,7 +79002,7 @@
 <h3 id="_3">方法一：图的最大环 + 最长链</h3>
 <p>我们观察发现，题目中员工的喜好关系可以看作一个有向图，这个有向图可以分成多个“基环内向树”的结构。在每个结构中，包含一个环，而环上的每个节点都连接着一棵树。</p>
 <p>什么是“基环内向树”？首先，基环树是一个具有 $n$ 个节点 $n$ 条边的有向图，而内向树是指这个有向图中，每个节点都有且仅有一条出边。本题中，每个员工都有且仅有一个喜欢的员工，因此，构成的有向图可以由多个“基环内向树”构成。</p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/05Dxh9.png"></p></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/05Dxh9.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2100-2199/2127.Maximum%20Employees%20to%20Be%20Invited%20to%20a%20Meeting/images/05Dxh9.png"></a></p></p>
 <p>对于本题，我们可以求出图的最大环的长度，这里我们只需要求出最大的一个环的长度，这是因为，如果有多个环，那么不同环之间是不连通的，不符合题意。</p>
 <p>另外，对于环的大小等于 $2$ 的长度，即存在两个员工互相喜欢，那么我们可以把这两个员工安排在一起，如果这两个员工各自被别的员工喜欢，那么我们只需要把喜欢他们的员工安排在他们的旁边即可。如果有多个这样的情况，我们可以把他们都安排上。</p>
 <p>因此，问题实际上等价于求出图的最大环的长度，以及所有长度为 $2$ 的环加上其最长链。求这两者的最大值即可。求最长链到长度为 $2$ 的环，我们可以使用拓扑排序。</p>
@@ -79735,5 +79744,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

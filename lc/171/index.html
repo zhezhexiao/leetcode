@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -10336,7 +10345,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：进制转换
     </span>
   </a>
   
@@ -78969,8 +78978,11 @@ AB -&gt; 28
 </ul>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
+<h3 id="_3">方法一：进制转换</h3>
+<p>Excel 表格中的列名称是一种 26 进制的表示方法。例如，"AB" 表示的列序号是 $1 \times 26 + 2 = 28$。</p>
+<p>因此，我们可以遍历字符串 <code>columnTitle</code>，将每个字符转换为对应的数值，然后计算结果即可。</p>
+<p>时间复杂度 $O(n)$，其中 $n$ 是字符串 <code>columnTitle</code> 的长度。空间复杂度 $O(1)$。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -78980,10 +78992,10 @@ AB -&gt; 28
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">titleToNumber</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">columnTitle</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">columnTitle</span><span class="p">:</span>
-            <span class="n">res</span> <span class="o">=</span> <span class="n">res</span> <span class="o">*</span> <span class="mi">26</span> <span class="o">+</span> <span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">res</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">map</span><span class="p">(</span><span class="nb">ord</span><span class="p">,</span> <span class="n">columnTitle</span><span class="p">):</span>
+            <span class="n">ans</span> <span class="o">=</span> <span class="n">ans</span> <span class="o">*</span> <span class="mi">26</span> <span class="o">+</span> <span class="n">c</span> <span class="o">-</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">ans</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -78997,11 +79009,11 @@ AB -&gt; 28
 <span class="normal">8</span>
 <span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">titleToNumber</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">columnTitle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">columnTitle</span><span class="p">.</span><span class="na">toCharArray</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">columnTitle</span><span class="p">.</span><span class="na">length</span><span class="p">();</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">columnTitle</span><span class="p">.</span><span class="na">charAt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -79019,11 +79031,11 @@ AB -&gt; 28
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">titleToNumber</span><span class="p">(</span><span class="n">string</span><span class="w"> </span><span class="n">columnTitle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">columnTitle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="o">&amp;</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">columnTitle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
@@ -79034,13 +79046,11 @@ AB -&gt; 28
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span>
-<span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">titleToNumber</span><span class="p">(</span><span class="nx">columnTitle</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">res</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">titleToNumber</span><span class="p">(</span><span class="nx">columnTitle</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">ans</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">columnTitle</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">res</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">res</span><span class="o">*</span><span class="mi">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="nx">c</span><span class="o">-</span><span class="sc">&#39;A&#39;</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">ans</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">ans</span><span class="o">*</span><span class="mi">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">int</span><span class="p">(</span><span class="nx">c</span><span class="o">-</span><span class="sc">&#39;A&#39;</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span>
+<span class="w">    </span><span class="k">return</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
@@ -79052,11 +79062,31 @@ AB -&gt; 28
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">titleToNumber</span><span class="p">(</span><span class="nx">columnTitle</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">res</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="kr">char</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">columnTitle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="kr">char</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">64</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">ans</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">c</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">columnTitle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ans</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;A&#39;</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span>
+<span class="normal">9</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">TitleToNumber</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">columnTitle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">char</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">columnTitle</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="sc">&#39;A&#39;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="m">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
@@ -79255,5 +79285,5 @@ AB -&gt; 28
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

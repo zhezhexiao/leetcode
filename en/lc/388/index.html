@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -74328,7 +74337,7 @@
 <h2 id="description">Description</h2>
 <p>Suppose we have a file system that stores both files and directories. An example of one system is represented in the following picture:</p>
 
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/mdir.jpg" style="width: 681px; height: 322px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/mdir.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/mdir.jpg" style="width: 681px; height: 322px;" /></a></p>
 
 <p>Here, we have <code>dir</code> as the only directory in the root. <code>dir</code> contains two subdirectories, <code>subdir1</code> and <code>subdir2</code>. <code>subdir1</code> contains a file <code>file1.ext</code> and subdirectory <code>subsubdir1</code>. <code>subdir2</code> contains a subdirectory <code>subsubdir2</code>, which contains a file <code>file2.ext</code>.</p>
 
@@ -74354,7 +74363,7 @@ dir
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/dir1.jpg" style="width: 401px; height: 202px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/dir1.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/dir1.jpg" style="width: 401px; height: 202px;" /></a></p>
 <pre>
 <strong>Input:</strong> input = &quot;dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext&quot;
 <strong>Output:</strong> 20
@@ -74362,7 +74371,7 @@ dir
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/dir2.jpg" style="width: 641px; height: 322px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/dir2.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0300-0399/0388.Longest%20Absolute%20File%20Path/images/dir2.jpg" style="width: 641px; height: 322px;" /></a></p>
 <pre>
 <strong>Input:</strong> input = &quot;dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext&quot;
 <strong>Output:</strong> 32
@@ -74908,5 +74917,5 @@ We return 32 since it is the longest absolute path to a file.
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

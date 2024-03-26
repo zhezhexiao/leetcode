@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -74309,7 +74318,7 @@
 
 <p>For example, let&#39;s say&nbsp;<code>t = 50ms</code>, and the function was called at&nbsp;<code>30ms</code>,&nbsp;<code>60ms</code>, and <code>100ms</code>. The first 2 function calls would be cancelled, and the 3rd function call would be executed at&nbsp;<code>150ms</code>. If instead&nbsp;<code>t = 35ms</code>, The 1st call would be cancelled, the 2nd would be executed at&nbsp;<code>95ms</code>, and the 3rd would be executed at&nbsp;<code>135ms</code>.</p>
 
-<p><img alt="Debounce Schematic" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2600-2699/2627.Debounce/images/screen-shot-2023-04-08-at-11048-pm.png" style="width: 800px; height: 242px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2600-2699/2627.Debounce/images/screen-shot-2023-04-08-at-11048-pm.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="Debounce Schematic" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2600-2699/2627.Debounce/images/screen-shot-2023-04-08-at-11048-pm.png" style="width: 800px; height: 242px;" /></a></p>
 
 <p>The above diagram&nbsp;shows how debounce will transform&nbsp;events. Each rectangle represents 100ms and the debounce time is 400ms. Each color represents a different set of inputs.</p>
 
@@ -74624,5 +74633,5 @@ The 3rd call is delayed by 150ms and ran at 450ms. The inputs were (5, 6).
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

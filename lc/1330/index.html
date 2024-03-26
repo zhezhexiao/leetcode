@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -78970,13 +78979,13 @@
 </ol>
 <p>我们记不翻转子数组时的数组值为 $s$，此时有 $s = \sum_{i=0}^{n-2} |a_i - a_{i+1}|$。我们可以将答案 $ans$ 初始化为 $s$。</p>
 <p>如果翻转子数组，且子数组包含第一个元素，我们可以枚举翻转的子数组的最后一个元素 $a_i$，其中 $0 \leq i \lt n-1$，此时有 $ans = \max(ans, s + |a_0 - a_{i+1}| - |a_i - a_{i+1}|)$。</p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/1-drawio.png" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/1-drawio.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/1-drawio.png" /></a></p>
 
 <p>同理，如果翻转子数组，且子数组包含最后一个元素，我们可以枚举翻转的子数组的第一个元素 $a_{i+1}$，其中 $0 \leq i \lt n-1$，此时有 $ans = \max(ans, s + |a_{n-1} - a_i| - |a_i - a_{i+1}|)$。</p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/2-drawio.png" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/2-drawio.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/2-drawio.png" /></a></p>
 
 <p>如果翻转子数组，且子数组不包含第一个元素和最后一个元素，我们将数组任意两个相邻元素视为一个点对 $(x, y)$，记翻转的第一个元素为 $y_1$，其左侧相邻元素为 $x_1$；翻转的最后一个元素为 $x_2$，其右侧相邻元素为 $y_2$。</p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/3-drawio.png" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/3-drawio.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1300-1399/1330.Reverse%20Subarray%20To%20Maximize%20Array%20Value/images/3-drawio.png" /></a></p>
 
 <p>此时相比较于不翻转子数组，数组值的变化量为 $|x_1 - x_2| + |y_1 - y_2| - |x_1 - y_1| - |x_2 - y_2|$，其中，前两项可以表示为：</p>
 <p>$$
@@ -79472,5 +79481,5 @@ $$</p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

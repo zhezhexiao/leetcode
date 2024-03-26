@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -78948,7 +78957,7 @@ $$</p>
 <p>需要注意的是，由于 $down[i][j]$ 依赖于 $down[i + 1][j]$，而 $right[i][j]$ 依赖于 $right[i][j + 1]$，所以，我们在预处理 $down[i][j]$ 和 $right[i][j]$ 时，是从大到小枚举 $i$ 和 $j$ 的。</p>
 <p>接下来，我们从大到小枚举正方形的边长 $k$，从小到大枚举正方形的左上角位置 $(i, j)$，如果满足 $down[i][j] \ge k$ 且 $right[i][j] \ge k$ 且 $right[i + k - 1][j] \ge k$ 且 $down[i][j + k - 1] \ge k$，说明我们找到了一个边长最大为 $k$ 且左上角位置为 $(i, j)$ 的黑方阵，直接返回 $[i, j, k]$ 即可。</p>
 <p>如果枚举完所有的正方形都没有满足条件的，那么返回空数组。</p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/17.23.Max%20Black%20Square/images/max_black_square.png" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/17.23.Max%20Black%20Square/images/max_black_square.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcci/17.23.Max%20Black%20Square/images/max_black_square.png" /></a></p>
 
 <p>时间复杂度 $O(n^3)$，空间复杂度 $O(n^2)$。其中 $n$ 是方阵的边长。</p>
 <p>相似题目：</p>
@@ -79432,5 +79441,5 @@ $$</p>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

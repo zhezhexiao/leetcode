@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -74346,7 +74355,7 @@
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree1.jpg" style="width: 224px; height: 145px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree1.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree1.jpg" style="width: 224px; height: 145px;" /></a></p>
 <pre>
 <strong>Input:</strong> edges = [[0,1],[0,2]]
 <strong>Output:</strong> 2
@@ -74354,7 +74363,7 @@
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree2.jpg" style="width: 224px; height: 225px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree2.jpg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree2.jpg" style="width: 224px; height: 225px;" /></a></p>
 <pre>
 <strong>Input:</strong> edges = [[0,1],[1,2],[2,3],[1,4],[4,5]]
 <strong>Output:</strong> 4
@@ -74384,7 +74393,7 @@
 <li>When the furthest node $z$ reached by $y$ crosses $\delta(s, t)$, mark the intersecting node as $x$. At this time, $\delta(y, z) = \delta(y, x) + \delta(x, z)$. And at this time $\delta(y, z) &gt; \delta(y, t)$, so $\delta(x, z) &gt; \delta(x, t)$. According to the conclusion of 1, this assumption is not established.</li>
 <li>When the furthest node $z$ reached by $y$ does not intersect with $\delta(s, t)$, define the first node on the simple path from $y$ to $t$ that also exists on the simple path $\delta(s, t)$ as $x$, and the last node on the simple path $\delta(y, z)$ as $x'$. As shown in the figure below. Then according to the assumption, $\delta(y, z) \geq \delta(y, t) \Rightarrow \delta(x', z) \geq \delta(x', x) + \delta(x, t)$. In this case, $\delta(x, z) \geq \delta(x, t)$, which does not match the premise that $\delta(s, t)$ corresponds to the diameter, so the furthest node $z$ of $y$ cannot be outside the path corresponding to the diameter from $s$ to $t$.</li>
 </ul>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree-diameter.svg"></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree-diameter.svg" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1200-1299/1245.Tree%20Diameter/images/tree-diameter.svg"></a></p>
 </li>
 </ol>
 <p>Therefore, the theorem holds.</p>
@@ -74843,5 +74852,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

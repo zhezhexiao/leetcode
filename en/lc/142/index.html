@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -74334,7 +74343,7 @@
 
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/circularlinkedlist.png" style="height: 145px; width: 450px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/circularlinkedlist.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/circularlinkedlist.png" style="height: 145px; width: 450px;" /></a></p>
 <pre>
 <strong>Input:</strong> head = [3,2,0,-4], pos = 1
 <strong>Output:</strong> tail connects to node index 1
@@ -74342,7 +74351,7 @@
 </pre>
 
 <p><strong class="example">Example 2:</strong></p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/circularlinkedlist_test2.png" style="height: 105px; width: 201px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/circularlinkedlist_test2.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/circularlinkedlist_test2.png" style="height: 105px; width: 201px;" /></a></p>
 <pre>
 <strong>Input:</strong> head = [1,2], pos = 0
 <strong>Output:</strong> tail connects to node index 0
@@ -74350,7 +74359,7 @@
 </pre>
 
 <p><strong class="example">Example 3:</strong></p>
-<p><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/circularlinkedlist_test3.png" style="height: 65px; width: 65px;" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/circularlinkedlist_test3.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/circularlinkedlist_test3.png" style="height: 65px; width: 65px;" /></a></p>
 <pre>
 <strong>Input:</strong> head = [1], pos = -1
 <strong>Output:</strong> no cycle
@@ -74376,7 +74385,7 @@
 <p>If there is a ring, we then define an answer pointer $ans$ to point to the head of the linked list, and then let $ans$ and the slow pointer move forward together, moving one step at a time, until $ans$ and the slow pointer meet, and the meeting node is the ring entrance node.</p>
 <p>Why can this find the entrance node of the ring?</p>
 <p>Let's assume that the distance from the head node of the linked list to the entrance of the ring is $x$, the distance from the entrance of the ring to the meeting node is $y$, and the distance from the meeting node to the entrance of the ring is $z$. Then the distance traveled by the slow pointer is $x + y$, and the distance traveled by the fast pointer is $x + y + k \times (y + z)$, where $k$ is the number of times the fast pointer goes around the ring.</p>
-<p><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/linked-list-cycle-ii.png" /></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/linked-list-cycle-ii.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/0100-0199/0142.Linked%20List%20Cycle%20II/images/linked-list-cycle-ii.png" /></a></p>
 
 <p>Because the speed of the fast pointer is twice that of the slow pointer, it is $2 \times (x + y) = x + y + k \times (y + z)$, which can be deduced that $x + y = k \times (y + z)$, that is $x = (k - 1) \times (y + z) + z$.</p>
 <p>That is to say, if we define an answer pointer $ans$ to point to the head of the linked list, and the $ans$ and the slow pointer move forward together, they will definitely meet at the ring entrance.</p>
@@ -74900,5 +74909,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>

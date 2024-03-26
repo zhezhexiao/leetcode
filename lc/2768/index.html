@@ -61,7 +61,16 @@
     
     
     
-  </head>
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
   
   
     
@@ -78944,7 +78953,7 @@
 <b>输入：</b>m = 3, n = 3, coordinates = [[0,0]]
 <b>输出：</b>[3,1,0,0,0]
 <b>解释：</b>网格图如下：
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/images/screen-shot-2023-06-18-at-44656-am.png" style="width: 150px; height: 128px;" />
+<a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/images/screen-shot-2023-06-18-at-44656-am.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/images/screen-shot-2023-06-18-at-44656-am.png" style="width: 150px; height: 128px;" /></a>
 只有 1 个块有一个黑色格子，这个块是左上角为 [0,0] 的块。
 其他 3 个左上角分别为 [0,1] ，[1,0] 和 [1,1] 的块都有 0 个黑格子。
 所以我们返回 [3,1,0,0,0] 。
@@ -78956,7 +78965,7 @@
 <b>输入：</b>m = 3, n = 3, coordinates = [[0,0],[1,1],[0,2]]
 <b>输出：</b>[0,2,2,0,0]
 <b>解释：</b>网格图如下：
-<img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/images/screen-shot-2023-06-18-at-45018-am.png" style="width: 150px; height: 128px;" />
+<a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/images/screen-shot-2023-06-18-at-45018-am.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/2700-2799/2768.Number%20of%20Black%20Blocks/images/screen-shot-2023-06-18-at-45018-am.png" style="width: 150px; height: 128px;" /></a>
 有 2 个块有 2 个黑色格子（左上角格子分别为 [0,0] 和 [0,1]）。
 左上角为 [1,0] 和 [1,1] 的两个块，都有 1 个黑格子。
 所以我们返回 [0,2,2,0,0] 。
@@ -79390,5 +79399,5 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
       
     
-  </body>
+  <script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
 </html>
