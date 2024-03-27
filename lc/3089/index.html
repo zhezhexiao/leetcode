@@ -78999,7 +78999,7 @@ Each row of this table contains post_id, user_id, and post_date.
 
 <h2 id="_2">解法</h2>
 <h3 id="_3">方法一：自连接 + 分组统计</h3>
-<p>我们可以使用自连接，将表 <code>Posts</code> 与自身连接，连接条件是 <code>p1.user_id = p2.user_id</code> 且 <code>p2.post_date</code> 在 <code>p1.post_date</code> 和 <code>p1.post_date</code> 后 <code>6</code> 天之间，然后我们将连接结果按照 <code>p1.user_id</code> 和 <code>p1.post_date</code> 分组，即可统计出每个用户在每天的 7 天内的发帖数量，我们将这个结果保存在表 <code>P</code> 中。</p>
+<p>我们可以使用自连接，将表 <code>Posts</code> 与自身连接，连接条件是 <code>p1.user_id = p2.user_id</code> 且 <code>p2.post_date</code> 在 <code>p1.post_date</code> 和 <code>p1.post_date</code> 后 <code>6</code> 天之间，然后我们将连接结果按照 <code>p1.user_id</code> 和 <code>p1.post_id</code> 分组，即可统计出每个用户在每天的 7 天内的发帖数量，我们将这个结果保存在表 <code>P</code> 中。</p>
 <p>接着我们统计出每个用户在 2024 年 2 月份的每周平均发帖数量，保存在表 <code>T</code> 中。注意，我们需要查找 <code>post_date</code> 在 <code>2024-02-01</code> 和 <code>2024-02-28</code> 之间的记录，将记录按照 <code>user_id</code> 分组，然后统计每个用户的发帖数量，最后除以 <code>4</code> 即可得到每周平均发帖数量，我们将这个结果保存在表 <code>T</code> 中。</p>
 <p>最后，我们将表 <code>P</code> 和表 <code>T</code> 连接，连接条件是 <code>P.user_id = T.user_id</code>，然后按照 <code>user_id</code> 分组，统计出每个用户在 7 天内的最大发帖数量，最后筛选出满足条件 <code>max_7day_posts &gt;= avg_weekly_posts * 2</code> 的记录，即可得到结果。注意，我们需要按照 <code>user_id</code> 升序排序。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label><label for="__tabbed_1_2">Python3</label></div>
@@ -79037,7 +79037,7 @@ Each row of this table contains post_id, user_id, and post_date.
 <span class="w">            </span><span class="k">JOIN</span><span class="w"> </span><span class="n">Posts</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">p2</span>
 <span class="w">                </span><span class="k">ON</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">user_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">user_id</span>
 <span class="w">                </span><span class="k">AND</span><span class="w"> </span><span class="n">p2</span><span class="p">.</span><span class="n">post_date</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">post_date</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">DATE_ADD</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">post_date</span><span class="p">,</span><span class="w"> </span><span class="nb">INTERVAL</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="k">DAY</span><span class="p">)</span>
-<span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">user_id</span><span class="p">,</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">post_date</span>
+<span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">user_id</span><span class="p">,</span><span class="w"> </span><span class="n">p1</span><span class="p">.</span><span class="n">post_id</span>
 <span class="w">    </span><span class="p">),</span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
 <span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">user_id</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">avg_weekly_posts</span>
@@ -79076,28 +79076,74 @@ Each row of this table contains post_id, user_id, and post_date.
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
 
 <span class="k">def</span> <span class="nf">find_bursty_behavior</span><span class="p">(</span><span class="n">posts</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-    <span class="c1"># 计算每个用户在7天窗口内发布的帖子数</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">posts</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">posts</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="p">[(</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;post_date_y&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;post_date_x&#39;</span><span class="p">])</span> <span class="o">&amp;</span>
-          <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="s1">&#39;post_date_y&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">p</span><span class="p">[</span><span class="s1">&#39;post_date_x&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">6</span><span class="p">))]</span>
-    <span class="n">p_count</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;user_id&#39;</span><span class="p">,</span> <span class="s1">&#39;post_date_x&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;cnt&#39;</span><span class="p">)</span>
+    <span class="c1"># 子查询 P</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+        <span class="n">posts</span><span class="p">,</span> <span class="n">posts</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;_1&quot;</span><span class="p">,</span> <span class="s2">&quot;_2&quot;</span><span class="p">)</span>
+    <span class="p">)</span>  <span class="c1"># 合并帖子表自身，根据用户ID</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="n">p1</span><span class="p">[</span>
+        <span class="n">p1</span><span class="p">[</span><span class="s2">&quot;post_date_2&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">between</span><span class="p">(</span>
+            <span class="n">p1</span><span class="p">[</span><span class="s2">&quot;post_date_1&quot;</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="s2">&quot;post_date_1&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">]</span>  <span class="c1"># 筛选出相邻 7 天内的帖子</span>
+    <span class="n">p1</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">p1</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="s2">&quot;post_id_1&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;cnt&quot;</span><span class="p">)</span>
+    <span class="p">)</span>  <span class="c1"># 统计每个用户在相邻 7 天内的帖子数</span>
 
-    <span class="c1"># 计算每个用户在2024年2月期间的平均每周发布的帖子数</span>
-    <span class="n">t</span> <span class="o">=</span> <span class="n">posts</span><span class="p">[(</span><span class="n">posts</span><span class="p">[</span><span class="s1">&#39;post_date&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="s1">&#39;2024-02-01&#39;</span><span class="p">)</span> <span class="o">&amp;</span>
-              <span class="p">(</span><span class="n">posts</span><span class="p">[</span><span class="s1">&#39;post_date&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="s1">&#39;2024-02-28&#39;</span><span class="p">)]</span>
-    <span class="n">t_count</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;count&#39;</span><span class="p">)</span>
-    <span class="n">t_count</span><span class="p">[</span><span class="s1">&#39;avg_weekly_posts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_count</span><span class="p">[</span><span class="s1">&#39;count&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mi">4</span>
+    <span class="c1"># 子查询 T</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">posts</span><span class="p">[</span>
+        <span class="p">(</span><span class="n">posts</span><span class="p">[</span><span class="s2">&quot;post_date&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="s2">&quot;2024-02-01&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">posts</span><span class="p">[</span><span class="s2">&quot;post_date&quot;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="s2">&quot;2024-02-28&quot;</span><span class="p">)</span>
+    <span class="p">]</span>  <span class="c1"># 筛选出 2024 年 2 月份的帖子</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">t</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;user_id&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">div</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;avg_weekly_posts&quot;</span><span class="p">)</span>
+    <span class="p">)</span>  <span class="c1"># 计算每个用户平均每周的帖子数</span>
 
-    <span class="c1"># 合并两个计算出的表，并过滤符合条件的用户</span>
-    <span class="n">merged_df</span> <span class="o">=</span> <span class="n">p_count</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">t_count</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
-    <span class="n">merged_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">max_7day_posts</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;cnt&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">),</span>
-                                                 <span class="n">avg_weekly_posts</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;avg_weekly_posts&#39;</span><span class="p">,</span> <span class="s1">&#39;first&#39;</span><span class="p">))</span>
-    <span class="n">result_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;max_7day_posts&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">merged_df</span><span class="p">[</span><span class="s1">&#39;avg_weekly_posts&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="c1"># 连接 P 和 T</span>
+    <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">p1</span><span class="p">,</span> <span class="n">t</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>  <span class="c1"># 内连接 P 和 T</span>
 
-    <span class="k">return</span> <span class="n">result_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;user_id&#39;</span><span class="p">)</span>
+    <span class="c1"># 过滤</span>
+    <span class="n">filtered_df</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span>
+        <span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;cnt&quot;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;avg_weekly_posts&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span>
+    <span class="p">]</span>  <span class="c1"># 过滤出满足条件的行</span>
+
+    <span class="c1"># 聚合</span>
+    <span class="n">result_df</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">filtered_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;user_id&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s2">&quot;cnt&quot;</span><span class="p">:</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;avg_weekly_posts&quot;</span><span class="p">:</span> <span class="s2">&quot;first&quot;</span><span class="p">})</span>
+        <span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="p">)</span>  <span class="c1"># 对满足条件的行按用户ID聚合</span>
+    <span class="n">result_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="s2">&quot;max_7day_posts&quot;</span><span class="p">,</span> <span class="s2">&quot;avg_weekly_posts&quot;</span><span class="p">]</span>  <span class="c1"># 重命名列名</span>
+
+    <span class="c1"># 排序</span>
+    <span class="n">result_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s2">&quot;user_id&quot;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># 按用户ID排序</span>
+
+    <span class="k">return</span> <span class="n">result_df</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
