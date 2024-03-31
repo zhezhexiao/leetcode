@@ -71725,9 +71725,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-two-pointers-counting" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Two Pointers + Counting
     </span>
   </a>
   
@@ -74585,7 +74585,12 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-two-pointers-counting">Solution 1: Two Pointers + Counting</h3>
+<p>We can observe that if we fix the left endpoint of the subarray, as the right endpoint moves to the right, the bitwise OR value of the subarray will only increase, not decrease. Therefore, we can use the double pointers method to maintain a subarray that meets the conditions.</p>
+<p>Specifically, we use two pointers $i$ and $j$ to represent the left and right endpoints of the subarray, respectively. Initially, both pointers are at the first element of the array. We use a variable $s$ to represent the bitwise OR value of the subarray, and initially, the value of $s$ is $0$. We also need to maintain an array $cnt$ of length $32$, which represents the occurrence times of each bit in the binary representation of each element in the subarray.</p>
+<p>In each step, we move $j$ to the right by one position, and update $s$ and $cnt$. If the value of $s$ is greater than or equal to $k$, we continuously update the minimum length of the subarray and move $i$ to the right by one position until the value of $s$ is less than $k$. In this process, we also need to update $s$ and $cnt$.</p>
+<p>Finally, we return the minimum length. If there is no subarray that meets the conditions, we return $-1$.</p>
+<p>The time complexity is $O(n \times \log M)$ and the space complexity is $O(\log M)$, where $n$ and $M$ are the length of the array and the maximum value of the elements in the array, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
