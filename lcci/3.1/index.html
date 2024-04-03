@@ -77142,7 +77142,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：数组模拟
     </span>
   </a>
   
@@ -79180,8 +79180,14 @@
 </pre>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">Go</label></div>
+<h3 id="_3">方法一：数组模拟</h3>
+<p>我们使用一个变量 $cap$ 来表示每个栈的大小，使用一个长度为 $3 \times \text{cap} + 3$ 的数组 $stk$ 来模拟三个栈，数组的前 $3 \times \text{cap}$ 个元素用来存储栈的元素，数组的后三个元素用来存储每个栈的元素个数。</p>
+<p>对于 <code>push</code> 操作，我们首先判断栈是否已满，如果未满，则将元素压入栈中，并更新栈的元素个数。</p>
+<p>对于 <code>pop</code> 操作，我们首先判断栈是否为空，如果不为空，则更新栈的元素个数，并返回栈顶元素。</p>
+<p>对于 <code>peek</code> 操作，我们首先判断栈是否为空，如果不为空，则返回栈顶元素。</p>
+<p>对于 <code>isEmpty</code> 操作，我们直接判断栈是否为空即可。对于栈 $i$，我们只需要判断 $stk[\text{cap} \times 3 + i]$ 是否为 $0$ 即可。</p>
+<p>时间复杂度上，每个操作的时间复杂度均为 $O(1)$。空间复杂度为 $O(\text{cap})$，其中 $\text{cap}$ 为栈的大小。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -79208,23 +79214,37 @@
 <span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
-<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">TripleInOne</span><span class="p">:</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">TripleInOne</span><span class="p">:</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stackSize</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span> <span class="o">=</span> <span class="n">stackSize</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="p">[[],</span> <span class="p">[],</span> <span class="p">[]]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">=</span> <span class="n">stackSize</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stk</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">push</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stackNum</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="n">stackNum</span><span class="p">])</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_capacity</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="n">stackNum</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stk</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">stackNum</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">cap</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stk</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="n">stackNum</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">stk</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">stackNum</span><span class="p">]]</span> <span class="o">=</span> <span class="n">value</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">stk</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">stackNum</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="k">def</span> <span class="nf">pop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stackNum</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">stackNum</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="n">stackNum</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">stackNum</span><span class="p">):</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stk</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">stackNum</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stk</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="n">stackNum</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">stk</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">stackNum</span><span class="p">]]</span>
 
     <span class="k">def</span> <span class="nf">peek</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stackNum</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">stackNum</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="n">stackNum</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">stackNum</span><span class="p">):</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stk</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="n">stackNum</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">stk</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">stackNum</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">isEmpty</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stackNum</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">[</span><span class="n">stackNum</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stk</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">cap</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="n">stackNum</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span>
 
 
 <span class="c1"># Your TripleInOne object will be instantiated and called as such:</span>
@@ -79277,18 +79297,18 @@
 <span class="normal">39</span>
 <span class="normal">40</span>
 <span class="normal">41</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">TripleInOne</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">capacity</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cap</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">stk</span><span class="p">;</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">TripleInOne</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stackSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">stackSize</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
-<span class="w">        </span><span class="n">capacity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stackSize</span><span class="p">;</span>
+<span class="w">        </span><span class="n">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stackSize</span><span class="p">;</span>
+<span class="w">        </span><span class="n">stk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="o">]</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">push</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stackNum</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="o">[</span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">capacity</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">capacity</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">s</span><span class="o">[</span><span class="n">s</span><span class="o">[</span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">capacity</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
-<span class="w">            </span><span class="o">++</span><span class="n">s</span><span class="o">[</span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">capacity</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stk</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">stk</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stk</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="o">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">            </span><span class="o">++</span><span class="n">stk</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="o">]</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -79296,16 +79316,16 @@
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">stackNum</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="o">--</span><span class="n">s</span><span class="o">[</span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">capacity</span><span class="o">]</span><span class="p">;</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="o">[</span><span class="n">s</span><span class="o">[</span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">capacity</span><span class="o">]</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="o">--</span><span class="n">stk</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">stk</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stk</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="o">]]</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">peek</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stackNum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">isEmpty</span><span class="p">(</span><span class="n">stackNum</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">s</span><span class="o">[</span><span class="p">(</span><span class="n">s</span><span class="o">[</span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">capacity</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">isEmpty</span><span class="p">(</span><span class="n">stackNum</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">stk</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stk</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="o">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isEmpty</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stackNum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="o">[</span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">capacity</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">stk</span><span class="o">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="o">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
@@ -79362,67 +79382,127 @@
 <span class="normal">40</span>
 <span class="normal">41</span>
 <span class="normal">42</span>
-<span class="normal">43</span>
-<span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span>
-<span class="normal">56</span>
-<span class="normal">57</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">TripleInOne</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">data</span><span class="w">      </span><span class="p">[]</span><span class="kt">int</span>
-<span class="w">    </span><span class="nx">offset</span><span class="w">    </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span>
-<span class="w">    </span><span class="nx">stackSize</span><span class="w"> </span><span class="kt">int</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">TripleInOne</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">TripleInOne</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stackSize</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stackSize</span><span class="p">;</span>
+<span class="w">        </span><span class="n">stk</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">push</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stackNum</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stk</span><span class="p">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">cap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">stk</span><span class="p">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stk</span><span class="p">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">value</span><span class="p">;</span>
+<span class="w">            </span><span class="o">++</span><span class="n">stk</span><span class="p">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">pop</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stackNum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">isEmpty</span><span class="p">(</span><span class="n">stackNum</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="o">--</span><span class="n">stk</span><span class="p">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="p">];</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">stk</span><span class="p">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stk</span><span class="p">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="p">]];</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">peek</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stackNum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">isEmpty</span><span class="p">(</span><span class="n">stackNum</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">-1</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">stk</span><span class="p">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stk</span><span class="p">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isEmpty</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">stackNum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">stk</span><span class="p">[</span><span class="n">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">stackNum</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">cap</span><span class="p">;</span>
+<span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">stk</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Your TripleInOne object will be instantiated and called as such:</span>
+<span class="cm"> * TripleInOne* obj = new TripleInOne(stackSize);</span>
+<span class="cm"> * obj-&gt;push(stackNum,value);</span>
+<span class="cm"> * int param_2 = obj-&gt;pop(stackNum);</span>
+<span class="cm"> * int param_3 = obj-&gt;peek(stackNum);</span>
+<span class="cm"> * bool param_4 = obj-&gt;isEmpty(stackNum);</span>
+<span class="cm"> */</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">TripleInOne</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">cap</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">    </span><span class="nx">stk</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span>
 <span class="p">}</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="nx">Constructor</span><span class="p">(</span><span class="nx">stackSize</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="nx">TripleInOne</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">total</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">stackSize</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span>
-<span class="w">    </span><span class="nx">data</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">total</span><span class="p">)</span>
-<span class="w">    </span><span class="nx">offset</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="kt">int</span><span class="p">{}</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">offset</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">stackSize</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">TripleInOne</span><span class="p">{</span>
-<span class="w">        </span><span class="nx">data</span><span class="p">:</span><span class="w">      </span><span class="nx">data</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">offset</span><span class="p">:</span><span class="w">    </span><span class="nx">offset</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">stackSize</span><span class="p">:</span><span class="w"> </span><span class="nx">stackSize</span><span class="p">,</span>
-<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">TripleInOne</span><span class="p">{</span><span class="nx">stackSize</span><span class="p">,</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">stackSize</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="mi">3</span><span class="p">)}</span>
 <span class="p">}</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">this</span><span class="w"> </span><span class="o">*</span><span class="nx">TripleInOne</span><span class="p">)</span><span class="w"> </span><span class="nx">Push</span><span class="p">(</span><span class="nx">stackNum</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">offset</span><span class="p">[</span><span class="nx">stackNum</span><span class="p">]</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="p">(</span><span class="nx">stackNum</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="nx">this</span><span class="p">.</span><span class="nx">stackSize</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">this</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">value</span>
-<span class="w">        </span><span class="nx">this</span><span class="p">.</span><span class="nx">offset</span><span class="p">[</span><span class="nx">stackNum</span><span class="p">]</span><span class="o">++</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="nx">stackNum</span><span class="p">]</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="o">*</span><span class="nx">stackNum</span><span class="o">+</span><span class="nx">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="nx">stackNum</span><span class="p">]]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">value</span>
+<span class="w">        </span><span class="nx">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="nx">stackNum</span><span class="p">]</span><span class="o">++</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">this</span><span class="w"> </span><span class="o">*</span><span class="nx">TripleInOne</span><span class="p">)</span><span class="w"> </span><span class="nx">Pop</span><span class="p">(</span><span class="nx">stackNum</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">offset</span><span class="p">[</span><span class="nx">stackNum</span><span class="p">]</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">stackNum</span><span class="o">*</span><span class="nx">this</span><span class="p">.</span><span class="nx">stackSize</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">IsEmpty</span><span class="p">(</span><span class="nx">stackNum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="nx">this</span><span class="p">.</span><span class="nx">offset</span><span class="p">[</span><span class="nx">stackNum</span><span class="p">]</span><span class="o">--</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="w">    </span><span class="nx">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="nx">stackNum</span><span class="p">]</span><span class="o">--</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="o">*</span><span class="nx">stackNum</span><span class="o">+</span><span class="nx">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="nx">stackNum</span><span class="p">]]</span>
 <span class="p">}</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">this</span><span class="w"> </span><span class="o">*</span><span class="nx">TripleInOne</span><span class="p">)</span><span class="w"> </span><span class="nx">Peek</span><span class="p">(</span><span class="nx">stackNum</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">offset</span><span class="p">[</span><span class="nx">stackNum</span><span class="p">]</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">stackNum</span><span class="o">*</span><span class="nx">this</span><span class="p">.</span><span class="nx">stackSize</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">IsEmpty</span><span class="p">(</span><span class="nx">stackNum</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="o">*</span><span class="nx">stackNum</span><span class="o">+</span><span class="nx">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="nx">stackNum</span><span class="p">]</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 <span class="p">}</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">this</span><span class="w"> </span><span class="o">*</span><span class="nx">TripleInOne</span><span class="p">)</span><span class="w"> </span><span class="nx">IsEmpty</span><span class="p">(</span><span class="nx">stackNum</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">offset</span><span class="p">[</span><span class="nx">stackNum</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">stackNum</span><span class="o">*</span><span class="nx">this</span><span class="p">.</span><span class="nx">stackSize</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="nx">this</span><span class="p">.</span><span class="nx">cap</span><span class="o">*</span><span class="mi">3</span><span class="o">+</span><span class="nx">stackNum</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span>
 <span class="p">}</span>
 
 <span class="cm">/**</span>
@@ -79432,6 +79512,96 @@
 <span class="cm"> * param_2 := obj.Pop(stackNum);</span>
 <span class="cm"> * param_3 := obj.Peek(stackNum);</span>
 <span class="cm"> * param_4 := obj.IsEmpty(stackNum);</span>
+<span class="cm"> */</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">TripleInOne</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">cap</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">stk</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[];</span>
+
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">stackSize</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">stackSize</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="p">(</span><span class="nx">stackSize</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">3</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">push</span><span class="p">(</span><span class="nx">stackNum</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">stackNum</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">stackNum</span><span class="p">]]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">value</span><span class="p">;</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">stackNum</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">pop</span><span class="p">(</span><span class="nx">stackNum</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">(</span><span class="nx">stackNum</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">stackNum</span><span class="p">]</span><span class="o">--</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">stackNum</span><span class="p">]];</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">peek</span><span class="p">(</span><span class="nx">stackNum</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">isEmpty</span><span class="p">(</span><span class="nx">stackNum</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">stackNum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">stackNum</span><span class="p">]</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">];</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">isEmpty</span><span class="p">(</span><span class="nx">stackNum</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">stk</span><span class="p">[</span><span class="k">this</span><span class="p">.</span><span class="nx">cap</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">stackNum</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Your TripleInOne object will be instantiated and called as such:</span>
+<span class="cm"> * var obj = new TripleInOne(stackSize)</span>
+<span class="cm"> * obj.push(stackNum,value)</span>
+<span class="cm"> * var param_2 = obj.pop(stackNum)</span>
+<span class="cm"> * var param_3 = obj.peek(stackNum)</span>
+<span class="cm"> * var param_4 = obj.isEmpty(stackNum)</span>
 <span class="cm"> */</span>
 </code></pre></div></td></tr></table></div>
 </div>
