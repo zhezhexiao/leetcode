@@ -11604,9 +11604,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-double-stack" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Double Stack
     </span>
   </a>
   
@@ -74628,7 +74628,12 @@ myQueue.empty(); // return false
 <p><strong>Follow-up:</strong> Can you implement the queue such that each operation is <strong><a href="https://en.wikipedia.org/wiki/Amortized_analysis" target="_blank">amortized</a></strong> <code>O(1)</code> time complexity? In other words, performing <code>n</code> operations will take overall <code>O(n)</code> time even if one of those operations may take longer.</p>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-double-stack">Solution 1: Double Stack</h3>
+<p>We use two stacks, where <code>stk1</code> is used for enqueue, and another stack <code>stk2</code> is used for dequeue.</p>
+<p>When enqueueing, we directly push the element into <code>stk1</code>. The time complexity is $O(1)$.</p>
+<p>When dequeueing, we first check whether <code>stk2</code> is empty. If it is empty, we pop all elements from <code>stk1</code> and push them into <code>stk2</code>, and then pop an element from <code>stk2</code>. If <code>stk2</code> is not empty, we directly pop an element from <code>stk2</code>. The amortized time complexity is $O(1)$.</p>
+<p>When getting the front element, we first check whether <code>stk2</code> is empty. If it is empty, we pop all elements from <code>stk1</code> and push them into <code>stk2</code>, and then get the top element from <code>stk2</code>. If <code>stk2</code> is not empty, we directly get the top element from <code>stk2</code>. The amortized time complexity is $O(1)$.</p>
+<p>When checking whether the queue is empty, we only need to check whether both stacks are empty. The time complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -75109,57 +75114,43 @@ myQueue.empty(); // return false
 <span class="normal">45</span>
 <span class="normal">46</span>
 <span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span>
-<span class="normal">54</span>
-<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">struct</span> <span class="nc">MyQueue</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="n">in_stack</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span>
-<span class="w">    </span><span class="n">out_stack</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">collections</span>::<span class="n">VecDeque</span><span class="p">;</span>
+
+<span class="k">struct</span> <span class="nc">MyQueue</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">stk1</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="n">stk2</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">,</span>
 <span class="p">}</span>
 
-<span class="sd">/**</span>
-<span class="sd"> * `&amp;self` means the method takes an immutable reference.</span>
-<span class="sd"> * If you need a mutable reference, change it to `&amp;mut self` instead.</span>
-<span class="sd"> */</span>
 <span class="k">impl</span><span class="w"> </span><span class="n">MyQueue</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">fn</span> <span class="nf">new</span><span class="p">()</span><span class="w"> </span>-&gt; <span class="nc">Self</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="bp">Self</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">in_stack</span>: <span class="nc">vec</span><span class="o">!</span><span class="p">[],</span>
-<span class="w">            </span><span class="n">out_stack</span>: <span class="nc">vec</span><span class="o">!</span><span class="p">[],</span>
+<span class="w">        </span><span class="n">MyQueue</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">stk1</span>: <span class="nb">Vec</span>::<span class="n">new</span><span class="p">(),</span>
+<span class="w">            </span><span class="n">stk2</span>: <span class="nb">Vec</span>::<span class="n">new</span><span class="p">(),</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">fn</span> <span class="nf">push</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">,</span><span class="w"> </span><span class="n">x</span>: <span class="kt">i32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">in_stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">stk1</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">fn</span> <span class="nf">pop</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">out_stack</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">fill_out</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">out_stack</span><span class="p">.</span><span class="n">pop</span><span class="p">().</span><span class="n">unwrap</span><span class="p">()</span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">move_elements</span><span class="p">();</span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">stk2</span><span class="p">.</span><span class="n">pop</span><span class="p">().</span><span class="n">unwrap</span><span class="p">()</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">fn</span> <span class="nf">peek</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">i32</span> <span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">out_stack</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="bp">self</span><span class="p">.</span><span class="n">fill_out</span><span class="p">();</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">out_stack</span><span class="p">.</span><span class="n">last</span><span class="p">().</span><span class="n">unwrap</span><span class="p">()</span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">move_elements</span><span class="p">();</span>
+<span class="w">        </span><span class="o">*</span><span class="bp">self</span><span class="p">.</span><span class="n">stk2</span><span class="p">.</span><span class="n">last</span><span class="p">().</span><span class="n">unwrap</span><span class="p">()</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="k">fn</span> <span class="nf">empty</span><span class="p">(</span><span class="o">&amp;</span><span class="bp">self</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">bool</span> <span class="p">{</span>
-<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">in_stack</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">out_stack</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span>
+<span class="w">        </span><span class="bp">self</span><span class="p">.</span><span class="n">stk1</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">stk2</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">fn</span> <span class="nf">fill_out</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">MyQueue</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">in_stack</span><span class="p">,</span><span class="w"> </span><span class="n">out_stack</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">out_stack</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="o">!</span><span class="n">in_stack</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="n">out_stack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">in_stack</span><span class="p">.</span><span class="n">pop</span><span class="p">().</span><span class="n">unwrap</span><span class="p">());</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">move_elements</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="bp">self</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">stk2</span><span class="p">.</span><span class="n">is_empty</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">while</span><span class="w"> </span><span class="kd">let</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">element</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="bp">self</span><span class="p">.</span><span class="n">stk1</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="bp">self</span><span class="p">.</span><span class="n">stk2</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">element</span><span class="p">);</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
