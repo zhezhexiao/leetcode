@@ -79229,7 +79229,7 @@
 <p>我们先从后往前遍历数组 $nums$，找到第一个满足 $nums[i] \lt nums[i + 1]$ 的位置 $i$，那么 $nums[i]$ 就是我们需要交换的元素，而 $nums[i + 1]$ 到 $nums[n - 1]$ 的元素是一个降序序列。</p>
 <p>接下来，我们再从后往前遍历数组 $nums$，找到第一个满足 $nums[j] \gt nums[i]$ 的位置 $j$，然后我们交换 $nums[i]$ 和 $nums[j]$。最后，我们将 $nums[i + 1]$ 到 $nums[n - 1]$ 的元素反转，即可得到下一个排列。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(1)$。其中 $n$ 为数组的长度。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label><label for="__tabbed_1_7">C#</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label><label for="__tabbed_1_7">C#</label><label for="__tabbed_1_8">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -79521,6 +79521,76 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param integer[] $nums</span>
+<span class="x">     * @return void</span>
+<span class="x">     */</span>
+
+<span class="x">    function nextPermutation(&amp;$nums) {</span>
+<span class="x">        $n = count($nums);</span>
+<span class="x">        $i = $n - 2;</span>
+<span class="x">        while ($i &gt;= 0 &amp;&amp; $nums[$i] &gt;= $nums[$i + 1]) {</span>
+<span class="x">            $i--;</span>
+<span class="x">        }</span>
+<span class="x">        if ($i &gt;= 0) {</span>
+<span class="x">            $j = $n - 1;</span>
+<span class="x">            while ($j &gt;= $i &amp;&amp; $nums[$j] &lt;= $nums[$i]) {</span>
+<span class="x">                $j--;</span>
+<span class="x">            }</span>
+<span class="x">            $temp = $nums[$i];</span>
+<span class="x">            $nums[$i] = $nums[$j];</span>
+<span class="x">            $nums[$j] = $temp;</span>
+<span class="x">        }</span>
+<span class="x">        $this-&gt;reverse($nums, $i + 1, $n - 1);</span>
+<span class="x">    }</span>
+
+<span class="x">    function reverse(&amp;$nums, $start, $end) {</span>
+<span class="x">        while ($start &lt; $end) {</span>
+<span class="x">            $temp = $nums[$start];</span>
+<span class="x">            $nums[$start] = $nums[$end];</span>
+<span class="x">            $nums[$end] = $temp;</span>
+<span class="x">            $start++;</span>
+<span class="x">            $end--;</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -79551,6 +79621,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/ZylalMinollari" class="md-author" title="@ZylalMinollari">
+          
+          <img src="https://avatars.githubusercontent.com/u/84593674?v=4&size=72" alt="ZylalMinollari">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
