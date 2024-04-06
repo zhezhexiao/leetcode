@@ -74979,7 +74979,7 @@ These are the only two combinations.
 <h3 id="solution-2-sorting-pruning-backtrackinganother-form">Solution 2: Sorting + Pruning + Backtracking(Another Form)</h3>
 <p>We can also change the implementation logic of the function $dfs(i, s)$ to another form. In the function $dfs(i, s)$, we first check whether $s$ is $0$. If it is, we add the current search path $t$ to the answer $ans$, and then return. If $i \geq n$ or $s \lt candidates[i]$, the path is invalid, so we return directly. Otherwise, we consider two situations, one is not selecting the element of the current index, that is, recursively calling the function $dfs(i + 1, s)$, and the other is selecting the element of the current index, that is, recursively calling the function $dfs(i, s - candidates[i])$.</p>
 <p>The time complexity is $O(2^n \times n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $candidates$. Due to pruning, the actual time complexity is much less than $O(2^n \times n)$.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:7"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label><label for="__tabbed_2_7">C#</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:8"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><input id="__tabbed_2_7" name="__tabbed_2" type="radio" /><input id="__tabbed_2_8" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">Rust</label><label for="__tabbed_2_7">C#</label><label for="__tabbed_2_8">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -75305,6 +75305,78 @@ These are the only two combinations.
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param integer[] $candidates</span>
+<span class="x">     * @param integer $target</span>
+<span class="x">     * @return integer[][]</span>
+<span class="x">     */</span>
+
+<span class="x">    function combinationSum($candidates, $target) {</span>
+<span class="x">        $result = [];</span>
+<span class="x">        $currentCombination = [];</span>
+<span class="x">        $startIndex = 0;</span>
+
+<span class="x">        sort($candidates);</span>
+<span class="x">        $this-&gt;findCombinations($candidates, $target, $startIndex, $currentCombination, $result);</span>
+<span class="x">        return $result;</span>
+<span class="x">    }</span>
+
+<span class="x">    function findCombinations($candidates, $target, $startIndex, $currentCombination, &amp;$result) {</span>
+<span class="x">        if ($target === 0) {</span>
+<span class="x">            $result[] = $currentCombination;</span>
+<span class="x">            return;</span>
+<span class="x">        }</span>
+
+<span class="x">        for ($i = $startIndex; $i &lt; count($candidates); $i++) {</span>
+<span class="x">            $num = $candidates[$i];</span>
+<span class="x">            if ($num &gt; $target) {</span>
+<span class="x">                break;</span>
+<span class="x">            }</span>
+<span class="x">            $currentCombination[] = $num;</span>
+
+<span class="x">            $this-&gt;findCombinations($candidates, $target - $num, $i, $currentCombination, $result);</span>
+<span class="x">            array_pop($currentCombination);</span>
+<span class="x">        }</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -75335,6 +75407,11 @@ These are the only two combinations.
 
     
     <nav>
+      
+        <a href="https://github.com/ZylalMinollari" class="md-author" title="@ZylalMinollari">
+          
+          <img src="https://avatars.githubusercontent.com/u/84593674?v=4&size=72" alt="ZylalMinollari">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           

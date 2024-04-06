@@ -79252,7 +79252,7 @@
 </ul>
 <p>遍历数独，对于每个数字，判断其所在的行、列 以及 $3 \times 3$ 的宫格是否已经出现过该数字，如果是，则返回 <code>false</code>。遍历结束，返回 <code>true</code>。</p>
 <p>时间复杂度 $O(C)$，空间复杂度 $O(C)$，其中 $C$ 是数独中的空格数。本题中 $C=81$。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label><label for="__tabbed_1_7">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -79538,6 +79538,86 @@
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param string[][] $board</span>
+<span class="x">     * @return boolean</span>
+<span class="x">     */</span>
+
+<span class="x">    function isValidSudoku($board) {</span>
+<span class="x">        $rows = [];</span>
+<span class="x">        $columns = [];</span>
+<span class="x">        $boxes = [];</span>
+
+<span class="x">        for ($i = 0; $i &lt; 9; $i++) {</span>
+<span class="x">            $rows[$i] = [];</span>
+<span class="x">            $columns[$i] = [];</span>
+<span class="x">            $boxes[$i] = [];</span>
+<span class="x">        }</span>
+
+<span class="x">        for ($row = 0; $row &lt; 9; $row++) {</span>
+<span class="x">            for ($column = 0; $column &lt; 9; $column++) {</span>
+<span class="x">                $cell = $board[$row][$column];</span>
+
+<span class="x">                if ($cell != &#39;.&#39;) {</span>
+<span class="x">                    if (</span>
+<span class="x">                        in_array($cell, $rows[$row]) ||</span>
+<span class="x">                        in_array($cell, $columns[$column]) ||</span>
+<span class="x">                        in_array($cell, $boxes[floor($row / 3) * 3 + floor($column / 3)])</span>
+<span class="x">                    ) {</span>
+<span class="x">                        return false;</span>
+<span class="x">                    }</span>
+
+<span class="x">                    $rows[$row][] = $cell;</span>
+<span class="x">                    $columns[$column][] = $cell;</span>
+<span class="x">                    $boxes[floor($row / 3) * 3 + floor($column / 3)][] = $cell;</span>
+<span class="x">                }</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+<span class="x">        return true;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -79568,6 +79648,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/ZylalMinollari" class="md-author" title="@ZylalMinollari">
+          
+          <img src="https://avatars.githubusercontent.com/u/84593674?v=4&size=72" alt="ZylalMinollari">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
