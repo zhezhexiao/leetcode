@@ -20266,9 +20266,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-binary-search" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Binary Search
     </span>
   </a>
   
@@ -74728,7 +74728,27 @@ Note that we do not consider the subarrays of length &lt; 4.
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
+<p>We note that if the average value of a subarray with length greater than or equal to $k$ is $v$, then the maximum average number must be greater than or equal to $v$, otherwise the maximum average number must be less than $v$. Therefore, we can use binary search to find the maximum average number.</p>
+<p>What are the left and right boundaries of binary search? The left boundary $l$ must be the minimum value in the array, and the right boundary $r$ is the maximum value in the array. Next, we binary search the midpoint $mid$, and judge whether there exists a subarray with length greater than or equal to $k$ whose average value is greater than or equal to $mid$. If it exists, then we update the left boundary $l$ to $mid$, otherwise we update the right boundary $r$ to $mid$. When the difference between the left and right boundaries is less than a very small non-negative number, i.e., $r - l &lt; \epsilon$, we can get the maximum average number, where $\epsilon$ represents a very small positive number, which can be $10^{-5}$.</p>
+<p>The key to the problem is how to judge whether the average value of a subarray with length greater than or equal to $k$ is greater than or equal to $v$.</p>
+<p>We assume that in the array $nums$, there is a subarray with length $j$, the elements are $a_1, a_2, \cdots, a_j$, and its average value is greater than or equal to $v$, i.e.,</p>
+<p>$$
+\frac{a_1 + a_2 + \cdots + a_j}{j} \geq v
+$$</p>
+<p>Then,</p>
+<p>$$
+a_1 + a_2 + \cdots + a_j \geq v \times j
+$$</p>
+<p>That is,</p>
+<p>$$
+(a_1 - v) + (a_2 - v) + \cdots + (a_j - v) \geq 0
+$$</p>
+<p>We can find that if we subtract $v$ from each element in the array $nums$, the original problem is transformed into a problem of whether the sum of the elements of a subarray with length greater than or equal to $k$ is greater than or equal to $0$. We can use a sliding window to solve this problem.</p>
+<p>First, we calculate the sum $s$ of the differences between the first $k$ elements and $v$. If $s \geq 0$, it means that there exists a subarray with length greater than or equal to $k$ whose element sum is greater than or equal to $0$.</p>
+<p>Otherwise, we continue to traverse the element $nums[j]$. Suppose the current sum of the differences between the first $j$ elements and $v$ is $s_j$. Then we can maintain the minimum value $mi$ of the sum of the differences between the prefix sum and $v$ in the range $[0,..j-k]$. If $s_j \geq mi$ exists, it means that there exists a subarray with length greater than or equal to $k$ whose element sum is greater than or equal to $0$, and we return $true$.</p>
+<p>Otherwise, we continue to traverse the element $nums[j]$ until the entire array is traversed.</p>
+<p>The time complexity is $O(n \times \log M)$, where $n$ and $M$ are the length of the array $nums$ and the difference between the maximum and minimum values in the array, respectively. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
