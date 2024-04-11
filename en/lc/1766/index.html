@@ -6655,6 +6655,8 @@
       
         
       
+        
+      
     
     
       
@@ -43828,9 +43830,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-preprocessing-enumeration-stack-backtracking" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Preprocessing + Enumeration + Stack + Backtracking
     </span>
   </a>
   
@@ -72032,6 +72034,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3109/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3109. Find the Index of Permutation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -74749,7 +74772,10 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-preprocessing-enumeration-stack-backtracking">Solution 1: Preprocessing + Enumeration + Stack + Backtracking</h3>
+<p>Since the range of $nums[i]$ in the problem is $[1, 50]$, we can preprocess all the coprime numbers for each number and record them in the array $f$, where $f[i]$ represents all the coprime numbers of $i$.</p>
+<p>Next, we can use a backtracking method to traverse the entire tree from the root node. For each node $i$, we can get all the coprime numbers of $nums[i]$ through the array $f$. Then we enumerate all the coprime numbers of $nums[i]$, find the ancestor node $t$ that has appeared and has the maximum depth, which is the nearest coprime ancestor node of $i$. Here we can use a stack array $stks$ of length $51$ to get each appeared value $v$ and its depth. The top element of each stack $stks[v]$ is the nearest ancestor node with the maximum depth.</p>
+<p>The time complexity is $O(n \times M)$, and the space complexity is $O(M^2 + n)$. Where $n$ is the number of nodes, and $M$ is the maximum value of $nums[i]$, in this problem $M = 50$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

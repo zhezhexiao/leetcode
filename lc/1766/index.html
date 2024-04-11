@@ -6695,6 +6695,8 @@
       
         
       
+        
+      
     
     
       
@@ -72072,6 +72074,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3109/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3109. Find the Index of Permutation
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -79354,7 +79377,7 @@
 <h3 id="_3">方法一：预处理 + 枚举 + 栈 + 回溯</h3>
 <p>由于题目中 $nums[i]$ 的取值范围为 $[1, 50]$，因此我们可以预处理出每个数的所有互质数，记录在数组 $f$ 中，其中 $f[i]$ 表示 $i$ 的所有互质数。</p>
 <p>接下来我们可以使用回溯的方法，从根节点开始遍历整棵树，对于每个节点 $i$，我们可以通过 $f$ 数组得到 $nums[i]$ 的所有互质数。然后我们枚举 $nums[i]$ 的所有互质数，找到已经出现过的且深度最大的祖先节点 $t$，即为 $i$ 的最近的互质祖先节点。这里我们可以用一个长度为 $51$ 的栈数组 $stks$ 来获取每个出现过的值 $v$ 的节点以及其深度。每个栈 $stks[v]$ 的栈顶元素就是最近的深度最大的祖先节点。</p>
-<p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为节点个数。</p>
+<p>时间复杂度 $O(n \times M)$，空间复杂度 $O(M^2 + n)$。其中 $n$ 为节点个数，而 $M$ 为 $nums[i]$ 的最大值，本题中 $M = 50$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
