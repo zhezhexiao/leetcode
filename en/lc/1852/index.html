@@ -45636,18 +45636,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1-sliding-window-hash-table-or-array" class="md-nav__link">
+  <a href="#solution-1-sliding-window-hash-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1: Sliding Window + Hash Table or Array
+      Solution 1: Sliding Window + Hash Table
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-sliding-window-array" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Sliding Window + Array
     </span>
   </a>
   
@@ -74786,12 +74786,12 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1-sliding-window-hash-table-or-array">Solution 1: Sliding Window + Hash Table or Array</h3>
-<p>We use a hash table or array $cnt$ to record the occurrence of each number in each subarray of length $k$.</p>
-<p>Next, we first traverse the first $k$ elements of the array, record the occurrence of each element, and update the number of types $v$. After traversing, we first add $v$ to the answer array.</p>
-<p>Then, we continue to traverse the array from index $k$. Each time we traverse, we increase the occurrence of the current element by one, and decrease the occurrence of the element on the left of the current element by one. If the occurrence after decrementing is $0$, we remove it from the hash table or array, then update the number of types $v$, and add it to the answer array.</p>
-<p>After the traversal is over, we return the answer array.</p>
-<p>The time complexity is $O(n)$, and the space complexity is $O(n)$ or $O(M)$. Where $n$ is the length of the array $nums$; and $M$ is the maximum value in the array $nums$, in this problem $M \le 10^5$.</p>
+<h3 id="solution-1-sliding-window-hash-table">Solution 1: Sliding Window + Hash Table</h3>
+<p>We use a hash table $cnt$ to record the occurrence times of each number in the subarray of length $k$.</p>
+<p>Next, we first traverse the first $k$ elements of the array, record the occurrence times of each element, and after the traversal, we take the size of the hash table as the first element of the answer array.</p>
+<p>Then, we continue to traverse the array from the index $k$. Each time we traverse, we increase the occurrence times of the current element by one, and decrease the occurrence times of the element on the left of the current element by one. If the occurrence times of the left element become $0$ after subtraction, we remove it from the hash table. Then we take the size of the hash table as the next element of the answer array, and continue to traverse.</p>
+<p>After the traversal, we return the answer array.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(k)$. Where $n$ is the length of the array $nums$, and $k$ is the parameter given by the problem.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -74970,7 +74970,9 @@
 </div>
 </div>
 </div>
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-sliding-window-array">Solution 2: Sliding Window + Array</h3>
+<p>We can also use an array to replace the hash table, which can improve performance to some extent.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(M)$. Where $n$ is the length of the array $nums$, and $M$ is the maximum value in the array $nums$. In this problem, $M \leq 10^5$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label><label for="__tabbed_2_2">C++</label><label for="__tabbed_2_3">Go</label><label for="__tabbed_2_4">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
