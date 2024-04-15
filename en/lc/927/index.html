@@ -26229,9 +26229,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-counting-three-pointers" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Counting + Three Pointers
     </span>
   </a>
   
@@ -74954,7 +74954,25 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-counting-three-pointers">Solution 1: Counting + Three Pointers</h3>
+<p>We denote the length of the array as $n$, and the number of '1's in the array as $cnt$.</p>
+<p>Obviously, $cnt$ must be a multiple of $3$, otherwise the array cannot be divided into three equal parts, and we can return $[-1, -1]$ in advance. If $cnt$ is $0$, it means that all elements in the array are '0', and we can directly return $[0, n - 1]$.</p>
+<p>We divide $cnt$ by $3$ to get the number of '1's in each part, and then find the position of the first '1' in each part in the array <code>arr</code> (refer to the $find(x)$ function in the following code), denoted as $i$, $j$, $k$ respectively.</p>
+<div class="highlight"><pre><span></span><code><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+<span class="w">  </span>^<span class="w">         </span>^<span class="w">             </span>^
+<span class="w">  </span>i<span class="w">         </span>j<span class="w">             </span>k
+</code></pre></div>
+<p>Then we start from $i$, $j$, $k$ and traverse each part at the same time, check whether the corresponding values of the three parts are equal. If they are, continue to traverse until $k$ reaches the end of <code>arr</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">0</span>
+<span class="w">          </span>^<span class="w">         </span>^<span class="w">             </span>^
+<span class="w">          </span>i<span class="w">         </span>j<span class="w">             </span>k
+</code></pre></div>
+<p>At the end of the traversal, if $k=n$, it means that it satisfies the three equal parts, and we return $[i - 1, j]$ as the answer, otherwise return $[-1, -1]$.</p>
+<p>The time complexity is $O(n)$, where $n$ is the length of <code>arr</code>. The space complexity is $O(1)$.</p>
+<p>Similar problems:</p>
+<ul>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/1500-1599/1573.Number%20of%20Ways%20to%20Split%20a%20String/README_EN.md">1573. Number of Ways to Split a String</a></li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
