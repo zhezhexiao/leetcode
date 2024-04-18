@@ -6673,6 +6673,8 @@
       
         
       
+        
+      
     
     
       
@@ -72184,6 +72186,27 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lc/3119/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3119. Maximum Number of Potholes That Can Be Fixed
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -75075,16 +75098,16 @@
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">counts2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">R</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">G</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">B</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">Y</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="p">};</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">res1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">solution</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">solution</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="nx">i</span><span class="p">),</span>
-<span class="w">            </span><span class="nx">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">guess</span><span class="p">.</span><span class="nx">charAt</span><span class="p">(</span><span class="nx">i</span><span class="p">);</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">s1</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">s2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">solution</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span>
+<span class="w">            </span><span class="nx">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">guess</span><span class="p">[</span><span class="nx">i</span><span class="p">];</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">s1</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">s2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">res1</span><span class="o">++</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">counts1</span><span class="p">[</span><span class="nx">s1</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
 <span class="w">            </span><span class="nx">counts2</span><span class="p">[</span><span class="nx">s2</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">res2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;R&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Y&#39;</span><span class="p">].</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">counts1</span><span class="p">[</span><span class="nx">c</span><span class="p">],</span><span class="w"> </span><span class="nx">counts2</span><span class="p">[</span><span class="nx">c</span><span class="p">]),</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">res2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">counts1</span><span class="p">).</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">counts1</span><span class="p">[</span><span class="nx">c</span><span class="p">],</span><span class="w"> </span><span class="nx">counts2</span><span class="p">[</span><span class="nx">c</span><span class="p">]),</span><span class="w"> </span><span class="mf">0</span><span class="p">);</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">[</span><span class="nx">res1</span><span class="p">,</span><span class="w"> </span><span class="nx">res2</span><span class="p">];</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
@@ -75120,14 +75143,14 @@
     
     <nav>
       
-        <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
-          
-          <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
-        </a>
-      
         <a href="https://github.com/thinkasany" class="md-author" title="@thinkasany">
           
           <img src="https://avatars.githubusercontent.com/u/117748716?v=4&size=72" alt="thinkasany">
+        </a>
+      
+        <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
+          
+          <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
         </a>
       
         <a href="https://github.com/zhaocchen" class="md-author" title="@zhaocchen">
