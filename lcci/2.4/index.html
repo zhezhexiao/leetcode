@@ -79562,7 +79562,7 @@
 <p>遍历结束后，我们将 $left$ 链表的尾节点指向 $right$ 链表的第一个有效节点，即 $p1.next = right.next$，然后将 $right$ 链表的尾节点指向空节点，即 $p2.next = null$。</p>
 <p>最后我们返回 $left$ 链表的第一个有效节点。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 是链表的长度。空间复杂度 $O(1)$。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -79834,6 +79834,78 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/** public class ListNode {</span>
+<span class="cm">*    var val: Int</span>
+<span class="cm">*    var next: ListNode?</span>
+<span class="cm">*    init(_ x: Int) {</span>
+<span class="cm">*        self.val = x</span>
+<span class="cm">*        self.next = nil</span>
+<span class="cm">*    }</span>
+<span class="cm">* }</span>
+<span class="cm">*/</span>
+
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">partition</span><span class="p">(</span><span class="kc">_</span> <span class="n">head</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">?,</span> <span class="kc">_</span> <span class="n">x</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="n">ListNode</span><span class="p">?</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">leftDummy</span> <span class="p">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="kd">let</span> <span class="nv">rightDummy</span> <span class="p">=</span> <span class="n">ListNode</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="kd">var</span> <span class="nv">left</span> <span class="p">=</span> <span class="n">leftDummy</span>
+        <span class="kd">var</span> <span class="nv">right</span> <span class="p">=</span> <span class="n">rightDummy</span>
+        <span class="kd">var</span> <span class="nv">head</span> <span class="p">=</span> <span class="n">head</span>
+
+        <span class="k">while</span> <span class="kd">let</span> <span class="nv">current</span> <span class="p">=</span> <span class="n">head</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="n">current</span><span class="p">.</span><span class="n">val</span> <span class="o">&lt;</span> <span class="n">x</span> <span class="p">{</span>
+                <span class="kr">left</span><span class="p">.</span><span class="n">next</span> <span class="p">=</span> <span class="n">current</span>
+                <span class="kr">left</span> <span class="p">=</span> <span class="kr">left</span><span class="p">.</span><span class="n">next</span><span class="p">!</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="kr">right</span><span class="p">.</span><span class="n">next</span> <span class="p">=</span> <span class="n">current</span>
+                <span class="kr">right</span> <span class="p">=</span> <span class="kr">right</span><span class="p">.</span><span class="n">next</span><span class="p">!</span>
+            <span class="p">}</span>
+            <span class="n">head</span> <span class="p">=</span> <span class="n">head</span><span class="p">?.</span><span class="n">next</span>
+        <span class="p">}</span>
+
+        <span class="kr">right</span><span class="p">.</span><span class="n">next</span> <span class="p">=</span> <span class="kc">nil</span>
+        <span class="kr">left</span><span class="p">.</span><span class="n">next</span> <span class="p">=</span> <span class="n">rightDummy</span><span class="p">.</span><span class="n">next</span>
+
+        <span class="k">return</span> <span class="n">leftDummy</span><span class="p">.</span><span class="n">next</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -79864,6 +79936,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
