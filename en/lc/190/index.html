@@ -10754,9 +10754,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-bit-manipulation" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Bit Manipulation
     </span>
   </a>
   
@@ -74977,7 +74977,10 @@
 <p><strong>Follow up:</strong> If this function is called many times, how would you optimize it?</p>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-bit-manipulation">Solution 1: Bit Manipulation</h3>
+<p>We can extract each bit of <code>n</code> from the least significant bit to the most significant bit, and then place it in the corresponding position of <code>ans</code>.</p>
+<p>For example, for the $i$-th bit, we can use <code>(n &amp; 1) &lt;&lt; (31 - i)</code> to extract the $i$-th bit of <code>n</code> and place it on the $31 - i$-th bit of <code>ans</code>, then right shift <code>n</code> by one bit.</p>
+<p>The time complexity is $O(\log n)$, and the space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">Rust</label><label for="__tabbed_1_6">JavaScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -74989,11 +74992,11 @@
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">reverseBits</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">):</span>
-            <span class="n">res</span> <span class="o">|=</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">31</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
+            <span class="n">ans</span> <span class="o">|=</span> <span class="p">(</span><span class="n">n</span> <span class="o">&amp;</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">31</span> <span class="o">-</span> <span class="n">i</span><span class="p">)</span>
             <span class="n">n</span> <span class="o">&gt;&gt;=</span> <span class="mi">1</span>
-        <span class="k">return</span> <span class="n">res</span>
+        <span class="k">return</span> <span class="n">ans</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -75010,12 +75013,12 @@
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="c1">// you need treat n as an unsigned value</span>
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">reverseBits</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">((</span><span class="n">n</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">));</span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 <span class="w">            </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -75034,12 +75037,12 @@
 <span class="normal">11</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">reverseBits</span><span class="p">(</span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">((</span><span class="n">n</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">));</span>
+<span class="w">        </span><span class="kt">uint32_t</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
 <span class="w">            </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">res</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ans</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
@@ -75051,14 +75054,12 @@
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span>
-<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">reverseBits</span><span class="p">(</span><span class="nx">num</span><span class="w"> </span><span class="kt">uint32</span><span class="p">)</span><span class="w"> </span><span class="kt">uint32</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">ans</span><span class="w"> </span><span class="kt">uint32</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">reverseBits</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">uint32</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">ans</span><span class="w"> </span><span class="kt">uint32</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="p">&lt;</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="o">++</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">ans</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="nx">num</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span>
-<span class="w">        </span><span class="nx">num</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">        </span><span class="nx">ans</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)</span>
+<span class="w">        </span><span class="nx">n</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span>
+<span class="w">    </span><span class="k">return</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
@@ -75073,13 +75074,13 @@
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">reverse_bits</span><span class="p">(</span><span class="k">mut</span><span class="w"> </span><span class="n">x</span>: <span class="kt">u32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">u32</span> <span class="p">{</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">32</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="n">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">res</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
-<span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">reverse_bits</span><span class="p">(</span><span class="k">mut</span><span class="w"> </span><span class="n">n</span>: <span class="kt">u32</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">u32</span> <span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="k">mut</span><span class="w"> </span><span class="n">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="mi">0</span><span class="o">..</span><span class="mi">32</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">ans</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">i</span><span class="p">);</span>
+<span class="w">            </span><span class="n">n</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">res</span>
+<span class="w">        </span><span class="n">ans</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -75096,19 +75097,17 @@
 <span class="normal"> 9</span>
 <span class="normal">10</span>
 <span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
+<span class="normal">12</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * @param {number} n - a positive integer</span>
 <span class="cm"> * @return {number} - a positive integer</span>
 <span class="cm"> */</span>
 <span class="kd">var</span><span class="w"> </span><span class="nx">reverseBits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">32</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">n</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">res</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mf">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">);</span>
-<span class="w">        </span><span class="nx">n</span><span class="w"> </span><span class="o">&gt;&gt;&gt;=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">32</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">ans</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="mf">31</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">n</span><span class="w"> </span><span class="o">&gt;&gt;=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="c1">// 无符号右移</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">res</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span><span class="w"> </span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 </div>
