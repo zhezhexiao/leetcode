@@ -79708,6 +79708,38 @@
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <span class="p">};</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="cm">/*</span>
+<span class="cm">* public class ListNode {</span>
+<span class="cm">*    var val: Int</span>
+<span class="cm">*    var next: ListNode?</span>
+<span class="cm">*    init(_ x: Int) {</span>
+<span class="cm">*        self.val = x</span>
+<span class="cm">*        self.next = nil</span>
+<span class="cm">*    }</span>
+<span class="cm">* }</span>
+<span class="cm">*/</span>
+
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">detectCycle</span><span class="p">(</span><span class="kc">_</span> <span class="n">head</span><span class="p">:</span> <span class="n">ListNode</span><span class="p">?)</span> <span class="p">-&gt;</span> <span class="n">ListNode</span><span class="p">?</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">slow</span> <span class="p">=</span> <span class="n">head</span>
+        <span class="kd">var</span> <span class="nv">fast</span> <span class="p">=</span> <span class="n">head</span>
+
+        <span class="k">while</span> <span class="n">fast</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="o">&amp;&amp;</span> <span class="n">fast</span><span class="p">?.</span><span class="n">next</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+            <span class="n">slow</span> <span class="p">=</span> <span class="n">slow</span><span class="p">?.</span><span class="n">next</span>
+            <span class="n">fast</span> <span class="p">=</span> <span class="n">fast</span><span class="p">?.</span><span class="n">next</span><span class="p">?.</span><span class="n">next</span>
+            <span class="k">if</span> <span class="n">slow</span> <span class="p">===</span> <span class="n">fast</span> <span class="p">{</span>
+                <span class="kd">var</span> <span class="nv">ans</span> <span class="p">=</span> <span class="n">head</span>
+                <span class="k">while</span> <span class="n">ans</span> <span class="o">!==</span> <span class="n">slow</span> <span class="p">{</span>
+                    <span class="n">ans</span> <span class="p">=</span> <span class="n">ans</span><span class="p">?.</span><span class="n">next</span>
+                    <span class="n">slow</span> <span class="p">=</span> <span class="n">slow</span><span class="p">?.</span><span class="n">next</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="n">ans</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="kc">nil</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
 
 
 
@@ -79735,6 +79767,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
