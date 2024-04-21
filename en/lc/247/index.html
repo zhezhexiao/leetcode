@@ -11951,9 +11951,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-recursion" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Recursion
     </span>
   </a>
   
@@ -74967,7 +74967,18 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-recursion">Solution 1: Recursion</h3>
+<p>If the length is $1$, then the strobogrammatic numbers are only $0, 1, 8$; if the length is $2$, then the strobogrammatic numbers are only $11, 69, 88, 96$.</p>
+<p>We design a recursive function $dfs(u)$, which returns the strobogrammatic numbers of length $u$. The answer is $dfs(n)$.</p>
+<p>If $u$ is $0$, return a list containing an empty string, i.e., <code>[""]</code>; if $u$ is $1$, return the list <code>["0", "1", "8"]</code>.</p>
+<p>If $u$ is greater than $1$, we traverse all the strobogrammatic numbers of length $u - 2$. For each strobogrammatic number $v$, we add $1, 8, 6, 9$ to both sides of it, and we can get the strobogrammatic numbers of length <code>u</code>.</p>
+<p>Note that if $u \neq n$, we can also add $0$ to both sides of the strobogrammatic number.</p>
+<p>Finally, we return all the strobogrammatic numbers of length $n$.</p>
+<p>The time complexity is $O(2^{n+2})$.</p>
+<p>Similar problems:</p>
+<ul>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0248.Strobogrammatic%20Number%20III/README_EN.md">248. Strobogrammatic Number III 🔒</a></li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

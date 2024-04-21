@@ -11300,27 +11300,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-pruning-backtracking-two-approaches" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Pruning + Backtracking (Two Approaches)
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-binary-enumeration" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#solution-3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Solution 3
+      Solution 2: Binary Enumeration
     </span>
   </a>
   
@@ -75007,7 +74998,15 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-pruning-backtracking-two-approaches">Solution 1: Pruning + Backtracking (Two Approaches)</h3>
+<p>We design a function $dfs(i, s)$, which represents that we are currently enumerating the number $i$, and there are still numbers with a sum of $s$ to be enumerated. The current search path is $t$, and the answer is $ans$.</p>
+<p>The execution logic of the function $dfs(i, s)$ is as follows:</p>
+<p>Approach One:</p>
+<ul>
+<li>If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $ans$ and then return.</li>
+<li>If $i \gt 9$ or $i \gt s$ or the length of the current search path $t$ is greater than $k$, it means that the current search path cannot be the answer, so return directly.</li>
+<li>Otherwise, we can choose to add the number $i$ to the search path $t$, and then continue to search, i.e., execute $dfs(i + 1, s - i)$. After the search is completed, remove $i$ from the search path $t$; we can also choose not to add the number $i$ to the search path $t$, and directly execute $dfs(i + 1, s)$.</li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -75374,7 +75373,14 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 </div>
 </div>
 </div>
-<h3 id="solution-2">Solution 2</h3>
+<p>Another approach:</p>
+<ul>
+<li>If $s = 0$ and the length of the current search path $t$ is $k$, it means that a group of answers has been found. Add $t$ to $ans$ and then return.</li>
+<li>If $i \gt 9$ or $i \gt s$ or the length of the current search path $t$ is greater than $k$, it means that the current search path cannot be the answer, so return directly.</li>
+<li>Otherwise, we enumerate the next number $j$, i.e., $j \in [i, 9]$, add the number $j$ to the search path $t$, and then continue to search, i.e., execute $dfs(j + 1, s - j)$. After the search is completed, remove $j$ from the search path $t$.</li>
+</ul>
+<p>In the main function, we call $dfs(1, n)$, i.e., start enumerating from the number $1$, and the remaining numbers with a sum of $n$ need to be enumerated. After the search is completed, we can get all the answers.</p>
+<p>The time complexity is $(C_{9}^k \times k)$, and the space complexity is $O(k)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -75677,7 +75683,16 @@ Using 4 different numbers in the range [1,9], the smallest sum we can get is 1+2
 </div>
 </div>
 </div>
-<h3 id="solution-3">Solution 3</h3>
+<h3 id="solution-2-binary-enumeration">Solution 2: Binary Enumeration</h3>
+<p>We can use a binary integer of length $9$ to represent the selection of numbers $1$ to $9$, where the $i$-th bit of the binary integer represents whether the number $i + 1$ is selected. If the $i$-th bit is $1$, it means that the number $i + 1$ is selected, otherwise, it means that the number $i + 1$ is not selected.</p>
+<p>We enumerate binary integers in the range of $[0, 2^9)$. For the currently enumerated binary integer $mask$, if the number of $1$s in the binary representation of $mask$ is $k$, and the sum of the numbers corresponding to $1$ in the binary representation of $mask$ is $n$, it means that the number selection scheme corresponding to $mask$ is a group of answers. We can add the number selection scheme corresponding to $mask$ to the answer.</p>
+<p>The time complexity is $O(2^9 \times 9)$, and the space complexity is $O(k)$.</p>
+<p>Similar problems:</p>
+<ul>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0039.Combination%20Sum/README_EN.md">39. Combination Sum</a></li>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0040.Combination%20Sum%20II/README_EN.md">40. Combination Sum II</a></li>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0077.Combinations/README_EN.md">77. Combinations</a></li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:6"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><input id="__tabbed_3_6" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">TypeScript</label><label for="__tabbed_3_6">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
