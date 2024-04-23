@@ -75097,7 +75097,7 @@
 <p>We assume the length of the array $nums$ is $n$, then the smallest positive integer must be in the range $[1, .., n + 1]$. We can traverse the array and swap each number $x$ to its correct position, that is, the position $x - 1$. If $x$ is not in the range $[1, n + 1]$, then we can ignore it.</p>
 <p>After the traversal, we traverse the array again. If $i+1$ is not equal to $nums[i]$, then $i+1$ is the smallest positive integer we are looking for.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C#</label><label for="__tabbed_1_8">C</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:9"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><input id="__tabbed_1_9" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C#</label><label for="__tabbed_1_8">C</label><label for="__tabbed_1_9">PHP</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -75401,6 +75401,70 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="x">class Solution {</span>
+<span class="x">    /**</span>
+<span class="x">     * @param integer[] $nums</span>
+<span class="x">     * @return integer</span>
+<span class="x">     */</span>
+
+<span class="x">    function firstMissingPositive($nums) {</span>
+<span class="x">        $n = count($nums);</span>
+
+<span class="x">        for ($i = 0; $i &lt; $n; $i++) {</span>
+<span class="x">            if ($nums[$i] &lt;= 0) {</span>
+<span class="x">                $nums[$i] = $n + 1;</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+
+<span class="x">        for ($i = 0; $i &lt; $n; $i++) {</span>
+<span class="x">            $num = abs($nums[$i]);</span>
+<span class="x">            if ($num &lt;= $n) {</span>
+<span class="x">                $nums[$num - 1] = -abs($nums[$num - 1]);</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+
+<span class="x">        for ($i = 0; $i &lt; $n; $i++) {</span>
+<span class="x">            if ($nums[$i] &gt; 0) {</span>
+<span class="x">                return $i + 1;</span>
+<span class="x">            }</span>
+<span class="x">        }</span>
+
+<span class="x">        return $n + 1;</span>
+<span class="x">    }</span>
+<span class="x">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -75431,6 +75495,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/ZylalMinollari" class="md-author" title="@ZylalMinollari">
+          
+          <img src="https://avatars.githubusercontent.com/u/84593674?v=4&size=72" alt="ZylalMinollari">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
