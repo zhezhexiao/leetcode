@@ -8880,15 +8880,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      方法二
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -79716,10 +79707,10 @@
 
 <h2 id="_2">解法</h2>
 <h3 id="_3">方法一：递归</h3>
-<p>中序遍历，若是一个有效的二叉搜索树，那么遍历到的序列应该是单调递增的。所以只要比较判断遍历到的当前数是否大于上一个数即可。</p>
-<p>或者考虑以 <code>root</code> 为根的子树，所有节点的值是否都在合法范围内，递归判断即可。</p>
-<p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是树中节点的数量。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">C#</label></div>
+<p>我们可以对二叉树进行递归中序遍历，如果遍历到的结果是严格升序的，那么这棵树就是一个二叉搜索树。</p>
+<p>因此，我们使用一个变量 $\textit{prev}$ 来保存上一个遍历到的节点，初始时 $\textit{prev} = -\infty$，然后我们递归遍历左子树，如果左子树不是二叉搜索树，直接返回 $\text{False}$，否则判断当前节点的值是否大于 $\textit{prev}$，如果不是，返回 $\text{False}$，否则更新 $\textit{prev}$ 为当前节点的值，然后递归遍历右子树。</p>
+<p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点个数。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label><label for="__tabbed_1_8">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -79742,9 +79733,7 @@
 <span class="normal">18</span>
 <span class="normal">19</span>
 <span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Definition for a binary tree node.</span>
+<span class="normal">21</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Definition for a binary tree node.</span>
 <span class="c1"># class TreeNode:</span>
 <span class="c1">#     def __init__(self, val=0, left=None, right=None):</span>
 <span class="c1">#         self.val = val</span>
@@ -79752,18 +79741,16 @@
 <span class="c1">#         self.right = right</span>
 <span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">isValidBST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">):</span>
-            <span class="k">nonlocal</span> <span class="n">prev</span>
+        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">return</span> <span class="kc">True</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">):</span>
                 <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">nonlocal</span> <span class="n">prev</span>
             <span class="k">if</span> <span class="n">prev</span> <span class="o">&gt;=</span> <span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="p">:</span>
                 <span class="k">return</span> <span class="kc">False</span>
             <span class="n">prev</span> <span class="o">=</span> <span class="n">root</span><span class="o">.</span><span class="n">val</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">):</span>
-                <span class="k">return</span> <span class="kc">False</span>
-            <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">)</span>
 
         <span class="n">prev</span> <span class="o">=</span> <span class="o">-</span><span class="n">inf</span>
         <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
@@ -79805,11 +79792,7 @@
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span>
-<span class="normal">38</span>
-<span class="normal">39</span>
-<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Definition for a binary tree node.</span>
 <span class="cm"> * public class TreeNode {</span>
 <span class="cm"> *     int val;</span>
@@ -79825,10 +79808,9 @@
 <span class="cm"> * }</span>
 <span class="cm"> */</span>
 <span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Integer</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -79839,76 +79821,13 @@
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">left</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prev</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prev</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">prev</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">val</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">right</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">right</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Definition for a binary tree node.</span>
-<span class="cm"> * struct TreeNode {</span>
-<span class="cm"> *     int val;</span>
-<span class="cm"> *     TreeNode *left;</span>
-<span class="cm"> *     TreeNode *right;</span>
-<span class="cm"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
-<span class="cm"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
-<span class="cm"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
-<span class="cm"> * };</span>
-<span class="cm"> */</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span>
-
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prev</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">prev</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">))</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -79944,6 +79863,65 @@
 <span class="normal">30</span>
 <span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * struct TreeNode {</span>
+<span class="cm"> *     int val;</span>
+<span class="cm"> *     TreeNode *left;</span>
+<span class="cm"> *     TreeNode *right;</span>
+<span class="cm"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
+<span class="cm"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
+<span class="cm"> * };</span>
+<span class="cm"> */</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">nullptr</span><span class="p">;</span>
+<span class="w">        </span><span class="n">function</span><span class="o">&lt;</span><span class="kt">bool</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="n">dfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">&amp;</span><span class="p">](</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prev</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">prev</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
+<span class="w">        </span><span class="p">};</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
 <span class="cm"> * type TreeNode struct {</span>
 <span class="cm"> *     Val int</span>
 <span class="cm"> *     Left *TreeNode</span>
@@ -79952,8 +79930,7 @@
 <span class="cm"> */</span>
 <span class="kd">func</span><span class="w"> </span><span class="nx">isValidBST</span><span class="p">(</span><span class="nx">root</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">prev</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span>
-
-<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">dfs</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">root</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">dfs</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span>
 <span class="w">    </span><span class="nx">dfs</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kd">func</span><span class="p">(</span><span class="nx">root</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
@@ -79965,12 +79942,8 @@
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="nx">prev</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">root</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Right</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
-
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">)</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
@@ -80006,25 +79979,23 @@
 <span class="normal">28</span>
 <span class="normal">29</span>
 <span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span>
-<span class="normal">33</span>
-<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
+<span class="normal">31</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Definition for a binary tree node.</span>
-<span class="cm"> * function TreeNode(val, left, right) {</span>
-<span class="cm"> *     this.val = (val===undefined ? 0 : val)</span>
-<span class="cm"> *     this.left = (left===undefined ? null : left)</span>
-<span class="cm"> *     this.right = (right===undefined ? null : right)</span>
+<span class="cm"> * class TreeNode {</span>
+<span class="cm"> *     val: number</span>
+<span class="cm"> *     left: TreeNode | null</span>
+<span class="cm"> *     right: TreeNode | null</span>
+<span class="cm"> *     constructor(val?: number, left?: TreeNode | null, right?: TreeNode | null) {</span>
+<span class="cm"> *         this.val = (val===undefined ? 0 : val)</span>
+<span class="cm"> *         this.left = (left===undefined ? null : left)</span>
+<span class="cm"> *         this.right = (right===undefined ? null : right)</span>
+<span class="cm"> *     }</span>
 <span class="cm"> * }</span>
 <span class="cm"> */</span>
-<span class="cm">/**</span>
-<span class="cm"> * @param {TreeNode} root</span>
-<span class="cm"> * @return {boolean}</span>
-<span class="cm"> */</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">isValidBST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
 
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">dfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">function</span><span class="w"> </span><span class="nx">isValidBST</span><span class="p">(</span><span class="nx">root</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">prev</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">root</span><span class="o">:</span><span class="w"> </span><span class="kt">TreeNode</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
@@ -80035,14 +80006,10 @@
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="nx">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">root</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">right</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">right</span><span class="p">);</span>
 <span class="w">    </span><span class="p">};</span>
-
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">);</span>
-<span class="p">};</span>
+<span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -80085,57 +80052,48 @@
 <span class="normal">37</span>
 <span class="normal">38</span>
 <span class="normal">39</span>
-<span class="normal">40</span>
-<span class="normal">41</span>
-<span class="normal">42</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Definition for a binary tree node.</span>
-<span class="cm"> * public class TreeNode {</span>
-<span class="cm"> *     public int val;</span>
-<span class="cm"> *     public TreeNode left;</span>
-<span class="cm"> *     public TreeNode right;</span>
-<span class="cm"> *     public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {</span>
-<span class="cm"> *         this.val = val;</span>
-<span class="cm"> *         this.left = left;</span>
-<span class="cm"> *         this.right = right;</span>
-<span class="cm"> *     }</span>
-<span class="cm"> * }</span>
-<span class="cm"> */</span>
-<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span>
-
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">null</span><span class="p">;</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
+<span class="normal">40</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1">// Definition for a binary tree node.</span>
+<span class="c1">// #[derive(Debug, PartialEq, Eq)]</span>
+<span class="c1">// pub struct TreeNode {</span>
+<span class="c1">//   pub val: i32,</span>
+<span class="c1">//   pub left: Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;,</span>
+<span class="c1">//   pub right: Option&lt;Rc&lt;RefCell&lt;TreeNode&gt;&gt;&gt;,</span>
+<span class="c1">// }</span>
+<span class="c1">//</span>
+<span class="c1">// impl TreeNode {</span>
+<span class="c1">//   #[inline]</span>
+<span class="c1">//   pub fn new(val: i32) -&gt; Self {</span>
+<span class="c1">//     TreeNode {</span>
+<span class="c1">//       val,</span>
+<span class="c1">//       left: None,</span>
+<span class="c1">//       right: None</span>
+<span class="c1">//     }</span>
+<span class="c1">//   }</span>
+<span class="c1">// }</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">rc</span>::<span class="n">Rc</span><span class="p">;</span>
+<span class="k">use</span><span class="w"> </span><span class="n">std</span>::<span class="n">cell</span>::<span class="n">RefCell</span><span class="p">;</span>
+<span class="k">impl</span><span class="w"> </span><span class="n">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">fn</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">root</span>: <span class="kp">&amp;</span><span class="nb">Option</span><span class="o">&lt;</span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;&gt;&gt;</span><span class="p">,</span><span class="w"> </span><span class="n">prev</span>: <span class="kp">&amp;</span><span class="nc">mut</span><span class="w"> </span><span class="nb">Option</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">bool</span> <span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">is_none</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="n">root</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">as_ref</span><span class="p">().</span><span class="n">unwrap</span><span class="p">().</span><span class="n">borrow</span><span class="p">();</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">!</span><span class="bp">Self</span>::<span class="n">dfs</span><span class="p">(</span><span class="o">&amp;</span><span class="n">root</span><span class="p">.</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">prev</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="n">prev</span><span class="p">.</span><span class="n">is_some</span><span class="p">()</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">prev</span><span class="p">.</span><span class="n">unwrap</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="o">*</span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Some</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">val</span><span class="p">);</span>
+<span class="w">        </span><span class="bp">Self</span>::<span class="n">dfs</span><span class="p">(</span><span class="o">&amp;</span><span class="n">root</span><span class="p">.</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">prev</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">left</span><span class="p">))</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prev</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">prev</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">val</span><span class="p">)</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">right</span><span class="p">))</span>
-<span class="w">        </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">    </span><span class="k">pub</span><span class="w"> </span><span class="k">fn</span> <span class="nf">is_valid_bst</span><span class="p">(</span><span class="n">root</span>: <span class="nb">Option</span><span class="o">&lt;</span><span class="n">Rc</span><span class="o">&lt;</span><span class="n">RefCell</span><span class="o">&lt;</span><span class="n">TreeNode</span><span class="o">&gt;&gt;&gt;</span><span class="p">)</span><span class="w"> </span>-&gt; <span class="kt">bool</span> <span class="p">{</span>
+<span class="w">        </span><span class="bp">Self</span>::<span class="n">dfs</span><span class="p">(</span><span class="o">&amp;</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="k">mut</span><span class="w"> </span><span class="nb">None</span><span class="p">)</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
-</div>
-</div>
-<h3 id="_4">方法二</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">JavaScript</label><label for="__tabbed_2_6">C#</label></div>
-<div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
 <span class="normal"> 2</span>
@@ -80152,22 +80110,48 @@
 <span class="normal">13</span>
 <span class="normal">14</span>
 <span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="c1"># Definition for a binary tree node.</span>
-<span class="c1"># class TreeNode:</span>
-<span class="c1">#     def __init__(self, val=0, left=None, right=None):</span>
-<span class="c1">#         self.val = val</span>
-<span class="c1">#         self.left = left</span>
-<span class="c1">#         self.right = right</span>
-<span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">isValidBST</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TreeNode</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-        <span class="k">def</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">root</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">True</span>
-            <span class="k">if</span> <span class="n">root</span><span class="o">.</span><span class="n">val</span> <span class="o">&lt;=</span> <span class="n">l</span> <span class="ow">or</span> <span class="n">root</span><span class="o">.</span><span class="n">val</span> <span class="o">&gt;=</span> <span class="n">r</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">False</span>
-            <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">left</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="p">)</span> <span class="ow">and</span> <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">right</span><span class="p">,</span> <span class="n">root</span><span class="o">.</span><span class="n">val</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
-
-        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="o">-</span><span class="n">inf</span><span class="p">,</span> <span class="n">inf</span><span class="p">)</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * Definition for a binary tree node.</span>
+<span class="cm"> * function TreeNode(val, left, right) {</span>
+<span class="cm"> *     this.val = (val===undefined ? 0 : val)</span>
+<span class="cm"> *     this.left = (left===undefined ? null : left)</span>
+<span class="cm"> *     this.right = (right===undefined ? null : right)</span>
+<span class="cm"> * }</span>
+<span class="cm"> */</span>
+<span class="cm">/**</span>
+<span class="cm"> * @param {TreeNode} root</span>
+<span class="cm"> * @return {boolean}</span>
+<span class="cm"> */</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">isValidBST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">null</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">root</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">left</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">prev</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">prev</span><span class="p">.</span><span class="nx">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">root</span><span class="p">.</span><span class="nx">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nx">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">root</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">right</span><span class="p">);</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">);</span>
+<span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -80200,211 +80184,11 @@
 <span class="normal">27</span>
 <span class="normal">28</span>
 <span class="normal">29</span>
-<span class="normal">30</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Definition for a binary tree node.</span>
-<span class="cm"> * public class TreeNode {</span>
-<span class="cm"> *     int val;</span>
-<span class="cm"> *     TreeNode left;</span>
-<span class="cm"> *     TreeNode right;</span>
-<span class="cm"> *     TreeNode() {}</span>
-<span class="cm"> *     TreeNode(int val) { this.val = val; }</span>
-<span class="cm"> *     TreeNode(int val, TreeNode left, TreeNode right) {</span>
-<span class="cm"> *         this.val = val;</span>
-<span class="cm"> *         this.left = left;</span>
-<span class="cm"> *         this.right = right;</span>
-<span class="cm"> *     }</span>
-<span class="cm"> * }</span>
-<span class="cm"> */</span>
-<span class="kd">class</span> <span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="p">.</span><span class="na">MIN_VALUE</span><span class="p">,</span><span class="w"> </span><span class="n">Long</span><span class="p">.</span><span class="na">MAX_VALUE</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">left</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">val</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="na">right</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="na">val</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Definition for a binary tree node.</span>
-<span class="cm"> * struct TreeNode {</span>
-<span class="cm"> *     int val;</span>
-<span class="cm"> *     TreeNode *left;</span>
-<span class="cm"> *     TreeNode *right;</span>
-<span class="cm"> *     TreeNode() : val(0), left(nullptr), right(nullptr) {}</span>
-<span class="cm"> *     TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}</span>
-<span class="cm"> *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}</span>
-<span class="cm"> * };</span>
-<span class="cm"> */</span>
-<span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="n">LONG_MIN</span><span class="p">,</span><span class="w"> </span><span class="n">LONG_MAX</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="p">};</span>
-</code></pre></div></td></tr></table></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Definition for a binary tree node.</span>
-<span class="cm"> * type TreeNode struct {</span>
-<span class="cm"> *     Val int</span>
-<span class="cm"> *     Left *TreeNode</span>
-<span class="cm"> *     Right *TreeNode</span>
-<span class="cm"> * }</span>
-<span class="cm"> */</span>
-<span class="kd">func</span><span class="w"> </span><span class="nx">isValidBST</span><span class="p">(</span><span class="nx">root</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">,</span><span class="w"> </span><span class="nx">math</span><span class="p">.</span><span class="nx">MinInt64</span><span class="p">,</span><span class="w"> </span><span class="nx">math</span><span class="p">.</span><span class="nx">MaxInt64</span><span class="p">)</span>
-<span class="p">}</span>
-
-<span class="kd">func</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="w"> </span><span class="o">*</span><span class="nx">TreeNode</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="kt">int64</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">int64</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Val</span><span class="p">)</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Left</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">Right</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span>
-<span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
-<span class="cm"> * Definition for a binary tree node.</span>
-<span class="cm"> * function TreeNode(val, left, right) {</span>
-<span class="cm"> *     this.val = (val===undefined ? 0 : val)</span>
-<span class="cm"> *     this.left = (left===undefined ? null : left)</span>
-<span class="cm"> *     this.right = (right===undefined ? null : right)</span>
-<span class="cm"> * }</span>
-<span class="cm"> */</span>
-<span class="cm">/**</span>
-<span class="cm"> * @param {TreeNode} root</span>
-<span class="cm"> * @return {boolean}</span>
-<span class="cm"> */</span>
-<span class="kd">var</span><span class="w"> </span><span class="nx">isValidBST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">val</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">l</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">root</span><span class="p">.</span><span class="nx">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
-<span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">left</span><span class="p">,</span><span class="w"> </span><span class="nx">l</span><span class="p">,</span><span class="w"> </span><span class="nx">root</span><span class="p">.</span><span class="nx">val</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">.</span><span class="nx">right</span><span class="p">,</span><span class="w"> </span><span class="nx">root</span><span class="p">.</span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">root</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="kc">Infinity</span><span class="p">,</span><span class="w"> </span><span class="kc">Infinity</span><span class="p">);</span>
-<span class="p">};</span>
-</code></pre></div></td></tr></table></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Definition for a binary tree node.</span>
 <span class="cm"> * public class TreeNode {</span>
 <span class="cm"> *     public int val;</span>
@@ -80418,18 +80202,24 @@
 <span class="cm"> * }</span>
 <span class="cm"> */</span>
 <span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">TreeNode</span><span class="w"> </span><span class="n">prev</span><span class="p">;</span>
+
 <span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsValidBST</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="p">.</span><span class="n">MinValue</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="p">.</span><span class="n">MaxValue</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="w"> </span><span class="n">root</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="k">null</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">r</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">left</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">val</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">prev</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="k">null</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">prev</span><span class="p">.</span><span class="n">val</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">root</span><span class="p">.</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">prev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">root</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nf">dfs</span><span class="p">(</span><span class="n">root</span><span class="p">.</span><span class="n">right</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
