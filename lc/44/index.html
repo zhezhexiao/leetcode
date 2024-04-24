@@ -80364,7 +80364,7 @@
 <span class="x">    function isMatch($s, $p) {</span>
 <span class="x">        $lengthS = strlen($s);</span>
 <span class="x">        $lengthP = strlen($p);</span>
-<span class="x">        $dp = array();</span>
+<span class="x">        $dp = [];</span>
 <span class="x">        for ($i = 0; $i &lt;= $lengthS; $i++) {</span>
 <span class="x">            $dp[$i] = array_fill(0, $lengthP + 1, false);</span>
 <span class="x">        }</span>
@@ -80379,7 +80379,7 @@
 <span class="x">            for ($j = 1; $j &lt;= $lengthP; $j++) {</span>
 <span class="x">                if ($p[$j - 1] == &#39;?&#39; || $s[$i - 1] == $p[$j - 1]) {</span>
 <span class="x">                    $dp[$i][$j] = $dp[$i - 1][$j - 1];</span>
-<span class="x">                } else if ($p[$j - 1] == &#39;*&#39;) {</span>
+<span class="x">                } elseif ($p[$j - 1] == &#39;*&#39;) {</span>
 <span class="x">                    $dp[$i][$j] = $dp[$i][$j - 1] || $dp[$i - 1][$j];</span>
 <span class="x">                }</span>
 <span class="x">            }</span>
@@ -80420,14 +80420,14 @@
     
     <nav>
       
-        <a href="https://github.com/ZylalMinollari" class="md-author" title="@ZylalMinollari">
-          
-          <img src="https://avatars.githubusercontent.com/u/84593674?v=4&size=72" alt="ZylalMinollari">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/ZylalMinollari" class="md-author" title="@ZylalMinollari">
+          
+          <img src="https://avatars.githubusercontent.com/u/84593674?v=4&size=72" alt="ZylalMinollari">
         </a>
       
       
