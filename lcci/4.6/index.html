@@ -79698,7 +79698,7 @@
 </ol>
 <p>因此，对于当前节点 $root$，如果 $root.val \gt p.val$，则 $root$ 可能是 $p$ 的中序后继节点，将 $root$ 记为 $ans$，然后搜索左子树，即 $root = root.left$；如果 $root.val \leq p.val$，则 $root$ 不能是 $p$ 的中序后继节点，搜索右子树，即 $root = root.right$。</p>
 <p>时间复杂度 $O(h)$，其中 $h$ 为二叉搜索树的高度。空间复杂度 $O(1)$。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">JavaScript</label><label for="__tabbed_1_7">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -79980,6 +79980,66 @@
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/* class TreeNode {</span>
+<span class="cm">*    var val: Int</span>
+<span class="cm">*    var left: TreeNode?</span>
+<span class="cm">*    var right: TreeNode?</span>
+<span class="cm">*</span>
+<span class="cm">*    init(_ val: Int) {</span>
+<span class="cm">*        self.val = val</span>
+<span class="cm">*        self.left = nil</span>
+<span class="cm">*        self.right = nil</span>
+<span class="cm">*    }</span>
+<span class="cm">* }</span>
+<span class="cm">*/</span>
+
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">inorderSuccessor</span><span class="p">(</span><span class="kc">_</span> <span class="n">root</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">?,</span> <span class="kc">_</span> <span class="n">p</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">?)</span> <span class="p">-&gt;</span> <span class="n">TreeNode</span><span class="p">?</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">current</span> <span class="p">=</span> <span class="n">root</span>
+        <span class="kd">var</span> <span class="nv">successor</span><span class="p">:</span> <span class="n">TreeNode</span><span class="p">?</span> <span class="p">=</span> <span class="kc">nil</span>
+
+        <span class="k">while</span> <span class="kd">let</span> <span class="nv">node</span> <span class="p">=</span> <span class="n">current</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="n">node</span><span class="p">.</span><span class="n">val</span> <span class="o">&gt;</span> <span class="n">p</span><span class="p">!.</span><span class="n">val</span> <span class="p">{</span>
+                <span class="n">successor</span> <span class="p">=</span> <span class="n">node</span>
+                <span class="n">current</span> <span class="p">=</span> <span class="n">node</span><span class="p">.</span><span class="kr">left</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">current</span> <span class="p">=</span> <span class="n">node</span><span class="p">.</span><span class="kr">right</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">successor</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -80010,6 +80070,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
