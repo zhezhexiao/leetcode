@@ -6689,6 +6689,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -28343,9 +28353,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-dynamic-programming" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Dynamic Programming
     </span>
   </a>
   
@@ -72423,6 +72433,111 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3126/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3126. Server Utilization Time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3127/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3127. Make a Square with the Same Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3128/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3128. Right Triangles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3129/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3129. Find All Possible Stable Binary Arrays I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3130/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3130. Find All Possible Stable Binary Arrays II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -75133,7 +75248,17 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
+<p>We define $f[i][j]$ as the maximum length of the arithmetic sequence ending with $nums[i]$ and having a common difference of $j$. Initially, $f[i][j]=1$, that is, each element itself is an arithmetic sequence of length $1$.</p>
+<blockquote>
+<p>Since the common difference may be negative, and the maximum difference is $500$, we can uniformly add $500$ to the common difference, so the range of the common difference becomes $[0, 1000]$.</p>
+</blockquote>
+<p>Considering $f[i]$, we can enumerate the previous element $nums[k]$ of $nums[i]$, then the common difference $j=nums[i]-nums[k]+500$, at this time $f[i][j]=\max(f[i][j], f[k][j]+1)$, then we update the answer $ans=\max(ans, f[i][j])$.</p>
+<p>Finally, return the answer.</p>
+<blockquote>
+<p>If initially $f[i][j]=0$, then we need to add $1$ to the answer when returning the answer.</p>
+</blockquote>
+<p>The time complexity is $O(n \times (d + n))$, and the space complexity is $O(n \times d)$. Where $n$ and $d$ are the length of the array $nums$ and the difference between the maximum and minimum values in the array $nums$, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

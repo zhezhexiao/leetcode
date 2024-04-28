@@ -6689,6 +6689,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -28238,9 +28248,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-recursion" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Recursion
     </span>
   </a>
   
@@ -72423,6 +72433,111 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3126/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3126. Server Utilization Time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3127/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3127. Make a Square with the Same Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3128/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3128. Right Triangles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3129/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3129. Find All Possible Stable Binary Arrays I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3130/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3130. Find All Possible Stable Binary Arrays II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -75119,7 +75234,14 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-recursion">Solution 1: Recursion</h3>
+<p>We design a recursive function <code>dfs(root, t)</code>, which takes two parameters: the current node <code>root</code> and the binary number corresponding to the parent node <code>t</code>. The return value of the function is the sum of the binary numbers represented by the path from the current node to the leaf node. The answer is <code>dfs(root, 0)</code>.</p>
+<p>The logic of the recursive function is as follows:</p>
+<ul>
+<li>If the current node <code>root</code> is null, then return <code>0</code>. Otherwise, calculate the binary number <code>t</code> corresponding to the current node, i.e., <code>t = t &lt;&lt; 1 | root.val</code>.</li>
+<li>If the current node is a leaf node, then return <code>t</code>. Otherwise, return the sum of <code>dfs(root.left, t)</code> and <code>dfs(root.right, t)</code>.</li>
+</ul>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the number of nodes in the binary tree. Each node is visited once; the recursion stack requires $O(n)$ space.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

@@ -6689,6 +6689,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -28301,9 +28311,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-mathematical-induction" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Mathematical Induction
     </span>
   </a>
   
@@ -72423,6 +72433,111 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3126/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3126. Server Utilization Time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3127/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3127. Make a Square with the Same Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3128/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3128. Right Triangles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3129/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3129. Find All Possible Stable Binary Arrays I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3130/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3130. Find All Possible Stable Binary Arrays II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -75128,7 +75243,26 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-mathematical-induction">Solution 1: Mathematical Induction</h3>
+<ul>
+<li>When $n=1$, the first player loses.</li>
+<li>When $n=2$, the first player takes $1$, leaving $1$, the second player loses, the first player wins.</li>
+<li>When $n=3$, the first player takes $1$, leaving $2$, the second player wins, the first player loses.</li>
+<li>When $n=4$, the first player takes $1$, leaving $3$, the second player loses, the first player wins.</li>
+<li>...</li>
+</ul>
+<p>We conjecture that when $n$ is odd, the first player loses; when $n$ is even, the first player wins.</p>
+<p>Proof:</p>
+<ol>
+<li>If $n=1$ or $n=2$, the conclusion holds.</li>
+<li>If $n \gt 2$, assume that the conclusion holds when $n \le k$, then when $n=k+1$:<ul>
+<li>If $k+1$ is odd, since $x$ is a divisor of $k+1$, then $x$ can only be odd, so $k+1-x$ is even, the second player wins, the first player loses.</li>
+<li>If $k+1$ is even, now $x$ can be either odd $1$ or even. If $x$ is odd, then $k+1-x$ is odd, the second player loses, the first player wins.</li>
+</ul>
+</li>
+</ol>
+<p>In conclusion, when $n$ is odd, the first player loses; when $n$ is even, the first player wins. The conclusion is correct.</p>
+<p>The time complexity is $O(1)$, and the space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -75212,14 +75346,14 @@
     
     <nav>
       
-        <a href="https://github.com/thinkasany" class="md-author" title="@thinkasany">
-          
-          <img src="https://avatars.githubusercontent.com/u/117748716?v=4&size=72" alt="thinkasany">
-        </a>
-      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
+        </a>
+      
+        <a href="https://github.com/thinkasany" class="md-author" title="@thinkasany">
+          
+          <img src="https://avatars.githubusercontent.com/u/117748716?v=4&size=72" alt="thinkasany">
         </a>
       
       

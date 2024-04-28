@@ -6689,6 +6689,16 @@
       
         
       
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
     
     
       
@@ -28280,9 +28290,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-greedy" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Greedy
     </span>
   </a>
   
@@ -72423,6 +72433,111 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3126/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3126. Server Utilization Time
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3127/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3127. Make a Square with the Same Color
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3128/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3128. Right Triangles
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3129/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3129. Find All Possible Stable Binary Arrays I
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3130/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3130. Find All Possible Stable Binary Arrays II
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -75134,7 +75249,20 @@ Now we have segments [0,2] + [2,8] + [8,10] which cover the sporting event [0, 1
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-greedy">Solution 1: Greedy</h3>
+<p>Note that if there are multiple sub-intervals with the same starting point, it is optimal to choose the one with the largest right endpoint.</p>
+<p>Therefore, we can preprocess all sub-intervals. For each position $i$, calculate the largest right endpoint among all sub-intervals starting at $i$, and record it in the array $last[i]$.</p>
+<p>We define a variable <code>mx</code> to represent the farthest position that can currently be reached, a variable <code>ans</code> to represent the current minimum number of sub-intervals needed, and a variable <code>pre</code> to represent the right endpoint of the last used sub-interval.</p>
+<p>Next, we start enumerating all positions $i$ from $0$, using $last[i]$ to update <code>mx</code>. If after updating, $mx = i$, it means that the next position cannot be covered, so the task cannot be completed, return $-1$.</p>
+<p>At the same time, we record the right endpoint <code>pre</code> of the last used sub-interval. If $pre = i$, it means that a new sub-interval needs to be used, so we add $1$ to <code>ans</code> and update <code>pre</code> to <code>mx</code>.</p>
+<p>After the traversal is over, return <code>ans</code>.</p>
+<p>The time complexity is $O(n+m)$, and the space complexity is $O(m)$. Where $n$ and $m$ are the lengths of the <code>clips</code> array and the value of <code>time</code>, respectively.</p>
+<p>Similar problems:</p>
+<ul>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0045.Jump%20Game%20II/README_EN.md">45. Jump Game II</a></li>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/0000-0099/0055.Jump%20Game/README_EN.md">55. Jump Game</a></li>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/1300-1399/1326.Minimum%20Number%20of%20Taps%20to%20Open%20to%20Water%20a%20Garden/README_EN.md">1326. Minimum Number of Taps to Open to Water a Garden</a></li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
