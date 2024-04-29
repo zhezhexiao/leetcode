@@ -79901,7 +79901,7 @@
 <p>我们设计一个函数 $dfs(n, a, b, c)$，表示将 $n$ 个盘子从 $a$ 移动到 $c$，其中 $b$ 为辅助柱子。</p>
 <p>我们先将 $n - 1$ 个盘子从 $a$ 移动到 $b$，然后将第 $n$ 个盘子从 $a$ 移动到 $c$，最后将 $n - 1$ 个盘子从 $b$ 移动到 $c$。</p>
 <p>时间复杂度 $O(2^n)$，空间复杂度 $O(n)$。其中 $n$ 是盘子的数目。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -80058,6 +80058,38 @@
 <span class="w">        </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">b</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">);</span>
 <span class="w">    </span><span class="p">};</span>
 <span class="w">    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">A</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="nx">A</span><span class="p">,</span><span class="w"> </span><span class="nx">B</span><span class="p">,</span><span class="w"> </span><span class="nx">C</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">hanota</span><span class="p">(</span><span class="kc">_</span> <span class="n">A</span><span class="p">:</span> <span class="kr">inout</span> <span class="p">[</span><span class="nb">Int</span><span class="p">],</span> <span class="kc">_</span> <span class="n">B</span><span class="p">:</span> <span class="kr">inout</span> <span class="p">[</span><span class="nb">Int</span><span class="p">],</span> <span class="kc">_</span> <span class="n">C</span><span class="p">:</span> <span class="kr">inout</span> <span class="p">[</span><span class="nb">Int</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">A</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">B</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">C</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">dfs</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">Int</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="kr">inout</span> <span class="p">[</span><span class="nb">Int</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="kr">inout</span> <span class="p">[</span><span class="nb">Int</span><span class="p">],</span> <span class="n">c</span><span class="p">:</span> <span class="kr">inout</span> <span class="p">[</span><span class="nb">Int</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="p">==</span> <span class="mi">1</span> <span class="p">{</span>
+            <span class="n">c</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">())</span>
+            <span class="k">return</span>
+        <span class="p">}</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">b</span><span class="p">)</span>
+        <span class="n">c</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">())</span>
+        <span class="n">dfs</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">b</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">a</span><span class="p">,</span> <span class="n">c</span><span class="p">:</span> <span class="p">&amp;</span><span class="n">c</span><span class="p">)</span>
+    <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
@@ -80333,6 +80365,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
