@@ -78525,18 +78525,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#flood-fill" class="md-nav__link">
+  <a href="#dfs" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一：Flood fill 算法
+      方法一：DFS
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#bfs" class="md-nav__link">
     <span class="md-ellipsis">
-      方法二
+      方法二：BFS
     </span>
   </a>
   
@@ -79901,11 +79901,10 @@ sr = 1, sc = 1, newColor = 2
 </ol>
 
 <h2 id="_2">解法</h2>
-<h3 id="flood-fill">方法一：Flood fill 算法</h3>
-<p>Flood fill 算法是从一个区域中提取若干个连通的点与其他相邻区域区分开（或分别染成不同颜色）的经典算法。因为其思路类似洪水从一个区域扩散到所有能到达的区域而得名。</p>
-<p>最简单的实现方法是采用 DFS 的递归方法，也可以采用 BFS 的迭代来实现。</p>
+<h3 id="dfs">方法一：DFS</h3>
+<p>我们设计一个函数 $dfs(i, j)$，表示从 $(i, j)$ 开始填充颜色。如果 $(i, j)$ 不在图像范围内，或者 $(i, j)$ 的颜色不是原来的颜色，或者 $(i, j)$ 的颜色已经被填充成新的颜色，就返回。否则，将 $(i, j)$ 的颜色填充成新的颜色，然后递归搜索 $(i, j)$ 的上下左右四个方向。</p>
 <p>时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为图像的行数和列数。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">Rust</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -80102,6 +80101,54 @@ sr = 1, sc = 1, newColor = 2
 <span class="normal">20</span>
 <span class="normal">21</span>
 <span class="normal">22</span>
+<span class="normal">23</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">floodFill</span><span class="p">(</span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[][],</span><span class="w"> </span><span class="nx">sr</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">sc</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">newColor</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[][]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dfs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">m</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">image</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="nx">oc</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nx">image</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">nc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="nx">image</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">nc</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">4</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">dirs</span><span class="p">[</span><span class="nx">k</span><span class="p">],</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">dirs</span><span class="p">[</span><span class="nx">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">};</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dirs</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">];</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">m</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">image</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="nx">image</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">length</span><span class="p">];</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">oc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">image</span><span class="p">[</span><span class="nx">sr</span><span class="p">][</span><span class="nx">sc</span><span class="p">];</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">nc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newColor</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">dfs</span><span class="p">(</span><span class="nx">sr</span><span class="p">,</span><span class="w"> </span><span class="nx">sc</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">image</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
 <span class="normal">23</span>
 <span class="normal">24</span>
 <span class="normal">25</span>
@@ -80143,8 +80190,10 @@ sr = 1, sc = 1, newColor = 2
 </div>
 </div>
 </div>
-<h3 id="_3">方法二</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
+<h3 id="bfs">方法二：BFS</h3>
+<p>我们可以使用广度优先搜索的方法，从起始点开始，将起始点的颜色填充成新的颜色，然后将起始点加入队列。每次从队列中取出一个点，然后将其上下左右四个方向的点加入队列，直到队列为空。</p>
+<p>时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为图像的行数和列数。</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -80327,6 +80376,48 @@ sr = 1, sc = 1, newColor = 2
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">image</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">floodFill</span><span class="p">(</span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[][],</span><span class="w"> </span><span class="nx">sr</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">sc</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">newColor</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[][]</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">image</span><span class="p">[</span><span class="nx">sr</span><span class="p">][</span><span class="nx">sc</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">newColor</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">image</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">q</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[][]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[[</span><span class="nx">sr</span><span class="p">,</span><span class="w"> </span><span class="nx">sc</span><span class="p">]];</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">oc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">image</span><span class="p">[</span><span class="nx">sr</span><span class="p">][</span><span class="nx">sc</span><span class="p">];</span>
+<span class="w">    </span><span class="nx">image</span><span class="p">[</span><span class="nx">sr</span><span class="p">][</span><span class="nx">sc</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newColor</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dirs</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="o">-</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="o">-</span><span class="mf">1</span><span class="p">];</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">q</span><span class="p">.</span><span class="nx">pop</span><span class="p">()</span><span class="o">!</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">4</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">k</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">dirs</span><span class="p">[</span><span class="nx">k</span><span class="p">],</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">dirs</span><span class="p">[</span><span class="nx">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">]];</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">image</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">image</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">length</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">image</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">oc</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">q</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">]);</span>
+<span class="w">                </span><span class="nx">image</span><span class="p">[</span><span class="nx">x</span><span class="p">][</span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">newColor</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">image</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>

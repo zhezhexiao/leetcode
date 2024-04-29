@@ -79955,7 +79955,7 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 <h2 id="_2">解法</h2>
 <h3 id="_3">方法一：分组统计</h3>
 <p>我们将查询结果按照 <code>query_name</code> 进行分组，然后利用 <code>AVG</code> 和 <code>ROUND</code> 函数计算 <code>quality</code> 和 <code>poor_query_percentage</code>。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label><label for="__tabbed_1_2">MySQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -79964,13 +79964,53 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
-<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
 <span class="k">SELECT</span>
 <span class="w">    </span><span class="n">query_name</span><span class="p">,</span>
 <span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">rating</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">position</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">quality</span><span class="p">,</span>
 <span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">rating</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">poor_query_percentage</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">Queries</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">query_name</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
+<span class="k">SELECT</span>
+<span class="w">    </span><span class="n">IFNULL</span><span class="p">(</span><span class="n">query_name</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;null&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">query_name</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ROUND</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="k">CAST</span><span class="p">(</span><span class="n">rating</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">position</span><span class="p">),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">quality</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ROUND</span><span class="p">(</span>
+<span class="w">        </span><span class="p">(</span>
+<span class="w">            </span><span class="k">SUM</span><span class="p">(</span>
+<span class="w">                </span><span class="k">CASE</span>
+<span class="w">                    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">rating</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                    </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">                </span><span class="k">END</span>
+<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">NULLIF</span><span class="p">(</span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
+<span class="w">        </span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span>
+<span class="w">        </span><span class="mi">2</span>
+<span class="w">    </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">poor_query_percentage</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">Queries</span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">query_name</span><span class="w"> </span><span class="k">WITH</span><span class="w"> </span><span class="k">ROLLUP</span>
+<span class="k">HAVING</span><span class="w"> </span><span class="n">query_name</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
@@ -80003,6 +80043,11 @@ Cat 查询结果的劣质查询百分比为 (1 / 3) * 100 = 33.33
 
     
     <nav>
+      
+        <a href="https://github.com/Professorx911" class="md-author" title="@Professorx911">
+          
+          <img src="https://avatars.githubusercontent.com/u/112453010?v=4&size=72" alt="Professorx911">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
