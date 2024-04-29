@@ -72482,7 +72482,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：使用窗口函数
     </span>
   </a>
   
@@ -79969,11 +79969,40 @@ Each row of this table contains server_id, status_time, and session_status.
 The accumulated runtime for all servers totals approximately 44.46 hours, equivalent to one full day plus some additional hours. However, since we consider only full days, the final output is rounded to 1 full day.</div>
 
 <h2 id="_2">解法</h2>
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：使用窗口函数</h3>
+<p>我们可以使用窗口函数 <code>LEAD</code> 来获取每个服务器的下一个状态的时间，那么两个状态之间的时间差就是服务器的一次运行时间。最后我们将所有服务器的运行时间相加，然后除以一天的秒数，就得到了服务器的总运行天数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
+<span class="k">WITH</span>
+<span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
+<span class="w">        </span><span class="k">SELECT</span>
+<span class="w">            </span><span class="n">session_status</span><span class="p">,</span>
+<span class="w">            </span><span class="n">status_time</span><span class="p">,</span>
+<span class="w">            </span><span class="n">LEAD</span><span class="p">(</span><span class="n">status_time</span><span class="p">)</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span>
+<span class="w">                </span><span class="n">PARTITION</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">server_id</span>
+<span class="w">                </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">status_time</span>
+<span class="w">            </span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">next_status_time</span>
+<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">Servers</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">FLOOR</span><span class="p">(</span><span class="k">SUM</span><span class="p">(</span><span class="n">TIMESTAMPDIFF</span><span class="p">(</span><span class="k">SECOND</span><span class="p">,</span><span class="w"> </span><span class="n">status_time</span><span class="p">,</span><span class="w"> </span><span class="n">next_status_time</span><span class="p">))</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mi">86400</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_uptime_days</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">T</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">session_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;start&#39;</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
