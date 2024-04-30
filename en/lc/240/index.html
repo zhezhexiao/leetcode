@@ -11834,18 +11834,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-binary-search" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Binary Search
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-search-from-the-bottom-left-or-top-right" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Search from the Bottom Left or Top Right
     </span>
   </a>
   
@@ -75342,7 +75342,10 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
+<p>Since all elements in each row are sorted in ascending order, we can use binary search to find the first element that is greater than or equal to <code>target</code> for each row, and then check if this element is equal to <code>target</code>. If it equals <code>target</code>, it means the target value has been found, and we directly return <code>true</code>. If it does not equal <code>target</code>, it means all elements in this row are less than <code>target</code>, and we should continue to search the next row.</p>
+<p>If all rows have been searched and the target value has not been found, it means the target value does not exist, so we return <code>false</code>.</p>
+<p>The time complexity is $O(m \times \log n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label><label for="__tabbed_1_8">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -75597,7 +75600,15 @@
 </div>
 </div>
 </div>
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-search-from-the-bottom-left-or-top-right">Solution 2: Search from the Bottom Left or Top Right</h3>
+<p>Here, we start searching from the bottom left corner and move towards the top right direction, comparing the current element <code>matrix[i][j]</code> with <code>target</code>:</p>
+<ul>
+<li>If $\text{matrix}[i][j] = \text{target}$, it means the target value has been found, and we directly return <code>true</code>.</li>
+<li>If $\text{matrix}[i][j] &gt; \text{target}$, it means all elements in this column from the current position upwards are greater than <code>target</code>, so we should move the $i$ pointer upwards, i.e., $i \leftarrow i - 1$.</li>
+<li>If $\text{matrix}[i][j] &lt; \text{target}$, it means all elements in this row from the current position to the right are less than <code>target</code>, so we should move the $j$ pointer to the right, i.e., $j \leftarrow j + 1$.</li>
+</ul>
+<p>If the search ends and the <code>target</code> is still not found, return <code>false</code>.</p>
+<p>The time complexity is $O(m + n)$, where $m$ and $n$ are the number of rows and columns in the matrix, respectively. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:6"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><input id="__tabbed_2_6" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label><label for="__tabbed_2_6">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -75747,16 +75758,14 @@
 <span class="normal">12</span>
 <span class="normal">13</span>
 <span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">searchMatrix</span><span class="p">(</span><span class="nx">matrix</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[][],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">matrix</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">matrix</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">length</span><span class="p">;</span>
-<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span>
-<span class="w">        </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="normal">15</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">searchMatrix</span><span class="p">(</span><span class="nx">matrix</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[][],</span><span class="w"> </span><span class="nx">target</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">m</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">matrix</span><span class="p">.</span><span class="nx">length</span><span class="p">,</span><span class="w"> </span><span class="nx">matrix</span><span class="p">[</span><span class="mf">0</span><span class="p">].</span><span class="nx">length</span><span class="p">];</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">m</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">];</span>
 <span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="nx">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">cur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">matrix</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">];</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">cur</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">cur</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">matrix</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">matrix</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nx">target</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="o">--</span><span class="nx">i</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="o">++</span><span class="nx">j</span><span class="p">;</span>

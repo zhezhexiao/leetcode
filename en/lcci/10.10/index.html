@@ -74135,9 +74135,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-binary-indexed-tree" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Binary Indexed Tree
     </span>
   </a>
   
@@ -75294,8 +75294,11 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
+<h3 id="solution-1-binary-indexed-tree">Solution 1: Binary Indexed Tree</h3>
+<p>We can use a Binary Indexed Tree (also known as a Fenwick Tree) to maintain the count of numbers that are less than or equal to the current number among the added numbers.</p>
+<p>We create a Binary Indexed Tree with a length of $50010$. For the <code>track</code> method, we increment the current number and add it to the Binary Indexed Tree. For the <code>getRankOfNumber</code> method, we directly query the count of numbers that are less than or equal to $x + 1$ in the Binary Indexed Tree.</p>
+<p>In terms of time complexity, both the update and query operations of the Binary Indexed Tree have a time complexity of $O(\log n)$, where $n$ is the length of the Binary Indexed Tree.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -75333,30 +75336,28 @@
 <span class="normal">33</span>
 <span class="normal">34</span>
 <span class="normal">35</span>
-<span class="normal">36</span>
-<span class="normal">37</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">BinaryIndexedTree</span><span class="p">:</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+<span class="normal">36</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">BinaryIndexedTree</span><span class="p">:</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="s2">&quot;n&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">=</span> <span class="n">n</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">c</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">lowbit</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">x</span> <span class="o">&amp;</span> <span class="o">-</span><span class="n">x</span>
-
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">delta</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">delta</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">while</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">+=</span> <span class="n">delta</span>
-            <span class="n">x</span> <span class="o">+=</span> <span class="n">BinaryIndexedTree</span><span class="o">.</span><span class="n">lowbit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">+=</span> <span class="n">x</span> <span class="o">&amp;</span> <span class="o">-</span><span class="n">x</span>
 
-    <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">while</span> <span class="n">x</span><span class="p">:</span>
             <span class="n">s</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">c</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
-            <span class="n">x</span> <span class="o">-=</span> <span class="n">BinaryIndexedTree</span><span class="o">.</span><span class="n">lowbit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">-=</span> <span class="n">x</span> <span class="o">&amp;</span> <span class="o">-</span><span class="n">x</span>
         <span class="k">return</span> <span class="n">s</span>
 
 
 <span class="k">class</span> <span class="nc">StreamRank</span><span class="p">:</span>
+
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">tree</span> <span class="o">=</span> <span class="n">BinaryIndexedTree</span><span class="p">(</span><span class="mi">50010</span><span class="p">)</span>
 
@@ -75419,47 +75420,35 @@
 <span class="normal">43</span>
 <span class="normal">44</span>
 <span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">BinaryIndexedTree</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">46</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">BinaryIndexedTree</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kt">int</span><span class="o">[]</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">BinaryIndexedTree</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
-<span class="w">        </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">lowbit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">int</span><span class="o">[</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">delta</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">c</span><span class="o">[</span><span class="n">x</span><span class="o">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">delta</span><span class="p">;</span>
-<span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lowbit</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">query</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="o">[</span><span class="n">x</span><span class="o">]</span><span class="p">;</span>
-<span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">lowbit</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
 <span class="kd">class</span> <span class="nc">StreamRank</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BinaryIndexedTree</span><span class="w"> </span><span class="n">tree</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">BinaryIndexedTree</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BinaryIndexedTree</span><span class="p">(</span><span class="mi">50010</span><span class="p">);</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="nf">StreamRank</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BinaryIndexedTree</span><span class="p">(</span><span class="mi">50010</span><span class="p">);</span>
+
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">track</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -75527,47 +75516,34 @@
 <span class="normal">45</span>
 <span class="normal">46</span>
 <span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BinaryIndexedTree</span><span class="w"> </span><span class="p">{</span>
-<span class="k">public</span><span class="o">:</span>
+<span class="normal">48</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">BinaryIndexedTree</span><span class="w"> </span><span class="p">{</span>
+<span class="k">private</span><span class="o">:</span>
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">;</span>
 <span class="w">    </span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="w"> </span><span class="n">c</span><span class="p">;</span>
 
-<span class="w">    </span><span class="n">BinaryIndexedTree</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">_n</span><span class="p">)</span>
-<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="p">(</span><span class="n">_n</span><span class="p">)</span>
-<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="n">_n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+<span class="k">public</span><span class="o">:</span>
+<span class="w">    </span><span class="n">BinaryIndexedTree</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">n</span><span class="p">)</span>
+<span class="w">        </span><span class="o">:</span><span class="w"> </span><span class="n">n</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="p">(</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{}</span>
 
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">update</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">delta</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">n</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">c</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">delta</span><span class="p">;</span>
-<span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">lowbit</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">query</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kt">int</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
-<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="n">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">c</span><span class="p">[</span><span class="n">x</span><span class="p">];</span>
-<span class="w">            </span><span class="n">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="n">lowbit</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">s</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">lowbit</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="n">x</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
 
 <span class="k">class</span><span class="w"> </span><span class="nc">StreamRank</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
-<span class="w">    </span><span class="n">BinaryIndexedTree</span><span class="o">*</span><span class="w"> </span><span class="n">tree</span><span class="p">;</span>
-
 <span class="w">    </span><span class="n">StreamRank</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BinaryIndexedTree</span><span class="p">(</span><span class="mi">50010</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="n">track</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -75577,6 +75553,9 @@
 <span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">getRankOfNumber</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">tree</span><span class="o">-&gt;</span><span class="n">query</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
+
+<span class="k">private</span><span class="o">:</span>
+<span class="w">    </span><span class="n">BinaryIndexedTree</span><span class="o">*</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BinaryIndexedTree</span><span class="p">(</span><span class="mi">50010</span><span class="p">);</span>
 <span class="p">};</span>
 
 <span class="cm">/**</span>
@@ -75632,40 +75611,25 @@
 <span class="normal">42</span>
 <span class="normal">43</span>
 <span class="normal">44</span>
-<span class="normal">45</span>
-<span class="normal">46</span>
-<span class="normal">47</span>
-<span class="normal">48</span>
-<span class="normal">49</span>
-<span class="normal">50</span>
-<span class="normal">51</span>
-<span class="normal">52</span>
-<span class="normal">53</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">BinaryIndexedTree</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">45</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">BinaryIndexedTree</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span>
 <span class="w">    </span><span class="nx">c</span><span class="w"> </span><span class="p">[]</span><span class="kt">int</span>
 <span class="p">}</span>
 
-<span class="kd">func</span><span class="w"> </span><span class="nx">newBinaryIndexedTree</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">BinaryIndexedTree</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">c</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">BinaryIndexedTree</span><span class="p">{</span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">}</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">NewBinaryIndexedTree</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">BinaryIndexedTree</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">BinaryIndexedTree</span><span class="p">{</span><span class="nx">n</span><span class="p">:</span><span class="w"> </span><span class="nx">n</span><span class="p">,</span><span class="w"> </span><span class="nx">c</span><span class="p">:</span><span class="w"> </span><span class="nb">make</span><span class="p">([]</span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="nx">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)}</span>
 <span class="p">}</span>
 
-<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">this</span><span class="w"> </span><span class="o">*</span><span class="nx">BinaryIndexedTree</span><span class="p">)</span><span class="w"> </span><span class="nx">lowbit</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="nx">x</span>
-<span class="p">}</span>
-
-<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">this</span><span class="w"> </span><span class="o">*</span><span class="nx">BinaryIndexedTree</span><span class="p">)</span><span class="w"> </span><span class="nx">update</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">delta</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">n</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">this</span><span class="p">.</span><span class="nx">c</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">delta</span>
-<span class="w">        </span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">lowbit</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">bit</span><span class="w"> </span><span class="o">*</span><span class="nx">BinaryIndexedTree</span><span class="p">)</span><span class="w"> </span><span class="nx">update</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">delta</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">bit</span><span class="p">.</span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="nx">x</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">bit</span><span class="p">.</span><span class="nx">c</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">delta</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">this</span><span class="w"> </span><span class="o">*</span><span class="nx">BinaryIndexedTree</span><span class="p">)</span><span class="w"> </span><span class="nx">query</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">bit</span><span class="w"> </span><span class="o">*</span><span class="nx">BinaryIndexedTree</span><span class="p">)</span><span class="w"> </span><span class="nx">query</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="p">{</span>
 <span class="w">    </span><span class="nx">s</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="nx">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">c</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span>
-<span class="w">        </span><span class="nx">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">this</span><span class="p">.</span><span class="nx">lowbit</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="nx">x</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">bit</span><span class="p">.</span><span class="nx">c</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">s</span>
 <span class="p">}</span>
@@ -75675,8 +75639,7 @@
 <span class="p">}</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="nx">Constructor</span><span class="p">()</span><span class="w"> </span><span class="nx">StreamRank</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="nx">tree</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">newBinaryIndexedTree</span><span class="p">(</span><span class="mi">50010</span><span class="p">)</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">StreamRank</span><span class="p">{</span><span class="nx">tree</span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">StreamRank</span><span class="p">{</span><span class="nx">NewBinaryIndexedTree</span><span class="p">(</span><span class="mi">50010</span><span class="p">)}</span>
 <span class="p">}</span>
 
 <span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">this</span><span class="w"> </span><span class="o">*</span><span class="nx">StreamRank</span><span class="p">)</span><span class="w"> </span><span class="nx">Track</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
@@ -75692,6 +75655,96 @@
 <span class="cm"> * obj := Constructor();</span>
 <span class="cm"> * obj.Track(x);</span>
 <span class="cm"> * param_2 := obj.GetRankOfNumber(x);</span>
+<span class="cm"> */</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span><span class="w"> </span><span class="nx">BinaryIndexedTree</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">c</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[];</span>
+
+<span class="w">    </span><span class="kr">constructor</span><span class="p">(</span><span class="nx">n</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">n</span><span class="p">;</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="nx">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">update</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">,</span><span class="w"> </span><span class="nx">delta</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">n</span><span class="p">;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">this</span><span class="p">.</span><span class="nx">c</span><span class="p">[</span><span class="nx">x</span><span class="p">]</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">delta</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">query</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="o">-</span><span class="nx">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">s</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">c</span><span class="p">[</span><span class="nx">x</span><span class="p">];</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">s</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span><span class="w"> </span><span class="nx">StreamRank</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="nx">tree</span><span class="o">:</span><span class="w"> </span><span class="kt">BinaryIndexedTree</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">BinaryIndexedTree</span><span class="p">(</span><span class="mf">50010</span><span class="p">);</span>
+
+<span class="w">    </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="w">    </span><span class="nx">track</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="nx">tree</span><span class="p">.</span><span class="nx">update</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">getRankOfNumber</span><span class="p">(</span><span class="nx">x</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">tree</span><span class="p">.</span><span class="nx">query</span><span class="p">(</span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/**</span>
+<span class="cm"> * Your StreamRank object will be instantiated and called as such:</span>
+<span class="cm"> * var obj = new StreamRank()</span>
+<span class="cm"> * obj.track(x)</span>
+<span class="cm"> * var param_2 = obj.getRankOfNumber(x)</span>
 <span class="cm"> */</span>
 </code></pre></div></td></tr></table></div>
 </div>
