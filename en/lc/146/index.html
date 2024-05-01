@@ -9860,9 +9860,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-hash-table-doubly-linked-list" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Hash Table + Doubly Linked List
     </span>
   </a>
   
@@ -75343,7 +75343,15 @@ lRUCache.get(4);    // return 4
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-hash-table-doubly-linked-list">Solution 1: Hash Table + Doubly Linked List</h3>
+<p>We can implement an LRU (Least Recently Used) cache using a "hash table" and a "doubly linked list".</p>
+<ul>
+<li>Hash Table: Used to store the key and its corresponding node location.</li>
+<li>Doubly Linked List: Used to store node data, sorted by access time.</li>
+</ul>
+<p>When accessing a node, if the node exists, we delete it from its original position and reinsert it at the head of the list. This ensures that the node stored at the tail of the list is the least recently used node. When the number of nodes exceeds the maximum cache space, we eliminate the node at the tail of the list.</p>
+<p>When inserting a node, if the node exists, we delete it from its original position and reinsert it at the head of the list. If it does not exist, we first check if the cache is full. If it is full, we delete the node at the tail of the list and insert the new node at the head of the list.</p>
+<p>The time complexity is $O(1)$, and the space complexity is $O(\text{capacity})$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

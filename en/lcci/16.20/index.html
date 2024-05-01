@@ -74563,15 +74563,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Solution 2
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -75305,7 +75296,7 @@
 <p>We consider a forward solution, which traverses each digit in the string $num$, maps it to the corresponding letter, combines all the letters to obtain all possible words, and then compares them with the given word list. If the word is in the list, it is added to the answer. The time complexity of this solution is $O(4^n)$, where $n$ is the length of the string $num$, which will obviously time out.</p>
 <p>Instead, we can consider a reverse solution, which traverses the given word list, and for each word $w$, determines whether it can be composed of the digits in the string $num$. If it can be composed, it is added to the answer. The key to the problem is how to determine whether a word can be composed of the digits in the string $num$. We only need to traverse each letter in the word $w$, restore it to the corresponding digit, and compare it with each digit in the string $num$ one by one. If they are the same, it means that the word $w$ can be composed of the digits in the string $num$.</p>
 <p>The time complexity is $O(m \times n)$, and the space complexity is $O(C)$. Here, $m$ and $n$ are the length of the word list and the string $num$, respectively, and $C$ is the size of the character set, which is $26$ in this problem.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Python3</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C++</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -75321,6 +75312,16 @@
 
         <span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="n">c</span><span class="p">:</span> <span class="n">d</span> <span class="k">for</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ascii_lowercase</span><span class="p">,</span> <span class="s2">&quot;22233344455566677778889999&quot;</span><span class="p">)}</span>
         <span class="k">return</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">check</span><span class="p">(</span><span class="n">w</span><span class="p">)]</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">getValidT9Words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">words</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+        <span class="n">trans</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="n">ascii_lowercase</span><span class="p">,</span> <span class="s2">&quot;22233344455566677778889999&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">trans</span><span class="p">)</span> <span class="o">==</span> <span class="n">num</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </div>
 <div class="tabbed-block">
@@ -75509,21 +75510,6 @@
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span><span class="p">;</span>
 <span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-</div>
-</div>
-</div>
-<h3 id="solution-2">Solution 2</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
-<span class="normal">2</span>
-<span class="normal">3</span>
-<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">getValidT9Words</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">words</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-        <span class="n">trans</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="n">ascii_lowercase</span><span class="p">,</span> <span class="s2">&quot;22233344455566677778889999&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="p">[</span><span class="n">w</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">words</span> <span class="k">if</span> <span class="n">w</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="n">trans</span><span class="p">)</span> <span class="o">==</span> <span class="n">num</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>
