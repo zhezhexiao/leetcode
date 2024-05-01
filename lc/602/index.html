@@ -79955,10 +79955,10 @@ RequestAccepted 表：
 <span class="k">WITH</span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
 <span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">requester_id</span><span class="p">,</span><span class="w"> </span><span class="n">accepter_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">RequestAccepted</span>
-<span class="w">        </span><span class="k">UNION</span>
+<span class="w">        </span><span class="k">UNION</span><span class="w"> </span><span class="k">ALL</span>
 <span class="w">        </span><span class="k">SELECT</span><span class="w"> </span><span class="n">accepter_id</span><span class="p">,</span><span class="w"> </span><span class="n">requester_id</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">RequestAccepted</span>
 <span class="w">    </span><span class="p">)</span>
-<span class="k">SELECT</span><span class="w"> </span><span class="n">requester_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="n">accepter_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">num</span>
+<span class="k">SELECT</span><span class="w"> </span><span class="n">requester_id</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">num</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">T</span>
 <span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span>
 <span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">DESC</span>
@@ -79996,6 +79996,11 @@ RequestAccepted 表：
     
     <nav>
       
+        <a href="https://github.com/Professorx911" class="md-author" title="@Professorx911">
+          
+          <img src="https://avatars.githubusercontent.com/u/112453010?v=4&size=72" alt="Professorx911">
+        </a>
+      
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
           <img src="https://avatars.githubusercontent.com/u/21008209?v=4&size=72" alt="yanglbme">
@@ -80011,12 +80016,13 @@ RequestAccepted 表：
           <img src="https://avatars.githubusercontent.com/u/53973174?v=4&size=72" alt="Dhoni77">
         </a>
       
-        <a href="https://github.com/LjyYano" class="md-author" title="@LjyYano">
-          
-          <img src="https://avatars.githubusercontent.com/u/9548512?v=4&size=72" alt="LjyYano">
-        </a>
       
       
+        
+          <a href="https://github.com/doocs/leetcode/blob/main/solution/0600-0699/0602.Friend Requests II Who Has the Most Friends/README.md" class="md-author md-author--more">
+            +1
+          </a>
+        
       
     </nav>
   </span>
