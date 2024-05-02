@@ -74765,9 +74765,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-hash-table-dfs" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Hash Table + DFS
     </span>
   </a>
   
@@ -75283,7 +75283,11 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-hash-table-dfs">Solution 1: Hash Table + DFS</h3>
+<p>For each pair of synonyms, we establish bidirectional edges between the two names and store them in the adjacency list $g$. Then, we traverse all names, store them in the set $s$, and store their frequencies in the hash table $cnt$.</p>
+<p>Next, we traverse each name in the set $s$. If the name has not been visited, we perform a depth-first search to find all names in the connected component where the name is located. We use the name with the smallest lexicographic order as the real name, and the sum of their frequencies is the frequency of the real name. Then, we store this name and its frequency in the answer array.</p>
+<p>After traversing all names, the answer array is what we seek.</p>
+<p>The time complexity is $O(n + m)$, and the space complexity is $O(n + m)$. Where $n$ and $m$ are the lengths of the name array and the synonym array, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

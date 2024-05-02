@@ -74723,9 +74723,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-prefix-sum-hash-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Prefix Sum + Hash Table
     </span>
   </a>
   
@@ -75301,7 +75301,16 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-prefix-sum-hash-table">Solution 1: Prefix Sum + Hash Table</h3>
+<p>The problem requires finding the longest subarray with an equal number of characters and digits. We can treat characters as $1$ and digits as $-1$, transforming the problem into finding the longest subarray with a sum of $0$.</p>
+<p>We can use the idea of prefix sums and a hash table <code>vis</code> to record the first occurrence of each prefix sum. We use variables <code>mx</code> and <code>k</code> to record the length and the left endpoint of the longest subarray that meets the conditions, respectively.</p>
+<p>Next, we iterate through the array, calculating the prefix sum <code>s</code> at the current position <code>i</code>:</p>
+<ul>
+<li>If the prefix sum <code>s</code> at the current position exists in the hash table <code>vis</code>, we denote the first occurrence of <code>s</code> as <code>j</code>, then the sum of the subarray in the interval $[j + 1,..,i]$ is $0$. If the length of the current subarray is greater than the length of the longest subarray found so far, i.e., $mx &lt; i - j$, we update <code>mx = i - j</code> and <code>k = j + 1</code>.</li>
+<li>Otherwise, we store the current prefix sum <code>s</code> as the key and the current position <code>i</code> as the value in the hash table <code>vis</code>.</li>
+</ul>
+<p>After the iteration, we return the subarray with a left endpoint of <code>k</code> and a length of <code>mx</code>.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

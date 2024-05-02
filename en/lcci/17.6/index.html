@@ -74744,9 +74744,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-digit-dp" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Digit DP
     </span>
   </a>
   
@@ -75282,7 +75282,31 @@
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-digit-dp">Solution 1: Digit DP</h3>
+<p>This problem is essentially about finding the number of occurrences of the digit $2$ in the given interval $[l,..r]$. The count is related to the number of digits and the digit at each position. We can use the idea of Digit DP to solve this problem. In Digit DP, the size of the number has little impact on the complexity.</p>
+<p>For the interval $[l,..r]$, we usually transform it into $[1,..r]$ and then subtract $[1,..l - 1]$, i.e.,</p>
+<p>$$
+ans = \sum_{i=1}^{r} ans_i -  \sum_{i=1}^{l-1} ans_i
+$$</p>
+<p>However, for this problem, we only need to find the value in the interval $[1,..r]$.</p>
+<p>Here, we use memoization to implement Digit DP. We start from the top and search down to the bottom to get the number of schemes, then return the answer layer by layer and accumulate it, finally getting the final answer from the starting point of the search.</p>
+<p>The basic steps are as follows:</p>
+<ol>
+<li>Convert the number $n$ into an int array $a$, where $a[1]$ is the least significant digit, and $a[len]$ is the most significant digit.</li>
+<li>Design the function $dfs()$ based on the problem information. For this problem, we define $dfs(pos, cnt, limit)$, and the answer is $dfs(len, 0, true)$.</li>
+</ol>
+<p>Where:</p>
+<ul>
+<li><code>pos</code> represents the number of digits, starting from the least significant digit or the first digit, usually depending on the digit construction property of the problem. For this problem, we choose to start from the most significant digit, so the initial value of <code>pos</code> is <code>len</code>.</li>
+<li><code>cnt</code> represents the number of $2$s in the current number.</li>
+<li><code>limit</code> represents the restriction on the digits that can be filled. If there is no restriction, you can choose $[0,1,..9]$, otherwise, you can only choose $[0,..a[pos]]$. If <code>limit</code> is <code>true</code> and the maximum value has been reached, then the next <code>limit</code> is also <code>true</code>. If <code>limit</code> is <code>true</code> but the maximum value has not been reached, or if <code>limit</code> is <code>false</code>, then the next <code>limit</code> is <code>false</code>.</li>
+</ul>
+<p>For details on the implementation of the function, please refer to the code below.</p>
+<p>The time complexity is $O(\log n)$.</p>
+<p>Similar problems:</p>
+<ul>
+<li><a href="https://github.com/doocs/leetcode/blob/main/solution/0200-0299/0233.Number%20of%20Digit%20One/README_EN.md">233. Number of Digit One</a></li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
