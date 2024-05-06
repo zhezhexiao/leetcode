@@ -80020,7 +80020,7 @@
 <p>具体地，我们用一个长度为 $n$ 的一维数组 $rows$ 和 $cols$ 分别表示每一行和每一列的计数，用 $dg$ 和 $udg$ 分别表示两个对角线的计数。当玩家放置一个字符到 $(i, j)$ 时，根据字符是 <code>X</code> 还是 <code>O</code>，更新数组 $rows$，$cols$，$dg$ 以及 $udg$ 中对应元素的值。每次更新后，我们判断对应的元素的值的绝对值是否等于 $n$，如果等于 $n$，则说明当前玩家在行、列或者对角线上放置了 $n$ 个相同字符，游戏结束，返回对应的字符即可。</p>
 <p>最后，我们遍历整个棋盘，如果棋盘中存在字符 <code></code>，说明游戏还未结束，返回 <code>Pending</code>，否则返回 <code>Draw</code>。</p>
 <p>时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是棋盘的边长。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -80362,6 +80362,74 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">tictactoe</span><span class="p">(</span><span class="kc">_</span> <span class="n">board</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">n</span> <span class="p">=</span> <span class="n">board</span><span class="p">.</span><span class="bp">count</span>
+        <span class="kd">var</span> <span class="nv">rows</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">n</span><span class="p">)</span>
+        <span class="kd">var</span> <span class="nv">cols</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="n">n</span><span class="p">)</span>
+        <span class="kd">var</span> <span class="nv">diagonal</span> <span class="p">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">antiDiagonal</span> <span class="p">=</span> <span class="mi">0</span>
+        <span class="kd">var</span> <span class="nv">hasEmptyGrid</span> <span class="p">=</span> <span class="kc">false</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">n</span> <span class="p">{</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">n</span> <span class="p">{</span>
+                <span class="kd">let</span> <span class="nv">c</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="n">i</span><span class="p">])[</span><span class="n">j</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">c</span> <span class="p">==</span> <span class="s">&quot; &quot;</span> <span class="p">{</span>
+                    <span class="n">hasEmptyGrid</span> <span class="p">=</span> <span class="kc">true</span>
+                    <span class="k">continue</span>
+                <span class="p">}</span>
+                <span class="kd">let</span> <span class="nv">value</span> <span class="p">=</span> <span class="n">c</span> <span class="p">==</span> <span class="s">&quot;X&quot;</span> <span class="p">?</span> <span class="mi">1</span> <span class="p">:</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="n">rows</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="n">value</span>
+                <span class="n">cols</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">value</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="p">==</span> <span class="n">j</span> <span class="p">{</span>
+                    <span class="n">diagonal</span> <span class="o">+=</span> <span class="n">value</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">+</span> <span class="n">j</span> <span class="p">==</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">{</span>
+                    <span class="n">antiDiagonal</span> <span class="o">+=</span> <span class="n">value</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="bp">abs</span><span class="p">(</span><span class="n">rows</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="p">==</span> <span class="n">n</span> <span class="o">||</span> <span class="bp">abs</span><span class="p">(</span><span class="n">cols</span><span class="p">[</span><span class="n">j</span><span class="p">])</span> <span class="p">==</span> <span class="n">n</span> <span class="o">||</span> <span class="bp">abs</span><span class="p">(</span><span class="n">diagonal</span><span class="p">)</span> <span class="p">==</span> <span class="n">n</span> <span class="o">||</span> <span class="bp">abs</span><span class="p">(</span><span class="n">antiDiagonal</span><span class="p">)</span> <span class="p">==</span> <span class="n">n</span> <span class="p">{</span>
+                    <span class="k">return</span> <span class="nb">String</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">hasEmptyGrid</span> <span class="p">?</span> <span class="s">&quot;Pending&quot;</span> <span class="p">:</span> <span class="s">&quot;Draw&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -80392,6 +80460,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
