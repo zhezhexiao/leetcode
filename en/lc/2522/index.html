@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
     
     
       
@@ -59768,9 +59768,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-memoization-search" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Memoization Search
     </span>
   </a>
   
@@ -75484,7 +75484,16 @@ It can be shown that we cannot partition the string into less than 4 substrings.
 </style>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-memoization-search">Solution 1: Memoization Search</h3>
+<p>We design a function $dfs(i)$ to represent the minimum number of partitions starting from index $i$ of string $s$. The answer is $dfs(0)$.</p>
+<p>The calculation process of the function $dfs(i)$ is as follows:</p>
+<ul>
+<li>If $i \geq n$, it means that it has reached the end of the string, return $0$.</li>
+<li>Otherwise, we enumerate all substrings starting from $i$. If the value of the substring is less than or equal to $k$, then we can take the substring as a partition. Then we can get $dfs(j + 1)$, where $j$ is the end index of the substring. We take the minimum value among all possible partitions, add $1$, and that is the value of $dfs(i)$.</li>
+</ul>
+<p>Finally, if $dfs(0) = \infty$, it means there is no good partition, return $-1$. Otherwise, return $dfs(0)$.</p>
+<p>To avoid repeated calculations, we can use memoization search.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the string $s$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -75930,7 +75939,7 @@ It can be shown that we cannot partition the string into less than 4 substrings.
     <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
       
         <script src="../../javascripts/katex.js"></script>
       

@@ -22,7 +22,7 @@
       
       
       <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.20">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
     
     
       
@@ -80040,11 +80040,11 @@ setTimeout(() =&gt; batcher.getValue('a'), 10); // "a!" at t=10ms
 setTimeout(() =&gt; batcher.getValue('b'), 20); // "b!" at t=110ms
 setTimeout(() =&gt; batcher.getValue('c'), 30); // "c!" at t=110ms
 
-<code>queryMultiple </code>简单地给键添加了"!"。 
-在 t=10ms 时，调用 <code>getValue('a')</code>，立即调用 <code>queryMultiple(['a']) </code>并立即返回结果。 
-在 t=20ms 时，调用 <code>getValue('b')</code>，但查询需要等待。 
-在 t=30ms 时，调用 <code>getValue('c')</code>，但查询需要等待。 
-在 t=110ms 时，调用 <code>queryMultiple(['b', 'c']) </code>并立即返回结果。
+queryMultiple 简单地给键添加了"!"。 
+在 t=10ms 时，调用 getValue('a')，立即调用 queryMultiple(['a']) 并立即返回结果。 
+在 t=20ms 时，调用 getValue('b')，但查询需要等待。 
+在 t=30ms 时，调用 getValue('c')，但查询需要等待。 
+在 t=110ms 时，调用 queryMultiple(['b', 'c']) 并立即返回结果。
 </pre>
 
 <p><strong class="example">示例 2；</strong></p>
@@ -80067,7 +80067,7 @@ calls = [
 &nbsp; {"resolved": "c!", "time": 210}
 ]
 <strong>解释：</strong>
-这个例子与示例 1 相同，只是在 <code>queryMultiple </code>中有一个 100ms 的延迟。结果也相同，只是 promise 的解析时间延迟了 100ms。
+这个例子与示例 1 相同，只是在 queryMultiple 中有一个 100ms 的延迟。结果也相同，只是 promise 的解析时间延迟了 100ms。
 </pre>
 
 <p><strong class="example">示例 3：</strong></p>
@@ -80096,10 +80096,10 @@ calls = [
   {"resolved":"f!","time":450}
 ]
 <strong>解释：
-</strong>在 t=10ms 时，调用 <code>queryMultiple(['a']) </code>，在 t=110ms 时解析。 
-在 t=110ms 时，调用 <code>queryMultiple(['b', 'c', 'd']) </code>，在 t=410ms 时解析。 
-在 t=250ms 时，调用 <code>queryMultiple(['e']) </code>，在 t=350ms 时解析。 
-在 t=350ms 时，调用 <code>queryMultiple(['f']) </code>，在 t=450ms 时解析。
+</strong>在 t=10ms 时，调用 queryMultiple(['a']) ，在 t=110ms 时解析。 
+在 t=110ms 时，调用 queryMultiple(['b', 'c', 'd']) ，在 t=410ms 时解析。 
+在 t=250ms 时，调用 queryMultiple(['e']) ，在 t=350ms 时解析。 
+在 t=350ms 时，调用 queryMultiple(['f']) ，在 t=450ms 时解析。
 </pre>
 
 <p>&nbsp;</p>
@@ -80339,7 +80339,7 @@ calls = [
     <script id="__config" type="application/json">{"base": "../..", "features": ["announce.dismiss", "content.code.annotate", "content.code.copy", "content.action.edit", "content.action.view", "content.tooltips", "navigation.footer", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.top", "navigation.tracking", "search.highlight", "search.share", "search.suggest", "toc.follow", "toc.integrate"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.dd8806f2.min.js"></script>
+      <script src="../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
       
         <script src="../../javascripts/katex.js"></script>
       
