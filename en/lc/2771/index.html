@@ -64997,9 +64997,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-dynamic-programming" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Dynamic Programming
     </span>
   </a>
   
@@ -75473,7 +75473,19 @@ The entire array forms a non-decreasing subarray of length 2, making it the maxi
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
+<p>We define two variables $f$ and $g$, which represent the length of the longest non-decreasing subarray at the current position. Here, $f$ represents the length of the longest non-decreasing subarray ending with an element from $nums1$, and $g$ represents the length of the longest non-decreasing subarray ending with an element from $nums2$. Initially, $f = g = 1$, and the initial answer $ans = 1$.</p>
+<p>Next, we iterate over the array elements in the range $i \in [1, n)$, and for each $i$, we define two variables $ff$ and $gg$, which represent the length of the longest non-decreasing subarray ending with $nums1[i]$ and $nums2[i]$ respectively. When initialized, $ff = gg = 1$.</p>
+<p>We can calculate the values of $ff$ and $gg$ based on the values of $f$ and $g$:</p>
+<ul>
+<li>If $nums1[i] \ge nums1[i - 1]$, then $ff = \max(ff, f + 1)$;</li>
+<li>If $nums1[i] \ge nums2[i - 1]$, then $ff = \max(ff, g + 1)$;</li>
+<li>If $nums2[i] \ge nums1[i - 1]$, then $gg = \max(gg, f + 1)$;</li>
+<li>If $nums2[i] \ge nums2[i - 1]$, then $gg = \max(gg, g + 1)$.</li>
+</ul>
+<p>Then, we update $f = ff$ and $g = gg$, and update $ans$ to $\max(ans, f, g)$.</p>
+<p>After the iteration ends, we return $ans$.</p>
+<p>The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

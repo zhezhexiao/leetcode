@@ -75496,12 +75496,7 @@ Output table is ordered by first_seat_id in ascending order.</div>
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
+<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="o">#</span><span class="w"> </span><span class="k">Write</span><span class="w"> </span><span class="n">your</span><span class="w"> </span><span class="n">MySQL</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="k">statement</span><span class="w"> </span><span class="n">below</span>
 <span class="k">WITH</span>
 <span class="w">    </span><span class="n">T</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
 <span class="w">        </span><span class="k">SELECT</span>
@@ -75514,18 +75509,13 @@ Output table is ordered by first_seat_id in ascending order.</div>
 <span class="w">        </span><span class="k">SELECT</span>
 <span class="w">            </span><span class="k">MIN</span><span class="p">(</span><span class="n">seat_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">first_seat_id</span><span class="p">,</span>
 <span class="w">            </span><span class="k">MAX</span><span class="p">(</span><span class="n">seat_id</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">last_seat_id</span><span class="p">,</span>
-<span class="w">            </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">consecutive_seats_len</span>
+<span class="w">            </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">consecutive_seats_len</span><span class="p">,</span>
+<span class="w">            </span><span class="n">RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">rk</span>
 <span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">T</span>
 <span class="w">        </span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">gid</span>
-<span class="w">    </span><span class="p">),</span>
-<span class="w">    </span><span class="n">S</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="p">(</span>
-<span class="w">        </span><span class="k">SELECT</span>
-<span class="w">            </span><span class="o">*</span><span class="p">,</span>
-<span class="w">            </span><span class="n">RANK</span><span class="p">()</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(</span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">consecutive_seats_len</span><span class="w"> </span><span class="k">DESC</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">rk</span>
-<span class="w">        </span><span class="k">FROM</span><span class="w"> </span><span class="n">P</span>
 <span class="w">    </span><span class="p">)</span>
 <span class="k">SELECT</span><span class="w"> </span><span class="n">first_seat_id</span><span class="p">,</span><span class="w"> </span><span class="n">last_seat_id</span><span class="p">,</span><span class="w"> </span><span class="n">consecutive_seats_len</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">S</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">P</span>
 <span class="k">WHERE</span><span class="w"> </span><span class="n">rk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
 </code></pre></div></td></tr></table></div>
