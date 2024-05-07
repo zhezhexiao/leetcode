@@ -80024,7 +80024,7 @@
 <p>我们同时遍历两个字符串，算出对应位置字符相同的个数，累加到 $x$ 中，然后将两个字符串出现的字符以及出现的次数分别记录在哈希表 $cnt1$ 和 $cnt2$ 中。</p>
 <p>接着遍历两个哈希表，算出有多少共同出现的字符，累加到 $y$ 中。那么答案就是 $[x, y - x]$。</p>
 <p>时间复杂度 $O(C)$，空间复杂度 $O(C)$。本题中 $C=4$。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -80188,6 +80188,60 @@
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">masterMind</span><span class="p">(</span><span class="kc">_</span> <span class="n">solution</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="kc">_</span> <span class="n">guess</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">Int</span><span class="p">]</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">x</span> <span class="p">=</span> <span class="mi">0</span>
+        <span class="kd">var</span> <span class="nv">y</span> <span class="p">=</span> <span class="mi">0</span>
+        <span class="kd">var</span> <span class="nv">cnt1</span><span class="p">:</span> <span class="p">[</span><span class="nb">Character</span><span class="p">:</span> <span class="nb">Int</span><span class="p">]</span> <span class="p">=</span> <span class="p">[:]</span>
+        <span class="kd">var</span> <span class="nv">cnt2</span><span class="p">:</span> <span class="p">[</span><span class="nb">Character</span><span class="p">:</span> <span class="nb">Int</span><span class="p">]</span> <span class="p">=</span> <span class="p">[:]</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">solution</span><span class="p">.</span><span class="bp">indices</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nv">a</span> <span class="p">=</span> <span class="n">solution</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="kd">let</span> <span class="nv">b</span> <span class="p">=</span> <span class="n">guess</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">a</span> <span class="p">==</span> <span class="n">b</span> <span class="p">{</span>
+                <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="p">}</span>
+            <span class="n">cnt1</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="k">default</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">cnt2</span><span class="p">[</span><span class="n">b</span><span class="p">,</span> <span class="k">default</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="p">}</span>
+
+        <span class="kd">let</span> <span class="nv">colors</span> <span class="p">=</span> <span class="s">&quot;RYGB&quot;</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">colors</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nv">minCount</span> <span class="p">=</span> <span class="bp">min</span><span class="p">(</span><span class="n">cnt1</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="k">default</span><span class="p">:</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cnt2</span><span class="p">[</span><span class="n">c</span><span class="p">,</span> <span class="k">default</span><span class="p">:</span> <span class="mi">0</span><span class="p">])</span>
+            <span class="n">y</span> <span class="o">+=</span> <span class="n">minCount</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -80218,6 +80272,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
