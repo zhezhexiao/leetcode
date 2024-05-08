@@ -80024,7 +80024,7 @@
 <p>遍历数组，对于每个元素 $x$，我们计算 $y = target - x$，如果哈希表中存在 $y$，则说明存在一对数 $(x, y)$，我们将其加入答案，并减少 $y$ 的出现次数。如果哈希表中不存在 $y$，则说明不存在这样的数对，我们将 $x$ 的出现次数加 $1$。</p>
 <p>遍历结束后，即可得到答案。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 为数组的长度。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -80194,6 +80194,48 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">pairSums</span><span class="p">(</span><span class="kc">_</span> <span class="n">nums</span><span class="p">:</span> <span class="p">[</span><span class="nb">Int</span><span class="p">],</span> <span class="kc">_</span> <span class="n">target</span><span class="p">:</span> <span class="nb">Int</span><span class="p">)</span> <span class="p">-&gt;</span> <span class="p">[[</span><span class="nb">Int</span><span class="p">]]</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">countMap</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">:</span> <span class="nb">Int</span><span class="p">]()</span>
+        <span class="kd">var</span> <span class="nv">ans</span> <span class="p">=</span> <span class="p">[[</span><span class="nb">Int</span><span class="p">]]()</span>
+
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">nums</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nv">y</span> <span class="p">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">x</span>
+            <span class="k">if</span> <span class="kd">let</span> <span class="nv">yCount</span> <span class="p">=</span> <span class="n">countMap</span><span class="p">[</span><span class="n">y</span><span class="p">],</span> <span class="n">yCount</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">{</span>
+                <span class="n">ans</span><span class="p">.</span><span class="n">append</span><span class="p">([</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">])</span>
+                <span class="n">countMap</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="p">=</span> <span class="n">yCount</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="n">countMap</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="p">==</span> <span class="mi">0</span> <span class="p">{</span>
+                    <span class="n">countMap</span><span class="p">.</span><span class="n">removeValue</span><span class="p">(</span><span class="n">forKey</span><span class="p">:</span> <span class="n">y</span><span class="p">)</span>
+                <span class="p">}</span>
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">countMap</span><span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="k">default</span><span class="p">:</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ans</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -80224,6 +80266,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           

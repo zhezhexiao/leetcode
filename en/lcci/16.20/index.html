@@ -75434,7 +75434,7 @@
 <p>We consider a forward solution, which traverses each digit in the string $num$, maps it to the corresponding letter, combines all the letters to obtain all possible words, and then compares them with the given word list. If the word is in the list, it is added to the answer. The time complexity of this solution is $O(4^n)$, where $n$ is the length of the string $num$, which will obviously time out.</p>
 <p>Instead, we can consider a reverse solution, which traverses the given word list, and for each word $w$, determines whether it can be composed of the digits in the string $num$. If it can be composed, it is added to the answer. The key to the problem is how to determine whether a word can be composed of the digits in the string $num$. We only need to traverse each letter in the word $w$, restore it to the corresponding digit, and compare it with each digit in the string $num$ one by one. If they are the same, it means that the word $w$ can be composed of the digits in the string $num$.</p>
 <p>The time complexity is $O(m \times n)$, and the space complexity is $O(C)$. Here, $m$ and $n$ are the length of the word list and the string $num$, respectively, and $C$ is the size of the character set, which is $26$ in this problem.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Python3</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C++</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">TypeScript</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Python3</label><label for="__tabbed_1_3">Java</label><label for="__tabbed_1_4">C++</label><label for="__tabbed_1_5">Go</label><label for="__tabbed_1_6">TypeScript</label><label for="__tabbed_1_7">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">1</span>
@@ -75650,6 +75650,58 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">func</span> <span class="nf">getValidT9Words</span><span class="p">(</span><span class="kc">_</span> <span class="n">num</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span> <span class="kc">_</span> <span class="n">words</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">s</span> <span class="p">=</span> <span class="s">&quot;22233344455566677778889999&quot;</span>
+        <span class="kd">var</span> <span class="nv">d</span> <span class="p">=</span> <span class="nb">Array</span><span class="p">(</span><span class="n">repeating</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">26</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="mi">26</span> <span class="p">{</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">s</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">s</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="n">i</span><span class="p">)].</span><span class="n">asciiValue</span><span class="p">!</span> <span class="o">-</span> <span class="nb">Character</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">).</span><span class="n">asciiValue</span><span class="p">!)</span>
+        <span class="p">}</span>
+        <span class="kd">var</span> <span class="nv">ans</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span>
+        <span class="kd">let</span> <span class="nv">n</span> <span class="p">=</span> <span class="n">num</span><span class="p">.</span><span class="bp">count</span>
+        <span class="k">for</span> <span class="n">w</span> <span class="k">in</span> <span class="n">words</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nv">ok</span> <span class="p">=</span> <span class="kc">true</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">n</span> <span class="p">{</span>
+                <span class="kd">let</span> <span class="nv">numChar</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">num</span><span class="p">[</span><span class="n">num</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">num</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="n">i</span><span class="p">)].</span><span class="n">asciiValue</span><span class="p">!</span> <span class="o">-</span> <span class="nb">Character</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">).</span><span class="n">asciiValue</span><span class="p">!)</span>
+                <span class="k">if</span> <span class="n">d</span><span class="p">[</span><span class="nb">Int</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="n">w</span><span class="p">.</span><span class="n">index</span><span class="p">(</span><span class="n">w</span><span class="p">.</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="n">i</span><span class="p">)].</span><span class="n">asciiValue</span><span class="p">!</span> <span class="o">-</span> <span class="nb">Character</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">).</span><span class="n">asciiValue</span><span class="p">!)]</span> <span class="o">!=</span> <span class="n">numChar</span> <span class="p">{</span>
+                    <span class="n">ok</span> <span class="p">=</span> <span class="kc">false</span>
+                    <span class="k">break</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="n">ok</span> <span class="p">{</span>
+                <span class="n">ans</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ans</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -75680,6 +75732,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
