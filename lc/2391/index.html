@@ -80115,7 +80115,7 @@
 <h2 id="_2">解法</h2>
 <h3 id="_3">方法一：哈希表 + 前缀和</h3>
 <p>根据题目描述，每一辆垃圾车从房子 $0$ 出发，收集其中一种垃圾，按顺序前进，直到到达该种垃圾最后出现的房子下标为止。</p>
-<p>因此，我们可以用一个哈希表 $\text{last}$ 记录每种垃圾最后出现的房子下标。我们假设第 $i$ 种垃圾最后一次出现在第 $j$ 个房子，那么第 $i$ 辆车所需要的行驶时间为 $\text{travel}[0] + \text{travel}[1] + \cdots + \text{travel}[j-1]$。这可以通过前缀和来计算。我们累计所有车辆的行驶时间，加上每种垃圾的总收集时间，即可得到答案。</p>
+<p>因此，我们可以用一个哈希表 $\text{last}$ 记录每种垃圾最后出现的房子下标。我们假设第 $i$ 种垃圾最后一次出现在第 $j$ 个房子，那么第 $i$ 辆车所需要的行驶时间为 $\text{travel}[0] + \text{travel}[1] + \cdots + \text{travel}[j-1]$。注意，如果 $j = 0$，则不需要行驶时间。我们通过前缀和累计所有车辆的行驶时间，加上每种垃圾的总收集时间，即可得到答案。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(k)$，其中 $n$ 和 $k$ 分别是垃圾的数量和种类。本题中 $k = 3$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:7"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">C#</label></div>
 <div class="tabbed-content">
