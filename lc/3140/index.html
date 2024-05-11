@@ -26,7 +26,7 @@
     
     
       
-        <title>3140. Consecutive Available Seats II 🔒 - LeetCode Wiki</title>
+        <title>3140. 连续空余座位 II 🔒 - LeetCode Wiki</title>
       
     
     
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#3140-consecutive-available-seats-ii" class="md-skip">
+        <a href="#3140-ii" class="md-skip">
           跳转至
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3140. Consecutive Available Seats II 🔒
+              3140. 连续空余座位 II 🔒
             
           </span>
         </div>
@@ -478,6 +478,14 @@
   
     
     
+      
+        
+      
+        
+      
+        
+      
+        
       
         
       
@@ -20563,7 +20571,7 @@
         
   
   <span class="md-ellipsis">
-    656. 金币路径 🔒
+    656. 成本最小路径 🔒
   </span>
   
 
@@ -66385,7 +66393,7 @@
         
   
   <span class="md-ellipsis">
-    2838. Maximum Coins Heroes Can Collect 🔒
+    2838. 英雄可以获得的最大金币数 🔒
   </span>
   
 
@@ -72736,7 +72744,7 @@
           
   
   <span class="md-ellipsis">
-    3140. Consecutive Available Seats II 🔒
+    3140. 连续空余座位 II 🔒
   </span>
   
 
@@ -72747,7 +72755,7 @@
         
   
   <span class="md-ellipsis">
-    3140. Consecutive Available Seats II 🔒
+    3140. 连续空余座位 II 🔒
   </span>
   
 
@@ -72821,7 +72829,91 @@
         
   
   <span class="md-ellipsis">
-    3141. 最大海明距离 🔒
+    3141. 最大汉明距离 🔒
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3142/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3142. 判断矩阵是否满足条件
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3143/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3143. 正方形中的最多点数
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3144/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3144. 分割字符频率相等的最少子字符串
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../3145/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    3145. 大数组元素的乘积
   </span>
   
 
@@ -80036,13 +80128,13 @@
   
 
 
-<h1 id="3140-consecutive-available-seats-ii"><a href="https://leetcode.cn/problems/consecutive-available-seats-ii">3140. Consecutive Available Seats II 🔒</a></h1>
+<h1 id="3140-ii"><a href="https://leetcode.cn/problems/consecutive-available-seats-ii">3140. 连续空余座位 II 🔒</a></h1>
 <!-- tags:数据库 -->
 
 <h2 id="_1">题目描述</h2>
 <!-- 这里写题目描述 -->
 
-<p>Table: <code>Cinema</code></p>
+<p>表：<code>Cinema</code></p>
 
 <pre>
 +-------------+------+
@@ -80051,30 +80143,31 @@
 | seat_id     | int  |
 | free        | bool |
 +-------------+------+
-seat_id is an auto-increment column for this table.
-Each row of this table indicates whether the i<sup>th</sup> seat is free or not. 1 means free while 0 means occupied.
+seat_id 是这张表中的自增列。
+这张表的每一行表示第 i 个作为是否空余。1 表示空余，而 0 表示被占用。
 </pre>
 
-<p>Write a solution to find the <strong>length</strong> of&nbsp;<strong>longest consecutive sequence</strong> of <strong>available</strong> seats in the cinema.</p>
+<p>编写一个解决方案来找到电影院中 <strong>最长的空余座位</strong> 的 <strong>长度</strong>。</p>
 
-<p>Note:</p>
+<p>注意：</p>
 
 <ul>
-    <li>There will always be <strong>at most</strong> <strong>one</strong> longest consecutive sequence.</li>
-    <li>If there are <strong>multiple</strong>&nbsp;consecutive sequences with the <strong>same length</strong>, include all of them in the output.</li>
+    <li>保证 <strong>最多有一个</strong> 最长连续序列。</li>
+    <li>如果有 <strong>多个</strong> <strong>相同长度</strong> 的连续序列，将它们全部输出。</li>
 </ul>
 
-<p>Return <em>the result table <strong>ordered</strong> by</em> <code>first_seat_id</code> <em><strong>in ascending order</strong></em>.</p>
+<p>返回结果表以&nbsp;<code>first_seat_id</code>&nbsp;<strong>升序排序</strong>。</p>
 
-<p>The result format is in the following example.</p>
+<p>结果表的格式如下所示。</p>
 
 <p>&nbsp;</p>
-<p><strong>Example:</strong></p>
+
+<p><strong>示例：</strong></p>
 
 <div class="example-block">
-<p><strong>Input:</strong></p>
+<p><strong>输入：</strong></p>
 
-<p>Cinema table:</p>
+<p>Cinema 表：</p>
 
 <pre class="example-io">
 +---------+------+
@@ -80088,7 +80181,7 @@ Each row of this table indicates whether the i<sup>th</sup> seat is free or not.
 +---------+------+
 </pre>
 
-<p><strong>Output:</strong></p>
+<p><strong>输出：</strong></p>
 
 <pre class="example-io">
 +-----------------+----------------+-----------------------+
@@ -80098,12 +80191,12 @@ Each row of this table indicates whether the i<sup>th</sup> seat is free or not.
 +-----------------+----------------+-----------------------+
 </pre>
 
-<p><strong>Explanation:</strong></p>
+<p><strong>解释：</strong></p>
 
 <ul>
-    <li>Longest consecutive sequence of available seats starts from seat 3 and ends at seat 5 with a length of 3.</li>
+    <li>可用座位的最长连续序列从座位 3 开始，到座位 5 结束，长度为 3。</li>
 </ul>
-Output table is ordered by first_seat_id in ascending order.</div>
+输出表以 first_seat_id 升序排序。</div>
 
 <h2 id="_2">解法</h2>
 <h3 id="_3">方法一：使用窗口函数</h3>
@@ -80296,13 +80389,13 @@ Output table is ordered by first_seat_id in ascending order.</div>
         
         
           
-          <a href="../3141/" class="md-footer__link md-footer__link--next" aria-label="下一页: 3141. 最大海明距离 🔒">
+          <a href="../3141/" class="md-footer__link md-footer__link--next" aria-label="下一页: 3141. 最大汉明距离 🔒">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                3141. 最大海明距离 🔒
+                3141. 最大汉明距离 🔒
               </div>
             </div>
             <div class="md-footer__button md-icon">
