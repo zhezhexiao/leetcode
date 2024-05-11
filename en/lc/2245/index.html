@@ -53953,9 +53953,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-prefix-sum-enumerate-turning-point" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Prefix Sum + Enumerate Turning Point
     </span>
   </a>
   
@@ -75503,7 +75503,26 @@ There are no cornered paths in the grid that result in a product with a trailing
 </ul>
 
 <h2 id="solutions">Solutions</h2>
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-prefix-sum-enumerate-turning-point">Solution 1: Prefix Sum + Enumerate Turning Point</h3>
+<p>Firstly, we need to understand that for a product, the number of trailing zeros depends on the smaller count of $2$ and $5$ in its factors. Also, each corner path should cover as many numbers as possible, so it must start from a boundary, reach a turning point, and then reach another boundary.</p>
+<p>Therefore, we can create four two-dimensional arrays $r2$, $c2$, $r5$, $c5$ to record the counts of $2$ and $5$ in each row and column. Where:</p>
+<ul>
+<li><code>r2[i][j]</code> represents the count of $2$ from the first column to the $j$-th column in the $i$-th row;</li>
+<li><code>c2[i][j]</code> represents the count of $2$ from the first row to the $i$-th row in the $j$-th column;</li>
+<li><code>r5[i][j]</code> represents the count of $5$ from the first column to the $j$-th column in the $i$-th row;</li>
+<li><code>c5[i][j]</code> represents the count of $5$ from the first row to the $i$-th row in the $j$-th column.</li>
+</ul>
+<p>Next, we traverse the two-dimensional array <code>grid</code>. For each number, we calculate its counts of $2$ and $5$, and then update the four two-dimensional arrays.</p>
+<p>Then, we enumerate the turning point $(i, j)$. For each turning point, we calculate four values:</p>
+<ul>
+<li><code>a</code> represents the smaller count of $2$ and $5$ in the path that moves right from $(i, 1)$ to $(i, j)$, then turns and moves up to $(1, j)$;</li>
+<li><code>b</code> represents the smaller count of $2$ and $5$ in the path that moves right from $(i, 1)$ to $(i, j)$, then turns and moves down to $(m, j)$;</li>
+<li><code>c</code> represents the smaller count of $2$ and $5$ in the path that moves left from $(i, n)$ to $(i, j)$, then turns and moves up to $(1, j)$;</li>
+<li><code>d</code> represents the smaller count of $2$ and $5$ in the path that moves left from $(i, n)$ to $(i, j)$, then turns and moves down to $(m, j)$.</li>
+</ul>
+<p>Each time we enumerate, we take the maximum of these four values, and then update the answer.</p>
+<p>Finally, we return the answer.</p>
+<p>The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$, where $m$ and $n$ are the number of rows and columns of the <code>grid</code> array, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
