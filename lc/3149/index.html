@@ -73028,7 +73028,7 @@
         
   
   <span class="md-ellipsis">
-    3150. Invalid Tweets II 🔒
+    3150. 无效的推文 II 🔒
   </span>
   
 
@@ -80290,7 +80290,7 @@
 <p>我们设计一个函数 $\text{dfs}(\text{mask}, \text{pre})$，表示当前排列选取的数字集合为 $\text{mask}$，且最后一个选取的数字为 $\text{pre}$ 时，得到的排列的最小分数。初始时我们将数字 $0$ 加入到排列中。</p>
 <p>函数 $\text{dfs}(\text{mask}, \text{pre})$ 的计算过程如下：</p>
 <ul>
-<li>如果 $\text{mask}$ 的二进制表示中 $1$ 的个数为 $n$，即 $\text{mask} = 2^n - 1$，表示所有数字都已经被选取，此时返回 $\text{abs}(\text{pre} - \text{nums}[0])$；</li>
+<li>如果 $\text{mask}$ 的二进制表示中 $1$ 的个数为 $n$，即 $\text{mask} = 2^n - 1$，表示所有数字都已经被选取，此时返回 $|\text{pre} - \text{nums}[0]|$；</li>
 <li>否则，我们枚举下一个选取的数字 $\text{cur}$，如果数字 $\text{cur}$ 还未被选取，那么我们可以将数字 $\text{cur}$ 加入到排列中，此时排列的分数为 $|\text{pre} - \text{nums}[\text{cur}]| + \text{dfs}(\text{mask} \, | \, 1 &lt;&lt; \text{cur}, \text{cur})$，我们需要取所有 $\text{cur}$ 中分数的最小值。</li>
 </ul>
 <p>最后，我们利用一个函数 $\text{g}(\text{mask}, \text{pre})$ 来构造得到最小分数的排列。我们首先将数字 $\text{pre}$ 加入到排列中，然后枚举下一个选取的数字 $\text{cur}$，如果数字 $\text{cur}$ 还未被选取，且满足 $|\text{pre} - \text{nums}[\text{cur}]| + \text{dfs}(\text{mask} \, | \, 1 &lt;&lt; \text{cur}, \text{cur})$ 的值等于 $\text{dfs}(\text{mask}, \text{pre})$，那么我们就可以将数字 $\text{cur}$ 加入到排列中。</p>
@@ -80857,13 +80857,13 @@
         
         
           
-          <a href="../3150/" class="md-footer__link md-footer__link--next" aria-label="下一页: 3150. Invalid Tweets II 🔒">
+          <a href="../3150/" class="md-footer__link md-footer__link--next" aria-label="下一页: 3150. 无效的推文 II 🔒">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 下一页
               </span>
               <div class="md-ellipsis">
-                3150. Invalid Tweets II 🔒
+                3150. 无效的推文 II 🔒
               </div>
             </div>
             <div class="md-footer__button md-icon">
