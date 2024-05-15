@@ -80156,77 +80156,45 @@
 
 <p>「力扣挑战赛」有 <code>n</code> 个比赛场馆（场馆编号从 <code>0</code> 开始），场馆之间的通道分布情况记录于二维数组 <code>edges</code> 中，<code>edges[i]= [x, y]</code> 表示第 <code>i</code> 条通道连接场馆 <code>x</code> 和场馆 <code>y</code>(即两个场馆相邻)。初始每个场馆中都有一定人数的志愿者（不同场馆人数可能不同），后续 <code>m</code> 天每天均会根据赛事热度进行志愿者人数调配。调配方案分为如下三种：</p>
 <ol>
-<li>
-<p>将编号为 <code>idx</code> 的场馆内的志愿者人数减半；</p>
-</li>
-<li>
-<p>将编号为 <code>idx</code> 的场馆相邻的场馆的志愿者人数都加上编号为 <code>idx</code> 的场馆的志愿者人数；</p>
-</li>
-<li>
-<p>将编号为 <code>idx</code> 的场馆相邻的场馆的志愿者人数都减去编号为 <code>idx</code> 的场馆的志愿者人数。</p>
-</li>
+<li>将编号为 <code>idx</code> 的场馆内的志愿者人数减半；</li>
+<li>将编号为 <code>idx</code> 的场馆相邻的场馆的志愿者人数都加上编号为 <code>idx</code> 的场馆的志愿者人数；</li>
+<li>将编号为 <code>idx</code> 的场馆相邻的场馆的志愿者人数都减去编号为 <code>idx</code> 的场馆的志愿者人数。</li>
 </ol>
-<p>所有的调配信息记录于数组 <code>plans</code> 中，<code>plans[i] = [num,idx]</code> 表示第 <code>i</code> 天对编号 <code>idx</code> 的场馆执行了第 <code>num</code> 种调配方案。</p>
-<p>在比赛结束后对调配方案进行复盘时，不慎将第 <code>0</code> 个场馆的<strong>最终</strong>志愿者人数丢失，只保留了<strong>初始</strong>所有场馆的志愿者总人数 <code>totalNum</code> ，以及记录了第 <code>1 ~ n-1</code> 个场馆的<strong>最终</strong>志愿者人数的一维数组 <code>finalCnt</code>。请你根据现有的信息求出初始每个场馆的志愿者人数，并按场馆编号顺序返回志愿者人数列表。</p>
+<p>所有的调配信息记录于数组 <code>plans</code> 中，<code>plans[i] = [num,idx]</code> 表示第 <code>i</code> 天对编号 <code>idx</code> 的场馆执行了第 <code>num</code> 种调配方案。
+在比赛结束后对调配方案进行复盘时，不慎将第 <code>0</code> 个场馆的<strong>最终</strong>志愿者人数丢失，只保留了<strong>初始</strong>所有场馆的志愿者总人数 <code>totalNum</code> ，以及记录了第 <code>1 ~ n-1</code> 个场馆的<strong>最终</strong>志愿者人数的一维数组 <code>finalCnt</code>。请你根据现有的信息求出初始每个场馆的志愿者人数，并按场馆编号顺序返回志愿者人数列表。</p>
 <p><strong>注意：</strong></p>
 <ul>
-<li>
-<p>测试数据保证当某场馆进行第一种调配时，该场馆的志愿者人数一定为偶数；</p>
-</li>
-<li>
-<p>测试数据保证当某场馆进行第三种调配时，该场馆的相邻场馆志愿者人数不为负数；</p>
-</li>
-<li>
-<p>测试数据保证比赛开始时每个场馆的志愿者人数都不超过 <code>10^9</code>；</p>
-</li>
-<li>
-<p>测试数据保证给定的场馆间的道路分布情况中不会出现自环、重边的情况。</p>
-</li>
+<li>测试数据保证当某场馆进行第一种调配时，该场馆的志愿者人数一定为偶数；</li>
+<li>测试数据保证当某场馆进行第三种调配时，该场馆的相邻场馆志愿者人数不为负数；</li>
+<li>测试数据保证比赛开始时每个场馆的志愿者人数都不超过 <code>10^9</code>；</li>
+<li>测试数据保证给定的场馆间的道路分布情况中不会出现自环、重边的情况。</li>
 </ul>
 <p><strong>示例 1：</strong></p>
 <blockquote>
-<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061228-gnZsOz-image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061228-gnZsOz-image.png" /></a></p>
-<p>输入：</p>
-<p><code>finalCnt = [1,16], totalNum = 21, edges = [[0,1],[1,2]], plans = [[2,1],[1,0],[3,0]]</code></p>
+<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061228-gnZsOz-image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061228-gnZsOz-image.png" /></a>
+输入：
+<code>finalCnt = [1,16], totalNum = 21, edges = [[0,1],[1,2]], plans = [[2,1],[1,0],[3,0]]</code></p>
 <p>输出：<code>[5,7,9]</code></p>
-<p>解释：</p>
-<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061300-WuVkeF-image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061300-WuVkeF-image.png" /></a></p>
+<p>解释：
+<a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061300-WuVkeF-image.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="image.png" height="200" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2046.%20%E5%BF%97%E6%84%BF%E8%80%85%E8%B0%83%E9%85%8D/images/1630061300-WuVkeF-image.png" /></a></p>
 </blockquote>
 <p><strong>示例 2 ：</strong></p>
 <blockquote>
-<p>输入：</p>
-<p><code>finalCnt = [4,13,4,3,8], totalNum = 54, edges = [[0,3],[1,3],[4,3],[2,3],[2,5]], plans = [[1,1],[3,3],[2,5],[1,0]]</code></p>
+<p>输入：
+<code>finalCnt = [4,13,4,3,8], totalNum = 54, edges = [[0,3],[1,3],[4,3],[2,3],[2,5]], plans = [[1,1],[3,3],[2,5],[1,0]]</code></p>
 <p>输出：<code>[10,16,9,4,7,8]</code></p>
 </blockquote>
 <p><strong>提示：</strong></p>
 <ul>
-<li>
-<p><code>2 &lt;= n &lt;= 5*10^4</code></p>
-</li>
-<li>
-<p><code>1 &lt;= edges.length &lt;= min((n * (n - 1)) / 2, 5*10^4)</code></p>
-</li>
-<li>
-<p><code>0 &lt;= edges[i][0], edges[i][1] &lt; n</code></p>
-</li>
-<li>
-<p><code>1 &lt;= plans.length &lt;= 10</code></p>
-</li>
-<li>
-<p><code>1 &lt;= plans[i][0] &lt;=3</code></p>
-</li>
-<li>
-<p><code>0 &lt;= plans[i][1] &lt; n</code></p>
-</li>
-<li>
-<p><code>finalCnt.length = n-1</code></p>
-</li>
-<li>
-<p><code>0 &lt;= finalCnt[i] &lt; 10^9</code></p>
-</li>
-<li>
-<p><code>0 &lt;= totalNum &lt; 5*10^13</code></p>
-</li>
+<li><code>2 &lt;= n &lt;= 5*10^4</code></li>
+<li><code>1 &lt;= edges.length &lt;= min((n * (n - 1)) / 2, 5*10^4)</code></li>
+<li><code>0 &lt;= edges[i][0], edges[i][1] &lt; n</code></li>
+<li><code>1 &lt;= plans.length &lt;= 10</code></li>
+<li><code>1 &lt;= plans[i][0] &lt;=3</code></li>
+<li><code>0 &lt;= plans[i][1] &lt; n</code></li>
+<li><code>finalCnt.length = n-1</code></li>
+<li><code>0 &lt;= finalCnt[i] &lt; 10^9</code></li>
+<li><code>0 &lt;= totalNum &lt; 5*10^13</code></li>
 </ul>
 <h2 id="_2">解法</h2>
 <!-- end -->

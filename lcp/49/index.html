@@ -80154,42 +80154,36 @@
 <h2 id="_1">题目描述</h2>
 <!-- 这里写题目描述 -->
 
-<p>「力扣挑战赛」中有一个由 <code>N</code> 个关卡组成的<strong>环形</strong>闯关游戏，关卡编号为 <code>0</code>~<code>N-1</code>，编号 <code>0</code> 的关卡和编号 <code>N-1</code> 的关卡相邻。每个关卡均有积分要求，<code>challenge[i]</code> 表示挑战编号 <code>i</code> 的关卡最少需要拥有的积分。</p>
-<p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/images/1630392170-ucncVS-%E5%9B%BE%E7%89%87.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="图片.png" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/images/1630392170-ucncVS-%E5%9B%BE%E7%89%87.png" /></a></p>
-<p>小扣想要挑战关卡，闯关的具体规则如下：</p>
+<p>「力扣挑战赛」中有一个由 <code>N</code> 个关卡组成的<strong>环形</strong>闯关游戏，关卡编号为 <code>0</code>~<code>N-1</code>，编号 <code>0</code> 的关卡和编号 <code>N-1</code> 的关卡相邻。每个关卡均有积分要求，<code>challenge[i]</code> 表示挑战编号 <code>i</code> 的关卡最少需要拥有的积分。
+<a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/images/1630392170-ucncVS-%E5%9B%BE%E7%89%87.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="图片.png" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/lcp/LCP%2049.%20%E7%8E%AF%E5%BD%A2%E9%97%AF%E5%85%B3%E6%B8%B8%E6%88%8F/images/1630392170-ucncVS-%E5%9B%BE%E7%89%87.png" width="240px" /></a></p>
+<p>小扣想要挑战关卡，闯关具体规则如下：</p>
 <ul>
-<li>
-<p>初始小扣可以指定其中一个关卡为「开启」状态，其余关卡将处于「未开启」状态。</p>
-</li>
-<li>
-<p>小扣可以挑战处于「开启」状态且<strong>满足最少积分要求</strong>的关卡，若小扣挑战该关卡前积分为 <code>score</code>，挑战结束后，积分将增长为 <code>score|challenge[i]</code>（即位运算中的 <code>"OR"</code> 运算）</p>
-</li>
-<li>
-<p>在挑战某个关卡后，该关卡两侧相邻的关卡将会开启（若之前未开启）</p>
-</li>
+<li>初始小扣可以指定其中一个关卡为「开启」状态，其余关卡将处于「未开启」状态。</li>
+<li>小扣可以挑战处于「开启」状态且<strong>满足最少积分要求</strong>的关卡，若小扣挑战该关卡前积分为 <code>score</code>，挑战结束后，积分将增长为 <code>score|challenge[i]</code>（即位运算中的 <code>"OR"</code> 运算）</li>
+<li>在挑战某个关卡后，该关卡两侧相邻的关卡将会开启（若之前未开启）</li>
 </ul>
 <p>请帮助小扣进行计算，初始最少需要多少积分，可以挑战 <strong>环形闯关游戏</strong> 的所有关卡。</p>
 <p><strong>示例 1：</strong></p>
 <blockquote>
 <p>输入：<code>challenge = [5,4,6,2,7]</code></p>
 <p>输出：<code>4</code></p>
-<p>解释： 初始选择编号 3 的关卡开启，积分为 4</p>
-<p>挑战编号 3 的关卡，积分变为 $4 | 2 = 6$，开启 2、4 处的关卡</p>
-<p>挑战编号 2 的关卡，积分变为 $6 | 6 = 6$，开启 1 处的关卡</p>
-<p>挑战编号 1 的关卡，积分变为 $6 | 4 = 6$，开启 0 处的关卡</p>
-<p>挑战编号 0 的关卡，积分变为 $6 | 5 = 7$</p>
-<p>挑战编号 4 的关卡，顺利完成全部的关卡</p>
+<p>解释： 初始选择编号 3 的关卡开启，积分为 4
+挑战编号 3 的关卡，积分变为 $4 | 2 = 6$，开启 2、4 处的关卡
+挑战编号 2 的关卡，积分变为 $6 | 6 = 6$，开启 1 处的关卡
+挑战编号 1 的关卡，积分变为 $6 | 4 = 6$，开启 0 处的关卡
+挑战编号 0 的关卡，积分变为 $6 | 5 = 7$
+挑战编号 4 的关卡，顺利完成全部的关卡</p>
 </blockquote>
 <p><strong>示例 2：</strong></p>
 <blockquote>
 <p>输入：<code>challenge = [12,7,11,3,9]</code></p>
 <p>输出：<code>8</code></p>
-<p>解释： 初始选择编号 3 的关卡开启，积分为 8</p>
-<p>挑战编号 3 的关卡，积分变为 $8 | 3 = 11$，开启 2、4 处的关卡</p>
-<p>挑战编号 2 的关卡，积分变为 $11 | 11 = 11$，开启 1 处的关卡</p>
-<p>挑战编号 4 的关卡，积分变为 $11 | 9 = 11$，开启 0 处的关卡</p>
-<p>挑战编号 1 的关卡，积分变为 $11 | 7 = 15$</p>
-<p>挑战编号 0 的关卡，顺利完成全部的关卡</p>
+<p>解释： 初始选择编号 3 的关卡开启，积分为 8
+挑战编号 3 的关卡，积分变为 $8 | 3 = 11$，开启 2、4 处的关卡
+挑战编号 2 的关卡，积分变为 $11 | 11 = 11$，开启 1 处的关卡
+挑战编号 4 的关卡，积分变为 $11 | 9 = 11$，开启 0 处的关卡
+挑战编号 1 的关卡，积分变为 $11 | 7 = 15$
+挑战编号 0 的关卡，顺利完成全部的关卡</p>
 </blockquote>
 <p><strong>示例 3：</strong></p>
 <blockquote>
@@ -80198,12 +80192,8 @@
 </blockquote>
 <p><strong>提示：</strong></p>
 <ul>
-<li>
-<p><code>1 &lt;= challenge.length &lt;= 5*10^4</code></p>
-</li>
-<li>
-<p><code>1 &lt;= challenge[i] &lt;= 10^18</code></p>
-</li>
+<li><code>1 &lt;= challenge.length &lt;= 5*10^4</code></li>
+<li><code>1 &lt;= challenge[i] &lt;= 10^14</code></li>
 </ul>
 <h2 id="_2">解法</h2>
 <!-- end -->
