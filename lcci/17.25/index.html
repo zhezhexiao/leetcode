@@ -80265,7 +80265,7 @@
 <p>我们注意到，构建单词矩阵时所用的单词长度是相同的，因此，我们可以将单词按照长度分组，记录在哈希表 $d$ 中。对于每个长度，我们只需要考虑该长度的单词即可。</p>
 <p>我们使用回溯的方法来构建单词矩阵。我们使用一个列表 $t$ 来记录当前已经构建好的单词矩阵，列表中的每个单词都具有相同的长度。我们从哈希表 $d$ 中取出长度为 $n$ 的单词列表，从中选择一个单词 $w$，加入到 $t$ 中。如果此时不是一个合法的单词矩阵，那么我们就不继续往下搜索，而是尝试选择另一个单词。如果是一个合法的单词矩阵，并且已经构建完成，那么我们更新最大面积以及答案矩阵；然后，我们递归地进行搜索，寻找下一个单词。最后，我们将 $w$ 从 $t$ 中移除，进入下一轮搜索。</p>
 <p>在判断单词矩阵是否合法时，我们可以使用字典树来进行优化。我们将所有的单词加入到字典树中，然后对于每一列，我们检查其是否是一个单词。如果是一个单词，那么我们就检查下一列，否则我们就可以停止对该单词矩阵的搜索了。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">Swift</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -80861,6 +80861,164 @@
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">class</span> <span class="nc">Trie</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nv">children</span> <span class="p">=</span> <span class="p">[</span><span class="n">Trie</span><span class="p">?](</span><span class="n">repeating</span><span class="p">:</span> <span class="kc">nil</span><span class="p">,</span> <span class="bp">count</span><span class="p">:</span> <span class="mi">26</span><span class="p">)</span>
+    <span class="kd">var</span> <span class="nv">isEnd</span> <span class="p">=</span> <span class="kc">false</span>
+
+    <span class="kd">func</span> <span class="nf">insert</span><span class="p">(</span><span class="kc">_</span> <span class="n">word</span><span class="p">:</span> <span class="nb">String</span><span class="p">)</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">node</span> <span class="p">=</span> <span class="kc">self</span>
+        <span class="k">for</span> <span class="n">c</span> <span class="k">in</span> <span class="n">word</span> <span class="p">{</span>
+            <span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">c</span><span class="p">.</span><span class="n">asciiValue</span><span class="p">!</span> <span class="o">-</span> <span class="nb">Character</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">).</span><span class="n">asciiValue</span><span class="p">!)</span>
+            <span class="k">if</span> <span class="n">node</span><span class="p">.</span><span class="n">children</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">==</span> <span class="kc">nil</span> <span class="p">{</span>
+                <span class="n">node</span><span class="p">.</span><span class="n">children</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="p">=</span> <span class="n">Trie</span><span class="p">()</span>
+            <span class="p">}</span>
+            <span class="n">node</span> <span class="p">=</span> <span class="n">node</span><span class="p">.</span><span class="n">children</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">!</span>
+        <span class="p">}</span>
+        <span class="n">node</span><span class="p">.</span><span class="n">isEnd</span> <span class="p">=</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">maxL</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">maxS</span> <span class="p">=</span> <span class="mi">0</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">ans</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">=</span> <span class="p">[]</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">trie</span> <span class="p">=</span> <span class="n">Trie</span><span class="p">()</span>
+    <span class="kd">private</span> <span class="kd">var</span> <span class="nv">t</span> <span class="p">=</span> <span class="p">[</span><span class="nb">String</span><span class="p">]()</span>
+
+    <span class="kd">func</span> <span class="nf">maxRectangle</span><span class="p">(</span><span class="kc">_</span> <span class="n">words</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="p">[</span><span class="nb">String</span><span class="p">]</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nv">d</span> <span class="p">=</span> <span class="p">[</span><span class="nb">Int</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">]]()</span>
+        <span class="k">for</span> <span class="n">word</span> <span class="k">in</span> <span class="n">words</span> <span class="p">{</span>
+            <span class="n">maxL</span> <span class="p">=</span> <span class="bp">max</span><span class="p">(</span><span class="n">maxL</span><span class="p">,</span> <span class="n">word</span><span class="p">.</span><span class="bp">count</span><span class="p">)</span>
+            <span class="n">trie</span><span class="p">.</span><span class="bp">insert</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+            <span class="n">d</span><span class="p">[</span><span class="n">word</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span> <span class="k">default</span><span class="p">:</span> <span class="p">[]].</span><span class="n">append</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">ws</span> <span class="k">in</span> <span class="n">d</span><span class="p">.</span><span class="n">values</span> <span class="p">{</span>
+            <span class="n">t</span><span class="p">.</span><span class="bp">removeAll</span><span class="p">()</span>
+            <span class="n">dfs</span><span class="p">(</span><span class="n">ws</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">ans</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">dfs</span><span class="p">(</span><span class="kc">_</span> <span class="n">ws</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">])</span> <span class="p">{</span>
+        <span class="k">guard</span> <span class="kd">let</span> <span class="nv">first</span> <span class="p">=</span> <span class="n">ws</span><span class="p">.</span><span class="bp">first</span><span class="p">,</span> <span class="bp">first</span><span class="p">.</span><span class="bp">count</span> <span class="o">*</span> <span class="n">maxL</span> <span class="o">&gt;</span> <span class="n">maxS</span><span class="p">,</span> <span class="n">t</span><span class="p">.</span><span class="bp">count</span> <span class="o">&lt;</span> <span class="n">maxL</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="p">}</span>
+        <span class="k">for</span> <span class="n">w</span> <span class="k">in</span> <span class="n">ws</span> <span class="p">{</span>
+            <span class="n">t</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+            <span class="kd">let</span> <span class="nv">st</span> <span class="p">=</span> <span class="n">check</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+            <span class="k">switch</span> <span class="n">st</span> <span class="p">{</span>
+            <span class="k">case</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">t</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span>
+            <span class="k">case</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">maxS</span> <span class="o">&lt;</span> <span class="n">t</span><span class="p">.</span><span class="bp">count</span> <span class="o">*</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="bp">count</span> <span class="p">{</span>
+                    <span class="n">maxS</span> <span class="p">=</span> <span class="n">t</span><span class="p">.</span><span class="bp">count</span> <span class="o">*</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="bp">count</span>
+                    <span class="n">ans</span> <span class="p">=</span> <span class="n">t</span>
+                <span class="p">}</span>
+                <span class="n">dfs</span><span class="p">(</span><span class="n">ws</span><span class="p">)</span>
+                <span class="n">t</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span>
+            <span class="k">default</span><span class="p">:</span>
+                <span class="n">dfs</span><span class="p">(</span><span class="n">ws</span><span class="p">)</span>
+                <span class="n">t</span><span class="p">.</span><span class="bp">removeLast</span><span class="p">()</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="kd">private</span> <span class="kd">func</span> <span class="nf">check</span><span class="p">(</span><span class="kc">_</span> <span class="n">mat</span><span class="p">:</span> <span class="p">[</span><span class="nb">String</span><span class="p">])</span> <span class="p">-&gt;</span> <span class="nb">Int</span> <span class="p">{</span>
+        <span class="kd">let</span> <span class="nv">m</span> <span class="p">=</span> <span class="n">mat</span><span class="p">.</span><span class="bp">count</span><span class="p">,</span> <span class="n">n</span> <span class="p">=</span> <span class="n">mat</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="bp">count</span>
+        <span class="kd">var</span> <span class="nv">result</span> <span class="p">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">n</span> <span class="p">{</span>
+            <span class="kd">var</span> <span class="nv">node</span> <span class="p">=</span> <span class="n">trie</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="mf">0.</span><span class="p">.&lt;</span><span class="n">m</span> <span class="p">{</span>
+                <span class="kd">let</span> <span class="nv">index</span> <span class="p">=</span> <span class="nb">Int</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">index</span><span class="p">(</span><span class="n">mat</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">startIndex</span><span class="p">,</span> <span class="n">offsetBy</span><span class="p">:</span> <span class="n">j</span><span class="p">)].</span><span class="n">asciiValue</span><span class="p">!</span> <span class="o">-</span> <span class="nb">Character</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">).</span><span class="n">asciiValue</span><span class="p">!)</span>
+                <span class="k">guard</span> <span class="kd">let</span> <span class="nv">nextNode</span> <span class="p">=</span> <span class="n">node</span><span class="p">.</span><span class="n">children</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="k">else</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">0</span> <span class="p">}</span>
+                <span class="n">node</span> <span class="p">=</span> <span class="n">nextNode</span>
+            <span class="p">}</span>
+            <span class="k">if</span> <span class="o">!</span><span class="n">node</span><span class="p">.</span><span class="n">isEnd</span> <span class="p">{</span>
+                <span class="n">result</span> <span class="p">=</span> <span class="mi">2</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="n">result</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
 </div>
 </div>
 <!-- end -->
@@ -80891,6 +81049,11 @@
 
     
     <nav>
+      
+        <a href="https://github.com/klever34" class="md-author" title="@klever34">
+          
+          <img src="https://avatars.githubusercontent.com/u/12745225?v=4&size=72" alt="klever34">
+        </a>
       
         <a href="https://github.com/yanglbme" class="md-author" title="@yanglbme">
           
