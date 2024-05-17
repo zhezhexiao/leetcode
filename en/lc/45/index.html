@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="45-jump-game-ii"><a href="https://leetcode.com/problems/jump-game-ii">45. Jump Game II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of integers <code>nums</code> of length <code>n</code>. You are initially positioned at <code>nums[0]</code>.</p>
 
 <p>Each element <code>nums[i]</code> represents the maximum length of a forward jump from index <code>i</code>. In other words, if you are at <code>nums[i]</code>, you can jump to any <code>nums[i + j]</code> where:</p>
@@ -75697,7 +75701,11 @@
     <li>It&#39;s guaranteed that you can reach <code>nums[n - 1]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-algorithm">Solution 1: Greedy Algorithm</h3>
 <p>We can use a variable $mx$ to record the farthest position that can be reached from the current position, a variable $last$ to record the position of the last jump, and a variable $ans$ to record the number of jumps.</p>
 <p>Next, we traverse each position $i$ in $[0,..n - 2]$. For each position $i$, we can calculate the farthest position that can be reached from the current position through $i + nums[i]$. We use $mx$ to record this farthest position, that is, $mx = max(mx, i + nums[i])$. Then, we check whether the current position has reached the boundary of the last jump, that is, $i = last$. If it has reached, then we need to make a jump, update $last$ to $mx$, and increase the number of jumps $ans$ by $1$.</p>
@@ -75975,7 +75983,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="926"><a href="https://leetcode.cn/problems/flip-string-to-monotone-increasing">926. 将字符串翻转到单调递增</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果一个二进制字符串，是以一些 <code>0</code>（可能没有 <code>0</code>）后面跟着一些 <code>1</code>（也可能没有 <code>1</code>）的形式组成的，那么该字符串是 <strong>单调递增 </strong>的。</p>
 
@@ -80298,7 +80300,11 @@
     <li><code>s[i]</code> 为 <code>'0'</code> 或 <code>'1'</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：前缀和 + 枚举</h3>
 <p>我们可以先统计字符串 $s$ 中 $0$ 的个数，记为 $tot$。定义一个答案变量 $ans$，初始时 $ans = tot$，表示将所有 $0$ 变成 $1$ 的翻转次数。</p>
 <p>然后，我们可以枚举每个位置 $i$，将位置 $i$ 及其左边的所有 $1$ 变成 $0$，将位置 $i$ 右边的所有 $0$ 变成 $1$，计算这种情况下的翻转次数，即 $i + 1 - cur + tot - cur$，其中 $cur$ 表示位置 $i$ 及其左边的 $0$ 的个数，更新答案 $ans = \min(ans, i + 1 - cur + tot - cur)$。</p>
@@ -80476,7 +80482,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

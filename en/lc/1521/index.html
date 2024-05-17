@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1521-find-a-value-of-a-mysterious-function-closest-to-target"><a href="https://leetcode.com/problems/find-a-value-of-a-mysterious-function-closest-to-target">1521. Find a Value of a Mysterious Function Closest to Target</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 198 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 198 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2383-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2383-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p><a class="glightbox" href="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/images/change.png" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img alt="" src="https://fastly.jsdelivr.net/gh/doocs/leetcode@main/solution/1500-1599/1521.Find%20a%20Value%20of%20a%20Mysterious%20Function%20Closest%20to%20Target/images/change.png" style="width: 635px; height: 312px;" /></a></p>
 
 <p>Winston was given the above mysterious function <code>func</code>. He has an integer array <code>arr</code> and an integer <code>target</code> and he wants to find the values <code>l</code> and <code>r</code> that make the value <code>|func(arr, l, r) - target|</code> minimum possible.</p>
@@ -75708,7 +75712,11 @@
     <li><code>0 &lt;= target &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-enumeration">Solution 1: Hash Table + Enumeration</h3>
 <p>According to the problem description, we know that the function $func(arr, l, r)$ is actually the bitwise AND result of the elements in the array $arr$ from index $l$ to $r$, i.e., $arr[l] \&amp; arr[l + 1] \&amp; \cdots \&amp; arr[r]$.</p>
 <p>If we fix the right endpoint $r$ each time, then the range of the left endpoint $l$ is $[0, r]$. Since the sum of bitwise ANDs decreases monotonically with decreasing $l$, and the value of $arr[i]$ does not exceed $10^6$, there are at most $20$ different values in the interval $[0, r]$. Therefore, we can use a set to maintain all the values of $arr[l] \&amp; arr[l + 1] \&amp; \cdots \&amp; arr[r]$. When we traverse from $r$ to $r+1$, the value with $r+1$ as the right endpoint is the value obtained by performing bitwise AND with each value in the set and $arr[r + 1]$, plus $arr[r + 1]$ itself. Therefore, we only need to enumerate each value in the set, perform bitwise AND with $arr[r]$, to obtain all the values with $r$ as the right endpoint. Then we subtract each value from $target$ and take the absolute value to obtain the absolute difference between each value and $target$. The minimum value among them is the answer.</p>
@@ -75899,7 +75907,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

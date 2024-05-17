@@ -80254,11 +80254,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1615"><a href="https://leetcode.cn/problems/maximal-network-rank">1615. 最大网络秩</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 210 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 210 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1521-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1521-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 210 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 210 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1521-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1521-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>n</code> 座城市和一些连接这些城市的道路 <code>roads</code> 共同组成一个基础设施网络。每个 <code>roads[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> 都表示在城市 <code>a<sub>i</sub></code> 和 <code>b<sub>i</sub></code> 之间有一条双向道路。</p>
 
@@ -80311,7 +80313,11 @@
     <li>每对城市之间 <strong>最多只有一条</strong> 道路相连</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：计数</h3>
 <p>我们可以用一维数组 $cnt$ 记录每个城市的度，用二维数组 $g$ 记录每对城市之间是否有道路相连，如果城市 $a$ 和城市 $b$ 之间有道路相连，则 $g[a][b] = g[b][a] = 1$，否则 $g[a][b] = g[b][a] = 0$。</p>
 <p>接下来，我们枚举每对城市 $(a, b)$，其中 $a \lt b$，计算它们的网络秩，即 $cnt[a] + cnt[b] - g[a][b]$，取其中的最大值即为答案。</p>
@@ -80510,6 +80516,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
 <div class="tabbed-content">
@@ -80535,7 +80545,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

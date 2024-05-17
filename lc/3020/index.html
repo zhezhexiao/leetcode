@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3020"><a href="https://leetcode.cn/problems/find-the-maximum-number-of-elements-in-subset">3020. 子集中元素的最大数量</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 382 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 382 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1741-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1741-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 382 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 382 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1741-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1741-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个<strong> 正整数 </strong>数组 <code>nums</code> 。</p>
 
@@ -80300,7 +80302,11 @@
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 枚举</h3>
 <p>我们用一个哈希表 $cnt$ 记录数组 $nums$ 中每个元素出现的次数。对于每个元素 $x$，我们可以将其不断平方，直到其值在哈希表 $cnt$ 中的出现次数小于 $2$ 为止。此时，我们判断 $x$ 在哈希表 $cnt$ 中的出现次数是否为 $1$，如果是则说明 $x$ 仍然可以被选入子集中，否则我们需要从子集中删除一个元素，确保子集个数为奇数。然后我们更新答案。继续枚举下一个元素。</p>
 <p>注意我们需要特殊处理 $x = 1$ 的情况。</p>
@@ -80509,7 +80515,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

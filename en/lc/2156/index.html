@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2156-find-substring-with-given-hash-value"><a href="https://leetcode.com/problems/find-substring-with-given-hash-value">2156. Find Substring With Given Hash Value</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 278 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 278 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2062-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2062-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>The hash of a <strong>0-indexed</strong> string <code>s</code> of length <code>k</code>, given integers <code>p</code> and <code>m</code>, is computed using the following function:</p>
 
 <ul>
@@ -75713,7 +75717,11 @@ Note that &quot;bxz&quot; also has a hash of 32 but it appears later than &quot;
     <li>The test cases are generated such that an answer always <strong>exists</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sliding-window-reverse-traversal">Solution 1: Sliding Window + Reverse Traversal</h3>
 <p>We can maintain a sliding window of length $k$ to calculate the hash value of the substring. Considering that if we traverse the string in the forward order, the calculation of the hash value involves division and modulo operations, which are relatively complicated to handle. Therefore, we can traverse the string in reverse order, so that when calculating the hash value, only multiplication and modulo operations are needed.</p>
 <p>First, we calculate the hash value of the last $k$ characters of the string, and then start to traverse the string in reverse order from the end of the string. Each time we calculate the hash value of the current window, if it is equal to the given hash value, we find a substring that meets the conditions and update the starting position of the answer string.</p>
@@ -76029,7 +76037,9 @@ Note that &quot;bxz&quot; also has a hash of 32 but it appears later than &quot;
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

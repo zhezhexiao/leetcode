@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1064"><a href="https://leetcode.cn/problems/fixed-point">1064. 不动点 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 1 场双周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 1 场双周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1307-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1307-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 1 场双周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 1 场双周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1307-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1307-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定已经按 <strong>升序</strong> 排列、由不同整数组成的数组 <code>arr</code>，返回满足 <code>arr[i] == i</code> 的最小索引 <code>i</code>。如果不存在这样的 <code>i</code>，返回 <code>-1</code>。</p>
 
@@ -80298,7 +80300,11 @@
 
 <p><strong>进阶：</strong>时间复杂度为 <code>O(n)</code> 的解决方案很直观也很简单。你可以设计更优的解决方案吗？</p>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：二分查找</h3>
 <p>题目给定的数组是按升序排列的，因此我们可以使用二分查找的方法找出最小的满足 $arr[i]$ 等于 $i$ 的下标 $i$。</p>
 <p>我们定义二分查找的左边界 $left=0$，右边界 $right=n-1$。每一次，我们找到当前的中间位置 $mid$，如果中间位置满足 $arr[mid] \geq mid$，那么我们就确定了最小的不动点 🔒 的位置一定不会出现在下标大于 $mid$ 的位置，因此我们令 $right=mid$；如果中间位置满足 $arr[mid] \lt mid$，那么最小的不动点 🔒 一定出现在下标大于 $mid$ 的位置，因此我们令 $left=mid+1$。</p>
@@ -80452,7 +80458,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

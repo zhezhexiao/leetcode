@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2367"><a href="https://leetcode.cn/problems/number-of-arithmetic-triplets">2367. 算术三元组的数目</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 305 场周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 305 场周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1203-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1203-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 305 场周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 305 场周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1203-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1203-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、<strong>严格递增</strong> 的整数数组 <code>nums</code> 和一个正整数 <code>diff</code> 。如果满足下述全部条件，则三元组 <code>(i, j, k)</code> 就是一个 <strong>算术三元组</strong> ：</p>
 
@@ -80319,7 +80321,11 @@
     <li><code>nums</code> <strong>严格</strong> 递增</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：暴力枚举</h3>
 <p>我们注意到，数组 $nums$ 的长度只有不超过 $200$，因此可以直接暴力枚举 $i$, $j$, $k$，判断是否满足条件，若满足，累加三元组数目。</p>
 <p>时间复杂度 $O(n^3)$，其中 $n$ 为数组 $nums$ 的长度。空间复杂度 $O(1)$。</p>
@@ -80463,6 +80469,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：数组或哈希表</h3>
 <p>我们可以先将 $nums$ 中的元素存入哈希表或数组 $vis$ 中，然后枚举 $nums$ 中的每个元素 $x$，判断 $x+diff$, $x+diff+diff$ 是否也在 $vis$ 中，若是，累加三元组数目。</p>
 <p>枚举结束后，返回答案。</p>
@@ -80597,7 +80607,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

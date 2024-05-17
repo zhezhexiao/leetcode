@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="920-number-of-music-playlists"><a href="https://leetcode.com/problems/number-of-music-playlists">920. Number of Music Playlists</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Your music player contains <code>n</code> different songs. You want to listen to <code>goal</code> songs (not necessarily different) during your trip. To avoid boredom, you will create a playlist so that:</p>
 
 <ul>
@@ -75710,7 +75714,11 @@
     <li><code>0 &lt;= k &lt; n &lt;= goal &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
 <p>We define $f[i][j]$ to be the number of playlists that can be made from $i$ songs with exactly $j$ different songs. We have $f[0][0] = 1$ and the answer is $f[goal][n]$.</p>
 <p>For $f[i][j]$, we can choose a song that we have not listened before, so the previous state is $f[i - 1][j - 1]$, and there are $n - (j - 1) = n - j + 1$ options. Thus, $f[i][j] += f[i - 1][j - 1] \times (n - j + 1)$. We can also choose a song that we have listened before, so the previous state is $f[i - 1][j]$, and there are $j - k$ options. Thus, $f[i][j] += f[i - 1][j] \times (j - k)$, where $j \geq k$.</p>
@@ -75960,6 +75968,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2">Solution 2</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
@@ -76149,7 +76161,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="410-split-array-largest-sum"><a href="https://leetcode.com/problems/split-array-largest-sum">410. Split Array Largest Sum</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, split <code>nums</code> into <code>k</code> non-empty subarrays such that the largest sum of any subarray is <strong>minimized</strong>.</p>
 
 <p>Return <em>the minimized largest sum of the split</em>.</p>
@@ -75707,7 +75711,11 @@ The best way is to split it into [1,2,3] and [4,5], where the largest sum among 
     <li><code>1 &lt;= k &lt;= min(50, nums.length)</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>We notice that the larger the maximum sum of the subarrays, the fewer the number of subarrays. When there is a maximum sum of the subarrays that meets the condition, then a larger maximum sum of the subarrays will definitely meet the condition. This means that we can perform a binary search for the maximum sum of the subarrays to find the smallest value that meets the condition.</p>
 <p>We define the left boundary of the binary search as $left = \max(nums)$, and the right boundary as $right = sum(nums)$. Then for each step of the binary search, we take the middle value $mid = \lfloor \frac{left + right}{2} \rfloor$, and then determine whether there is a way to split the array so that the maximum sum of the subarrays does not exceed $mid$. If there is, it means that $mid$ might be the smallest value that meets the condition, so we adjust the right boundary to $mid$. Otherwise, we adjust the left boundary to $mid + 1$.</p>
@@ -75969,7 +75977,9 @@ The best way is to split it into [1,2,3] and [4,5], where the largest sum among 
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

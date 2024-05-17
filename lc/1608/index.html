@@ -80266,11 +80266,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1608"><a href="https://leetcode.cn/problems/special-array-with-x-elements-greater-than-or-equal-x">1608. 特殊数组的特征值</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 209 场周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 209 场周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1369-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1369-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 209 场周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 209 场周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1369-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1369-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个非负整数数组 <code>nums</code> 。如果存在一个数 <code>x</code> ，使得 <code>nums</code> 中恰好有 <code>x</code> 个元素 <strong>大于或者等于</strong> <code>x</code> ，那么就称 <code>nums</code> 是一个 <strong>特殊数组</strong> ，而 <code>x</code> 是该数组的 <strong>特征值</strong> 。</p>
 
@@ -80319,7 +80321,11 @@ x 不能取更大的值，因为 nums 中只有两个元素。</pre>
     <li><code>0 &lt;= nums[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：暴力枚举</h3>
 <p>我们在 $[1..n]$ 范围内枚举 $x$，然后统计数组中大于等于 $x$ 的元素个数，记为 $cnt$。若存在 $cnt$ 与 $x$ 相等，直接返回 $x$。</p>
 <p>时间复杂度 $O(n^2)$，其中 $n$ 是数组的长度。空间复杂度 $O(1)$。</p>
@@ -80487,6 +80493,10 @@ x 不能取更大的值，因为 nums 中只有两个元素。</pre>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：排序 + 二分查找</h3>
 <p>我们也可以先对 <code>nums</code> 进行排序。</p>
 <p>接下来同样枚举 $x$，利用二分查找，找到 <code>nums</code> 中第一个大于等于 $x$ 的元素，快速统计出 <code>nums</code> 中大于等于 $x$ 的元素个数。</p>
@@ -80731,7 +80741,9 @@ x 不能取更大的值，因为 nums 中只有两个元素。</pre>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

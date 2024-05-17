@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1053-previous-permutation-with-one-swap"><a href="https://leetcode.com/problems/previous-permutation-with-one-swap">1053. Previous Permutation With One Swap</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 138 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 138 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1633-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1633-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an array of positive integers <code>arr</code> (not necessarily distinct), return <em>the </em><span data-keyword="lexicographically-smaller-array"><em>lexicographically</em></span><em> largest permutation that is smaller than</em> <code>arr</code>, that can be <strong>made with exactly one swap</strong>. If it cannot be done, then return the same array.</p>
 
 <p><strong>Note</strong> that a <em>swap</em> exchanges the positions of two numbers <code>arr[i]</code> and <code>arr[j]</code></p>
@@ -75692,7 +75696,11 @@
     <li><code>1 &lt;= arr[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy">Solution 1: Greedy</h3>
 <p>First, we traverse the array from right to left, find the first index $i$ that satisfies $arr[i - 1] &gt; arr[i]$, then $arr[i - 1]$ is the number we need to swap. Next, we traverse the array from right to left again, find the first index $j$ that satisfies $arr[j] &lt; arr[i - 1]$ and $arr[j] \neq arr[j - 1]$. Now, we swap $arr[i - 1]$ and $arr[j]$ and return the array.</p>
 <p>If we traverse the entire array and do not find an index $i$ that meets the conditions, it means the array is already the smallest permutation, so we just return the original array.</p>
@@ -75861,7 +75869,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

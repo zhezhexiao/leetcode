@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2200-find-all-k-distant-indices-in-an-array"><a href="https://leetcode.com/problems/find-all-k-distant-indices-in-an-array">2200. Find All K-Distant Indices in an Array</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 284 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 284 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1266-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1266-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and two integers <code>key</code> and <code>k</code>. A <strong>k-distant index</strong> is an index <code>i</code> of <code>nums</code> for which there exists at least one index <code>j</code> such that <code>|i - j| &lt;= k</code> and <code>nums[j] == key</code>.</p>
 
 <p>Return <em>a list of all k-distant indices sorted in <strong>increasing order</strong></em>.</p>
@@ -75713,7 +75717,11 @@ Hence, we return [0,1,2,3,4].
     <li><code>1 &lt;= k &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
 <p>We enumerate the index $i$ in the range $[0, n)$, and for each index $i$, we enumerate the index $j$ in the range $[0, n)$. If $|i - j| \leq k$ and $nums[j] = key$, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array, then break the inner loop and enumerate the next index $i$.</p>
 <p>The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
@@ -75871,6 +75879,10 @@ Hence, we return [0,1,2,3,4].
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-preprocessing-binary-search">Solution 2: Preprocessing + Binary Search</h3>
 <p>We can preprocess to get the indices of all elements equal to $key$, recorded in the array $idx$. All index elements in the array $idx$ are sorted in ascending order.</p>
 <p>Next, we enumerate the index $i$. For each index $i$, we can use binary search to find elements in the range $[i - k, i + k]$ in the array $idx$. If there are elements, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array.</p>
@@ -76085,6 +76097,10 @@ Hence, we return [0,1,2,3,4].
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-3-two-pointers">Solution 3: Two Pointers</h3>
 <p>We enumerate the index $i$, and use a pointer $j$ to point to the smallest index that satisfies $j \geq i - k$ and $nums[j] = key$. If $j$ exists and $j \leq i + k$, then $i$ is a K-nearest neighbor index. We add $i$ to the answer array.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
@@ -76234,7 +76250,9 @@ Hence, we return [0,1,2,3,4].
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

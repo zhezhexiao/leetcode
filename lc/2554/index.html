@@ -80278,11 +80278,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2554-i"><a href="https://leetcode.cn/problems/maximum-number-of-integers-to-choose-from-a-range-i">2554. 从一个范围内选择最多整数 I</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 97 场双周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 97 场双周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1333-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1333-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 97 场双周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 97 场双周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1333-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1333-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>banned</code>&nbsp;和两个整数&nbsp;<code>n</code> 和&nbsp;<code>maxSum</code>&nbsp;。你需要按照以下规则选择一些整数：</p>
 
@@ -80330,7 +80332,11 @@
     <li><code>1 &lt;= maxSum &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：贪心 + 枚举</h3>
 <p>我们用变量 $s$ 表示当前已经选择的整数的和，用变量 $ans$ 表示当前已经选择的整数的个数。将数组 <code>banned</code> 转换为哈希表，方便判断某个整数是否不可选。</p>
 <p>接下来，我们从 $1$ 开始枚举整数 $i$，如果 $s + i \leq maxSum$ 且 $i$ 不在 <code>banned</code> 中，那么我们就可以选择整数 $i$，并将 $s$ 和 $ans$ 分别加上 $i$ 和 $1$。</p>
@@ -80580,6 +80586,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：贪心 + 二分查找</h3>
 <p>如果 $n$ 很大，那么方法一中的枚举会超时。</p>
 <p>我们可以在数组 <code>banned</code> 中加入 $0$ 和 $n + 1$，并将数组 <code>banned</code> 去重且移除大于 $n+1$ 的元素，然后进行排序。</p>
@@ -80819,7 +80829,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

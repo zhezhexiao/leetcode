@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1203-sort-items-by-groups-respecting-dependencies"><a href="https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies">1203. Sort Items by Groups Respecting Dependencies</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 155 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 155 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2418-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2418-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There are&nbsp;<code>n</code>&nbsp;items each&nbsp;belonging to zero or one of&nbsp;<code>m</code>&nbsp;groups where <code>group[i]</code>&nbsp;is the group that the <code>i</code>-th item belongs to and it&#39;s equal to <code>-1</code>&nbsp;if the <code>i</code>-th item belongs to no group. The items and the groups are zero indexed. A group can have no item belonging to it.</p>
 
 <p>Return a sorted list of the items such that:</p>
@@ -75709,7 +75713,11 @@
     <li><code>beforeItems[i]&nbsp;</code>does not contain&nbsp;duplicates elements.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-topological-sorting">Solution 1: Topological Sorting</h3>
 <p>First, we traverse the array $group$. For each project, if it does not belong to any group, we create a new group for it with the ID $m$, and increment $m$. This ensures that all projects belong to some group. Then, we use an array $groupItems$ to record the projects contained in each group. The array index is the group ID, and the array value is the list of projects in the group.</p>
 <p>Next, we need to build the graph. For each project, we need to build two types of graphs: one for the projects and one for the groups. We traverse the array $group$. For the current project $i$, its group is $group[i]$. We traverse $beforeItems[i]$, and for each project $j$ in it, if $group[i] = group[j]$, it means that $i$ and $j$ belong to the same group. We add an edge $j \to i$ in the project graph. Otherwise, it means that $i$ and $j$ belong to different groups. We add an edge $group[j] \to group[i]$ in the group graph, and update the corresponding in-degree array.</p>
@@ -76341,7 +76349,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="167-two-sum-ii-input-array-is-sorted"><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted">167. Two Sum II - Input Array Is Sorted</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a <strong>1-indexed</strong> array of integers <code>numbers</code> that is already <strong><em>sorted in non-decreasing order</em></strong>, find two numbers such that they add up to a specific <code>target</code> number. Let these two numbers be <code>numbers[index<sub>1</sub>]</code> and <code>numbers[index<sub>2</sub>]</code> where <code>1 &lt;= index<sub>1</sub> &lt; index<sub>2</sub> &lt;= numbers.length</code>.</p>
 
 <p>Return<em> the indices of the two numbers, </em><code>index<sub>1</sub></code><em> and </em><code>index<sub>2</sub></code><em>, <strong>added by one</strong> as an integer array </em><code>[index<sub>1</sub>, index<sub>2</sub>]</code><em> of length 2.</em></p>
@@ -75714,7 +75718,11 @@
     <li>The tests are generated such that there is <strong>exactly one solution</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>Note that the array is sorted in non-decreasing order, so for each <code>numbers[i]</code>, we can find the position of <code>target - numbers[i]</code> by binary search, and return $[i + 1, j + 1]$ if it exists.</p>
 <p>The time complexity is $O(n \times \log n)$, where $n$ is the length of the array <code>numbers</code>. The space complexity is $O(1)$.</p>
@@ -75964,6 +75972,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-two-pointers">Solution 2: Two Pointers</h3>
 <p>We define two pointers $i$ and $j$, which point to the first element and the last element of the array respectively. Each time we calculate $numbers[i] + numbers[j]$. If the sum is equal to the target value, return $[i + 1, j + 1]$ directly. If the sum is less than the target value, move $i$ to the right by one position, and if the sum is greater than the target value, move $j$ to the left by one position.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the array <code>numbers</code>. The space complexity is $O(1)$.</p>
@@ -76155,7 +76167,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

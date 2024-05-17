@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="288-unique-word-abbreviation"><a href="https://leetcode.com/problems/unique-word-abbreviation">288. Unique Word Abbreviation 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>The <strong>abbreviation</strong> of a word is a concatenation of its first letter, the number of characters between the first and last letter, and its last letter. If a word has only two characters, then it is an <strong>abbreviation</strong> of itself.</p>
 
 <p>For example:</p>
@@ -75720,7 +75724,11 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
     <li>At most <code>5000</code> calls will be made to <code>isUnique</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table">Solution 1: Hash Table</h3>
 <p>According to the problem description, we define a function $abbr(s)$, which calculates the abbreviation of the word $s$. If the length of the word $s$ is less than $3$, then its abbreviation is itself; otherwise, its abbreviation is its first letter + (its length - 2) + its last letter.</p>
 <p>Next, we define a hash table $d$, where the key is the abbreviation of the word, and the value is a set, the elements of which are all words abbreviated as that key. We traverse the given word dictionary, and for each word $s$ in the dictionary, we calculate its abbreviation $abbr(s)$, and add $s$ to $d[abbr(s)]$.</p>
@@ -76004,7 +76012,9 @@ validWordAbbr.isUnique(&quot;cake&quot;); // return true, because &quot;cake&quo
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

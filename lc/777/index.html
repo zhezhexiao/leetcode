@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="777-lr"><a href="https://leetcode.cn/problems/swap-adjacent-in-lr-string">777. 在 LR 字符串中交换相邻字符</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在一个由 <code>&#39;L&#39;</code> , <code>&#39;R&#39;</code> 和 <code>&#39;X&#39;</code> 三个字符组成的字符串（例如<code>&quot;RXXLRXRXL&quot;</code>）中进行移动操作。一次移动操作指用一个<code>&quot;LX&quot;</code>替换一个<code>&quot;XL&quot;</code>，或者用一个<code>&quot;XR&quot;</code>替换一个<code>&quot;RX&quot;</code>。现给定起始字符串<code>start</code>和结束字符串<code>end</code>，请编写代码，当且仅当存在一系列移动操作使得<code>start</code>可以转换成<code>end</code>时， 返回<code>True</code>。</p>
 
@@ -80283,7 +80285,11 @@ XRLXXRRLX
     <li><code>start</code>和<code>end</code>中的字符串仅限于<code>&#39;L&#39;</code>, <code>&#39;R&#39;</code>和<code>&#39;X&#39;</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：双指针</h3>
 <p>替换操作实际上是将 <code>L</code> 往左移动（<code>L</code> 左边为 <code>X</code> 时才能移动），<code>R</code> 往右移动（<code>R</code> 右边是 <code>X</code> 时才能移动），但 <code>L</code> 无法穿过 <code>R</code>。所以，如果去掉 <code>start</code> 和 <code>end</code> 中的所有 <code>X</code>，剩下的字符应该是相同的，否则返回 <code>false</code>。</p>
 <p>双指针遍历 <code>start</code> 和 <code>end</code>：</p>
@@ -80479,7 +80485,9 @@ XRLXXRRLX
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

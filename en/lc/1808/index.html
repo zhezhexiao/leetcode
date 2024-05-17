@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1808-maximize-number-of-nice-divisors"><a href="https://leetcode.com/problems/maximize-number-of-nice-divisors">1808. Maximize Number of Nice Divisors</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 234 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 234 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2070-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2070-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a positive integer <code>primeFactors</code>. You are asked to construct a positive integer <code>n</code> that satisfies the following conditions:</p>
 
 <ul>
@@ -75707,7 +75711,11 @@ There is not other value of n that has at most 5 prime factors and more nice div
 
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-problem-transformation-fast-power">Solution 1: Problem Transformation + Fast Power</h3>
 <p>We can factorize $n$ into prime factors, i.e., $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$, where $a_i$ is a prime factor and $k_i$ is the exponent of the prime factor $a_i$. Since the number of prime factors of $n$ does not exceed <code>primeFactors</code>, we have $k_1 + k_2 + \cdots + k_m \leq primeFactors$.</p>
 <p>According to the problem description, we know that a good factor of $n$ must be divisible by all prime factors, which means that a good factor of $n$ needs to include $a_1 \times a_2 \times \cdots \times a_m$ as a factor. Then the number of good factors $k= k_1 \times k_2 \times \cdots \times k_m$, i.e., $k$ is the product of $k_1, k_2, \cdots, k_m$. To maximize the number of good factors, we need to split <code>primeFactors</code> into $k_1, k_2, \cdots, k_m$ to make $k_1 \times k_2 \times \cdots \times k_m$ the largest. Therefore, the problem is transformed into: split the integer <code>primeFactors</code> into the product of several integers to maximize the product.</p>
@@ -75962,7 +75970,9 @@ There is not other value of n that has at most 5 prime factors and more nice div
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

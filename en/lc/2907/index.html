@@ -75675,10 +75675,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2907-maximum-profitable-triplets-with-increasing-prices-i"><a href="https://leetcode.com/problems/maximum-profitable-triplets-with-increasing-prices-i">2907. Maximum Profitable Triplets With Increasing Prices I 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given the <strong>0-indexed</strong> arrays <code>prices</code> and <code>profits</code> of length <code>n</code>. There are <code>n</code> items in an store where the <code>i<sup>th</sup></code> item has a price of <code>prices[i]</code> and a profit of <code>profits[i]</code>.</p>
 
 <p>We have to pick three items with the following condition:</p>
@@ -75727,7 +75731,11 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
     <li><code>1 &lt;= profits[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumerate-the-middle-element">Solution 1: Enumerate the Middle Element</h3>
 <p>We can enumerate the middle element $profits[j]$, and then enumerate the left element $profits[i]$ and the right element $profits[k]$. For each $profits[j]$, we need to find the maximum $profits[i]$ and the maximum $profits[k]$ such that $prices[i] &lt; prices[j] &lt; prices[k]$. We define $left$ as the maximum value on the left of $profits[j]$, and $right$ as the maximum value on the right of $profits[j]$. If they exist, we update the answer as $ans = \max(ans, left + profits[j] + right)$.</p>
 <p>The time complexity is $O(n^2)$, where $n$ is the length of the array. The space complexity is $O(1)$.</p>
@@ -76013,6 +76021,10 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-binary-indexed-tree">Solution 2: Binary Indexed Tree</h3>
 <p>We can use two Binary Indexed Trees (BITs) to maintain the maximum profit on the left and right of each price, respectively. Then, we enumerate the middle price, query the maximum profit on both sides through the BIT, and finally take the maximum value.</p>
 <p>The time complexity is $O(n \times \log M)$, and the space complexity is $O(M)$. Here, $n$ is the length of the array $prices$, and $M$ is the maximum value in the array $prices$. In this problem, $M \le 10^6$.</p>
@@ -76689,6 +76701,10 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-3">Solution 3</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">TypeScript</label></div>
 <div class="tabbed-content">
@@ -77338,7 +77354,9 @@ The answer would be sum of their profits which is 5 + 4 + 6 = 15.</pre>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

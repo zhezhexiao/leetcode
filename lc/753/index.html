@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="753"><a href="https://leetcode.cn/problems/cracking-the-safe">753. 破解保险箱</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个需要密码才能打开的保险箱。密码是&nbsp;<code>n</code> 位数, 密码的每一位都是范围&nbsp;<code>[0, k - 1]</code>&nbsp;中的一个数字。</p>
 
@@ -80317,7 +80319,11 @@
     <li><code>1 &lt;= k<sup>n</sup> &lt;= 4096</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：欧拉回路</h3>
 <p>我们可以对题目中所描述的内容构建有向图：将每个点看作一个长度为 $n-1$ 的 $k$ 字符串，每条边都带有一个从 $0$ 到 $k-1$ 的字符。如果点 $u$ 到点 $v$ 之间有一条有向边 $e$，假设 $e$ 携带的字符为 $c$，那么 $u+c$ 的末尾 $k-1$ 个字符形成的字符串等于 $v$，此时边 $u+c$ 就表示了一个长度为 $n$ 的密码。</p>
 <p>在这个有向图中，一共有 $k^{n-1}$ 个点，每个点都有 $k$ 条出边，也有 $k$ 条入边，因此，该有向图存在欧拉回路，欧拉回路所经过的路径拼接起来就是题目中的答案。</p>
@@ -80496,7 +80502,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

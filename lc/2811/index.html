@@ -80266,11 +80266,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2811"><a href="https://leetcode.cn/problems/check-if-it-is-possible-to-split-array">2811. 判断是否能拆分数组</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 357 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 357 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1543-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1543-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 357 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 357 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1543-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1543-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code> 的数组 <code>nums</code> 和一个整数 <code>m</code> 。请你判断能否执行一系列操作，将数组拆分成 <code>n</code> 个 <strong>非空 </strong>数组。</p>
 
@@ -80330,7 +80332,11 @@
     <li><code>1 &lt;= m &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：记忆化搜索</h3>
 <p>我们先预处理得到前缀和数组 $s$，其中 $s[i]$ 表示数组 $nums$ 的前 $i$ 个元素之和。</p>
 <p>接下来，我们设计一个函数 $dfs(i, j)$，表示对于数组 $nums$ 的下标范围 $[i, j]$，是否存在一种满足条件的拆分方法。如果存在，返回 <code>true</code>，否则返回 <code>false</code>。</p>
@@ -80666,6 +80672,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：脑筋急转弯</h3>
 <p>不论如何操作，最终总会剩下一个 <code>length == 2</code> 的子数组，又因为元素数值不存在负数，所以随着分割操作的进行，子数组的长度和总和都会逐渐变小，其它 <code>length &gt; 2</code> 子数组之和肯定要比该子数组之和更大，进而，我们只需要考虑，是否存在一个 <code>length == 2</code> 且总和大于等于 <code>m</code> 的子数组即可。</p>
 <blockquote>
@@ -80702,7 +80712,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="546"><a href="https://leetcode.cn/problems/remove-boxes">546. 移除盒子</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出一些不同颜色的盒子<meta charset="UTF-8" />&nbsp;<code>boxes</code>&nbsp;，盒子的颜色由不同的正数表示。</p>
 
@@ -80307,7 +80309,11 @@
     <li><code>1 &lt;= boxes[i]&nbsp;&lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：记忆化搜索</h3>
 <p>设计递归函数 <code>dfs(i, j, k)</code> 表示当前处理的区间为 <code>[i, j]</code>，且该区间的右边有 <code>k</code> 个与 <code>boxes[j]</code> 相同的元素，返回该区间的最大积分。答案即为 <code>dfs(0, n - 1, 0)</code>。</p>
 <p>对于 <code>dfs(i, j, k)</code>，我们可以直接删除 <code>boxes[j]</code> 和其右边的 <code>k</code> 个元素，所得积分为 <code>dfs(i, j - 1, 0) + (k + 1) * (k + 1)</code>。</p>
@@ -80538,7 +80544,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

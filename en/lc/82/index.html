@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="82-remove-duplicates-from-sorted-list-ii"><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii">82. Remove Duplicates from Sorted List II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a sorted linked list, <em>delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list</em>. Return <em>the linked list <strong>sorted</strong> as well</em>.</p>
 
 <p>&nbsp;</p>
@@ -75681,7 +75685,11 @@
     <li>The list is guaranteed to be <strong>sorted</strong> in ascending order.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-single-pass">Solution 1: Single Pass</h3>
 <p>First, we create a dummy head node $dummy$, and set $dummy.next = head$. Then we create a pointer $pre$ pointing to $dummy$, and a pointer $cur$ pointing to $head$, and start traversing the linked list.</p>
 <p>When the node value pointed by $cur$ is the same as the node value pointed by $cur.next$, we let $cur$ keep moving forward until the node value pointed by $cur$ is different from the node value pointed by $cur.next$. At this point, we check whether $pre.next$ is equal to $cur$. If they are equal, it means there are no duplicate nodes between $pre$ and $cur$, so we move $pre$ to the position of $cur$; otherwise, it means there are duplicate nodes between $pre$ and $cur$, so we set $pre.next$ to $cur.next$. Then we continue to move $cur$ forward. Continue the above operation until $cur$ is null, and the traversal ends.</p>
@@ -76151,7 +76159,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

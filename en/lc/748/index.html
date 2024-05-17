@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="748-shortest-completing-word"><a href="https://leetcode.com/problems/shortest-completing-word">748. Shortest Completing Word</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a string <code>licensePlate</code> and an array of strings <code>words</code>, find the <strong>shortest completing</strong> word in <code>words</code>.</p>
 
 <p>A <strong>completing</strong> word is a word that <strong>contains all the letters</strong> in <code>licensePlate</code>. <strong>Ignore numbers and spaces</strong> in <code>licensePlate</code>, and treat letters as <strong>case insensitive</strong>. If a letter appears more than once in <code>licensePlate</code>, then it must appear in the word the same number of times or more.</p>
@@ -75702,7 +75706,11 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
     <li><code>words[i]</code> consists of lower case English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-counting">Solution 1: Counting</h3>
 <p>First, we use a hash table or an array $cnt$ of length $26$ to count the frequency of each letter in the string <code>licensePlate</code>. Note that we convert all letters to lowercase for counting.</p>
 <p>Then, we traverse each word $w$ in the array <code>words</code>. If the length of the word $w$ is longer than the length of the answer $ans$, we directly skip this word. Otherwise, we use another hash table or an array $t$ of length $26$ to count the frequency of each letter in the word $w$. If for any letter, the frequency of this letter in $t$ is less than the frequency of this letter in $cnt$, we can also directly skip this word. Otherwise, we have found a word that meets the conditions, and we update the answer $ans$ to the current word $w$.</p>
@@ -76051,7 +76059,9 @@ Since &quot;steps&quot; is the only word containing all the letters, that is the
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

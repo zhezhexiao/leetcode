@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1258-synonymous-sentences"><a href="https://leetcode.com/problems/synonymous-sentences">1258. Synonymous Sentences 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 13 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 13 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1847-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1847-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a list of equivalent string pairs <code>synonyms</code> where <code>synonyms[i] = [s<sub>i</sub>, t<sub>i</sub>]</code> indicates that <code>s<sub>i</sub></code> and <code>t<sub>i</sub></code> are equivalent strings. You are also given a sentence <code>text</code>.</p>
 
 <p>Return <em>all possible synonymous sentences <strong>sorted lexicographically</strong></em>.</p>
@@ -75705,7 +75709,11 @@
     <li>The words of <code>text</code> are separated by single spaces.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-union-find-dfs">Solution 1: Union-Find + DFS</h3>
 <p>We can notice that the synonyms in the problem are transitive, i.e., if <code>a</code> and <code>b</code> are synonyms, and <code>b</code> and <code>c</code> are synonyms, then <code>a</code> and <code>c</code> are also synonyms. Therefore, we can use a union-find set to find the connected components of synonyms, where all the words in each connected component are synonyms and are sorted in lexicographical order.</p>
 <p>Next, we split the string <code>text</code> into a word array <code>sentence</code> by spaces. For each word <code>sentence[i]</code>, if it is a synonym, we replace it with all the words in the connected component, otherwise, we do not replace it. In this way, we can get all the sentences. This can be implemented by DFS search.</p>
@@ -76365,7 +76373,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

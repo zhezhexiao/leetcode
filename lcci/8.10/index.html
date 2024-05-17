@@ -80243,11 +80243,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="0810"><a href="https://leetcode.cn/problems/color-fill-lcci">面试题 08.10. 颜色填充</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>颜色填充。编写函数，实现许多图片编辑软件都支持的“颜色填充”功能。给定一个屏幕（以二维数组表示，元素为颜色值）、一个点和一个新的颜色值，将新颜色值填入这个点的周围区域，直到原来的颜色值全都改变。</p>
 
 <p> <strong>示例1:</strong></p>
@@ -80272,7 +80275,11 @@ sr = 1, sc = 1, newColor = 2
 <li>image[i][j] 和 newColor 表示的颜色值在范围 [0, 65535]内。</li>
 </ol>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="dfs">方法一：DFS</h3>
 <p>我们设计一个函数 $dfs(i, j)$，表示从 $(i, j)$ 开始填充颜色。如果 $(i, j)$ 不在图像范围内，或者 $(i, j)$ 的颜色不是原来的颜色，或者 $(i, j)$ 的颜色已经被填充成新的颜色，就返回。否则，将 $(i, j)$ 的颜色填充成新的颜色，然后递归搜索 $(i, j)$ 的上下左右四个方向。</p>
 <p>时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为图像的行数和列数。</p>
@@ -80612,6 +80619,10 @@ sr = 1, sc = 1, newColor = 2
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 <h3 id="bfs">方法二：BFS</h3>
 <p>我们可以使用广度优先搜索的方法，从起始点开始，将起始点的颜色填充成新的颜色，然后将起始点加入队列。每次从队列中取出一个点，然后将其上下左右四个方向的点加入队列，直到队列为空。</p>
 <p>时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别为图像的行数和列数。</p>
@@ -80845,7 +80856,9 @@ sr = 1, sc = 1, newColor = 2
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

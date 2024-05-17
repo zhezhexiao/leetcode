@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1015-k"><a href="https://leetcode.cn/problems/smallest-integer-divisible-by-k">1015. 可被 K 整除的最小整数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 129 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 129 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1874-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1874-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 129 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 129 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1874-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1874-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定正整数 <code>k</code>&nbsp;，你需要找出可以被 <code>k</code>&nbsp;整除的、仅包含数字 <code><strong>1</strong></code> 的最 <strong>小</strong> 正整数 <code>n</code>&nbsp;的长度。</p>
 
@@ -80294,7 +80296,11 @@
     <li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：数学</h3>
 <p>我们注意到，正整数 $n$ 初始值为 $1$，每次乘以 $10$ 后再加 $1$，即 $n = n \times 10 + 1$，而 $(n \times 10 + 1) \bmod k = ((n \bmod k) \times 10 + 1) \bmod k$，因此我们可以通过计算 $n \bmod k$ 来判断 $n$ 是否能被 $k$ 整除。</p>
 <p>我们从 $n = 1$ 开始，每次计算 $n \bmod k$，直到 $n \bmod k = 0$，此时 $n$ 就是我们要求的最小正整数，其长度即为 $n$ 的位数。否则，我们更新 $n = (n \times 10 + 1) \bmod k$。如果循环 $k$ 次后，仍然没有找到 $n \bmod k = 0$，则说明不存在这样的 $n$，返回 $-1$。</p>
@@ -80419,7 +80425,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

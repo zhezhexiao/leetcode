@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="911-online-election"><a href="https://leetcode.com/problems/online-election">911. Online Election</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given two integer arrays <code>persons</code> and <code>times</code>. In an election, the <code>i<sup>th</sup></code> vote was cast for <code>persons[i]</code> at time <code>times[i]</code>.</p>
 
 <p>For each query at a time <code>t</code>, find the person that was leading the election at time <code>t</code>. Votes cast at time <code>t</code> will count towards our query. In the case of a tie, the most recent vote (among tied candidates) wins.</p>
@@ -75712,7 +75716,11 @@ topVotedCandidate.q(8); // return 1
     <li>At most <code>10<sup>4</sup></code> calls will be made to <code>q</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>We can record the winner at each moment during initialization, and then use binary search to find the largest moment less than or equal to $t$ during the query, and return the winner at that moment.</p>
 <p>During initialization, we use a counter $cnt$ to record the votes of each candidate, and a variable $cur$ to record the current leading candidate. Then we traverse each moment, update $cnt$ and $cur$, and record the winner at each moment.</p>
@@ -76052,7 +76060,9 @@ topVotedCandidate.q(8); // return 1
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

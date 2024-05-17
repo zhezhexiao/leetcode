@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2850-minimum-moves-to-spread-stones-over-grid"><a href="https://leetcode.com/problems/minimum-moves-to-spread-stones-over-grid">2850. Minimum Moves to Spread Stones Over Grid</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 362 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 362 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2001-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2001-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer matrix <code>grid</code> of size <code>3 * 3</code>, representing the number of stones in each cell. The grid contains exactly <code>9</code> stones, and there can be <strong>multiple</strong> stones in a single cell.</p>
 
 <p>In one move, you can move a single stone from its current cell to any other cell if the two cells share a side.</p>
@@ -75719,7 +75723,11 @@ It can be shown that 4 is the minimum number of moves required to place one ston
     <li>Sum of <code>grid</code> is equal to <code>9</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-naive-bfs">Solution 1: Naive BFS</h3>
 <p>The problem is essentially finding the shortest path from the initial state to the target state in a state graph, so we can use BFS to solve it. The initial state is <code>grid</code>, and the target state is <code>[[1, 1, 1], [1, 1, 1], [1, 1, 1]]</code>. In each operation, we can move a stone greater than $1$ from a cell to an adjacent cell that does not exceed $1$. If the target state is found, we can return the current layer number, which is the minimum number of moves.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
@@ -76126,6 +76134,10 @@ It can be shown that 4 is the minimum number of moves required to place one ston
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-state-compression-dynamic-programming">Solution 2: State Compression Dynamic Programming</h3>
 <p>We can put all the coordinates $(i, j)$ of cells with a value of $0$ into an array $left$. If the value $v$ of a cell is greater than $1$, we put $v-1$ coordinates $(i, j)$ into an array $right$. The problem then becomes that each coordinate $(i, j)$ in $right$ needs to be moved to a coordinate $(x, y)$ in $left$, and we need to find the minimum number of moves.</p>
 <p>Let's denote the length of $left$ as $n$. We can use an $n$-bit binary number to represent whether each coordinate in $left$ is filled by a coordinate in $right$, where $1$ represents being filled, and $0$ represents not being filled. Initially, $f[i] = \infty$, and the rest $f[0]=0$.</p>
@@ -76253,7 +76265,9 @@ It can be shown that 4 is the minimum number of moves required to place one ston
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

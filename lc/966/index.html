@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="966"><a href="https://leetcode.cn/problems/vowel-spellchecker">966. 元音拼写检查器</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在给定单词列表&nbsp;<code>wordlist</code>&nbsp;的情况下，我们希望实现一个拼写检查器，将查询单词转换为正确的单词。</p>
 
@@ -80322,7 +80324,11 @@
     <li><code>wordlist[i]</code>&nbsp;和&nbsp;<code>queries[i]</code>&nbsp;只包含英文字母</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表</h3>
 <p>遍历 <code>wordlist</code>，将单词按照大小写不敏感、元音不敏感的规则分别存入哈希表 <code>low</code> 和 <code>pat</code> 中，其中 <code>low</code> 的键为单词的小写形式，<code>pat</code> 的键为将单词的元音字母替换为 <code>*</code> 后的字符串，值为单词本身。用哈希表 <code>s</code> 存储 <code>wordlist</code> 中的单词。</p>
 <p>遍历 <code>queries</code>，对于每个单词 <code>q</code>，如果 <code>q</code> 在 <code>s</code> 中，说明 <code>q</code> 在 <code>wordlist</code> 中，直接将 <code>q</code> 加入答案数组 <code>ans</code> 中；否则，如果 <code>q</code> 的小写形式在 <code>low</code> 中，说明 <code>q</code> 在 <code>wordlist</code> 中，且大小写不敏感，将 <code>low[q.lower()]</code> 加入答案数组 <code>ans</code> 中；否则，如果将 <code>q</code> 的元音字母替换为 <code>*</code> 后的字符串在 <code>pat</code> 中，说明 <code>q</code> 在 <code>wordlist</code> 中，且元音不敏感，将 <code>pat[f(q)]</code> 加入答案数组 <code>ans</code> 中；否则，说明 <code>q</code> 在 <code>wordlist</code> 中，且大小写和元音都不敏感，将空字符串加入答案数组 <code>ans</code> 中。</p>
@@ -80672,7 +80678,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

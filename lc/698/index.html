@@ -80293,11 +80293,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="698-k"><a href="https://leetcode.cn/problems/partition-to-k-equal-sum-subsets">698. 划分为 k 个相等的子集</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;&nbsp;<code>nums</code> 和一个正整数 <code>k</code>，找出是否有可能把这个数组分成 <code>k</code> 个非空子集，其总和都相等。</p>
 
@@ -80326,7 +80328,11 @@
     <li>每个元素的频率在 <code>[1,4]</code> 范围内</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="dfs">方法一：DFS + 剪枝</h3>
 <p>根据题意，我们需要将数组 <code>nums</code> 划分为 $k$ 个子集，且每个子集的和相等。因此，先累加 <code>nums</code> 中所有元素的和，如果不能被 $k$ 整除，说明无法划分为 $k$ 个子集，提前返回 <code>false</code>。</p>
 <p>如果能被 $k$ 整除，不妨将每个子集期望的和记为 $s$，然后创建一个长度为 $k$ 的数组 <code>cur</code>，表示当前每个子集的和。</p>
@@ -80640,6 +80646,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_3">方法二：状态压缩 + 记忆化搜索</h3>
 <p>与方法一相同，我们依然先判断数组 <code>nums</code> 是否有可能被划分为 $k$ 个子集。如果不能被 $k$ 整除，直接返回 <code>false</code>。</p>
 <p>我们记 $s$ 为每个子集期望的和，当前元素被划分的情况为 <code>state</code>。对于第 $i$ 个数，若 <code>((state &gt;&gt; i) &amp; 1)</code> 等于 $0$，说明第 $i$ 个元素未被划分。</p>
@@ -80953,6 +80963,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法三：动态规划</h3>
 <p>我们可以使用动态规划的方法求解本题。</p>
 <p>我们定义 $f[i]$ 表示当前选取的数字的状态为 $i$ 时，是否存在 $k$ 个子集满足题目要求。初始时 $f[0]=true$，答案为 $f[2^n-1]$。其中 $n$ 表示数组 $nums$ 的长度。另外，我们定义 $cur[i]$ 表示当前选取的数字的状态为 $i$ 时，最后一个子集的和。</p>
@@ -81203,7 +81217,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

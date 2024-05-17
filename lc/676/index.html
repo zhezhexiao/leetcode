@@ -80278,11 +80278,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="676"><a href="https://leetcode.cn/problems/implement-magic-dictionary">676. 实现一个魔法字典</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个使用单词列表进行初始化的数据结构，单词列表中的单词 <strong>互不相同</strong> 。 如果给出一个单词，请判定能否只将这个单词中<strong>一个</strong>字母换成另一个字母，使得所形成的新单词存在于你构建的字典中。</p>
 
@@ -80335,7 +80337,11 @@ magicDictionary.search("leetcoded"); // 返回 False
 </div>
 </div>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="dfs">方法一：前缀树 + DFS</h3>
 <p>我们可以使用前缀树来存储字典中的所有单词，然后对于每个搜索的单词，我们使用深度优先搜索的方法，具体地，我们从前缀树的根节点开始，对于当前遍历到的字母，我们首先判断是否存在与其相同的子节点，如果存在，则继续向下遍历，否则我们需要判断是否还有剩余的修改次数，如果没有，则说明无法匹配，返回 false。如果有剩余的修改次数，我们可以尝试对当前的字母进行修改，然后继续向下遍历，如果当前的字母修改后对应的子节点存在，则说明可以匹配，否则说明无法匹配，返回 false。如果我们遍历到了单词的结尾，且修改次数恰好为 1，那么说明可以匹配，返回 true。</p>
 <p>时间复杂度 $O(n \times l + q \times l \times |\Sigma|)$，空间复杂度 $O(n \times l)$，其中 $n$ 和 $l$ 分别是字典中的单词数量和单词的平均长度，而 $q$ 是搜索的单词数量。另外 $|\Sigma|$ 表示字符集的大小，这里字符集为小写英文字母，因此 $|\Sigma|=26$。</p>
@@ -81149,6 +81155,10 @@ magicDictionary.search("leetcoded"); // 返回 False
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_3">方法二</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
 <div class="tabbed-content">
@@ -81252,7 +81262,9 @@ magicDictionary.search("leetcoded"); // 返回 False
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

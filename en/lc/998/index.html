@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="998-maximum-binary-tree-ii"><a href="https://leetcode.com/problems/maximum-binary-tree-ii">998. Maximum Binary Tree II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>A <strong>maximum tree</strong> is a tree where every node has a value greater than any other value in its subtree.</p>
 
 <p>You are given the <code>root</code> of a maximum binary tree and an integer <code>val</code>.</p>
@@ -75719,7 +75723,11 @@
     <li><code>1 &lt;= val &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-recursion">Solution 1: Recursion</h3>
 <p>If $val$ is the maximum number, then make $val$ the new root node, and $root$ the left subtree of the new root node.</p>
 <p>If $val$ is not the maximum number, since $val$ is the last appended number, it must be on the right side of $root$. Therefore, we can insert $val$ as a new node into the right subtree of $root$.</p>
@@ -76054,6 +76062,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-iteration">Solution 2: Iteration</h3>
 <p>Search the right subtree, find the node where $curr.val \gt val \gt curr.right.val$, then create a new node $node$, point $node.left$ to $curr.right$, and then point $curr.right$ to $node$.</p>
 <p>Finally, return $root$.</p>
@@ -76312,7 +76324,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

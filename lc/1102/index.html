@@ -80290,11 +80290,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1102"><a href="https://leetcode.cn/problems/path-with-maximum-minimum-value">1102. 得分最高的路径 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 3 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 3 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2011-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2011-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 3 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 3 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2011-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2011-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <code>m x n</code> 的整数矩阵&nbsp;<code>grid</code>，返回从 <code>(0,0)</code> 开始到 <code>(m - 1, n - 1)</code> 在四个基本方向上移动的路径的最大 <strong>分数</strong> 。</p>
 
@@ -80345,7 +80347,11 @@
 
 <p>&nbsp;</p>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：排序 + 并查集</h3>
 <p>我们先将矩阵的每个元素构建一个三元组 $(v, i, j)$，其中 $v$ 表示元素值，而 $i$ 和 $j$ 分别表示元素在矩阵中的行和列。然后对这些三元组按照元素值从大到小进行排序，存放在列表 $q$ 中。</p>
 <p>接下来，我们按顺序从 $q$ 中取出三元组，将其对应的元素值作为路径的分数，并且将该位置标记为已访问。然后我们检查该位置的上下左右四个相邻位置，如果某个相邻位置已经被访问过，那么我们就将该位置与当前位置进行合并。如果发现位置 $(0, 0)$ 和位置 $(m - 1, n - 1)$ 已经被合并，那么我们就可以直接返回当前路径的分数，即为答案。</p>
@@ -80862,6 +80868,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
@@ -81469,7 +81479,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

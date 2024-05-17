@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="823"><a href="https://leetcode.cn/problems/binary-trees-with-factors">823. 带因子的二叉树</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给出一个含有不重复整数元素的数组 <code>arr</code> ，每个整数 <code>arr[i]</code> 均大于 1。</p>
 
@@ -80301,7 +80303,11 @@
     <li><code>arr</code> 中的所有值 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划</h3>
 <p>我们可以枚举 $arr$ 中的每一个数 $a$ 作为二叉树的根节点（根节点一定最大），然后枚举枚举左子树的值 $b$，若 $a$ 能被 $b$ 整除，则右子树的值为 $a / b$，若 $a / b$ 也在 $arr$ 中，则可以构成一棵二叉树。此时，以 $a$ 为根节点的二叉树的个数为 $f(a) = f(b) \times f(a / b)$，其中 $f(b)$ 和 $f(a / b)$ 分别为左子树和右子树的二叉树个数。</p>
 <p>因此，我们先将 $arr$ 排序，然后用 $f[i]$ 表示以 $arr[i]$ 为根节点的二叉树的个数，最终答案即为 $f[0] + f[1] + \cdots + f[n - 1]$。注意答案可能很大，需要对 $10^9 + 7$ 取模。</p>
@@ -80568,7 +80574,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

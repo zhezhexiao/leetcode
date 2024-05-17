@@ -80234,11 +80234,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1716"><a href="https://leetcode.cn/problems/the-masseuse-lcci">面试题 17.16. 按摩师</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>一个有名的按摩师会收到源源不断的预约请求，每个预约都可以选择接或不接。在每次预约服务之间要有休息时间，因此她不能接受相邻的预约。给定一个预约请求序列，替按摩师找到最优的预约集合（总预约时间最长），返回总的分钟数。</p>
 
 <p><strong>注意：</strong>本题相对原题稍作改动</p>
@@ -80266,7 +80269,11 @@
 <strong>解释：</strong> 选择 1 号预约、 3 号预约、 5 号预约和 8 号预约，总时长 = 2 + 4 + 3 + 3 = 12。
 </pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划</h3>
 <p>我们定义状态 $f[i]$ 表示考虑前 $i$ 个预约，且第 $i$ 个预约被接受的情况下，最长的预约时长；定义状态 $g[i]$ 表示考虑前 $i$ 个预约，且第 $i$ 个预约被拒绝的情况下，最长的预约时长。</p>
 <p>考虑第 $i$ 个预约，如果第 $i$ 个预约被接受，那么第 $i-1$ 个预约一定不能被接受，即 $f[i]=g[i-1]+nums[i]$；如果第 $i$ 个预约被拒绝，那么第 $i-1$ 个预约可以被接受，也可以被拒绝，即 $g[i]=max(f[i-1],g[i-1])$。</p>
@@ -80423,7 +80430,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

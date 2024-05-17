@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2747"><a href="https://leetcode.cn/problems/count-zero-request-servers">2747. 统计没有收到请求的服务器数目</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 107 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 107 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2405-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2405-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 107 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 107 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2405-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2405-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>n</code>&nbsp;，表示服务器的总数目，再给你一个下标从 <strong>0</strong>&nbsp;开始的 <strong>二维</strong>&nbsp;整数数组&nbsp;<code>logs</code>&nbsp;，其中&nbsp;<code>logs[i] = [server_id, time]</code>&nbsp;表示 id 为&nbsp;<code>server_id</code>&nbsp;的服务器在&nbsp;<code>time</code>&nbsp;时收到了一个请求。</p>
 
@@ -80314,7 +80316,11 @@
     <li><code>x &lt;&nbsp;queries[i]&nbsp;&lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：离线查询 + 排序 + 双指针</h3>
 <p>我们可以将所有的查询按照时间从小到大排序，然后按照时间顺序依次处理每个查询。</p>
 <p>对于每个查询 $q = (r, i)$，其窗口左边界为 $l = r - x$，我们需要统计在窗口 $[l, r]$ 内有多少个服务器收到了请求。我们用双指针 $j$ 和 $k$ 分别维护窗口的左右边界，初始时 $j = k = 0$。每一次，如果 $k$ 指向的日志的时间小于等于 $r$，我们就将其加入到窗口中，然后将 $k$ 向右移动一位。如果 $j$ 指向的日志的时间小于 $l$，我们就将其从窗口中移除，然后将 $j$ 向右移动一位。在移动的过程中，我们需要统计窗口中有多少个不同的服务器，这可以使用哈希表来实现。移动结束后，当前时间区间中没有收到请求的服务器数目就是 $n$ 减去哈希表中不同的服务器数目。</p>
@@ -80609,7 +80615,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

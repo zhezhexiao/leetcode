@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2190-key"><a href="https://leetcode.cn/problems/most-frequent-number-following-key-in-an-array">2190. 数组中紧跟 key 之后出现最频繁的数字</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 73 场双周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 73 场双周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1289-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1289-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 73 场双周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 73 场双周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1289-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1289-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;，同时给你一个整数&nbsp;<code>key</code>&nbsp;，它在&nbsp;<code>nums</code>&nbsp;出现过。</p>
 
@@ -80304,7 +80306,11 @@ target = 2 是紧跟着 key 之后出现次数最多的数字，所以我们返�
     <li>测试数据保证答案是唯一的。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：遍历计数</h3>
 <p>我们用一个哈希表或数组 $cnt$ 记录每个 $target$ 出现的次数，用一个变量 $mx$ 维护 $target$ 出现的最大次数，初始时 $mx = 0$。</p>
 <p>遍历数组 $nums$，如果 $nums[i] = key$，则 $nums[i + 1]$ 出现的次数 $cnt[nums[i + 1]]$ 加一，如果此时 $mx \lt cnt[nums[i + 1]]$，则更新 $mx = cnt[nums[i + 1]]$，并更新答案 $ans = nums[i + 1]$。</p>
@@ -80508,7 +80514,9 @@ target = 2 是紧跟着 key 之后出现次数最多的数字，所以我们返�
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

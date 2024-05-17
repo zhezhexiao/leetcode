@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1363-largest-multiple-of-three"><a href="https://leetcode.com/problems/largest-multiple-of-three">1363. Largest Multiple of Three</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 177 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 177 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1822-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1822-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an array of digits <code>digits</code>, return <em>the largest multiple of <strong>three</strong> that can be formed by concatenating some of the given digits in <strong>any order</strong></em>. If there is no answer return an empty string.</p>
 
 <p>Since the answer may not fit in an integer data type, return the answer as a string. Note that the returning answer must not contain unnecessary leading zeros.</p>
@@ -75695,7 +75699,11 @@
     <li><code>0 &lt;= digits[i] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-dynamic-programming-backtracking">Solution 1: Greedy + Dynamic Programming + Backtracking</h3>
 <p>We define $f[i][j]$ as the maximum length of selecting several numbers from the first $i$ numbers, so that the sum of the selected numbers modulo $3$ equals $j$. To make the selected numbers as large as possible, we need to select as many numbers as possible, so we need to make $f[i][j]$ as large as possible. We initialize $f[0][0] = 0$, and the rest of $f[0][j] = -\infty$.</p>
 <p>Consider how $f[i][j]$ transitions. We can choose not to select the $i$-th number, in which case $f[i][j] = f[i - 1][j]$; we can also choose to select the $i$-th number, in which case $f[i][j] = f[i - 1][(j - x_i \bmod 3 + 3) \bmod 3] + 1$, where $x_i$ represents the value of the $i$-th number. Therefore, we have the following state transition equation:</p>
@@ -76013,7 +76021,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

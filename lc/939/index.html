@@ -80269,11 +80269,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="939"><a href="https://leetcode.cn/problems/minimum-area-rectangle">939. 最小面积矩形</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定在 xy 平面上的一组点，确定由这些点组成的矩形的最小面积，其中矩形的边平行于 x 轴和 y 轴。</p>
 
@@ -80304,7 +80306,11 @@
     <li>所有的点都是不同的。</li>
 </ol>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 排序 + 枚举</h3>
 <p>对于每个点，我们将其横坐标作为键，纵坐标作为值存入哈希表 $d$ 中。对于哈希表中的每个键，我们将其对应的纵坐标按照从小到大的顺序排序。</p>
 <p>然后我们从小到大枚举横坐标，对于每个横坐标，我们枚举其对应的纵坐标中的所有点对 $(y_1, y_2)$，其中 $y_1 \lt y_2$。如果我们之前已经遇到过点对 $(y_1, y_2)$，那么就可以用当前的横坐标和之前的横坐标计算出一个矩形的面积。我们用哈希表 $pos$ 记录每个点对 $(y_1, y_2)$ 第一次出现的横坐标，这样我们就可以在常数时间内找到这个横坐标。</p>
@@ -80534,7 +80540,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

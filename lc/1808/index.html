@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1808"><a href="https://leetcode.cn/problems/maximize-number-of-nice-divisors">1808. 好因子的最大数目</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 234 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 234 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2070-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2070-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 234 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 234 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2070-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2070-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数 <code>primeFactors</code> 。你需要构造一个正整数 <code>n</code> ，它满足以下条件：</p>
 
@@ -80295,7 +80297,11 @@
     <li><code>1 <= primeFactors <= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：问题转换 + 快速幂</h3>
 <p>我们可以将 $n$ 进行质因数分解，即 $n = a_1^{k_1} \times a_2^{k_2} \times\cdots \times a_m^{k_m}$，其中 $a_i$ 为质因子，而 $k_i$ 为质因子 $a_i$ 的指数。由于 $n$ 的质因子个数不超过 $primeFactors$ 个，因此 $k_1 + k_2 + \cdots + k_m \leq primeFactors$。</p>
 <p>而根据题意描述，我们知道 $n$ 的好因子要满足能被所有的质因子整除，也即是说 $n$ 的好因子需要包含 $a_1 \times a_2 \times \cdots \times a_m$ 作为因数。那么好因子的个数 $k= k_1 \times k_2 \times \cdots \times k_m$，即 $k$ 为 $k_1, k_2, \cdots, k_m$ 的乘积。要最大化好因子的个数，也即是说我们要将 <code>primeFactors</code> 拆分成 $k_1, k_2, \cdots, k_m$，使得 $k_1 \times k_2 \times \cdots \times k_m$ 最大。因此问题转换为：将整数 <code>primeFactors</code> 拆分成若干个整数的乘积，使得乘积最大。</p>
@@ -80550,7 +80556,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

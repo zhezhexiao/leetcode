@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2932-maximum-strong-pair-xor-i"><a href="https://leetcode.com/problems/maximum-strong-pair-xor-i">2932. Maximum Strong Pair XOR I</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 371 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 371 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1246-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1246-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A pair of integers <code>x</code> and <code>y</code> is called a <strong>strong</strong> pair if it satisfies the condition:</p>
 
 <ul>
@@ -75730,7 +75734,11 @@ The maximum XOR possible from these pairs is 25 XOR 30 = 7 since the only other 
     <li><code>1 &lt;= nums[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
 <p>We can enumerate each pair of numbers $(x, y)$ in the array. If $|x - y| \leq \min(x, y)$, then this pair is a strong pair. We can calculate the XOR value of this pair and update the answer.</p>
 <p>The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
@@ -75864,6 +75872,10 @@ The maximum XOR possible from these pairs is 25 XOR 30 = 7 since the only other 
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-sorting-binary-trie">Solution 2: Sorting + Binary Trie</h3>
 <p>Observing the inequality $|x - y| \leq \min(x, y)$, which involves absolute value and minimum value, we can assume $x \leq y$, then we have $y - x \leq x$, that is, $y \leq 2x$. We can enumerate $y$ from small to large, then $x$ must satisfy the inequality $y \leq 2x$.</p>
 <p>Therefore, we sort the array $nums$, and then enumerate $y$ from small to large. We use two pointers to maintain a window so that the elements $x$ in the window satisfy the inequality $y \leq 2x$. We can use a binary trie to maintain the elements in the window, so we can find the maximum XOR value in the window in $O(1)$ time. Each time we add $y$ to the trie, and remove the elements at the left end of the window that do not satisfy the inequality, this can ensure that the elements in the window satisfy the inequality $y \leq 2x$. Then query the maximum XOR value from the trie and update the answer.</p>
@@ -76468,7 +76480,9 @@ The maximum XOR possible from these pairs is 25 XOR 30 = 7 since the only other 
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

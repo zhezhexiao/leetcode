@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2730-find-the-longest-semi-repetitive-substring"><a href="https://leetcode.com/problems/find-the-longest-semi-repetitive-substring">2730. Find the Longest Semi-Repetitive Substring</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 106 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 106 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1501-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1501-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> that consists of digits from <code>0</code> to <code>9</code>.</p>
 
 <p>A string <code>t</code> is called a <strong>semi-repetitive</strong> if there is at most one consecutive pair of the same digits inside <code>t</code>. For example, <code>0010</code>, <code>002020</code>, <code>0123</code>, <code>2002</code>, and <code>54944</code> are semi-repetitive while&nbsp;<code>00101022</code>, and <code>1101234883</code> are not.</p>
@@ -75696,7 +75700,11 @@
     <li><code>&#39;0&#39; &lt;= s[i] &lt;= &#39;9&#39;</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-two-pointers">Solution 1: Two Pointers</h3>
 <p>We use two pointers to maintain a range $s[j..i]$ such that there is at most one pair of adjacent characters that are equal, initially $j = 0$, $i = 1$. Initialize the answer $ans = 1$.</p>
 <p>We use $cnt$ to record the number of pairs of adjacent characters that are equal in the range. If $cnt &gt; 1$, then we need to move the left pointer $j$ until $cnt \le 1$. Each time, we update the answer as $ans = \max(ans, i - j + 1)$.</p>
@@ -75845,7 +75853,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

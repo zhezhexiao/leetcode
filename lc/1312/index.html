@@ -80269,11 +80269,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1312"><a href="https://leetcode.cn/problems/minimum-insertion-steps-to-make-a-string-palindrome">1312. 让字符串成为回文串的最少插入次数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 170 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 170 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1786-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1786-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 170 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 170 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1786-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1786-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个字符串&nbsp;<code>s</code>&nbsp;，每一次操作你都可以在字符串的任意位置插入任意字符。</p>
 
@@ -80316,7 +80318,11 @@
     <li><code>s</code>&nbsp;中所有字符都是小写字母。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：记忆化搜索</h3>
 <p>我们设计一个函数 $dfs(i, j)$，表示将字符串 $s[i..j]$ 变成回文串所需要的最少操作次数。那么答案就是 $dfs(0, n - 1)$。</p>
 <p>函数 $dfs(i, j)$ 的计算过程如下：</p>
@@ -80517,6 +80523,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="dp">方法二：动态规划（区间 DP）</h3>
 <p>我们定义 $f[i][j]$ 表示将字符串 $s[i..j]$ 变成回文串所需要的最少操作次数。初始时 $f[i][j]=0$，答案即为 $f[0][n-1]$。</p>
 <p>对于 $f[i][j]$，如果 $s[i]=s[j]$，那么我们只需要将 $s[i+1..j-1]$ 变成回文串，因此 $f[i][j]=f[i+1][j-1]$。否则，我们可以在 $s[i]$ 的左侧或者 $s[j]$ 的右侧插入一个与另一侧相同的字符，那么 $f[i][j]=\min(f[i+1][j],f[i][j-1])+1$。</p>
@@ -80670,6 +80680,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法三</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:4"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label></div>
 <div class="tabbed-content">
@@ -80815,7 +80829,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

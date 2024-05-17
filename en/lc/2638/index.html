@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2638-count-the-number-of-k-free-subsets"><a href="https://leetcode.com/problems/count-the-number-of-k-free-subsets">2638. Count the Number of K-Free Subsets 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>,&nbsp;which contains <strong>distinct</strong> elements and an integer <code>k</code>.</p>
 
 <p>A subset is called a <strong>k-Free</strong> subset if it contains <strong>no</strong> two elements with an absolute difference equal to <code>k</code>. Notice that the empty set is a <strong>k-Free</strong> subset.</p>
@@ -75703,7 +75707,11 @@
     <li><code>1 &lt;= k &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-grouping-dynamic-programming">Solution 1: Grouping + Dynamic Programming</h3>
 <p>First, sort the array $nums$ in ascending order, and then group the elements in the array according to the remainder modulo $k$, that is, the elements $nums[i] \bmod k$ with the same remainder are in the same group. Then for any two elements in different groups, their absolute difference is not equal to $k$. Therefore, we can obtain the number of subsets in each group, and then multiply the number of subsets in each group to obtain the answer.</p>
 <p>For each group $arr$, we can use dynamic programming to obtain the number of subsets. Let $f[i]$ denote the number of subsets of the first $i$ elements, and initially $f[0] = 1$, and $f[1]=2$. When $i \geq 2$, if $arr[i-1]-arr[i-2]=k$, if we choose $arr[i-1]$, then $f[i]=f[i-2]$; If we do not choose $arr[i-1]$, then $f[i]=f[i-1]$. Therefore, when $arr[i-1]-arr[i-2]=k$, we have $f[i]=f[i-1]+f[i-2]$; otherwise $f[i] = f[i - 1] \times 2$. The number of subsets of this group is $f[m]$, where $m$ is the length of the array $arr$.</p>
@@ -75961,7 +75969,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

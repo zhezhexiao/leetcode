@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1180-count-substrings-with-only-one-distinct-letter"><a href="https://leetcode.com/problems/count-substrings-with-only-one-distinct-letter">1180. Count Substrings with Only One Distinct Letter 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 8 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 8 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1315-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1315-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a string <code>s</code>, return <em>the number of substrings that have only <strong>one distinct</strong> letter</em>.</p>
 
 <p>&nbsp;</p>
@@ -75695,7 +75699,11 @@ So the answer is 1 + 2 + 4 + 1 = 8.
     <li><code>s[i]</code> consists of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-two-pointers">Solution 1: Two Pointers</h3>
 <p>We can use two pointers, where pointer $i$ points to the start of the current substring, and pointer $j$ moves to the right to the first position that is different from $s[i]$. Then, $[i,..j-1]$ is a substring with $s[i]$ as the only character, and its length is $j-i$. Therefore, the number of substrings with $s[i]$ as the only character is $\frac{(j-i+1)(j-i)}{2}$, which is added to the answer. Then, we set $i=j$ and continue to traverse until $i$ exceeds the range of string $s$.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the string $s$. The space complexity is $O(1)$.</p>
@@ -75845,6 +75853,10 @@ So the answer is 1 + 2 + 4 + 1 = 8.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2">Solution 2</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
 <div class="tabbed-content">
@@ -75978,7 +75990,9 @@ So the answer is 1 + 2 + 4 + 1 = 8.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

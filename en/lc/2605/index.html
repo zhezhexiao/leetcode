@@ -75675,10 +75675,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2605-form-smallest-number-from-two-digit-arrays"><a href="https://leetcode.com/problems/form-smallest-number-from-two-digit-arrays">2605. Form Smallest Number From Two Digit Arrays</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 101 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 101 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1241-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1241-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given two arrays of <strong>unique</strong> digits <code>nums1</code> and <code>nums2</code>, return <em>the <strong>smallest</strong> number that contains <strong>at least</strong> one digit from each array</em>.</p>
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -75706,7 +75710,11 @@
     <li>All digits in each array are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
 <p>We observe that if there are the same numbers in the arrays $nums1$ and $nums2$, then the minimum of the same numbers is the smallest number. Otherwise, we take the number $a$ in the array $nums1$ and the number $b$ in the array $nums2$, and concatenate the two numbers $a$ and $b$ into two numbers, and take the smaller number.</p>
 <p>The time complexity is $O(m \times n)$, and the space complexity is $O(1)$, where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$.</p>
@@ -75894,6 +75902,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-hash-table-or-array-enumeration">Solution 2: Hash Table or Array + Enumeration</h3>
 <p>We can use a hash table or array to record the numbers in the arrays $nums1$ and $nums2$, and then enumerate $1 \sim 9$. If $i$ appears in both arrays, then $i$ is the smallest number. Otherwise, we take the number $a$ in the array $nums1$ and the number $b$ in the array $nums2$, and concatenate the two numbers $a$ and $b$ into two numbers, and take the smaller number.</p>
 <p>The time complexity is $(m + n)$, and the space complexity is $O(C)$. Where $m$ and $n$ are the lengths of the arrays $nums1$ and $nums2$ respectively; and $C$ is the range of the numbers in the arrays $nums1$ and $nums2$, and the range in this problem is $C = 10$.</p>
@@ -76191,6 +76203,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-3-bit-operation">Solution 3: Bit Operation</h3>
 <p>Since the range of the numbers is $1 \sim 9$, we can use a binary number with a length of $10$ to represent the numbers in the arrays $nums1$ and $nums2$. We use $mask1$ to represent the numbers in the array $nums1$, and use $mask2$ to represent the numbers in the array $nums2$.</p>
 <p>If the number $mask$ obtained by performing a bitwise AND operation on $mask1$ and $mask2$ is not equal to $0$, then we extract the position of the last $1$ in the number $mask$, which is the smallest number.</p>
@@ -76430,7 +76446,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

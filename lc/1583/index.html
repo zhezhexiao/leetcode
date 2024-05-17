@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1583"><a href="https://leetcode.cn/problems/count-unhappy-friends">1583. 统计不开心的朋友</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 206 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 206 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1658-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1658-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 206 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 206 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1658-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1658-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一份 <code>n</code> 位朋友的亲近程度列表，其中 <code>n</code> 总是 <strong>偶数</strong> 。</p>
 
@@ -80323,7 +80325,11 @@
     <li>每位朋友都 <strong>恰好</strong> 被包含在一对中</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：数组 + 枚举</h3>
 <p>我们用数组 $d$ 记录每个朋友与其它朋友的亲近程度，其中 $d[i][j]$ 表示朋友 $i$ 对 $j$ 的亲近程度（值越小，越亲近），另外，用数组 $p$ 记录每个朋友的配对朋友。</p>
 <p>我们枚举每个朋友 $x$，对于 $x$ 的配对朋友 $y$，我们找到 $x$ 对 $y$ 的亲近程度 $d[x][y]$，然后枚举比 $d[x][y]$ 更亲近的其它朋友 $u$，如果存在 $u$ 对 $x$ 的亲近程度 $d[u][x]$ 比 $d[u][y]$ 更高，那么 $x$ 就是不开心的朋友，将结果加一即可。</p>
@@ -80547,7 +80553,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

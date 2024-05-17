@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1977"><a href="https://leetcode.cn/problems/number-of-ways-to-separate-numbers">1977. 划分数字的方案数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 59 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 59 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2817-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2817-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 59 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 59 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2817-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2817-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你写下了若干 <strong>正整数</strong>&nbsp;，并将它们连接成了一个字符串&nbsp;<code>num</code>&nbsp;。但是你忘记给这些数字之间加逗号了。你只记得这一列数字是 <strong>非递减</strong>&nbsp;的且&nbsp;<strong>没有</strong> 任何数字有前导 0 。</p>
 
@@ -80307,7 +80309,11 @@
     <li><code>num</code>&nbsp;只含有数字&nbsp;<code>'0'</code> 到&nbsp;<code>'9'</code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划 + 前缀和</h3>
 <p>定义 $dp[i][j]$ 表示字符串 <code>num</code> 的前 $i$ 个字符，且最后一个数字的长度为 $j$ 时的方案数。显然答案为 $\sum_{j=0}^{n} dp[n][j]$。初始值 $dp[0][0] = 1$。</p>
 <p>对于 $dp[i][j]$，对应的上一个数的结尾应该是 $i-j$，我们可以枚举 $dp[i-j][k]$，其中 $k\le j$。对于 $k \lt j$ 的部分，即长度小于 $j$ 的方案数可以直接加给 $dp[i][j]$，即 $dp[i][j] = \sum_{k=0}^{j-1} dp[i-j][k]$。因为前一个数字更短，也就意味着它比当前数更小。这里可以用前缀和优化。</p>
@@ -80591,7 +80597,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

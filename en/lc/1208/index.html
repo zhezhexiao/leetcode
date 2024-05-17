@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1208-get-equal-substrings-within-budget"><a href="https://leetcode.com/problems/get-equal-substrings-within-budget">1208. Get Equal Substrings Within Budget</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 156 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 156 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1496-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1496-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given two strings <code>s</code> and <code>t</code> of the same length and an integer <code>maxCost</code>.</p>
 
 <p>You want to change <code>s</code> to <code>t</code>. Changing the <code>i<sup>th</sup></code> character of <code>s</code> to <code>i<sup>th</sup></code> character of <code>t</code> costs <code>|s[i] - t[i]|</code> (i.e., the absolute difference between the ASCII values of the characters).</p>
@@ -75718,7 +75722,11 @@ That costs 3, so the maximum length is 3.
     <li><code>s</code> and <code>t</code> consist of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-prefix-sum-binary-search">Solution 1: Prefix Sum + Binary Search</h3>
 <p>We can create an array $f$ of length $n + 1$, where $f[i]$ represents the sum of the absolute differences of ASCII values between the first $i$ characters of string $s$ and the first $i$ characters of string $t$. Thus, we can calculate the sum of the absolute differences of ASCII values from the $i$-th character to the $j$-th character of string $s$ by $f[j + 1] - f[i]$, where $0 \leq i \leq j &lt; n$.</p>
 <p>Note that the length has monotonicity, i.e., if there exists a substring of length $x$ that satisfies the condition, then a substring of length $x - 1$ must also satisfy the condition. Therefore, we can use binary search to find the maximum length.</p>
@@ -75969,6 +75977,10 @@ That costs 3, so the maximum length is 3.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-two-pointers">Solution 2: Two Pointers</h3>
 <p>We can maintain two pointers $j$ and $i$, initially $i = j = 0$; maintain a variable $sum$, representing the sum of the absolute differences of ASCII values in the index interval $[i,..j]$. In each step, we move $i$ to the right by one position, then update $sum = sum + |s[i] - t[i]|$. If $sum \gt maxCost$, then we move the pointer $j$ to the right in a loop, and continuously reduce the value of $sum$ during the moving process until $sum \leq maxCost$. Then we update the answer, i.e., $ans = \max(ans, i - j + 1)$.</p>
 <p>Finally, return the answer.</p>
@@ -76113,7 +76125,9 @@ That costs 3, so the maximum length is 3.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1658-minimum-operations-to-reduce-x-to-zero"><a href="https://leetcode.com/problems/minimum-operations-to-reduce-x-to-zero">1658. Minimum Operations to Reduce X to Zero</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 215 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 215 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1817-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1817-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> and an integer <code>x</code>. In one operation, you can either remove the leftmost or the rightmost element from the array <code>nums</code> and subtract its value from <code>x</code>. Note that this <strong>modifies</strong> the array for future operations.</p>
 
 <p>Return <em>the <strong>minimum number</strong> of operations to reduce </em><code>x</code> <em>to <strong>exactly</strong></em> <code>0</code> <em>if it is possible</em><em>, otherwise, return </em><code>-1</code>.</p>
@@ -75719,7 +75723,11 @@
     <li><code>1 &lt;= x &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-prefix-sum">Solution 1: Hash Table + Prefix Sum</h3>
 <p>According to the problem description, we need to remove elements from both ends of the array $nums$ so that the sum of the removed elements equals $x$, and the number of removed elements is minimized. We can transform the problem into: find the longest consecutive subarray in the array $nums$ such that the sum of the subarray $s = \sum_{i=0}^{n} nums[i] - x$. In this way, we can transform the problem into finding the length $mx$ of the longest consecutive subarray in the array $nums$ with a sum of $s$, and the answer is $n - mx$.</p>
 <p>We initialize $mx = -1$, and then use a hash table $vis$ to store the prefix sum, where the key is the prefix sum and the value is the index corresponding to the prefix sum.</p>
@@ -75968,6 +75976,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-two-pointers">Solution 2: Two Pointers</h3>
 <p>Based on the analysis of Solution 1, we need to find the length $mx$ of the longest consecutive subarray in the array $nums$ with a sum of $s$. Since all elements in the array $nums$ are positive integers, the prefix sum of the array will only increase monotonically, so we can use two pointers to solve this problem.</p>
 <p>We initialize pointer $j = 0$, prefix sum $t = 0$, and the length of the longest consecutive subarray $mx = -1$.</p>
@@ -76208,7 +76220,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

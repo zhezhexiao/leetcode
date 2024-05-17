@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3092-most-frequent-ids"><a href="https://leetcode.com/problems/most-frequent-ids">3092. Most Frequent IDs</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 390 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 390 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1793-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1793-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>The problem involves tracking the frequency of IDs in a collection that changes over time. You have two integer arrays, <code>nums</code> and <code>freq</code>, of equal length <code>n</code>. Each element in <code>nums</code> represents an ID, and the corresponding element in <code>freq</code> indicates how many times that ID should be added to or removed from the collection at each step.</p>
 
 <ul>
@@ -75717,7 +75721,11 @@ After step 2, we have 1 ID with the value of 3. So <code>ans[2] = 1</code>.</p>
     <li>The input is generated<!-- notionvc: a136b55a-f319-4fa6-9247-11be9f3b1db8 --> such that the occurrences of an ID will not be negative in any step.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-priority-queue-max-heap">Solution 1: Hash Table + Priority Queue (Max Heap)</h3>
 <p>We use a hash table $cnt$ to record the occurrence times of each ID, a hash table $lazy$ to record the number of times each occurrence needs to be deleted, and a priority queue $pq$ to maintain the maximum occurrence times.</p>
 <p>For each operation $(x, f)$, we need to update the occurrence times $cnt[x]$ of $x$, which means the value of $cnt[x]$ in $lazy$ needs to increase by $1$, indicating that the number of times this occurrence needs to be deleted increases by $1$. Then we update the value of $cnt[x]$, adding $f$ to $cnt[x]$. Then we add the updated value of $cnt[x]$ to the priority queue $pq$. Then we check the top element of the priority queue $pq$. If the number of times the corresponding occurrence needs to be deleted in $lazy$ is greater than $0$, we pop the top element. Finally, we judge whether the priority queue is empty. If it is not empty, the top element is the maximum occurrence times, and we add it to the answer array.</p>
@@ -75918,7 +75926,9 @@ After step 2, we have 1 ID with the value of 3. So <code>ans[2] = 1</code>.</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

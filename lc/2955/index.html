@@ -80269,11 +80269,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2955"><a href="https://leetcode.cn/problems/number-of-same-end-substrings">2955. 同端子串的数量 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>下标从0开始</strong>&nbsp;的字符串 <code>s</code>，以及一个二维整数数组 <code>queries</code>，其中 <code>queries[i] = [l<sub>i</sub>, r<sub>i</sub>]</code> 表示 <code>s</code> 中从索引 <code>l<sub>i</sub></code> 开始到索引 <code>r<sub>i</sub></code> 结束的子串（<strong>包括两端</strong>），即 <code>s[l<sub>i</sub>..r<sub>i</sub>]</code>。</p>
 
@@ -80316,7 +80318,11 @@
     <li><code>0 &lt;= l<sub>i</sub> &lt;= r<sub>i</sub> &lt; s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：前缀和 + 枚举</h3>
 <p>我们可以预处理出每个字母的前缀和，记录在数组 $cnt$ 中，其中 $cnt[i][j]$ 表示第 $i$ 个字母在前 $j$ 个字符中出现的次数。这样，对于每个区间 $[l, r]$，我们可以枚举区间中的每个字母 $c$，利用前缀和数组快速计算出 $c$ 在区间中出现的次数 $x$，我们任取其中两个，即可组成一个同尾子串，子串数为 $C_x^2=\frac{x(x-1)}{2}$，加上区间中每个字母可以单独组成同尾子串的情况，一共有 $r - l + 1$ 个字母。因此，对于每个查询 $[l, r]$，满足条件的同尾子串数为 $r - l + 1 + \sum_{c \in \Sigma} \frac{x_c(x_c-1)}{2}$，其中 $x_c$ 表示字母 $c$ 在区间 $[l, r]$ 中出现的次数。</p>
 <p>时间复杂度 $O((n + m) \times |\Sigma|)$，空间复杂度 $O(n \times |\Sigma|)$。其中 $n$ 和 $m$ 分别为字符串 $s$ 的长度和查询数，而 $\Sigma$ 表示字符串 $s$ 中出现的字母集合，本题中 $|\Sigma|=26$。</p>
@@ -80602,7 +80608,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

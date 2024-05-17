@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1575-count-all-possible-routes"><a href="https://leetcode.com/problems/count-all-possible-routes">1575. Count All Possible Routes</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 34 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 34 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2055-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2055-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an array of <strong>distinct</strong> positive integers locations where <code>locations[i]</code> represents the position of city <code>i</code>. You are also given integers <code>start</code>, <code>finish</code> and <code>fuel</code> representing the starting city, ending city, and the initial amount of fuel you have, respectively.</p>
 
 <p>At each step, if you are at city <code>i</code>, you can pick any city <code>j</code> such that <code>j != i</code> and <code>0 &lt;= j &lt; locations.length</code> and move to city <code>j</code>. Moving from city <code>i</code> to city <code>j</code> reduces the amount of fuel you have by <code>|locations[i] - locations[j]|</code>. Please notice that <code>|x|</code> denotes the absolute value of <code>x</code>.</p>
@@ -75723,7 +75727,11 @@
     <li><code>1 &lt;= fuel &lt;= 200</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memoization">Solution 1: Memoization</h3>
 <p>We design a function $dfs(i, k)$, which represents the number of paths from city $i$ with $k$ remaining fuel to the destination $finish$. So the answer is $dfs(start, fuel)$.</p>
 <p>The process of calculating the function $dfs(i, k)$ is as follows:</p>
@@ -76013,6 +76021,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
 <p>We can also convert the memoization of solution 1 into dynamic programming.</p>
 <p>We define $f[i][k]$ represents the number of paths from city $i$ with $k$ remaining fuel to the destination $finish$. So the answer is $f[start][fuel]$. Initially $f[finish][k]=1$, others are $0$.</p>
@@ -76243,7 +76255,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

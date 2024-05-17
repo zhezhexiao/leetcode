@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1734-decode-xored-permutation"><a href="https://leetcode.com/problems/decode-xored-permutation">1734. Decode XORed Permutation</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 44 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 44 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2024-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2024-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There is an integer array <code>perm</code> that is a permutation of the first <code>n</code> positive integers, where <code>n</code> is always <strong>odd</strong>.</p>
 
 <p>It was encoded into another integer array <code>encoded</code> of length <code>n - 1</code>, such that <code>encoded[i] = perm[i] XOR perm[i + 1]</code>. For example, if <code>perm = [1,3,2]</code>, then <code>encoded = [2,1]</code>.</p>
@@ -75686,7 +75690,11 @@
     <li><code>encoded.length == n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-bitwise-operation">Solution 1: Bitwise Operation</h3>
 <p>We notice that the array $perm$ is a permutation of the first $n$ positive integers, so the XOR of all elements in $perm$ is $1 \oplus 2 \oplus \cdots \oplus n$, denoted as $a$. And $encode[i]=perm[i] \oplus perm[i+1]$, if we denote the XOR of all elements $encode[0],encode[2],\cdots,encode[n-3]$ as $b$, then $perm[n-1]=a \oplus b$. Knowing the last element of $perm$, we can find all elements of $perm$ by traversing the array $encode$ in reverse order.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the array $perm$. Ignoring the space consumption of the answer, the space complexity is $O(1)$.</p>
@@ -75834,7 +75842,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

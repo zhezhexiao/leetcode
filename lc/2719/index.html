@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2719"><a href="https://leetcode.cn/problems/count-of-integers">2719. 统计整数数目</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 348 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 348 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2354-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2354-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 348 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 348 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2354-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2354-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个数字字符串&nbsp;<code>num1</code>&nbsp;和&nbsp;<code>num2</code>&nbsp;，以及两个整数&nbsp;<code>max_sum</code> 和&nbsp;<code>min_sum</code>&nbsp;。如果一个整数&nbsp;<code>x</code>&nbsp;满足以下条件，我们称它是一个好整数：</p>
 
@@ -80301,7 +80303,11 @@
     <li><code>1 &lt;= min_sum &lt;= max_sum &lt;= 400</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="dp">方法一：数位 DP</h3>
 <p>题目实际上求的是区间 $[num1,..num2]$ 中，数位和在 $[min_sum,..max_sum]$ 的数的个数。对于这种区间 $[l,..r]$ 的问题，我们可以考虑转化为求 $[1,..r]$ 和 $[1,..l-1]$ 的答案，然后相减即可。</p>
 <p>对于 $[1,..r]$ 的答案，我们可以使用数位 DP 来求解。我们设计一个函数 $dfs(pos, s, limit)$ 表示当前处理到第 $pos$ 位，数位和为 $s$，当前数是否有上界限制 $limit$ 的方案数。其中 $pos$ 从高到低枚举。</p>
@@ -80681,7 +80687,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

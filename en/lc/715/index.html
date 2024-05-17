@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="715-range-module"><a href="https://leetcode.com/problems/range-module">715. Range Module</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>A Range Module is a module that tracks ranges of numbers. Design a data structure to track the ranges represented as <strong>half-open intervals</strong> and query about them.</p>
 
 <p>A <strong>half-open interval</strong> <code>[left, right)</code> denotes all the real numbers <code>x</code> where <code>left &lt;= x &lt; right</code>.</p>
@@ -75701,7 +75705,11 @@ rangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is st
     <li>At most <code>10<sup>4</sup></code> calls will be made to <code>addRange</code>, <code>queryRange</code>, and <code>removeRange</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-segment-tree">Solution 1: Segment Tree</h3>
 <p>According to the problem description, we need to maintain a set of intervals, supporting operations of interval addition, deletion, and query. For the addition and deletion of intervals, we can use a segment tree to maintain the set of intervals.</p>
 <p>The segment tree divides the entire interval into multiple non-continuous sub-intervals, the number of which does not exceed $\log(width)$. To update the value of an element, only $\log(width)$ intervals need to be updated, and these intervals are all included in a large interval containing the element. When modifying the interval, we need to use <strong>lazy propagation</strong> to ensure efficiency.</p>
@@ -76815,7 +76823,9 @@ rangeModule.queryRange(16, 17); // return True, (The number 16 in [16, 17) is st
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

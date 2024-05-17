@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1681-minimum-incompatibility"><a href="https://leetcode.com/problems/minimum-incompatibility">1681. Minimum Incompatibility</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 218 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 218 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2389-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2389-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>​​​ and an integer <code>k</code>. You are asked to distribute this array into <code>k</code> subsets of <strong>equal size</strong> such that there are no two equal elements in the same subset.</p>
 
 <p>A subset&#39;s <strong>incompatibility</strong> is the difference between the maximum and minimum elements in that array.</p>
@@ -75720,7 +75724,11 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
     <li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-preprocessing-state-compression-dynamic-programming">Solution 1: Preprocessing + State Compression + Dynamic Programming</h3>
 <p>Let's assume that the size of each subset after partitioning is $m$, so $m=\frac{n}{k}$, where $n$ is the length of the array.</p>
 <p>We can enumerate all subsets $i$, where $i \in [0, 2^n)$, if the binary representation of subset $i$ has $m$ ones, and the elements in subset $i$ are not repeated, then we can calculate the incompatibility of subset $i$, denoted as $g[i]$, i.e., $g[i]=\max_{j \in i} {nums[j]} - \min_{j \in i} {nums[j]}$.</p>
@@ -76393,6 +76401,10 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2">Solution 2</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
 <div class="tabbed-content">
@@ -76444,7 +76456,9 @@ The incompatibility is (2-1) + (3-2) + (8-6) + (3-1) = 6.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

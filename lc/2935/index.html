@@ -80269,11 +80269,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2935-ii"><a href="https://leetcode.cn/problems/maximum-strong-pair-xor-ii">2935. 找出强数对的最大异或值 II</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 371 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 371 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2348-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2348-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 371 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 371 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2348-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2348-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的整数数组 <code>nums</code> 。如果一对整数 <code>x</code> 和 <code>y</code> 满足以下条件，则称其为 <strong>强数对</strong> ：</p>
 
@@ -80325,7 +80327,11 @@
     <li><code>1 &lt;= nums[i] &lt;= 2<sup>20</sup> - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="0-1">方法一：排序 + 0-1 字典树</h3>
 <p>观察不等式 $|x - y| \leq \min(x, y)$，其中涉及到绝对值以及最小值，我们不妨假设 $x \leq y$，则有 $y - x \leq x$，即 $y \leq 2x$。我们可以从小到大枚举 $y$，那么 $x$ 必须满足不等式 $y \leq 2x$。</p>
 <p>因此，我们对数组 $nums$ 进行排序，然后从小到大枚举 $y$，利用双指针维护一个窗口，使得窗口内的元素 $x$ 满足不等式 $y \leq 2x$。我们可以使用 0-1 字典树来维护窗口内的元素，这样我们就可以在 $O(1)$ 的时间内找到窗口内的最大异或值。每一次我们将 $y$ 加入到字典树中，同时将窗口左端点不满足不等式的元素移除，这样就可以保证窗口内的元素满足不等式 $y \leq 2x$。然后从字典树中查询最大异或值，更新答案。</p>
@@ -80930,7 +80936,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

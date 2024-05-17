@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2652-sum-multiples"><a href="https://leetcode.com/problems/sum-multiples">2652. Sum Multiples</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 342 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 342 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1182-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1182-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a positive integer <code>n</code>, find the sum of all integers in the range <code>[1, n]</code> <strong>inclusive</strong> that are divisible by <code>3</code>, <code>5</code>, or <code>7</code>.</p>
 
 <p>Return <em>an integer denoting the sum of all numbers in the given range satisfying&nbsp;the constraint.</em></p>
@@ -75703,7 +75707,11 @@
     <li><code>1 &lt;= n &lt;= 10<sup>3</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
 <p>We directly enumerate every number $x$ in $[1,..n]$, and if $x$ is divisible by $3$, $5$, and $7$, we add $x$ to the answer.</p>
 <p>After the enumeration, we return the answer.</p>
@@ -75836,6 +75844,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-mathematics-inclusion-exclusion-principle">Solution 2: Mathematics (Inclusion-Exclusion Principle)</h3>
 <p>We define a function $f(x)$ to represent the sum of numbers in $[1,..n]$ that are divisible by $x$. There are $m = \left\lfloor \frac{n}{x} \right\rfloor$ numbers that are divisible by $x$, which are $x$, $2x$, $3x$, $\cdots$, $mx$, forming an arithmetic sequence with the first term $x$, the last term $mx$, and the number of terms $m$. Therefore, $f(x) = \frac{(x + mx) \times m}{2}$.</p>
 <p>According to the inclusion-exclusion principle, we can obtain the answer as:</p>
@@ -75957,6 +75969,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-3">Solution 3</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Rust</label></div>
 <div class="tabbed-content">
@@ -75984,7 +76000,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

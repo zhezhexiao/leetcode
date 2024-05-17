@@ -75687,10 +75687,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2617-minimum-number-of-visited-cells-in-a-grid"><a href="https://leetcode.com/problems/minimum-number-of-visited-cells-in-a-grid">2617. Minimum Number of Visited Cells in a Grid</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 340 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 340 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2581-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2581-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> <code>m x n</code> integer matrix <code>grid</code>. Your initial position is at the <strong>top-left</strong> cell <code>(0, 0)</code>.</p>
 
 <p>Starting from the cell <code>(i, j)</code>, you can move to one of the following cells:</p>
@@ -75739,7 +75743,11 @@
     <li><code>grid[m - 1][n - 1] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-priority-queue">Solution 1: Priority Queue</h3>
 <p>Let's denote the number of rows of the grid as $m$ and the number of columns as $n$. Define $dist[i][j]$ to be the shortest distance from the coordinate $(0, 0)$ to the coordinate $(i, j)$. Initially, $dist[0][0]=1$ and $dist[i][j]=-1$ for all other $i$ and $j$.</p>
 <p>For each grid $(i, j)$, it can come from the grid above or the grid on the left. If it comes from the grid above $(i', j)$, where $0 \leq i' \lt i$, then $(i', j)$ must satisfy $grid[i'][j] + i' \geq i$. We need to select from these grids the one that is closest.</p>
@@ -76037,7 +76045,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

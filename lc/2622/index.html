@@ -80234,11 +80234,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2622"><a href="https://leetcode.cn/problems/cache-with-time-limit">2622. 有时间限制的缓存</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个类，它允许获取和设置键-值对，并且每个键都有一个&nbsp;<strong>过期时间</strong>&nbsp;。</p>
 
@@ -80303,7 +80305,11 @@ timeDelays = [0, 0, 40, 50, 120, 200, 250]
     <li>第一个操作始终是 "TimeLimitedCache" 而且一定会以 0 毫秒的延迟立即执行</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表</h3>
 <p>我们用哈希表 $cache$ 记录键值对，其中键为整型键 $key$，值为一个数组，数组的第一个元素为整型值 $value$，第二个元素为元素的过期时间 $expire$。</p>
 <p>我们实现一个 <code>removeExpire</code> 方法，用于删除过期的键值对。在 <code>set</code>、<code>get</code> 和 <code>count</code> 方法中，我们先调用 <code>removeExpire</code> 方法，然后再进行相应的操作。</p>
@@ -80400,7 +80406,9 @@ timeDelays = [0, 0, 40, 50, 120, 200, 250]
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

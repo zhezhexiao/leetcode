@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2076-process-restricted-friend-requests"><a href="https://leetcode.com/problems/process-restricted-friend-requests">2076. Process Restricted Friend Requests</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 267 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 267 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2130-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2130-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> indicating the number of people in a network. Each person is labeled from <code>0</code> to <code>n - 1</code>.</p>
 
 <p>You are also given a <strong>0-indexed</strong> 2D integer array <code>restrictions</code>, where <code>restrictions[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> means that person <code>x<sub>i</sub></code> and person <code>y<sub>i</sub></code> <strong>cannot </strong>become <strong>friends</strong>,<strong> </strong>either <strong>directly</strong> or <strong>indirectly</strong> through other people.</p>
@@ -75715,7 +75719,11 @@ Request 3: Person 3 and person 4 cannot be friends since person 0 and person 1 w
     <li><code>u<sub>j</sub> != v<sub>j</sub></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-union-find">Solution 1: Union-Find</h3>
 <p>We can use a union-find set to maintain the friend relationships, and then for each request, we determine whether it meets the restriction conditions.</p>
 <p>For the two people $(u, v)$ in the current request, if they are already friends, then the request can be directly accepted; otherwise, we traverse the restriction conditions. If there exists a restriction condition $(x, y)$ such that $u$ and $x$ are friends and $v$ and $y$ are friends, or $u$ and $y$ are friends and $v$ and $x$ are friends, then the request cannot be accepted.</p>
@@ -76066,7 +76074,9 @@ Request 3: Person 3 and person 4 cannot be friends since person 0 and person 1 w
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

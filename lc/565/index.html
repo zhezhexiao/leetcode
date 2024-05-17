@@ -80260,11 +80260,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="565"><a href="https://leetcode.cn/problems/array-nesting">565. 数组嵌套</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>索引从<code>0</code>开始长度为<code>N</code>的数组<code>A</code>，包含<code>0</code>到<code>N - 1</code>的所有整数。找到最大的集合<code>S</code>并返回其大小，其中 <code>S[i] = {A[i], A[A[i]], A[A[A[i]]], ... }</code>且遵守以下的规则。</p>
 
@@ -80294,7 +80296,11 @@ S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
     <li><code>A</code>中不含有重复的元素。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：图</h3>
 <p>嵌套数组最终一定会形成一个环，在枚举 $nums[i]$ 的过程中，可以用 $vis$ 数组剪枝，避免重复枚举同一个环。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。</p>
@@ -80466,6 +80472,10 @@ S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：原地标记</h3>
 <p>由于 $nums$ 元素均在 $[0..n-1]$ 之间，因此，对于访问过的元素，我们可以令 $nums[i]=n$，从而省略 $vis$ 数组。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(1)$。</p>
@@ -80607,7 +80617,9 @@ S[0] = {A[0], A[5], A[6], A[2]} = {5, 6, 2, 0}
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

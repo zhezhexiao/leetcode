@@ -80234,11 +80234,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1604"><a href="https://leetcode.cn/problems/tic-tac-toe-lcci">面试题 16.04. 井字游戏</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个算法，判断玩家是否赢了井字游戏。输入是一个 N x N 的数组棋盘，由字符&quot; &quot;，&quot;X&quot;和&quot;O&quot;组成，其中字符&quot; &quot;代表一个空位。</p>
 <p>以下是井字游戏的规则：</p>
@@ -80271,7 +80273,11 @@
     <li>输入一定遵循井字棋规则</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：计数</h3>
 <p>对于每个格子，如果是 <code>X</code>，我们不妨将计数加 $1$，如果是 <code>O</code>，我们不妨将计数减 $1$。那么当某个格子所在的行、列或者对角线的计数的绝对值等于 $n$ 时，说明当前玩家在该行、列或者对角线上放置了 $n$ 个相同字符，游戏结束，返回对应的字符即可。</p>
 <p>具体地，我们用一个长度为 $n$ 的一维数组 $rows$ 和 $cols$ 分别表示每一行和每一列的计数，用 $dg$ 和 $udg$ 分别表示两个对角线的计数。当玩家放置一个字符到 $(i, j)$ 时，根据字符是 <code>X</code> 还是 <code>O</code>，更新数组 $rows$，$cols$，$dg$ 以及 $udg$ 中对应元素的值。每次更新后，我们判断对应的元素的值的绝对值是否等于 $n$，如果等于 $n$，则说明当前玩家在行、列或者对角线上放置了 $n$ 个相同字符，游戏结束，返回对应的字符即可。</p>
@@ -80689,7 +80695,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

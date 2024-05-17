@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2080-range-frequency-queries"><a href="https://leetcode.com/problems/range-frequency-queries">2080. Range Frequency Queries</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 268 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 268 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1702-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1702-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Design a data structure to find the <strong>frequency</strong> of a given value in a given subarray.</p>
 
 <p>The <strong>frequency</strong> of a value in a subarray is the number of occurrences of that value in the subarray.</p>
@@ -75712,7 +75716,11 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
     <li>At most <code>10<sup>5</sup></code> calls will be made to <code>query</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table">Solution 1: Hash Table</h3>
 <p>We use a hash table $g$ to store the array of indices corresponding to each value. In the constructor, we traverse the array $\text{arr}$, adding the index corresponding to each value to the hash table.</p>
 <p>In the query function, we first check whether the given value exists in the hash table. If it does not exist, it means that the value does not exist in the array, so we directly return $0$. Otherwise, we get the index array $\text{idx}$ corresponding to the value. Then we use binary search to find the first index $l$ that is greater than or equal to $\text{left}$, and the first index $r$ that is greater than $\text{right}$. Finally, we return $r - l$.</p>
@@ -76005,7 +76013,9 @@ rangeFreqQuery.query(0, 11, 33); // return 2. The value 33 occurs 2 times in the
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

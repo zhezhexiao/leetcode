@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1538"><a href="https://leetcode.cn/problems/guess-the-majority-in-a-hidden-array">1538. 找出隐藏数组中出现次数最多的元素 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组&nbsp;<code>nums</code>，且&nbsp;<code>nums</code>&nbsp;中的所有整数都为 <strong>0</strong> 或 <strong>1</strong>。你不能直接访问这个数组，你需要使用&nbsp;API <code>ArrayReader</code>&nbsp;，该 API 含有下列成员函数：</p>
 
@@ -80325,7 +80327,11 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 
 <p><strong>进阶：</strong>要找到出现次数最多的元素，需要至少调用&nbsp;<code>query()</code>&nbsp;多少次？</p>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：脑筋急转弯</h3>
 <p>我们先调用 <code>reader.query(0, 1, 2, 3)</code>，将得到的结果记为 $x$。</p>
 <p>接下来，我们从下标 $4$ 开始遍历，每次调用 <code>reader.query(0, 1, 2, i)</code>，如果结果与 $x$ 相同，我们就将 $a$ 的值加一，否则将 $b$ 的值加一，同时将 $k$ 的值更新为 $i$。</p>
@@ -80890,7 +80896,9 @@ reader.query(4,5,6,7) // 返回 4，因为 nums[4], nums[5], nums[6], nums[7] �
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

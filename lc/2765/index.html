@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2765"><a href="https://leetcode.cn/problems/longest-alternating-subarray">2765. 最长交替子数组</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 108 场双周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 108 场双周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1580-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1580-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 108 场双周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 108 场双周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1580-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1580-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;。如果 <code>nums</code>&nbsp;中长度为&nbsp;<code>m</code>&nbsp;的子数组&nbsp;<code>s</code>&nbsp;满足以下条件，我们称它是一个 <strong>交替子数组</strong> ：</p>
 
@@ -80296,7 +80298,11 @@
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：枚举</h3>
 <p>我们可以枚举子数组的左端点 $i$，对于每个 $i$，我们需要找到最长的满足条件的子数组。我们可以从 $i$ 开始向右遍历，每次遇到相邻元素差值不满足交替条件时，我们就找到了一个满足条件的子数组。我们可以用一个变量 $k$ 来记录当前元素的差值应该是 $1$ 还是 $-1$，如果当前元素的差值应该是 $-k$，那么我们就将 $k$ 取反。当我们找到一个满足条件的子数组 $nums[i..j]$ 时，我们更新答案为 $\max(ans, j - i + 1)$。</p>
 <p>时间复杂度 $O(n^2)$，其中 $n$ 是数组的长度。我们需要枚举子数组的左端点 $i$，对于每个 $i$，我们需要 $O(n)$ 的时间来找到最长的满足条件的子数组。空间复杂度 $O(1)$。</p>
@@ -80462,7 +80468,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

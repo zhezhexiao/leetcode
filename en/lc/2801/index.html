@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2801-count-stepping-numbers-in-range"><a href="https://leetcode.com/problems/count-stepping-numbers-in-range">2801. Count Stepping Numbers in Range</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 356 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 356 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2367-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2367-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given two positive integers <code>low</code> and <code>high</code> represented as strings, find the count of <strong>stepping numbers</strong> in the inclusive range <code>[low, high]</code>.</p>
 
 <p>A <strong>stepping number</strong> is an integer such that all of its adjacent digits have an absolute difference of <strong>exactly</strong> <code>1</code>.</p>
@@ -75690,7 +75694,11 @@
     <li><code>low</code> and <code>high</code> don&#39;t have any leading zeros.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-digit-dp">Solution 1: Digit DP</h3>
 <p>We notice that the problem is asking for the number of stepping numbers in the interval $[low, high]$. For such an interval $[l,..r]$ problem, we can usually consider transforming it into finding the answers for $[1, r]$ and $[1, l-1]$, and then subtracting the latter from the former. Moreover, the problem only involves the relationship between different digits, not the specific values, so we can consider using Digit DP to solve it.</p>
 <p>We design a function $dfs(pos, pre, lead, limit)$, which represents the number of schemes when we are currently processing the $pos$-th digit, the previous digit is $pre$, whether the current number only contains leading zeros is $lead$, and whether the current number has reached the upper limit is $limit$. The range of $pos$ is $[0, len(num))$.</p>
@@ -76142,7 +76150,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

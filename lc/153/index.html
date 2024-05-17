@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="153"><a href="https://leetcode.cn/problems/find-minimum-in-rotated-sorted-array">153. 寻找旋转排序数组中的最小值</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>已知一个长度为 <code>n</code> 的数组，预先按照升序排列，经由 <code>1</code> 到 <code>n</code> 次 <strong>旋转</strong> 后，得到输入数组。例如，原数组 <code>nums = [0,1,2,4,5,6,7]</code> 在变化后可能得到：</p>
 <ul>
@@ -80307,7 +80309,11 @@
     <li><code>nums</code> 原来是一个升序排序的数组，并进行了 <code>1</code> 至 <code>n</code> 次旋转</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：二分查找</h3>
 <p>初始，判断数组首尾元素的大小关系，若 <code>nums[0] &lt;= nums[n - 1]</code> 条件成立，则说明当前数组已经是递增数组，最小值一定是数组第一个元素，提前返回 <code>nums[0]</code>。</p>
 <p>否则，进行二分判断。若 <code>nums[0] &lt;= nums[mid]</code>，说明 <code>[left, mid]</code> 范围内的元素构成递增数组，最小值一定在 <code>mid</code> 的右侧，否则说明 <code>[mid + 1, right]</code> 范围内的元素构成递增数组，最小值一定在 <code>mid</code> 的左侧。</p>
@@ -80542,7 +80548,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

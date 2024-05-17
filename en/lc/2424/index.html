@@ -75681,10 +75681,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2424-longest-uploaded-prefix"><a href="https://leetcode.com/problems/longest-uploaded-prefix">2424. Longest Uploaded Prefix</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 88 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 88 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1604-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1604-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a stream of <code>n</code> videos, each represented by a <strong>distinct</strong> number from <code>1</code> to <code>n</code> that you need to &quot;upload&quot; to a server. You need to implement a data structure that calculates the length of the <strong>longest uploaded prefix</strong> at various points in the upload process.</p>
 
 <p>We consider <code>i</code> to be an uploaded prefix if all videos in the range <code>1</code> to <code>i</code> (<strong>inclusive</strong>) have been uploaded to the server. The longest uploaded prefix is the <strong>maximum </strong>value of <code>i</code> that satisfies this definition.<br />
@@ -75729,7 +75733,11 @@ server.longest();                    // The prefix [1,2,3] is the longest upload
     <li>At least one call will be made to <code>longest</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-simulation">Solution 1: Simulation</h3>
 <p>We use a variable $r$ to record the current longest prefix of uploaded videos, and an array or hash table $s$ to record the videos that have been uploaded.</p>
 <p>Each time a video is uploaded, we set <code>s[video]</code> to <code>true</code>, then loop to check whether <code>s[r + 1]</code> is <code>true</code>. If it is, we update $r$.</p>
@@ -75938,7 +75946,9 @@ server.longest();                    // The prefix [1,2,3] is the longest upload
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

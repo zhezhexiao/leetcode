@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3048-earliest-second-to-mark-indices-i"><a href="https://leetcode.com/problems/earliest-second-to-mark-indices-i">3048. Earliest Second to Mark Indices I</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 386 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 386 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2262-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2262-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given two <strong>1-indexed</strong> integer arrays, <code>nums</code> and, <code>changeIndices</code>, having lengths <code>n</code> and <code>m</code>, respectively.</p>
 
 <p>Initially, all indices in <code>nums</code> are unmarked. Your task is to mark <strong>all</strong> indices in <code>nums</code>.</p>
@@ -75725,7 +75729,11 @@ Hence, the answer is -1.
     <li><code>1 &lt;= changeIndices[i] &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>We notice that if we can mark all indices within $t$ seconds, then we can also mark all indices within $t' \geq t$ seconds. Therefore, we can use binary search to find the earliest seconds.</p>
 <p>We define the left and right boundaries of binary search as $l = 1$ and $r = m + 1$, where $m$ is the length of the array <code>changeIndices</code>. For each $t = \frac{l + r}{2}$, we check whether we can mark all indices within $t$ seconds. If we can, we move the right boundary to $t$, otherwise we move the left boundary to $t + 1$. Finally, we judge whether the left boundary is greater than $m$, if it is, return $-1$, otherwise return the left boundary.</p>
@@ -76068,7 +76076,9 @@ Hence, the answer is -1.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1235-maximum-profit-in-job-scheduling"><a href="https://leetcode.com/problems/maximum-profit-in-job-scheduling">1235. Maximum Profit in Job Scheduling</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 159 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 159 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2022-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2022-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>We have <code>n</code> jobs, where every job is scheduled to be done from <code>startTime[i]</code> to <code>endTime[i]</code>, obtaining a profit of <code>profit[i]</code>.</p>
 
 <p>You&#39;re given the <code>startTime</code>, <code>endTime</code> and <code>profit</code> arrays, return the maximum profit you can take such that there are no two jobs in the subset with overlapping time range.</p>
@@ -75723,7 +75727,11 @@ Profit obtained 150 = 20 + 70 + 60.
     <li><code>1 &lt;= profit[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memoization-search-binary-search">Solution 1: Memoization Search + Binary Search</h3>
 <p>First, we sort the jobs by start time in ascending order, then design a function $dfs(i)$ to represent the maximum profit that can be obtained starting from the $i$-th job. The answer is $dfs(0)$.</p>
 <p>The calculation process of function $dfs(i)$ is as follows:</p>
@@ -76014,6 +76022,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-dynamic-programming-binary-search">Solution 2: Dynamic Programming + Binary Search</h3>
 <p>We can also change the memoization search in Solution 1 to dynamic programming.</p>
 <p>First, sort the jobs, this time we sort by end time in ascending order, then define $dp[i]$, which represents the maximum profit that can be obtained from the first $i$ jobs. The answer is $dp[n]$. Initialize $dp[0]=0$.</p>
@@ -76238,7 +76250,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

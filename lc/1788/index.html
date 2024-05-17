@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1788"><a href="https://leetcode.cn/problems/maximize-the-beauty-of-the-garden">1788. 最大化花园的美观度 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个花园，有 <code>n</code> 朵花，这些花都有一个用整数表示的美观度。这些花被种在一条线上。给定一个长度为 <code>n</code> 的整数类型数组 <code>flowers</code> ，每一个 <code>flowers[i]</code> 表示第 <code>i</code> 朵花的美观度。</p>
 
@@ -80308,7 +80310,11 @@
     <li>去除一些花朵（可能没有）后，是有可能形成一个有效花园的。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 前缀和</h3>
 <p>我们用哈希表 $d$ 记录每个美观度第一次出现的位置，用前缀和数组 $s$ 记录当前位置之前的美观度之和。如果一个美观度 $v$ 在位置 $i$ 和 $j$ 出现过（其中 $i \lt j$），那么我们可以得到一个有效的花园 $[i+1,j]$，其美观度为 $s[i] - s[j + 1] + v \times 2$，我们用这个值更新答案。否则，我们将当前美观度所在的位置 $i$ 记录到哈希表 $d$ 中。接下来，我们更新前缀和，如果美观度 $v$ 为负数，我们将其视为 $0$。</p>
 <p>遍历完所有的美观度之后，我们就可以得到答案。</p>
@@ -80529,7 +80535,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

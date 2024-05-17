@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2306-naming-a-company"><a href="https://leetcode.com/problems/naming-a-company">2306. Naming a Company</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 297 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 297 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2305-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2305-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an array of strings <code>ideas</code> that represents a list of names to be used in the process of naming a company. The process of naming a company is as follows:</p>
 
 <ol>
@@ -75723,7 +75727,11 @@ The following are some examples of invalid selections:
     <li>All the strings in <code>ideas</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration-counting">Solution 1: Enumeration Counting</h3>
 <p>We define $f[i][j]$ to represent the number of strings in $ideas$ that start with the $i$th letter and are not in $ideas$ after being replaced with the $j$th letter. Initially, $f[i][j] = 0$. Additionally, we use a hash table $s$ to record the strings in $ideas$, which allows us to quickly determine whether a string is in $ideas$.</p>
 <p>Next, we traverse the strings in $ideas$. For the current string $v$, we enumerate the first letter $j$ after replacement. If the string after $v$ is replaced is not in $ideas$, then we update $f[i][j] = f[i][j] + 1$.</p>
@@ -76014,7 +76022,9 @@ The following are some examples of invalid selections:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

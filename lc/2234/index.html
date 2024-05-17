@@ -80269,11 +80269,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2234"><a href="https://leetcode.cn/problems/maximum-total-beauty-of-the-gardens">2234. 花园的最大总美丽值</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 288 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 288 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2561-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2561-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 288 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 288 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2561-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2561-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>Alice 是&nbsp;<code>n</code>&nbsp;个花园的园丁，她想通过种花，最大化她所有花园的总美丽值。</p>
 
@@ -80334,7 +80336,11 @@
     <li><code>1 &lt;= full, partial &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：枚举 + 二分查找</h3>
 <p>我们注意到，如果一个花园中种的花的数目已经大于等于 $target$，那么这个花园就已经是完善的花园，不能再改变。而不完善的花园中，可以通过种更多的花来使得这个花园变成完善的花园。</p>
 <p>我们不妨枚举有多少个花园最终成为完善的花园，假设初始时有 $x$ 个完善的花园，那么我们可以在 $[x, n]$ 范围内枚举。我们应该选择哪些不完善花园变成完善花园呢？实际上，我们应该选择那么花的数目较多的花园，这样才能使得最终剩下的可额外种植的花更多，将这些花用于提升不完善花园的最小值。因此，我们对数组 $flowers$ 进行排序。</p>
@@ -80706,7 +80712,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2447-number-of-subarrays-with-gcd-equal-to-k"><a href="https://leetcode.com/problems/number-of-subarrays-with-gcd-equal-to-k">2447. Number of Subarrays With GCD Equal to K</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 316 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 316 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1602-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1602-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the number of <strong>subarrays</strong> of </em><code>nums</code><em> where the greatest common divisor of the subarray&#39;s elements is </em><code>k</code>.</p>
 
 <p>A <strong>subarray</strong> is a contiguous non-empty sequence of elements within an array.</p>
@@ -75696,7 +75700,11 @@
     <li><code>1 &lt;= nums[i], k &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-direct-enumeration">Solution 1: Direct Enumeration</h3>
 <p>We can enumerate $nums[i]$ as the left endpoint of the subarray, and then enumerate $nums[j]$ as the right endpoint of the subarray, where $i \le j$. During the enumeration of the right endpoint, we can use a variable $g$ to maintain the greatest common divisor of the current subarray. Each time we enumerate a new right endpoint, we update the greatest common divisor $g = \gcd(g, nums[j])$. If $g=k$, then the greatest common divisor of the current subarray equals $k$, and we increase the answer by $1$.</p>
 <p>After the enumeration ends, return the answer.</p>
@@ -75877,7 +75885,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

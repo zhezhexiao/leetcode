@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="907-sum-of-subarray-minimums"><a href="https://leetcode.com/problems/sum-of-subarray-minimums">907. Sum of Subarray Minimums</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an array of integers arr, find the sum of <code>min(b)</code>, where <code>b</code> ranges over every (contiguous) subarray of <code>arr</code>. Since the answer may be large, return the answer <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>&nbsp;</p>
@@ -75696,7 +75700,11 @@ Sum is 17.
     <li><code>1 &lt;= arr[i] &lt;= 3 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-monotonic-stack">Solution 1: Monotonic Stack</h3>
 <p>The problem asks for the sum of the minimum values of each subarray, which is equivalent to finding the number of subarrays for which each element $arr[i]$ is the minimum, then multiplying by $arr[i]$, and finally summing these up.</p>
 <p>Therefore, the focus of the problem is to find the number of subarrays for which $arr[i]$ is the minimum. For $arr[i]$, we find the first position $left[i]$ to its left that is less than $arr[i]$, and the first position $right[i]$ to its right that is less than or equal to $arr[i]$. The number of subarrays for which $arr[i]$ is the minimum is $(i - left[i]) \times (right[i] - i)$.</p>
@@ -76136,7 +76144,9 @@ Sum is 17.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

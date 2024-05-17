@@ -75643,10 +75643,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="0811-coin"><a href="https://leetcode.cn/problems/coin-lcci">08.11. Coin</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an infinite number of quarters (25 cents), dimes (10 cents), nickels (5 cents), and pennies (1 cent), write code to calculate the number of ways of representing n cents.&nbsp;(The result may be large, so you should return it modulo 1000000007)</p>
 <p><strong>Example1:</strong></p>
 <pre>
@@ -75686,7 +75690,11 @@
     <li>0 &lt;= n&nbsp;&lt;= 1000000</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
 <p>We define $f[i][j]$ as the number of ways to make up the total amount $j$ using only the first $i$ types of coins. Initially, $f[0][0]=1$, and the rest of the elements are $0$. The answer is $f[4][n]$.</p>
 <p>Considering $f[i][j]$, we can enumerate the number of the $i$-th type of coin used, $k$, where $0 \leq k \leq j / c_i$, then $f[i][j]$ is equal to the sum of all $f[i−1][j−k \times c_i]$. Since the number of coins is infinite, $k$ can start from $0$. That is, the state transition equation is as follows:</p>
@@ -75921,6 +75929,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-dynamic-programming-space-optimization">Solution 2: Dynamic Programming (Space Optimization)</h3>
 <p>We notice that the calculation of $f[i][j]$ is only related to $f[i−1][..]$. Therefore, we can remove the first dimension and optimize the space complexity to $O(n)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
@@ -76063,7 +76075,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

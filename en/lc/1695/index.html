@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1695-maximum-erasure-value"><a href="https://leetcode.com/problems/maximum-erasure-value">1695. Maximum Erasure Value</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 220 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 220 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1528-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1528-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an array of positive integers <code>nums</code> and want to erase a subarray containing&nbsp;<strong>unique elements</strong>. The <strong>score</strong> you get by erasing the subarray is equal to the <strong>sum</strong> of its elements.</p>
 
 <p>Return <em>the <strong>maximum score</strong> you can get by erasing <strong>exactly one</strong> subarray.</em></p>
@@ -75701,7 +75705,11 @@
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-array-or-hash-table-prefix-sum">Solution 1: Array or Hash Table + Prefix Sum</h3>
 <p>We use an array or hash table $d$ to record the last occurrence of each number, use $s$ to record the prefix sum, and use $j$ to record the left endpoint of the current non-repeating subarray.</p>
 <p>We traverse the array, for each number $v$, if $d[v]$ exists, then we update $j$ to $max(j, d[v])$, which ensures that the current non-repeating subarray does not contain $v$. Then we update the answer to $max(ans, s[i] - s[j])$, and finally update $d[v]$ to $i$.</p>
@@ -75878,6 +75886,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-two-pointers">Solution 2: Two Pointers</h3>
 <p>The problem is actually asking us to find the longest subarray in which all elements are distinct. We can use two pointers $i$ and $j$ to point to the left and right boundaries of the subarray, initially $i = 0$, $j = 0$. In addition, we use a hash table $vis$ to record the elements in the subarray.</p>
 <p>We traverse the array, for each number $x$, if $x$ is in $vis$, then we continuously remove $nums[i]$ from $vis$, until $x$ is not in $vis$. In this way, we find a subarray without duplicate elements. We add $x$ to $vis$, update the sum of the subarray $s$, and then update the answer $ans = \max(ans, s)$.</p>
@@ -76049,7 +76061,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

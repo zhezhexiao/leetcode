@@ -80254,11 +80254,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="184"><a href="https://leetcode.cn/problems/department-highest-salary">184. 部门工资最高的员工</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Employee</code></p>
 
@@ -80330,7 +80332,11 @@ Department 表:
 +------------+----------+--------+
 <strong>解释：</strong>Max 和 Jim 在 IT 部门的工资都是最高的，Henry 在销售部的工资最高。</pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：等值连接 + 子查询</h3>
 <p>我们可以使用等值连接，将 <code>Employee</code> 表和 <code>Department</code> 表连接起来，连接条件为 <code>Employee.departmentId = Department.id</code>，然后使用子查询来找到每个部门的最高工资，最后使用 <code>WHERE</code> 子句来筛选出每个部门中薪资最高的员工。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -80361,6 +80367,10 @@ Department 表:
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：等值连接 + 窗口函数</h3>
 <p>我们可以使用等值连接，将 <code>Employee</code> 表和 <code>Department</code> 表连接起来，连接条件为 <code>Employee.departmentId = Department.id</code>，然后使用窗口函数 <code>rank()</code>，它可以为每个部门的每个员工分配一个排名，然后我们可以选择排名为 $1$ 的行即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -80405,7 +80415,9 @@ Department 表:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

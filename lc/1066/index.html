@@ -80269,11 +80269,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1066-ii"><a href="https://leetcode.cn/problems/campus-bikes-ii">1066. 校园自行车分配 II 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 1 场双周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 1 场双周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1885-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1885-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 1 场双周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 1 场双周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1885-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1885-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在由 2D 网格表示的校园里有&nbsp;<code>n</code>&nbsp;位工人（<code>worker</code>）和 <code>m</code>&nbsp;辆自行车（<code>bike</code>），<code>n &lt;= m</code>。所有工人和自行车的位置都用网格上的 2D 坐标表示。</p>
 
@@ -80328,7 +80330,11 @@
     <li>所有的工人和自行车的位置都是 <strong>不同</strong>&nbsp;的。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：状态压缩动态规划</h3>
 <p>我们定义 $f[i][j]$ 表示前 $i$ 个工人分配到自行车的状态为 $j$ 时的最小曼哈顿距离总和，其中 $j$ 是一个二进制数，表示自行车的分配情况。初始时 $f[0][0]=0$，其余 $f[0][j]=+\infty$。</p>
 <p>考虑 $f[i][j]$，我们枚举第 $i$ 个工人分配到的自行车的编号 $k$，那么 $f[i][j]$ 可以从 $f[i-1][j\oplus 2^k]$ 转移而来，其中 $\oplus$ 表示异或运算。这是因为 $f[i-1][j\oplus 2^k]$ 表示前 $i-1$ 个工人分配到自行车的状态为 $j\oplus 2^k$ 时的最小曼哈顿距离总和，而第 $i$ 个工人分配到自行车 $k$ 时，其曼哈顿距离为 $|worker[i]-bike[k]|$，其中 $|x|$ 表示 $x$ 的绝对值。因此我们可以列出状态转移方程：</p>
@@ -80565,7 +80571,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2936-number-of-equal-numbers-blocks"><a href="https://leetcode.com/problems/number-of-equal-numbers-blocks">2936. Number of Equal Numbers Blocks 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of integers, <code>nums</code>. The following property holds for <code>nums</code>:</p>
 
 <ul>
@@ -75727,7 +75731,11 @@ So the answer would be 5.</pre>
     <li>The sum of the elements of&nbsp;<code>nums</code>&nbsp;is at most&nbsp;<code>10<sup>15</sup></code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>We can use binary search to find the right boundary of each block. Specifically, we traverse the array from left to right. For each index $i$, we use binary search to find the smallest index $j$ such that all elements between $[i,j)$ are equal to $nums[i]$. Then we update $i$ to $j$ and continue to traverse the array until $i$ is greater than or equal to the length of the array.</p>
 <p>The time complexity is $O(m \times \log n)$, where $m$ is the number of different elements in the array $num$, and $n$ is the length of the array $num$. The space complexity is $O(1)$.</p>
@@ -75969,6 +75977,10 @@ So the answer would be 5.</pre>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-divide-and-conquer">Solution 2: Divide and Conquer</h3>
 <p>We can use the divide and conquer method to calculate the answer. Specifically, we divide the array into two subarrays, recursively calculate the answer for each subarray, and then merge the answers. If the last element of the first subarray is equal to the first element of the second subarray, then we need to subtract one from the answer.</p>
 <p>The time complexity is $O(\log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of the array $num$.</p>
@@ -76118,7 +76130,9 @@ So the answer would be 5.</pre>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

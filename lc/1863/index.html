@@ -80284,11 +80284,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1863"><a href="https://leetcode.cn/problems/sum-of-all-subset-xor-totals">1863. 找出所有子集的异或总和再求和</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 241 场周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 241 场周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1372-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1372-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 241 场周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 241 场周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1372-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1372-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个数组的<strong> 异或总和</strong> 定义为数组中所有元素按位 <code>XOR</code> 的结果；如果数组为 <strong>空</strong> ，则异或总和为 <code>0</code> 。</p>
 
@@ -80348,7 +80350,11 @@
     <li><code>1 &lt;= nums[i] &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：二进制枚举</h3>
 <p>我们可以用二进制枚举的方法，枚举出所有的子集，然后计算每个子集的异或总和。</p>
 <p>具体地，我们在 $[0, 2^n)$ 的范围内枚举 $i$，其中 $n$ 是数组 $nums$ 的长度。如果 $i$ 的二进制表示的第 $j$ 位为 $1$，那么代表着 $nums$ 的第 $j$ 个元素在当前枚举的子集中；如果第 $j$ 位为 $0$，那么代表着 $nums$ 的第 $j$ 个元素不在当前枚举的子集中。我们可以根据 $i$ 的二进制表示，得到当前子集对应的异或总和，将其加到答案中即可。</p>
@@ -80545,6 +80551,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="dfs">方法二：DFS</h3>
 <p>我们也可以使用深度优先搜索的方法，枚举出所有的子集，然后计算每个子集的异或总和。</p>
 <p>我们设计一个函数 $dfs(i, s)$，其中 $i$ 表示当前搜索到数组 $nums$ 的第 $i$ 个元素，$s$ 表示当前子集的异或总和。初始时，$i=0$, $s=0$。在搜索的过程中，每次我们都有两种选择：</p>
@@ -80760,7 +80770,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

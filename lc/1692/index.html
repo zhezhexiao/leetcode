@@ -80245,11 +80245,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1692"><a href="https://leetcode.cn/problems/count-ways-to-distribute-candies">1692. 计算分配糖果的不同方式 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有 <code>n</code> 颗 <strong>不同</strong> 糖果（分别标记为 <code>1</code> 到 <code>n</code> ）和 <code>k</code> 个相同的手袋。请把糖果分配到各个手袋中并保证每个手袋里至少有一颗糖果。</p>
 
@@ -80305,7 +80307,11 @@
     <li><code>1 &lt;= k &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划</h3>
 <p>我们定义 $f[i][j]$ 表示将 $i$ 个糖果分配给 $j$ 个手袋的不同分配方式的数量。初始时 $f[0][0]=1$，答案为 $f[n][k]$。</p>
 <p>我们考虑第 $i$ 个糖果如何分配，如果第 $i$ 个糖果分配给一个新的手袋，那么 $f[i][j]=f[i-1][j-1]$；如果第 $i$ 个糖果分配给一个已有的手袋，那么 $f[i][j]=f[i-1][j]\times j$。因此，状态转移方程为：</p>
@@ -80456,7 +80462,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

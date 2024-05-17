@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="889-construct-binary-tree-from-preorder-and-postorder-traversal"><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-postorder-traversal">889. Construct Binary Tree from Preorder and Postorder Traversal</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given two integer arrays, <code>preorder</code> and <code>postorder</code> where <code>preorder</code> is the preorder traversal of a binary tree of <strong>distinct</strong> values and <code>postorder</code> is the postorder traversal of the same tree, reconstruct and return <em>the binary tree</em>.</p>
 
 <p>If there exist multiple answers, you can <strong>return any</strong> of them.</p>
@@ -75714,7 +75718,11 @@
     <li>It is guaranteed that <code>preorder</code> and <code>postorder</code> are the preorder traversal and postorder traversal of the same binary tree.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-recursion">Solution 1: Recursion</h3>
 <p>The order of pre-order traversal is: root node -&gt; left subtree -&gt; right subtree, and the order of post-order traversal is: left subtree -&gt; right subtree -&gt; root node.</p>
 <p>Therefore, the root node of the binary tree must be the first node of the pre-order traversal and the last node of the post-order traversal.</p>
@@ -76081,6 +76089,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-another-recursive-approach">Solution 2: Another Recursive Approach</h3>
 <p>We can design a recursive function $dfs(i, j, n)$, where $i$ and $j$ represent the starting points of the pre-order and post-order traversals, respectively, and $n$ represents the number of nodes. This function constructs the root node of the binary tree based on the pre-order traversal $[i, i + n - 1]$ and post-order traversal $[j, j + n - 1]$. The answer is $dfs(0, 0, n)$, where $n$ is the length of the pre-order traversal.</p>
 <p>The execution steps of the function $dfs(i, j, n)$ are as follows:</p>
@@ -76441,7 +76453,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

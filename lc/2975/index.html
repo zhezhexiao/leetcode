@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2975"><a href="https://leetcode.cn/problems/maximum-square-area-by-removing-fences-from-a-field">2975. 移除栅栏得到的正方形田地的最大面积</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 377 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 377 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1873-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1873-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 377 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 377 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1873-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1873-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个大型的 <code>(m - 1) x (n - 1)</code> 矩形田地，其两个对角分别是 <code>(1, 1)</code> 和 <code>(m, n)</code> ，田地内部有一些水平栅栏和垂直栅栏，分别由数组 <code>hFences</code> 和 <code>vFences</code> 给出。</p>
 
@@ -80307,7 +80309,11 @@
     <li><code>hFences</code> 和 <code>vFences</code> 中的元素是唯一的。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：枚举</h3>
 <p>我们可以枚举 $hFences$ 中的任意两条水平栅栏 $a$ 和 $b$，计算 $a$ 和 $b$ 之间的距离 $d$，记录在哈希表 $hs$ 中，然后枚举 $vFences$ 中的任意两条垂直栅栏 $c$ 和 $d$，计算 $c$ 和 $d$ 之间的距离 $d$，记录在哈希表 $vs$ 中，最后遍历哈希表 $hs$，如果 $hs$ 中的某个距离 $d$ 在哈希表 $vs$ 中也存在，那么说明存在一个正方形田地，其边长为 $d$，面积为 $d^2$，我们只需要取最大的 $d$，求 $d^2 \bmod 10^9 + 7$ 即可。</p>
 <p>时间复杂度 $O(h^2 + v^2)$，空间复杂度 $O(h^2 + v^2)$。其中 $h$ 和 $v$ 分别是 $hFences$ 和 $vFences$ 的长度。</p>
@@ -80557,7 +80563,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

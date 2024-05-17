@@ -75675,10 +75675,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1137-n-th-tribonacci-number"><a href="https://leetcode.com/problems/n-th-tribonacci-number">1137. N-th Tribonacci Number</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 147 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 147 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1142-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1142-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>The Tribonacci sequence T<sub>n</sub> is defined as follows:&nbsp;</p>
 
 <p>T<sub>0</sub> = 0, T<sub>1</sub> = 1, T<sub>2</sub> = 1, and T<sub>n+3</sub> = T<sub>n</sub> + T<sub>n+1</sub> + T<sub>n+2</sub> for n &gt;= 0.</p>
@@ -75725,7 +75729,11 @@ T_4 = 1 + 1 + 2 = 4
 
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
 <p>According to the recurrence relation given in the problem, we can use dynamic programming to solve it.</p>
 <p>We define three variables $a$, $b$, $c$ to represent $T_{n-3}$, $T_{n-2}$, $T_{n-1}$, respectively, with initial values of $0$, $1$, $1$.</p>
@@ -75971,6 +75979,10 @@ T_4 = 1 + 1 + 2 = 4
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-matrix-exponentiation-to-accelerate-recurrence">Solution 2: Matrix Exponentiation to Accelerate Recurrence</h3>
 <p>We define $Tib(n)$ as a $1 \times 3$ matrix $\begin{bmatrix} T_n &amp; T_{n - 1} &amp; T_{n - 2} \end{bmatrix}$, where $T_n$, $T_{n - 1}$ and $T_{n - 2}$ represent the $n$th, $(n - 1)$th and $(n - 2)$th Tribonacci numbers, respectively.</p>
 <p>We hope to derive $Tib(n)$ from $Tib(n-1) = \begin{bmatrix} T_{n - 1} &amp; T_{n - 2} &amp; T_{n - 3} \end{bmatrix}$. That is, we need a matrix $base$ such that $Tib(n - 1) \times base = Tib(n)$, i.e.,</p>
@@ -76391,6 +76403,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-3">Solution 3</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label></div>
 <div class="tabbed-content">
@@ -76434,7 +76450,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

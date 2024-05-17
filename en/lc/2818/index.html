@@ -75675,10 +75675,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2818-apply-operations-to-maximize-score"><a href="https://leetcode.com/problems/apply-operations-to-maximize-score">2818. Apply Operations to Maximize Score</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 358 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 358 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2396-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2396-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> of <code>n</code> positive integers and an integer <code>k</code>.</p>
 
 <p>Initially, you start with a score of <code>1</code>. You have to maximize your score by applying the following operation at most <code>k</code> times:</p>
@@ -75729,7 +75733,11 @@ It can be proven that 4788 is the highest score one can obtain.
     <li><code>1 &lt;= k &lt;= min(n * (n + 1) / 2, 10<sup>9</sup>)</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-monotonic-stack-greedy">Solution 1: Monotonic Stack + Greedy</h3>
 <p>It is not difficult to see that the number of subarrays with the highest prime score of an element $nums[i]$ is $cnt = (i - l) \times (r - i)$, where $l$ is the leftmost index such that $primeScore(nums[l]) \ge primeScore(nums[i])$, and $r$ is the rightmost index such that $primeScore(nums[r]) \ge primeScore(nums[i])$.</p>
 <p>Since we are allowed to operate at most $k$ times, we can greedily enumerate $nums[i]$ from large to small, and compute the $cnt$ of each element. If $cnt \le k$, then the contribution of $nums[i]$ to the answer is $nums[i]^{cnt}$, and we update $k = k - cnt$. If $cnt \gt k$, then the contribution of $nums[i]$ to the answer is $nums[i]^{k}$, and we break out the loop.</p>
@@ -76457,7 +76465,9 @@ It can be proven that 4788 is the highest score one can obtain.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

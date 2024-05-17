@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3052-maximize-items"><a href="https://leetcode.com/problems/maximize-items">3052. Maximize Items 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <font face="monospace"><code>Inventory</code></font></p>
 
 <pre>
@@ -75711,7 +75715,11 @@ Inventory table:
 - In the not_prime category, there are a total of 4 items with a combined square footage of 128.50. After deducting the storage used by prime-eligible items (500,000 - 499,680 = 320), there is room for 2 combinations of non-prime items, accommodating a total of 8 non-prime items within the available 320 square footage.
 Output table is ordered by item count in descending order.</pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-join-query-union-all">Solution 1: Join Query + Union All</h3>
 <p>First, we calculate the total area of all items of type <code>prime_eligible</code> and record it in the <code>s</code> field of table <code>T</code>.</p>
 <p>Next, we calculate the number of items of type <code>prime_eligible</code> and <code>not_prime</code> respectively. For items of type <code>prime_eligible</code>, the number of portions we can store is $\lfloor \frac{500000}{s} \rfloor$. For items of type <code>not_prime</code>, the number of portions we can store is $\lfloor \frac{500000 \mod s}{\sum \text{s1}} \rfloor$. Where $\sum \text{s1}$ is the total area of all items of type <code>not_prime</code>. Multiplying by the number of items of type <code>prime_eligible</code> and <code>not_prime</code> respectively gives us our result.</p>
@@ -75765,7 +75773,9 @@ Output table is ordered by item count in descending order.</pre>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

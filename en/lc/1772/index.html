@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1772-sort-features-by-popularity"><a href="https://leetcode.com/problems/sort-features-by-popularity">1772. Sort Features by Popularity 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a string array <code>features</code> where <code>features[i]</code> is a single word that represents the name of a feature of the latest product you are working on. You have made a survey where users have reported which features they like. You are given a string array <code>responses</code>, where each <code>responses[i]</code> is a string containing space-separated words.</p>
 
 <p>The <strong>popularity</strong> of a feature is the number of <code>responses[i]</code> that contain the feature. You want to sort the features in non-increasing order by their popularity. If two features have the same popularity, order them by their original index in <code>features</code>. Notice that one response could contain the same feature multiple times; this feature is only counted once in its popularity.</p>
@@ -75704,7 +75708,11 @@
     <li><code>responses[i]</code> has no leading or trailing spaces.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-custom-sorting">Solution 1: Hash Table + Custom Sorting</h3>
 <p>We traverse <code>responses</code>, and for each word in <code>responses[i]</code>, we temporarily store it in a hash table <code>vis</code>. Next, we record the words in <code>vis</code> into the hash table <code>cnt</code>, recording the number of times each word appears.</p>
 <p>Next, we use custom sorting to sort the words in <code>features</code> in descending order of occurrence. If the number of occurrences is the same, we sort them in ascending order of the index where they appear.</p>
@@ -75921,7 +75929,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

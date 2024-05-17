@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="220-contains-duplicate-iii"><a href="https://leetcode.com/problems/contains-duplicate-iii">220. Contains Duplicate III</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> and two integers <code>indexDiff</code> and <code>valueDiff</code>.</p>
 
 <p>Find a pair of indices <code>(i, j)</code> such that:</p>
@@ -75716,7 +75720,11 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
     <li><code>0 &lt;= valueDiff &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sliding-window-ordered-set">Solution 1: Sliding Window + Ordered Set</h3>
 <p>We maintain a sliding window of size $k$, and the elements in the window are kept in order.</p>
 <p>We traverse the array <code>nums</code>. For each element $nums[i]$, we look for the first element in the ordered set that is greater than or equal to $nums[i] - t$. If the element exists, and this element is less than or equal to $nums[i] + t$, it means we have found a pair of elements that meet the conditions, and we return <code>true</code>. Otherwise, we insert $nums[i]$ into the ordered set, and if the size of the ordered set exceeds $k$, we need to remove the earliest added element from the ordered set.</p>
@@ -77231,7 +77239,9 @@ abs(nums[i] - nums[j]) &lt;= valueDiff --&gt; abs(1 - 1) &lt;= 0
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

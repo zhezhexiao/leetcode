@@ -80254,11 +80254,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2388"><a href="https://leetcode.cn/problems/change-null-values-in-a-table-to-the-previous-value">2388. 将表中的空值更改为前一个值 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>CoffeeShop</code></p>
 
@@ -80316,7 +80318,11 @@ CoffeeShop 表:
 请注意，输出中的行与输入中的行相同。
 </pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：临时变量</h3>
 <p>我们可以使用一个临时变量 $cur$ 来记录上一个不为 $null$ 的值，如果当前值为 $null$，则将 $cur$ 的值赋给当前值，否则我们更新 $cur$ 的值为当前值。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -80341,6 +80347,10 @@ CoffeeShop 表:
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：窗口函数</h3>
 <p>我们先用窗口函数 <code>row_number()</code> 为每一行生成一个序号，然后使用 <code>sum()</code> 窗口函数来生成一个分组序号，分组序号的生成规则为：如果当前行的值为 $null$，则分组序号与上一行相同，否则分组序号加一。最后我们使用 <code>max()</code> 窗口函数来获取每一组唯一一个不为 $null$ 的值。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -80397,7 +80407,9 @@ CoffeeShop 表:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1659"><a href="https://leetcode.cn/problems/maximize-grid-happiness">1659. 最大化网格幸福感</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 215 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 215 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2655-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2655-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 215 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 215 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2655-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2655-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你四个整数 <code>m</code>、<code>n</code>、<code>introvertsCount</code> 和 <code>extrovertsCount</code> 。有一个 <code>m x n</code> 网格，和两种类型的人：内向的人和外向的人。总共有 <code>introvertsCount</code> 个内向的人和 <code>extrovertsCount</code> 个外向的人。</p>
 
@@ -80337,7 +80339,11 @@
     <li><code>0 <= introvertsCount, extrovertsCount <= min(m * n, 6)</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：三进制状态压缩 + 记忆化搜索</h3>
 <p>我们注意到，题目中 $1 \leq m, n \leq 5$，并且每个网格单元只有三种状态，即：不分配人员、分配内向的人、分配外向的人。因此，我们可以用 $0$, $1$, $2$ 表示这三种状态，网格中的每一行可以用一个长度为 $n$ 的三进制数表示。</p>
 <p>我们定义一个函数 $dfs(i, pre, ic, ec)$，表示当前从第 $i$ 行开始，且上一行的状态为 $pre$，内向的人还剩 $ic$ 个，外向的人还剩 $ec$ 个时，网格的最大幸福感。那么答案就是 $dfs(0, 0, introvertsCount, extrovertsCount)$。</p>
@@ -80993,6 +80999,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：轮廓线记忆化搜索</h3>
 <p>我们可以考虑搜索每个网格单元，每次搜索一个位置 $(i, j)$，我们记 $pos = i \times n + j$。那么它左边以及上边的相邻网格会影响到它们之间的幸福感贡献。</p>
 <p>我们定义一个函数 $dfs(pos, pre, ic, ec)$，表示当前搜索到位置 $pos$，且此前的 $n$ 个网格单元的状态为 $pre$，内向的人还剩 $ic$ 个，外向的人还剩 $ec$ 个时，网格的最大幸福感。那么答案就是 $dfs(0, 0, introvertsCount, extrovertsCount)$。</p>
@@ -81417,7 +81427,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

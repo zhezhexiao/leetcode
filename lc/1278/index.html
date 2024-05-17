@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1278-iii"><a href="https://leetcode.cn/problems/palindrome-partitioning-iii">1278. 分割回文串 III</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 165 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 165 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1979-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1979-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 165 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 165 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1979-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1979-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由小写字母组成的字符串&nbsp;<code>s</code>，和一个整数&nbsp;<code>k</code>。</p>
 
@@ -80298,7 +80300,11 @@
     <li><code>s</code>&nbsp;中只含有小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划</h3>
 <p>定义 $dp[i][j]$ 表示将字符串 $s$ 的前 $i$ 个字符分割成 $j$ 个回文串所需要的最少修改次数，我们假定 $i$ 下标从 $1$ 开始，答案为 $dp[n][k]$。</p>
 <p>对于 $dp[i][j]$，我们可以枚举第 $j-1$ 个回文串的最后一个字符的位置 $h$，那么 $dp[i][j]$ 就等于 $dp[h][j-1] + g[h][i-1]$ 的较小值，其中 $g[h][i-1]$ 表示将字符串 $s[h..i-1]$ 变成回文串所需要的最少修改次数（这一部分我们可以通过预处理得到，时间复杂度 $O(n^2)$。</p>
@@ -80533,7 +80539,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

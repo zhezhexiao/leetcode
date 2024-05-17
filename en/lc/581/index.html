@@ -75684,10 +75684,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="581-shortest-unsorted-continuous-subarray"><a href="https://leetcode.com/problems/shortest-unsorted-continuous-subarray">581. Shortest Unsorted Continuous Subarray</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, you need to find one <b>continuous subarray</b> such that if you only sort this subarray in non-decreasing order, then the whole array will be sorted in non-decreasing order.</p>
 
 <p>Return <em>the shortest such subarray and output its length</em>.</p>
@@ -75725,7 +75729,11 @@
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it in <code>O(n)</code> time complexity?</p>
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting">Solution 1: Sorting</h3>
 <p>We can first sort the array, and then compare the sorted array with the original array to find the leftmost and rightmost positions where they differ. The length between them is the length of the shortest unsorted continuous subarray.</p>
 <p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.</p>
@@ -75931,6 +75939,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-maintaining-the-maximum-value-on-the-left-and-the-minimum-value-on-the-right">Solution 2: Maintaining the Maximum Value on the Left and the Minimum Value on the Right</h3>
 <p>We can traverse the array from left to right and maintain a maximum value $mx$. If the current value is less than $mx$, it means that the current value is not in the correct position, and we update the right boundary $r$ to the current position. Similarly, we can traverse the array from right to left and maintain a minimum value $mi$. If the current value is greater than $mi$, it means that the current value is not in the correct position, and we update the left boundary $l$ to the current position. At initialization, we set $l$ and $r$ to $-1$. If $l$ and $r$ are not updated, it means that the array is already sorted, and we return $0$. Otherwise, we return $r - l + 1$.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array.</p>
@@ -76144,7 +76156,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="288"><a href="https://leetcode.cn/problems/unique-word-abbreviation">288. 单词的唯一缩写 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>单词的 <strong>缩写</strong> 需要遵循 <起始字母><中间字母数><结尾字母> 这样的格式。如果单词只有两个字符，那么它就是它自身的 <strong>缩写</strong> 。</p>
 
@@ -80326,7 +80328,11 @@ validWordAbbr.isUnique("cake"); // 返回 true，因为 "cake" 已经存在于�
     <li>最多调用 <code>5000</code> 次 <code>isUnique</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表</h3>
 <p>根据题目描述，我们定义一个函数 $abbr(s)$，它的功能是计算单词 $s$ 的缩写。如果单词 $s$ 的长度小于 $3$，那么它的缩写就是它本身；否则，它的缩写是它的首字母 + (它的长度 - 2) + 它的尾字母。</p>
 <p>接下来，我们定义一个哈希表 $d$，它的键是单词的缩写，值是一个集合，集合中的元素是所有缩写为该键的单词。我们遍历给定的单词字典，对于字典中的每个单词 $s$，我们求出它的缩写 $abbr(s)$，并将 $s$ 添加到 $d[abbr(s)]$ 中。</p>
@@ -80610,7 +80616,9 @@ validWordAbbr.isUnique("cake"); // 返回 true，因为 "cake" 已经存在于�
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80278,11 +80278,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="130"><a href="https://leetcode.cn/problems/surrounded-regions">130. 被围绕的区域</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>m x n</code> 的矩阵 <code>board</code> ，由若干字符 <code>'X'</code> 和 <code>'O'</code> ，找到所有被 <code>'X'</code> 围绕的区域，并将这些区域里所有的  <code>'O'</code> 用 <code>'X'</code> 填充。</p>
 <div class="original__bRMd">
@@ -80317,7 +80319,11 @@
 </div>
 </div>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="dfs">方法一：DFS</h3>
 <p>我们可以从矩阵的边界开始，将矩阵边界上的每个 <code>O</code> 作为起始点，开始进行深度优先搜索。将搜索到的 <code>O</code> 全部替换成 <code>.</code>。</p>
 <p>然后我们再遍历这个矩阵，对于每个位置：</p>
@@ -80836,6 +80842,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_3">方法二：并查集</h3>
 <p>我们也可以使用并查集，将矩阵边界上的每个 <code>O</code> 与一个超级节点 $m \times n$ 相连，将矩阵中的每个 <code>O</code> 与其上下左右的 <code>O</code> 相连。</p>
 <p>然后我们遍历这个矩阵，对于每个位置，如果是 <code>O</code>，并且其与超级节点不相连，则将其替换成 <code>X</code>。</p>
@@ -81210,7 +81220,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

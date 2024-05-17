@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2105-watering-plants-ii"><a href="https://leetcode.com/problems/watering-plants-ii">2105. Watering Plants II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 271 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 271 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1507-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1507-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Alice and Bob want to water <code>n</code> plants in their garden. The plants are arranged in a row and are labeled from <code>0</code> to <code>n - 1</code> from left to right where the <code>i<sup>th</sup></code> plant is located at <code>x = i</code>.</p>
 
 <p>Each plant needs a specific amount of water. Alice and Bob have a watering can each, <strong>initially full</strong>. They water the plants in the following way:</p>
@@ -75722,7 +75726,11 @@ So, the total number of times they have to refill is 0.
     <li><code>max(plants[i]) &lt;= capacityA, capacityB &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-two-pointers-simulation">Solution 1: Two Pointers + Simulation</h3>
 <p>We use two variables $a$ and $b$ to represent the amount of water Alice and Bob have, initially $a = \text{capacityA}$, $b = \text{capacityB}$. Then we use two pointers $i$ and $j$ to point to the head and tail of the plant array, and simulate the process of Alice and Bob watering from both ends to the middle.</p>
 <p>When $i &lt; j$, we judge whether Alice and Bob have enough water to water the plants. If not, we refill the watering cans. Then we update the amount of water $a$ and $b$, and move the pointers $i$ and $j$. Finally, we need to judge whether $i$ and $j$ are equal. If they are equal, we need to judge whether $\max(a, b)$ is less than the amount of water the plant needs. If it is less, we need to refill the watering cans again.</p>
@@ -76005,7 +76013,9 @@ So, the total number of times they have to refill is 0.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

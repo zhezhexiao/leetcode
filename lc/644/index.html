@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="644-ii"><a href="https://leetcode.cn/problems/maximum-average-subarray-ii">644. 子数组最大平均数 II 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个包含 <code>n</code> 个整数的数组 <code>nums</code> ，和一个整数 <code>k</code> 。</p>
 
@@ -80299,7 +80301,11 @@
     <li><code>-10<sup>4</sup> <= nums[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：二分查找</h3>
 <p>我们注意到，如果一个长度大于等于 $k$ 的子数组的平均值为 $v$，那么最大平均数一定大于等于 $v$，否则最大平均数一定小于 $v$。因此，我们可以使用二分查找的方法找出最大平均数。</p>
 <p>我们考虑二分查找的左右边界分别是什么？左边界 $l$ 一定是数组中的最小值，而右边界 $r$ 则是数组中的最大值。接下来，我们二分查找中点 $mid$，判断是否存在长度大于等于 $k$ 的子数组的平均值大于等于 $mid$。如果存在，那么我们就将左边界 $l$ 更新为 $mid$，否则我们就将右边界 $r$ 更新为 $mid$。当左边界和右边界的差小于一个极小的非负数，即 $r - l &lt; \epsilon$ 时，我们就可以得到最大平均数，其中 $\epsilon$ 表示一个极小的正数，可以取 $10^{-5}$。</p>
@@ -80667,7 +80673,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

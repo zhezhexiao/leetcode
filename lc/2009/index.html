@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2009"><a href="https://leetcode.cn/problems/minimum-number-of-operations-to-make-array-continuous">2009. 使数组连续的最少操作数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 61 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 61 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2084-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2084-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 61 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 61 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2084-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2084-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code>&nbsp;。每一次操作中，你可以将&nbsp;<code>nums</code>&nbsp;中&nbsp;<strong>任意</strong>&nbsp;一个元素替换成 <strong>任意&nbsp;</strong>整数。</p>
 
@@ -80328,7 +80330,11 @@
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：排序 + 去重 + 二分查找</h3>
 <p>我们先将数组排序，去重。</p>
 <p>然后遍历数组，枚举以当前元素 $nums[i]$ 作为连续数组的最小值，通过二分查找找到第一个大于 $nums[i] + n - 1$ 的位置 $j$，那么 $j-i$ 就是当前元素作为最小值时，连续数组的长度，更新答案，即 $ans = \min(ans, n - (j - i))$。</p>
@@ -80534,6 +80540,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：排序 + 去重 + 双指针</h3>
 <p>与方法一类似，我们先将数组排序，去重。</p>
 <p>然后遍历数组，枚举以当前元素 $nums[i]$ 作为连续数组的最小值，通过双指针找到第一个大于 $nums[i] + n - 1$ 的位置 $j$，那么 $j-i$ 就是当前元素作为最小值时，连续数组的长度，更新答案，即 $ans = \min(ans, n - (j - i))$。</p>
@@ -80681,7 +80691,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

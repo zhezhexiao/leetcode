@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2763-sum-of-imbalance-numbers-of-all-subarrays"><a href="https://leetcode.com/problems/sum-of-imbalance-numbers-of-all-subarrays">2763. Sum of Imbalance Numbers of All Subarrays</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 352 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 352 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2277-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2277-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>The <strong>imbalance number</strong> of a <strong>0-indexed</strong> integer array <code>arr</code> of length <code>n</code> is defined as the number of indices in <code>sarr = sorted(arr)</code> such that:</p>
 
 <ul>
@@ -75710,7 +75714,11 @@ The imbalance number of all other subarrays is 0. Hence, the sum of imbalance nu
     <li><code>1 &lt;= nums[i] &lt;= nums.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration-ordered-set">Solution 1: Enumeration + Ordered Set</h3>
 <p>We can first enumerate the left endpoint $i$ of the subarray. For each $i$, we enumerate the right endpoint $j$ of the subarray from small to large, and maintain all the elements in the current subarray with an ordered list. We also use a variable $cnt$ to maintain the unbalanced number of the current subarray.</p>
 <p>For each number $nums[j]$, we find the first element $nums[k]$ in the ordered list that is greater than or equal to $nums[j]$, and the last element $nums[h]$ that is less than $nums[j]$:</p>
@@ -75879,7 +75887,9 @@ The imbalance number of all other subarrays is 0. Hence, the sum of imbalance nu
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

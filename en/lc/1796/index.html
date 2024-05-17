@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1796-second-largest-digit-in-a-string"><a href="https://leetcode.com/problems/second-largest-digit-in-a-string">1796. Second Largest Digit in a String</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 48 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 48 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1341-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1341-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an alphanumeric string <code>s</code>, return <em>the <strong>second largest</strong> numerical digit that appears in </em><code>s</code><em>, or </em><code>-1</code><em> if it does not exist</em>.</p>
 
 <p>An <strong>alphanumeric</strong><strong> </strong>string is a string consisting of lowercase English letters and digits.</p>
@@ -75693,7 +75697,11 @@
     <li><code>s</code> consists of only lowercase English letters and/or digits.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-one-pass">Solution 1: One Pass</h3>
 <p>We define $a$ and $b$ to represent the largest and second largest numbers in the string, initially $a = b = -1$.</p>
 <p>We traverse the string $s$. If the current character is a digit, we convert it to a number $v$. If $v &gt; a$, it means that $v$ is the largest number currently appearing, we update $b$ to $a$, and update $a$ to $v$; if $v &lt; a$, it means that $v$ is the second largest number currently appearing, we update $b$ to $v$.</p>
@@ -75935,6 +75943,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-bit-manipulation">Solution 2: Bit Manipulation</h3>
 <p>We can use an integer $mask$ to mark the numbers that appear in the string, where the $i$-th bit of $mask$ indicates whether the number $i$ has appeared.</p>
 <p>We traverse the string $s$. If the current character is a digit, we convert it to a number $v$, and set the $v$-th bit of $mask$ to $1$.</p>
@@ -76062,7 +76074,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80245,11 +80245,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1362"><a href="https://leetcode.cn/problems/closest-divisors">1362. 最接近的因数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 177 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 177 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1533-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1533-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 177 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 177 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1533-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1533-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数&nbsp;<code>num</code>，请你找出同时满足下面全部要求的两个整数：</p>
 
@@ -80289,7 +80291,11 @@
     <li><code>1 &lt;= num &lt;= 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：枚举</h3>
 <p>我们设计一个函数 $f(x)$，该函数返回乘积等于 $x$ 的两个数，且这两个数的差的绝对值最小。我们可以从 $\sqrt{x}$ 开始枚举 $i$，如果 $x$ 能被 $i$ 整除，那么 $\frac{x}{i}$ 就是另一个因数，此时我们就找到了一个乘积等于 $x$ 的两个因数，我们将其返回即可。否则我们减小 $i$ 的值，继续枚举。</p>
 <p>接下来，我们只需要分别计算 $f(num + 1)$ 和 $f(num + 2)$，然后比较两个函数的返回值，返回差的绝对值更小的那个即可。</p>
@@ -80428,7 +80434,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

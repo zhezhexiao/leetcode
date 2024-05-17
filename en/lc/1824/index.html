@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1824-minimum-sideway-jumps"><a href="https://leetcode.com/problems/minimum-sideway-jumps">1824. Minimum Sideway Jumps</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 236 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 236 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1778-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1778-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There is a <strong>3 lane road</strong> of length <code>n</code> that consists of <code>n + 1</code> <strong>points</strong> labeled from <code>0</code> to <code>n</code>. A frog <strong>starts</strong> at point <code>0</code> in the <strong>second </strong>lane<strong> </strong>and wants to jump to point <code>n</code>. However, there could be obstacles along the way.</p>
 
 <p>You are given an array <code>obstacles</code> of length <code>n + 1</code> where each <code>obstacles[i]</code> (<strong>ranging from 0 to 3</strong>) describes an obstacle on the lane <code>obstacles[i]</code> at point <code>i</code>. If <code>obstacles[i] == 0</code>, there are no obstacles at point <code>i</code>. There will be <strong>at most one</strong> obstacle in the 3 lanes at each point.</p>
@@ -75715,7 +75719,11 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
     <li><code>obstacles[0] == obstacles[n] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
 <p>We define $f[i][j]$ as the minimum number of sidesteps for the frog to reach the $i$-th point and be on the $j$-th lane (index starts from $0$).</p>
 <p>Note that the frog starts on the second lane (the problem index starts from $1$), so the value of $f[0][1]$ is $0$, and the values of $f[0][0]$ and $f[0][2]$ are both $1$. The answer is $min(f[n][0], f[n][1], f[n][2])$.</p>
@@ -75924,7 +75932,9 @@ Note that the frog can jump over obstacles only when making side jumps (as shown
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

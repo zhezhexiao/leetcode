@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2412-minimum-money-required-before-transactions"><a href="https://leetcode.com/problems/minimum-money-required-before-transactions">2412. Minimum Money Required Before Transactions</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 87 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 87 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2092-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2092-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code><font face="monospace">transactions</font></code>, where <code>transactions[i] = [cost<sub>i</sub>, cashback<sub>i</sub>]</code>.</p>
 
 <p>The array describes transactions, where each transaction must be completed exactly once in <strong>some order</strong>. At any given moment, you have a certain amount of <code>money</code>. In order to complete transaction <code>i</code>, <code>money &gt;= cost<sub>i</sub></code> must hold true. After performing a transaction, <code>money</code> becomes <code>money - cost<sub>i</sub> + cashback<sub>i</sub></code>.</p>
@@ -75698,7 +75702,11 @@ Thus, starting with money = 3, the transactions can be performed in any order.
     <li><code>0 &lt;= cost<sub>i</sub>, cashback<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy">Solution 1: Greedy</h3>
 <p>First, we accumulate all the negative profits, denoted as $s$. Then we enumerate each transaction as the last transaction. If <code>transactions[i].x &gt; transactions[i].y</code>, it means the current transaction is losing money, and this transaction has been calculated when we previously accumulated negative profits, so we update the answer with <code>s + transactions[i].y</code>; otherwise, we update the answer with <code>s + transactions[i].x</code>.</p>
 <p>The time complexity is $O(n)$, where $n$ is the number of transactions. The space complexity is $O(1)$.</p>
@@ -75830,7 +75838,9 @@ Thus, starting with money = 3, the transactions can be performed in any order.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

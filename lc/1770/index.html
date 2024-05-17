@@ -80260,11 +80260,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1770"><a href="https://leetcode.cn/problems/maximum-score-from-performing-multiplication-operations">1770. 执行乘法运算的最大分数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 229 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 229 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2068-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2068-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 229 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 229 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2068-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2068-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个长度分别 <code>n</code> 和 <code>m</code> 的整数数组 <code>nums</code> 和 <code>multipliers</code><strong> </strong>，其中 <code>n &gt;= m</code> ，数组下标 <strong>从 1 开始</strong> 计数。</p>
 
@@ -80315,7 +80317,11 @@
     <li><code>-1000 &lt;= nums[i], multipliers[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：记忆化搜索</h3>
 <p>我们设计一个函数 $dfs(i, j)$，表示从 <code>nums</code> 数组头部第 $i$ 个元素开始，从 <code>nums</code> 数组尾部第 $j$ 个元素开始，能够获得的最大分数。那么答案就是 $dfs(0, 0)$。</p>
 <p>函数 $dfs(i, j)$ 的计算过程如下：</p>
@@ -80555,6 +80561,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：动态规划</h3>
 <p>我们可以将方法一中的记忆化搜索改写为动态规划的形式。</p>
 <p>我们用 $f[i][j]$ 表示取数组 $nums$ 的前 $i$ 个元素，以及取数组 $nums$ 的后 $j$ 个元素，能够获得的最大分数。初始时 $f[0][0] = 0$，其余元素均为 $-\infty$。答案为 $\max_{0 \leq i \leq m} f[i][m-i]$。</p>
@@ -80765,7 +80775,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

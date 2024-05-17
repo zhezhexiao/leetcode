@@ -80254,11 +80254,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1501"><a href="https://leetcode.cn/problems/countries-you-can-safely-invest-in">1501. 可以放心投资的国家 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表&nbsp;<code>Person</code>:</p>
 
@@ -80372,7 +80374,11 @@ Calls 表:
 所以, Peru 是唯一的平均通话时长大于全球平均通话时长的国家, 也是唯一的推荐投资的国家.
 </pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：等值连接 + 分组 + 子查询</h3>
 <p>我们可以使用等值连接，将 <code>Person</code> 表和 <code>Calls</code> 表连接起来，连接的条件是 <code>Person.id = Calls.caller_id</code> 或者 <code>Person.id = Calls.callee_id</code>，然后再将连接后的表和 <code>Country</code> 表连接起来，连接的条件是 <code>left(phone_number, 3) = country_code</code>，最后按照国家分组，计算每个国家的平均通话时长，然后再使用子查询，找出平均通话时长大于全球平均通话时长的国家。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -80405,6 +80411,10 @@ Calls 表:
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
 <div class="tabbed-content">
@@ -80438,7 +80448,9 @@ Calls 表:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

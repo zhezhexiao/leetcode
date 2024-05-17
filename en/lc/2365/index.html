@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2365-task-scheduler-ii"><a href="https://leetcode.com/problems/task-scheduler-ii">2365. Task Scheduler II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 84 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 84 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1622-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1622-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array of positive integers <code>tasks</code>, representing tasks that need to be completed <strong>in order</strong>, where <code>tasks[i]</code> represents the <strong>type</strong> of the <code>i<sup>th</sup></code> task.</p>
 
 <p>You are also given a positive integer <code>space</code>, which represents the <strong>minimum</strong> number of days that must pass <strong>after</strong> the completion of a task before another task of the <strong>same</strong> type can be performed.</p>
@@ -75719,7 +75723,11 @@ It can be shown that the tasks cannot be completed in less than 6 days.
     <li><code>1 &lt;= space &lt;= tasks.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-simulation">Solution 1: Hash Table + Simulation</h3>
 <p>We can use a hash table $day$ to record the next time each task can be executed. Initially, all values in $day$ are $0$. We use a variable $ans$ to record the current time.</p>
 <p>We iterate through the array $tasks$. For each task $task$, we increment the current time $ans$ by one, indicating that one day has passed since the last task execution. If $day[task] &gt; ans$ at this time, it means that task $task$ can only be executed on the $day[task]$ day. Therefore, we update the current time $ans = \max(ans, day[task])$. Then we update the value of $day[task]$ to $ans + space + 1$, indicating that the next time task $task$ can be executed is at $ans + space + 1$.</p>
@@ -75849,7 +75857,9 @@ It can be shown that the tasks cannot be completed in less than 6 days.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1549-the-most-recent-orders-for-each-product"><a href="https://leetcode.com/problems/the-most-recent-orders-for-each-product">1549. The Most Recent Orders for Each Product 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -75758,7 +75762,11 @@ screen&#39;s most recent order is in 2020-08-29, it was ordered only once this d
 The hard disk was never ordered and we do not include it in the result table.
 </pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-equi-join-window-function">Solution 1: Equi-Join + Window Function</h3>
 <p>We can use an equi-join to join the <code>Orders</code> table and the <code>Products</code> table based on <code>product_id</code>, and then use the window function <code>rank()</code>, which assigns a rank to each <code>product_id</code> in the <code>Orders</code> table based on its <code>order_date</code> in descending order. Finally, we can select the rows with a rank of $1$ for each <code>product_id</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -75801,7 +75809,9 @@ The hard disk was never ordered and we do not include it in the result table.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

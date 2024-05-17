@@ -75687,10 +75687,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1130-minimum-cost-tree-from-leaf-values"><a href="https://leetcode.com/problems/minimum-cost-tree-from-leaf-values">1130. Minimum Cost Tree From Leaf Values</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 146 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 146 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1919-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1919-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an array <code>arr</code> of positive integers, consider all binary trees such that:</p>
 
 <ul>
@@ -75729,7 +75733,11 @@ The first has a non-leaf node sum 36, and the second has non-leaf node sum 32.
     <li>It is guaranteed that the answer fits into a <strong>32-bit</strong> signed integer (i.e., it is less than 2<sup>31</sup>).</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memoization-search">Solution 1: Memoization Search</h3>
 <p>According to the problem description, the values in the array $arr$ correspond one-to-one with the values in the inorder traversal of each leaf node of the tree. We can divide the array into two non-empty sub-arrays, corresponding to the left and right subtrees of the tree, and recursively solve for the minimum possible sum of all non-leaf node values in each subtree.</p>
 <p>We design a function $dfs(i, j)$, which represents the minimum possible sum of all non-leaf node values in the index range $[i, j]$ of the array $arr$. The answer is $dfs(0, n - 1)$, where $n$ is the length of the array $arr$.</p>
@@ -76028,6 +76036,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
 <p>We can change the memoization search in Solution 1 to dynamic programming.</p>
 <p>Define $f[i][j]$ to represent the minimum possible sum of all non-leaf node values in the index range $[i, j]$ of the array $arr$, and $g[i][j]$ to represent the maximum value of all leaf nodes in the index range $[i, j]$ of the array $arr$. Then, the state transition equation is:</p>
@@ -76235,6 +76247,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-3">Solution 3</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label></div>
 <div class="tabbed-content">
@@ -76268,7 +76284,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

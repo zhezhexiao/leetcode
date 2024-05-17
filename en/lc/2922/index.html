@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2922-market-analysis-iii"><a href="https://leetcode.com/problems/market-analysis-iii">2922. Market Analysis III 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <code>Users</code></p>
 
 <pre>
@@ -75741,7 +75745,11 @@ Items table:
 - The user with seller_id 3 has sold two items, but only one of them is not marked as a favorite. We will include just that non-favorite item in our count.
 Since seller_ids 2 and 3 have the same count of one item each, they both will be displayed in the output.</pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-equijoin-grouping-subquery">Solution 1: Equijoin + Grouping + Subquery</h3>
 <p>We can use equijoin to connect the <code>Orders</code> table and the <code>Users</code> table according to <code>seller_id</code>, then connect <code>Items</code> according to <code>item_id</code>, and filter out the records where <code>item_brand</code> is not equal to <code>favorite_brand</code>. Then, group by <code>seller_id</code> and count the number of <code>item_id</code> corresponding to each <code>seller_id</code>. Finally, use a subquery to find the <code>seller_id</code> with the most <code>item_id</code>.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -75780,7 +75788,9 @@ Since seller_ids 2 and 3 have the same count of one item each, they both will be
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

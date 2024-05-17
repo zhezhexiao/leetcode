@@ -80284,11 +80284,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1756-mru"><a href="https://leetcode.cn/problems/design-most-recently-used-queue">1756. 设计最近使用（MRU）队列 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一种类似队列的数据结构，该数据结构将最近使用的元素移到队列尾部。</p>
 
@@ -80330,7 +80332,11 @@ mRUQueue.fetch(8); // 第 8 个元素 (2) 已经在队列尾部了，所以直�
 
 <p> </p>
 <p><b>进阶：</b>找到每次 <code>fetch</code> 的复杂度为 <code>O(n)</code> 的算法比较简单。你可以找到每次 <code>fetch</code> 的复杂度更佳的算法吗？</p>
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：树状数组 + 二分查找</h3>
 <p>我们用一个数组 $q$ 维护当前队列中的元素，移动第 $k$ 个元素时，我们考虑不删除该元素，而是直接将其追加到数组末尾。如果不删除，我们如何知道第 $k$ 个元素在数组 $q$ 中的位置呢？</p>
 <p>我们可以用一个树状数组维护数组 $q$ 中每个位置的元素是否被删除，如果第 $i$ 个位置的元素被删除，那么我们更新树状数组中的第 $i$ 个位置，表示该位置被移动的次数增加 $1$。这样，我们每次要删除第 $k$ 个元素时，可以用二分查找，找到第一个满足 $i - tree.query(i) \geq k$ 的位置 $i$，即为第 $k$ 个元素在数组 $q$ 中的位置。不妨记 $x=q[i]$，那么我们将 $x$ 追加到数组 $q$ 的末尾，同时更新树状数组中第 $i$ 个位置的值，表示该位置被移动的次数增加 $1$。最后，我们返回 $x$ 即可。</p>
@@ -80865,6 +80871,10 @@ mRUQueue.fetch(8); // 第 8 个元素 (2) 已经在队列尾部了，所以直�
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
 <div class="tabbed-content">
@@ -80952,7 +80962,9 @@ mRUQueue.fetch(8); // 第 8 个元素 (2) 已经在队列尾部了，所以直�
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

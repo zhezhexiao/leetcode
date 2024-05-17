@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1639-number-of-ways-to-form-a-target-string-given-a-dictionary"><a href="https://leetcode.com/problems/number-of-ways-to-form-a-target-string-given-a-dictionary">1639. Number of Ways to Form a Target String Given a Dictionary</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 38 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 38 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2081-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2081-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a list of strings of the <strong>same length</strong> <code>words</code> and a string <code>target</code>.</p>
 
 <p>Your task is to form <code>target</code> using the given <code>words</code> under the following rules:</p>
@@ -75723,7 +75727,11 @@
     <li><code>words[i]</code> and <code>target</code> contain only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-preprocessing-memory-search">Solution 1: Preprocessing + Memory Search</h3>
 <p>We noticed that the length of each string in the string array $words$ is the same, so let's remember $n$, then we can preprocess a two-dimensional array $cnt$, where $cnt[j][c]$ represents the string array $words$ The number of characters $c$ in the $j$-th position of.</p>
 <p>Next, we design a function $dfs(i, j)$, which represents the number of schemes that construct $target[i,..]$ and the currently selected character position from $words$ is $j$. Then the answer is $dfs(0, 0)$.</p>
@@ -76035,6 +76043,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-preprocessing-dynamic-programming">Solution 2: Preprocessing + Dynamic Programming</h3>
 <p>Similar to Solution 1, we can first preprocess a two-dimensional array $cnt$, where $cnt[j][c]$ represents the number of characters $c$ in the $j$-th position of the string array $words$.</p>
 <p>Next, we define $f[i][j]$ which represents the number of ways to construct the first $i$ characters of $target$, and currently select characters from the first $j$ characters of each word in $words$. Then the answer is $f[m][n]$. Initially $f[0][j] = 1$, where $0 \leq j \leq n$.</p>
@@ -76227,7 +76239,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

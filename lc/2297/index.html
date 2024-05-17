@@ -80275,11 +80275,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2297-viii"><a href="https://leetcode.cn/problems/jump-game-viii">2297. 跳跃游戏 VIII 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 n 的下标从 <strong>0</strong>&nbsp;开始的整数数组 <code>nums</code>。初始位置为下标 <code>0</code>。当 <code>i &lt; j</code> 时，你可以从下标 <code>i</code> 跳转到下标 <code>j</code>:</p>
 
@@ -80326,7 +80328,11 @@
     <li><code>0 &lt;= nums[i], costs[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：单调栈 + 动态规划</h3>
 <p>根据题目描述，我们实际上需要找到 $nums[i]$ 的下一个大于等于 $nums[i]$ 的位置 $j$，以及下一个小于 $nums[i]$ 的位置 $j$。我们利用单调栈可以在 $O(n)$ 的时间内找到这两个位置，然后构建邻接表 $g$，其中 $g[i]$ 表示下标 $i$ 可以跳转到的下标。</p>
 <p>然后我们使用动态规划求解最小代价。设 $f[i]$ 表示跳转到下标 $i$ 的最小代价，初始时 $f[0] = 0$，其余 $f[i] = \infty$。我们从小到大枚举下标 $i$，对于每个 $i$，我们枚举 $g[i]$ 中的每个下标 $j$，进行状态转移 $f[j] = \min(f[j], f[i] + costs[j])$。答案为 $f[n - 1]$。</p>
@@ -80671,7 +80677,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

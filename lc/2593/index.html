@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2593"><a href="https://leetcode.cn/problems/find-score-of-an-array-after-marking-all-elements">2593. 标记所有元素后数组的分数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 100 场双周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 100 场双周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1665-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1665-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 100 场双周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 100 场双周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1665-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1665-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个数组&nbsp;<code>nums</code>&nbsp;，它包含若干正整数。</p>
 
@@ -80324,7 +80326,11 @@
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：优先队列（小根堆）</h3>
 <p>我们用一个优先队列维护数组中未被标记的元素，队列中每一项为一个二元组 $(x, i)$，其中 $x$ 和 $i$ 分别表示数组中的元素值和下标，用一个数组 $vis$ 记录数组中的元素是否被标记。</p>
 <p>每次从队列中取出最小的元素 $(x, i)$，我们将 $x$ 加入答案，然后标记 $i$ 位置的元素，以及 $i$ 位置的左右相邻元素，即 $i - 1$ 和 $i + 1$ 位置的元素。接下来判断堆顶元素是否被标记，如果被标记则弹出堆顶元素，直到堆顶元素未被标记，或者堆为空。</p>
@@ -80620,6 +80626,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：排序</h3>
 <p>我们可以创建一个下标数组 $idx$，其中 $idx[i]=i$，然后我们对数组 $idx$ 按照数组 $nums$ 中的元素值进行排序，如果元素值相同，则按照下标值进行排序。</p>
 <p>接下来创建一个长度为 $n+2$ 的数组 $vis$，其中 $vis[i]=false$，表示数组中的元素是否被标记。</p>
@@ -80816,7 +80826,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

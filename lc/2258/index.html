@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2258"><a href="https://leetcode.cn/problems/escape-the-spreading-fire">2258. 逃离火灾</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 77 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 77 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2346-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2346-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 77 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 77 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2346-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2346-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始大小为 <code>m x n</code>&nbsp;的二维整数数组&nbsp;<code>grid</code>&nbsp;，它表示一个网格图。每个格子为下面 3 个值之一：</p>
 
@@ -80332,7 +80334,11 @@
     <li><code>grid[0][0] == grid[m - 1][n - 1] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="bfs">方法一：二分查找 + BFS</h3>
 <p>我们注意到，如果一个停留时间 $t$ 满足条件，那么所有小于 $t$ 的时间也都满足条件。因此我们可以考虑使用二分查找的方法找到最大的满足条件的时间。</p>
 <p>我们定义二分查找的左边界 $l=-1$，右边界 $r = m \times n$。每一次二分查找，我们都将 $l$ 和 $r$ 的中点 $mid$ 作为当前的停留时间，判断是否满足条件。如果满足条件，那么我们将 $l$ 更新为 $mid$，否则我们将 $r$ 更新为 $mid-1$。最后，如果 $l = m \times n$，那么说明不存在满足条件的停留时间，我们返回 $10^9$，否则我们返回 $l$。</p>
@@ -81124,7 +81130,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

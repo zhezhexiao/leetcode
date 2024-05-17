@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="215-kth-largest-element-in-an-array"><a href="https://leetcode.com/problems/kth-largest-element-in-an-array">215. Kth Largest Element in an Array</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return <em>the</em> <code>k<sup>th</sup></code> <em>largest element in the array</em>.</p>
 
 <p>Note that it is the <code>k<sup>th</sup></code> largest element in the sorted order, not the <code>k<sup>th</sup></code> distinct element.</p>
@@ -75705,7 +75709,11 @@
     <li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting">Solution 1: Sorting</h3>
 <p>We can sort the array $nums$ in ascending order, and then get $nums[n-k]$.</p>
 <p>The time complexity is $O(n \times \log n)$, where $n$ is the length of the array $nums$.</p>
@@ -76049,6 +76057,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-partition">Solution 2: Partition</h3>
 <p>We notice that it is not always necessary for the entire array to be in an ordered state. We only need <strong>local order</strong>. That is to say, if the elements in the position $[0..k)$ are sorted in descending order, then we can determine the result. Here we use <strong>quick sort</strong>.</p>
 <p>Quick sort has a characteristic that at the end of each loop, it can be determined that the $partition$ is definitely at the index position it should be. Therefore, based on it, we know whether the result value is in the left array or in the right array, and then sort that array.</p>
@@ -76115,7 +76127,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

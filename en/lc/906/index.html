@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="906-super-palindromes"><a href="https://leetcode.com/problems/super-palindromes">906. Super Palindromes</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Let&#39;s say a positive integer is a <strong>super-palindrome</strong> if it is a palindrome, and it is also the square of a palindrome.</p>
 
 <p>Given two positive integers <code>left</code> and <code>right</code> represented as strings, return <em>the number of <strong>super-palindromes</strong> integers in the inclusive range</em> <code>[left, right]</code>.</p>
@@ -75687,7 +75691,11 @@ Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrom
     <li><code>left</code> is less than or equal to <code>right</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-preprocessing-enumeration">Solution 1: Preprocessing + Enumeration</h3>
 <p>According to the problem description, we assume that the super palindrome number $x = p^2 \in [1, 10^{18})$, where $p$ is a palindrome number, so $p \in [1, 10^9)$. We can enumerate the first half of the palindrome number $p$, then reverse it, and concatenate it to get all palindrome numbers, which are recorded in the array $ps$.</p>
 <p>Next, we traverse the array $ps$. For each $p$, we calculate $p^2$, check whether it is in the interval $[L, R]$, and also check whether $p^2$ is a palindrome number. If it is, the answer is incremented by one.</p>
@@ -76031,7 +76039,9 @@ Note that 676 is not a superpalindrome: 26 * 26 = 676, but 26 is not a palindrom
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2009-minimum-number-of-operations-to-make-array-continuous"><a href="https://leetcode.com/problems/minimum-number-of-operations-to-make-array-continuous">2009. Minimum Number of Operations to Make Array Continuous</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 61 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 61 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2084-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2084-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>. In one operation, you can replace <strong>any</strong> element in <code>nums</code> with <strong>any</strong> integer.</p>
 
 <p><code>nums</code> is considered <strong>continuous</strong> if both of the following conditions are fulfilled:</p>
@@ -75727,7 +75731,11 @@ The resulting array is [1,2,3,4], which is continuous.
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting-deduplication-binary-search">Solution 1: Sorting + Deduplication + Binary Search</h3>
 <p>First, we sort the array and remove duplicates.</p>
 <p>Then, we traverse the array, enumerating the current element $nums[i]$ as the minimum value of the consecutive array. We use binary search to find the first position $j$ that is greater than $nums[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $ans = \min(ans, n - (j - i))$.</p>
@@ -75933,6 +75941,10 @@ The resulting array is [1,2,3,4], which is continuous.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-sorting-deduplication-two-pointers">Solution 2: Sorting + Deduplication + Two Pointers</h3>
 <p>Similar to Solution 1, we first sort the array and remove duplicates.</p>
 <p>Then, we traverse the array, enumerating the current element $nums[i]$ as the minimum value of the consecutive array. We use two pointers to find the first position $j$ that is greater than $nums[i] + n - 1$. Then, $j-i$ is the length of the consecutive array when the current element is the minimum value. We update the answer, i.e., $ans = \min(ans, n - (j - i))$.</p>
@@ -76080,7 +76092,9 @@ The resulting array is [1,2,3,4], which is continuous.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80245,11 +80245,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="780"><a href="https://leetcode.cn/problems/reaching-points">780. 到达终点</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定四个整数&nbsp;<code>sx</code>&nbsp;,&nbsp;<code>sy</code>&nbsp;，<code>tx</code>&nbsp;和&nbsp;<code>ty</code>，如果通过一系列的<strong>转换</strong>可以从起点&nbsp;<code>(sx, sy)</code>&nbsp;到达终点&nbsp;<code>(tx, ty)</code>，则返回 <code>true</code>，否则返回&nbsp;<code>false</code>。</p>
 
@@ -80291,7 +80293,11 @@
     <li><code>1 &lt;= sx, sy, tx, ty &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：逆向计算</h3>
 <p>从 <code>(tx, ty)</code> 开始逆向计算，判断是否可以到达状态 <code>(sx, sy)</code>。由于逆向计算是将 tx, ty 中的较大值减少，因此当 <code>tx &gt; ty</code> 时可以直接将 tx 的值更新为 <code>tx % ty</code>，当 <code>tx &lt; ty</code> 时可以将 ty 的值更新为 <code>ty % tx</code>。逆向计算需要满足 <code>tx &gt; sx &amp;&amp; ty &gt; sy &amp;&amp; tx != ty</code>。</p>
 <p>当条件不成立时，根据此时 tx 和 ty 判断是否可以从起点转换到终点。</p>
@@ -80451,7 +80457,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

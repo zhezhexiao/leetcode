@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="100"><a href="https://leetcode.cn/problems/same-tree">100. 相同的树</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两棵二叉树的根节点 <code>p</code> 和 <code>q</code> ，编写一个函数来检验这两棵树是否相同。</p>
 
@@ -80314,7 +80316,11 @@
     <li><code>-10<sup>4</sup> <= Node.val <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="dfs">方法一：DFS</h3>
 <p>我们可以使用 DFS 递归的方法来解决这个问题。</p>
 <p>首先判断两个二叉树的根节点是否相同，如果两个根节点都为空，则两个二叉树相同，如果两个根节点中有且只有一个为空，则两个二叉树一定不同。如果两个根节点都不为空，则判断它们的值是否相同，如果不相同则两个二叉树一定不同，如果相同，则分别判断两个二叉树的左子树是否相同以及右子树是否相同。当以上所有条件都满足时，两个二叉树才相同。</p>
@@ -80711,6 +80717,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="bfs">方法二：BFS</h3>
 <p>我们也可以使用 BFS 迭代的方法来解决这个问题。</p>
 <p>首先将两个二叉树的根节点分别加入两个队列。每次从两个队列各取出一个节点，进行如下比较操作。如果两个节点的值不相同，则两个二叉树的结构一定不同，如果两个节点的值相同，则判断两个节点的子节点是否为空，如果只有一个节点的左子节点为空，则两个二叉树的结构一定不同，如果只有一个节点的右子节点为空，则两个二叉树的结构一定不同，如果左右子节点的结构相同，则将两个节点的左子节点和右子节点分别加入两个队列，对于下一次迭代，将从两个队列各取出一个节点进行比较。当两个队列同时为空时，说明我们已经比较完了所有节点，两个二叉树的结构完全相同。</p>
@@ -81299,7 +81309,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

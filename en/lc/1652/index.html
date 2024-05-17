@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1652-defuse-the-bomb"><a href="https://leetcode.com/problems/defuse-the-bomb">1652. Defuse the Bomb</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 39 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 39 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1416-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1416-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You have a bomb to defuse, and your time is running out! Your informer will provide you with a <strong>circular</strong> array <code>code</code>&nbsp;of length of <code>n</code>&nbsp;and a key <code>k</code>.</p>
 
 <p>To decrypt the code, you must replace every number. All the numbers are replaced <strong>simultaneously</strong>.</p>
@@ -75713,7 +75717,11 @@
     <li><code>-(n - 1) &lt;= k &lt;= n - 1</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-simulation">Solution 1: Simulation</h3>
 <p>We define an answer array <code>ans</code> of length <code>n</code>, initially all elements are <code>0</code>. According to the problem, if <code>k</code> is <code>0</code>, return <code>ans</code> directly.</p>
 <p>Otherwise, we traverse each position <code>i</code>:</p>
@@ -75940,6 +75948,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-prefix-sum">Solution 2: Prefix Sum</h3>
 <p>In Solution 1, for each position $i$, we need to traverse $k$ positions, which involves a lot of repeated calculations. We can optimize this by using prefix sums.</p>
 <p>We duplicate the <code>code</code> array (this can be achieved without actually duplicating the array, but by cyclically traversing with modulo operation), resulting in an array of twice the length. We then calculate the prefix sum of this array, resulting in a prefix sum array $s$ of length $2 \times n + 1$.</p>
@@ -76156,7 +76168,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

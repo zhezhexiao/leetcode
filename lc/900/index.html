@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="900-rle"><a href="https://leetcode.cn/problems/rle-iterator">900. RLE 迭代器</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们可以使用游程编码(即&nbsp;<strong>RLE&nbsp;</strong>)来编码一个整数序列。在偶数长度&nbsp;<code>encoding</code>&nbsp;( <strong>从 0 开始</strong> )的游程编码数组中，对于所有偶数 <code>i</code> ，<code>encoding[i]</code>&nbsp;告诉我们非负整数&nbsp;<code>encoding[i + 1]</code>&nbsp;在序列中重复的次数。</p>
 
@@ -80315,7 +80317,11 @@ rLEIterator.next(2); // 耗去序列的 2 个项，返回 -1。 这是由于第�
     <li>每个测试用例调用<code>next </code>不高于&nbsp;<code>1000</code>&nbsp;次&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：维护两个指针</h3>
 <p>我们定义两个指针 $i$ 和 $j$，其中指针 $i$ 指向当前读取的游程编码，指针 $j$ 指向当前读取的游程编码中的第几个字符。初始时 $i = 0$, $j = 0$。</p>
 <p>每次调用 <code>next(n)</code> 时，我们判断当前游程编码中剩余的字符数 $encoding[i] - j$ 是否小于 $n$，若是，则将 $n$ 减去 $encoding[i] - j$，并将 $i$ 加 $2$，$j$ 置为 $0$，然后继续判断下一个游程编码；若不是，则将 $j$ 加 $n$，并返回 $encoding[i + 1]$。</p>
@@ -80615,7 +80621,9 @@ rLEIterator.next(2); // 耗去序列的 2 个项，返回 -1。 这是由于第�
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

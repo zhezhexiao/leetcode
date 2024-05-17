@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="981"><a href="https://leetcode.cn/problems/time-based-key-value-store">981. 基于时间的键值存储</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个基于时间的键值数据结构，该结构可以在不同时间戳存储对应同一个键的多个值，并针对特定时间戳检索键对应的值。</p>
 
@@ -80310,7 +80312,11 @@ timeMap.get("foo", 5);         // 返回 "bar2"
     <li>最多调用&nbsp;<code>set</code> 和 <code>get</code> 操作 <code>2 * 10<sup>5</sup></code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 有序集合（或二分查找）</h3>
 <p>我们可以用哈希表 $ktv$ 记录键值对，其中键为字符串 $key$，值为一个列表，列表中的每个元素为一个二元组 $(timestamp, value)$，表示键 $key$ 在时间戳 $timestamp$ 时对应的值为 $value$。</p>
 <p>当我们需要查询键 $key$ 在时间戳 $timestamp$ 时对应的值时，我们可以通过二分查找的方法在 $ktv[key]$ 中找到最大的时间戳 $timestamp'$，使得 $timestamp' \leq timestamp$，然后返回对应的值即可。</p>
@@ -80533,7 +80539,9 @@ timeMap.get("foo", 5);         // 返回 "bar2"
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2565-subsequence-with-the-minimum-score"><a href="https://leetcode.com/problems/subsequence-with-the-minimum-score">2565. Subsequence With the Minimum Score</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 332 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 332 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2432-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2432-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given two strings <code>s</code> and <code>t</code>.</p>
 
 <p>You are allowed to remove any number of characters from the string <code>t</code>.</p>
@@ -75707,7 +75711,11 @@ It can be proven that 3 is the minimum score that we can achieve.
     <li><code>s</code> and <code>t</code> consist of only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-prefix-and-suffix-preprocessing-binary-search">Solution 1: Prefix and Suffix Preprocessing + Binary Search</h3>
 <p>According to the problem, we know that the range of the index to delete characters is <code>[left, right]</code>. The optimal approach is to delete all characters within the range <code>[left, right]</code>. In other words, we need to delete a substring from string $t$, so that the remaining prefix of string $t$ can match the prefix of string $s$, and the remaining suffix of string $t$ can match the suffix of string $s$, and the prefix and suffix of string $s$ do not overlap. Note that the match here refers to subsequence matching.</p>
 <p>Therefore, we can preprocess to get arrays $f$ and $g$, where $f[i]$ represents the minimum number of characters in the prefix $t[0,..i]$ of string $t$ that match the first $[0,..f[i]]$ characters of string $s$; similarly, $g[i]$ represents the maximum number of characters in the suffix $t[i,..n-1]$ of string $t$ that match the last $[g[i],..n-1]$ characters of string $s$.</p>
@@ -76043,7 +76051,9 @@ It can be proven that 3 is the minimum score that we can achieve.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

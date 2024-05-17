@@ -22,7 +22,7 @@
     
     
       
-        <title>LCP 63. 弹珠游戏 - LeetCode Wiki</title>
+        <title>63 - LeetCode Wiki</title>
       
     
     
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LCP 63. 弹珠游戏
+              63
             
           </span>
         </div>
@@ -80150,11 +80150,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="lcp-63"><a href="https://leetcode.cn/problems/EXvqDp">LCP 63. 弹珠游戏</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>欢迎各位来到「力扣嘉年华」，接下来将为各位介绍在活动中广受好评的弹珠游戏。</p>
 <p><code>N*M</code> 大小的弹珠盘的初始状态信息记录于一维字符串型数组 <code>plate</code> 中，数组中的每个元素为仅由 <code>"O"</code>、<code>"W"</code>、<code>"E"</code>、<code>"."</code> 组成的字符串。其中：</p>
@@ -80204,7 +80206,11 @@
 <li><code>1 &lt;= plate.length, plate[i].length &lt;= 1000</code></li>
 <li><code>plate[i][j]</code> 仅包含 <code>"O"</code>、<code>"W"</code>、<code>"E"</code>、<code>"."</code></li>
 </ul>
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：模拟</h3>
 <p>我们注意到，从不同的位置打入弹珠，弹珠的前进路线不会重叠。因此，我们可以枚举所有可能的打入位置，然后模拟弹珠的前进过程，判断是否能够入洞，是则将该位置加入答案。</p>
 <p>在实现上，我们定义一个方向数组 $dirs=[0,1,0,-1,0]$，对于 $d \in [0,..3]$，其中 $(dirs[d], dirs[d + 1])$ 表示弹珠的前进方向，分别对应 “右、下、左、上”四个方向。如果弹珠遇到 “W” 转向器，则 $d=(d+3) \bmod 4$，如果遇到 “E” 转向器，则 $d=(d+1) \bmod 4$。</p>
@@ -80561,7 +80567,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

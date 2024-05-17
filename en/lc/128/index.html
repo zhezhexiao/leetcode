@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="128-longest-consecutive-sequence"><a href="https://leetcode.com/problems/longest-consecutive-sequence">128. Longest Consecutive Sequence</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an unsorted array of integers <code>nums</code>, return <em>the length of the longest consecutive elements sequence.</em></p>
 
 <p>You must write an algorithm that runs in&nbsp;<code>O(n)</code>&nbsp;time.</p>
@@ -75698,7 +75702,11 @@
     <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting">Solution 1: Sorting</h3>
 <p>First, we sort the array, then use a variable $t$ to record the current length of the consecutive sequence, and a variable $ans$ to record the length of the longest consecutive sequence.</p>
 <p>Next, we start traversing the array from index $i=1$. For the current element $nums[i]$:</p>
@@ -76029,6 +76037,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-hash-table">Solution 2: Hash Table</h3>
 <p>We use a hash table to store all elements in the array, and then traverse each element $x$ in the array. If the predecessor $x-1$ of the current element is not in the hash table, then we start with the current element and continuously try to match $x+1, x+2, x+3, \dots$, until no match is found. The length of the match at this time is the longest consecutive sequence length starting with $x$, and we update the answer accordingly.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.</p>
@@ -76238,7 +76250,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

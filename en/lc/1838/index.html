@@ -75684,10 +75684,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1838-frequency-of-the-most-frequent-element"><a href="https://leetcode.com/problems/frequency-of-the-most-frequent-element">1838. Frequency of the Most Frequent Element</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 238 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 238 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1876-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1876-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>The <strong>frequency</strong> of an element is the number of times it occurs in an array.</p>
 
 <p>You are given an integer array <code>nums</code> and an integer <code>k</code>. In one operation, you can choose an index of <code>nums</code> and increment the element at that index by <code>1</code>.</p>
@@ -75730,7 +75734,11 @@ Explanation:</strong> Increment the first element three times and the second ele
     <li><code>1 &lt;= k &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting-prefix-sum-binary-search">Solution 1: Sorting + Prefix Sum + Binary Search</h3>
 <p>According to the problem description, we can draw three conclusions:</p>
 <ol>
@@ -76028,6 +76036,10 @@ Explanation:</strong> Increment the first element three times and the second ele
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-sorting-two-pointers">Solution 2: Sorting + Two Pointers</h3>
 <p>We can also use two pointers to maintain a sliding window, where all elements in the window can be changed to the maximum value in the window. The number of operations for the elements in the window is $s$, and $s \leq k$.</p>
 <p>Initially, we set the left pointer $j$ to point to the first element of the array, and the right pointer $i$ also points to the first element of the array. Next, we move the right pointer $i$ each time, changing all elements in the window to $nums[i]$. At this time, the number of operations to be increased is $(nums[i] - nums[i - 1]) \times (i - j)$. If this number of operations exceeds $k$, then we need to move the left pointer $j$ until the number of operations for the elements in the window does not exceed $k$. Then, we update the answer to the maximum length of the window.</p>
@@ -76184,7 +76196,9 @@ Explanation:</strong> Increment the first element three times and the second ele
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

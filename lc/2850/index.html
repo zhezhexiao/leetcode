@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2850"><a href="https://leetcode.cn/problems/minimum-moves-to-spread-stones-over-grid">2850. 将石头分散到网格图的最少移动次数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 362 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 362 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2001-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2001-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 362 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 362 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2001-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2001-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>3 * 3</code>&nbsp;，下标从 <strong>0</strong>&nbsp;开始的二维整数矩阵&nbsp;<code>grid</code>&nbsp;，分别表示每一个格子里石头的数目。网格图中总共恰好有&nbsp;<code>9</code>&nbsp;个石头，一个格子里可能会有 <strong>多个</strong>&nbsp;石头。</p>
 
@@ -80327,7 +80329,11 @@
     <li><code>grid</code>&nbsp;中元素之和为&nbsp;<code>9</code> 。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="bfs">方法一：朴素 BFS</h3>
 <p>题目实际上是求一个状态图中从初始状态到目标状态的最短路径，因此可以使用 BFS 求解。初始状态为 <code>grid</code>，目标状态为 <code>[[1, 1, 1], [1, 1, 1], [1, 1, 1]]</code>，在每次操作中，我们可以将一个单元格大于 $1$ 的石头移动到相邻的一个不超过 $1$ 的单元格。如果找到了目标状态，那么就可以返回当前的层数，即为最少移动次数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
@@ -80734,6 +80740,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_3">方法二：状态压缩动态规划</h3>
 <p>我们可以把所有值为 $0$ 的单元格坐标 $(i, j)$ 放入数组 $left$ 中，如果单元格的值 $v$ 大于 $1$，那么我们把 $v-1$ 个坐标 $(i, j)$ 放入数组 $right$ 中。那么问题就转化为，每个 $right$ 中的坐标 $(i, j)$ 都要移动到 $left$ 中的一个坐标 $(x, y)$，求最少的移动次数。</p>
 <p>我们记 $left$ 的长度为 $n$，那么我们可以使用 $n$ 位二进制数来表示 $left$ 中的每个坐标是否被 $right$ 中的坐标填充，其中 $1$ 表示被填充，而 $0$ 表示未被填充。初始时 $f[i] = \infty$，其余 $f[0]=0$。</p>
@@ -80861,7 +80871,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

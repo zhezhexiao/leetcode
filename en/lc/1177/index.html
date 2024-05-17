@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1177-can-make-palindrome-from-substring"><a href="https://leetcode.com/problems/can-make-palindrome-from-substring">1177. Can Make Palindrome from Substring</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 152 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 152 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1848-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1848-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and array <code>queries</code> where <code>queries[i] = [left<sub>i</sub>, right<sub>i</sub>, k<sub>i</sub>]</code>. We may rearrange the substring <code>s[left<sub>i</sub>...right<sub>i</sub>]</code> for each query and then choose up to <code>k<sub>i</sub></code> of them to replace with any lowercase English letter.</p>
 
 <p>If the substring is possible to be a palindrome string after the operations above, the result of the query is <code>true</code>. Otherwise, the result is <code>false</code>.</p>
@@ -75712,7 +75716,11 @@ queries[4]: substring = &quot;abcda&quot;, could be changed to &quot;abcba&quot;
     <li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-prefix-sum">Solution 1: Prefix Sum</h3>
 <p>First, consider whether a substring can become a palindrome after at most $k$ replacements. Obviously, we need to count the number of times each character appears in the substring, which can be implemented through prefix sum. For characters that appear an even number of times, we do not need to replace them. For characters that appear an odd number of times, we need to replace them. The number of replacements is $\lfloor \frac{x}{2} \rfloor$, where $x$ is the number of characters that appear an odd number of times. If $\lfloor \frac{x}{2} \rfloor \leq k$, then this substring can become a palindrome.</p>
 <p>Therefore, we define a prefix sum array $ss$, where $ss[i][j]$ represents the number of times character $j$ appears in the first $i$ characters of string $s$. Then for a substring $s[l..r]$, we can get the number of times character $j$ appears in the substring through $ss[r + 1][j] - ss[l][j]$. We traverse all queries. For each query $[l, r, k]$, we count the number of characters $x$ that appear an odd number of times in the substring $s[l..r]$. If $\lfloor \frac{x}{2} \rfloor \leq k$, then this substring can become a palindrome.</p>
@@ -75923,7 +75931,9 @@ queries[4]: substring = &quot;abcda&quot;, could be changed to &quot;abcba&quot;
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

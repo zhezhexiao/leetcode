@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="656"><a href="https://leetcode.cn/problems/coin-path">656. 成本最小路径 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>coins</code>（下标从 <strong>1</strong> 开始）长度为 <code>n</code>，以及一个整数 <code>maxJump</code>。你可以跳到数组 <code>coins</code> 的任意下标 <code>i</code>（满足 <code>coins[i] != -1</code>），访问下标 <code>i</code> 时需要支付 <code>coins[i]</code>。此外，如果你当前位于下标 <code>i</code>，你只能跳到下标 <code>i + k</code>（满足 <code>i + k &lt;= n</code>），其中 <code>k</code> 是范围 <code>[1, maxJump]</code> 内的一个值。</p>
 
@@ -80292,7 +80294,11 @@
     <li><code>1 &lt;= maxJump &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划（逆向）</h3>
 <p>题目需要我们找到从下标 1 到下标 n 的最小花费路径，且字典序最小，我们可以使用动态规划求解。</p>
 <p>我们定义 $f[i]$ 表示从下标 $i$ 到下标 $n-1$ 的最小花费。如果 $coins[n - 1] = -1$，则不存在从下标 $n-1$ 到下标 $n-1$ 的路径，直接返回空数组即可。否则 $f[n - 1] = coins[n - 1]$。</p>
@@ -80593,7 +80599,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

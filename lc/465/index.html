@@ -80269,11 +80269,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="465"><a href="https://leetcode.cn/problems/optimal-account-balancing">465. 最优账单平衡 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个表示交易的数组 <code>transactions</code> ，其中 <code>transactions[i] = [from<sub>i</sub>, to<sub>i</sub>, amount<sub>i</sub>]</code> 表示 <code>ID = from<sub>i</sub></code> 的人给&nbsp;<code>ID = to<sub>i</sub></code> 的人共计 <code>amount<sub>i</sub> $</code> 。</p>
 
@@ -80316,7 +80318,11 @@
     <li><code>1 &lt;= amount<sub>i</sub> &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：状态压缩动态规划 + 子集枚举</h3>
 <p>我们先遍历数组 <code>transactions</code>，统计每个人的收支情况，然后将所有收支不为零的人的收支情况存入数组 $nums$ 中。如果我们可以找到一个子集，子集中共有 $k$ 个人，且这 $k$ 个人的收支情况之和为零，那么我们最多通过 $k-1$ 次交易，就能够使得这 $k$ 个人的收支情况全部清零。这样，我们就能将原问题转化成一个子集枚举的问题。</p>
 <p>我们定义 $f[i]$ 表示将集合 $i$ 的所有元素的收支情况全部清零，所需的最少交易次数，初始时 $f[0]=0$，其余 $f[i]=+\infty$。</p>
@@ -80660,7 +80666,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

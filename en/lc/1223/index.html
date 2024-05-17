@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1223-dice-roll-simulation"><a href="https://leetcode.com/problems/dice-roll-simulation">1223. Dice Roll Simulation</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 158 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 158 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2008-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2008-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>A die simulator generates a random number from <code>1</code> to <code>6</code> for each roll. You introduced a constraint to the generator such that it cannot roll the number <code>i</code> more than <code>rollMax[i]</code> (<strong>1-indexed</strong>) consecutive times.</p>
 
 <p>Given an array of integers <code>rollMax</code> and an integer <code>n</code>, return <em>the number of distinct sequences that can be obtained with exact </em><code>n</code><em> rolls</em>. Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
@@ -75702,7 +75706,11 @@
     <li><code>1 &lt;= rollMax[i] &lt;= 15</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memoization-search">Solution 1: Memoization Search</h3>
 <p>We can design a function $dfs(i, j, x)$ to represent the number of schemes starting from the $i$-th dice roll, with the current dice roll being $j$, and the number of consecutive times $j$ is rolled being $x$. The range of $j$ is $[1, 6]$, and the range of $x$ is $[1, rollMax[j - 1]]$. The answer is $dfs(0, 0, 0)$.</p>
 <p>The calculation process of the function $dfs(i, j, x)$ is as follows:</p>
@@ -75914,6 +75922,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
 <p>We can change the memoization search in Solution 1 to dynamic programming.</p>
 <p>Define $f[i][j][x]$ as the number of schemes for the first $i$ dice rolls, with the $i$-th dice roll being $j$, and the number of consecutive times $j$ is rolled being $x$. Initially, $f[1][j][1] = 1$, where $1 \leq j \leq 6$. The answer is:</p>
@@ -76149,7 +76161,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

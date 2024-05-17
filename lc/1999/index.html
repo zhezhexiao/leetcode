@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1999"><a href="https://leetcode.cn/problems/smallest-greater-multiple-made-of-two-digits">1999. 最小的仅由两个数组成的倍数 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你三个整数, <code>k</code>, <code>digit1</code>和&nbsp;<code>digit2</code>, 你想要找到满足以下条件的 <strong>最小 </strong>整数：</p>
 
@@ -80304,7 +80306,11 @@
     <li><code>0 &lt;= digit2 &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="bfs">方法一：BFS</h3>
 <p>我们观察 $k$ 的范围，发现 $1 \leq k \leq 1000$，因此，如果 $digit1$ 和 $digit2$ 都为 $0$，那么一定不存在满足条件的整数，直接返回 $-1$ 即可。</p>
 <p>否则，我们不妨设 $digit1 \leq digit2$，接下来我们可以使用 BFS 的方法，初始时将整数 $0$ 入队，然后不断地从队首取出一个整数 $x$，如果 $x \gt 2^{31} - 1$，那么说明不存在满足条件的整数，直接返回 $-1$ 即可。如果 $x \gt k$ 且 $x \bmod k = 0$，那么说明找到了满足条件的整数，直接返回 $x$ 即可。否则，我们将其乘以 $10$ 后加上 $digit1$ 和 $digit2$，并将这两个整数入队，继续进行搜索。</p>
@@ -80501,7 +80507,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

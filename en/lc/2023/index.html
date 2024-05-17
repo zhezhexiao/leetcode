@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2023-number-of-pairs-of-strings-with-concatenation-equal-to-target"><a href="https://leetcode.com/problems/number-of-pairs-of-strings-with-concatenation-equal-to-target">2023. Number of Pairs of Strings With Concatenation Equal to Target</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 62 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 62 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1341-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1341-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an array of <strong>digit</strong> strings <code>nums</code> and a <strong>digit</strong> string <code>target</code>, return <em>the number of pairs of indices </em><code>(i, j)</code><em> (where </em><code>i != j</code><em>) such that the <strong>concatenation</strong> of </em><code>nums[i] + nums[j]</code><em> equals </em><code>target</code>.</p>
 
 <p>&nbsp;</p>
@@ -75726,7 +75730,11 @@
     <li><code>nums[i]</code> and <code>target</code> do not have leading zeros.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
 <p>Traverse the array <code>nums</code>, for each $i$, enumerate all $j$, if $i \neq j$ and $nums[i] + nums[j] = target$, then increment the answer by one.</p>
 <p>The time complexity is $O(n^2 \times m)$, where $n$ and $m$ are the lengths of the array <code>nums</code> and the string <code>target</code>, respectively. The space complexity is $O(1)$.</p>
@@ -75828,6 +75836,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-hash-table">Solution 2: Hash Table</h3>
 <p>We can use a hash table to count the occurrence of each string in the array <code>nums</code>, then traverse all prefixes and suffixes of the string <code>target</code>. If both the prefix and suffix are in the hash table, then increment the answer by the product of their occurrences.</p>
 <p>The time complexity is $O(n + m^2)$, and the space complexity is $O(n)$. Here, $n$ and $m$ are the lengths of the array <code>nums</code> and the string <code>target</code>, respectively.</p>
@@ -75975,7 +75987,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

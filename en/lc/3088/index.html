@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3088-make-string-anti-palindrome"><a href="https://leetcode.com/problems/make-string-anti-palindrome">3088. Make String Anti-palindrome 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>We call a string <code>s</code> of <strong>even</strong> length <code>n</code> an <strong>anti-palindrome</strong> if for each index <code>0 &lt;= i &lt; n</code>, <code>s[i] != s[n - i - 1]</code>.</p>
 
 <p>Given a string <code>s</code>, your task is to make <code>s</code> an <strong>anti-palindrome</strong> by doing <strong>any</strong> number of operations (including zero).</p>
@@ -75715,7 +75719,11 @@
     <li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-sorting">Solution 1: Greedy + Sorting</h3>
 <p>The problem asks us to transform the string $s$ into the lexicographically smallest non-palindrome string. We might as well sort the string $s$ first.</p>
 <p>Next, we only need to compare whether the two middle characters $s[m]$ and $s[m-1]$ are equal. If they are equal, we find the first character $s[i]$ in the second half that is not equal to $s[m]$, use a pointer $j$ to point to $m$, and then swap $s[i]$ and $s[j]$. If we can't find such a character $s[i]$, it means that the string $s$ cannot be transformed into a non-palindrome string, return <code>"1"</code>. Otherwise, perform the swap operation, move $i$ and $j$ to the right, compare whether $s[j]$ and $s[n-j-1]$ are equal, if they are equal, continue to perform the swap operation until $i$ exceeds the length of the string.</p>
@@ -75924,7 +75932,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

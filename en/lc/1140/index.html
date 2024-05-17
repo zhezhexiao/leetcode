@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1140-stone-game-ii"><a href="https://leetcode.com/problems/stone-game-ii">1140. Stone Game II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 147 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 147 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2034-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2034-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Alice and Bob continue their&nbsp;games with piles of stones.&nbsp; There are a number of&nbsp;piles&nbsp;<strong>arranged in a row</strong>, and each pile has a positive integer number of stones&nbsp;<code>piles[i]</code>.&nbsp; The objective of the game is to end with the most&nbsp;stones.&nbsp;</p>
 
 <p>Alice&nbsp;and Bob take turns, with Alice starting first.&nbsp; Initially, <code>M = 1</code>.</p>
@@ -75716,7 +75720,11 @@
     <li><code>1 &lt;= piles[i]&nbsp;&lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-prefix-sum-memoization-search">Solution 1: Prefix Sum + Memoization Search</h3>
 <p>Since the player can take all the stones from the first $X$ piles each time, that is, they can take the stones from an interval, we can first preprocess a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the sum of the first $i$ elements of the array <code>piles</code>.</p>
 <p>Then we design a function $dfs(i, m)$, which represents the maximum number of stones that the current player can take when they can start from index $i$ of the array <code>piles</code>, and the current $M$ is $m$. Initially, Alice starts from index $0$, and $M=1$, so the answer we need to find is $dfs(0, 1)$.</p>
@@ -75972,6 +75980,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2">Solution 2</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
 <div class="tabbed-content">
@@ -76005,7 +76017,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

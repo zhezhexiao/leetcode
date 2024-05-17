@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2021"><a href="https://leetcode.cn/problems/brightest-position-on-street">2021. 街上最亮的位置 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一条街上有很多的路灯，路灯的坐标由数组&nbsp;<code>lights&nbsp;</code>的形式给出。&nbsp;每个&nbsp;<code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code>&nbsp;代表坐标为&nbsp;<code>position<sub>i</sub></code>&nbsp;的路灯照亮的范围为&nbsp;<code>[position<sub>i</sub> - range<sub>i</sub>, position<sub>i</sub> + range<sub>i</sub>]</code>&nbsp;<strong>（包括顶点）。</strong></p>
 
@@ -80307,7 +80309,11 @@
     <li><code>0 &lt;= range<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：差分数组 + 哈希表 + 排序</h3>
 <p>我们可以将每个路灯照亮的范围看作是一个区间，区间左端点 $l = position_i - range_i$，区间右端点 $r = position_i + range_i$。我们可以利用差分数组的思想，对于每个区间 $[l, r]$，将位置 $l$ 的值加 $1$，将位置 $r + 1$ 的值减 $1$，用哈希表维护每个位置的变化值。</p>
 <p>然后从小到大遍历每个位置，计算当前位置的亮度 $s$，如果此前的最大亮度 $mx \lt s$，则更新最大亮度 $mx = s$，并记录当前位置 $ans = i$。</p>
@@ -80537,7 +80543,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

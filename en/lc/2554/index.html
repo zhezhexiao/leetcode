@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2554-maximum-number-of-integers-to-choose-from-a-range-i"><a href="https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-i">2554. Maximum Number of Integers to Choose From a Range I</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 97 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 97 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1333-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1333-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>banned</code> and two integers <code>n</code> and <code>maxSum</code>. You are choosing some number of integers following the below rules:</p>
 
 <ul>
@@ -75729,7 +75733,11 @@ They are from the range [1, 7], all did not appear in banned, and their sum is 2
     <li><code>1 &lt;= maxSum &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-enumeration">Solution 1: Greedy + Enumeration</h3>
 <p>We use the variable $s$ to represent the sum of the currently selected integers, and the variable $ans$ to represent the number of currently selected integers. We convert the array <code>banned</code> into a hash table for easy determination of whether a certain integer is not selectable.</p>
 <p>Next, we start enumerating the integer $i$ from $1$. If $s + i \leq maxSum$ and $i$ is not in <code>banned</code>, then we can select the integer $i$, and add $i$ and $1$ to $s$ and $ans$ respectively.</p>
@@ -75979,6 +75987,10 @@ They are from the range [1, 7], all did not appear in banned, and their sum is 2
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-greedy-binary-search">Solution 2: Greedy + Binary Search</h3>
 <p>If $n$ is very large, the enumeration in Method One will time out.</p>
 <p>We can add $0$ and $n + 1$ to the array <code>banned</code>, deduplicate the array <code>banned</code>, remove elements greater than $n+1$, and then sort it.</p>
@@ -76218,7 +76230,9 @@ They are from the range [1, 7], all did not appear in banned, and their sum is 2
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

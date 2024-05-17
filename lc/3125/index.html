@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3125-0"><a href="https://leetcode.cn/problems/maximum-number-that-makes-result-of-bitwise-and-zero">3125. 使得按位与结果为 0 的最大数字 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数&nbsp;<code>n</code>，返回&nbsp;<strong>最大的</strong>&nbsp;整数&nbsp;<code>x</code> 使得&nbsp;<code>x &lt;= n</code>，并且所有在范围 <code>[x, n]</code>&nbsp;内的数组的按位&nbsp;<code>AND</code>&nbsp;为 0。</p>
 <p>&nbsp;</p>
@@ -80316,7 +80318,11 @@
     <li><code>1 &lt;= n &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：位运算</h3>
 <p>我们可以找到 $n$ 的二进制表示中最高位的 $1$，那么最大的 $x$ 一定小于 $n$ 且该位为 $0$，其他低位均为 $1$，即 $x = 2^{\text{最高位的位数} - 1} - 1$。这是因为 $x \text{ and } (x + 1) = 0$ 一定成立。</p>
 <p>时间复杂度 $O(\log n)$，空间复杂度 $O(1)$。</p>
@@ -80366,7 +80372,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80278,11 +80278,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2992"><a href="https://leetcode.cn/problems/number-of-self-divisible-permutations">2992. 自整除排列的数量 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数 <code>n</code>，返回 <strong>下标从 1 开始</strong> 的数组 <code>nums = [1, 2, ..., n]</code>的 <strong>可能的排列组合数量</strong>，使其满足 <strong>自整除</strong> 条件。</p>
 
@@ -80336,7 +80338,11 @@ nums = [2,1]：这是自整除的，因为 gcd(nums[1], 1) == 1 并且 gcd(nums[
     <li><code>1 &lt;= n &lt;= 12</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：状态压缩 + 记忆化搜索</h3>
 <p>我们可以用一个二进制数 $mask$ 来表示当前排列的状态，其中第 $i$ 位为 $1$ 表示数字 $i$ 已经被使用，为 $0$ 表示数字 $i$ 还未被使用。</p>
 <p>那么，我们设计一个函数 $dfs(mask)$，表示从当前排列的状态 $mask$ 开始，能够构造出的满足题目要求的排列的数量。答案即为 $dfs(0)$。</p>
@@ -80595,6 +80601,10 @@ nums = [2,1]：这是自整除的，因为 gcd(nums[1], 1) == 1 并且 gcd(nums[
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：状态压缩 + 动态规划</h3>
 <p>我们可以将方法一中的记忆化搜索改写为动态规划的形式，定义 $f[mask]$ 表示当前排列的状态为 $mask$，且满足题目要求的排列的数量。初始时 $f[0]=1$，其余值均为 $0$。</p>
 <p>我们在 $[0, 2^n)$ 的范围内枚举 $mask$，对于每个 $mask$，我们用 $i$ 表示当前最后一个加入排列的是第几个数字，然后我们枚举当前排列中最后一个加入的数字 $j$，如果 $i$ 和 $j$ 满足题目要求，那么状态 $f[mask]$ 就可以从状态 $f[mask \oplus 2^(j-1)]$ 转移而来，其中 $\oplus$ 表示按位异或运算。我们将所有转移得到的状态 $f[mask \oplus 2^(j-1)]$ 的值累加到 $f[mask]$ 上，即为 $f[mask]$ 的值。</p>
@@ -80768,7 +80778,9 @@ nums = [2,1]：这是自整除的，因为 gcd(nums[1], 1) == 1 并且 gcd(nums[
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

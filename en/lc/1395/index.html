@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1395-count-number-of-teams"><a href="https://leetcode.com/problems/count-number-of-teams">1395. Count Number of Teams</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 182 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 182 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1343-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1343-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There are <code>n</code> soldiers standing in a line. Each soldier is assigned a <strong>unique</strong> <code>rating</code> value.</p>
 
 <p>You have to form a team of 3 soldiers amongst them under the following rules:</p>
@@ -75715,7 +75719,11 @@
     <li>All the integers in <code>rating</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumerate-middle-element">Solution 1: Enumerate Middle Element</h3>
 <p>We can enumerate each element $rating[i]$ in the array $rating$ as the middle element, then count the number of elements $l$ that are smaller than it on the left, and the number of elements $r$ that are larger than it on the right. The number of combat units with this element as the middle element is $l \times r + (i - l) \times (n - i - 1 - r)$. We can add this to the answer.</p>
 <p>The time complexity is $O(n^2)$, and the space complexity is $O(1)$. Where $n$ is the length of the array $rating$.</p>
@@ -75921,6 +75929,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-binary-indexed-tree">Solution 2: Binary Indexed Tree</h3>
 <p>We can use two binary indexed trees to maintain the number of elements $l$ that are smaller than each element on the left in the array $rating$, and the number of elements $r$ that are larger than it on the right. Then count the number of combat units with this element as the middle element as $l \times r + (i - l) \times (n - i - 1 - r)$, and add this to the answer.</p>
 <p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array $rating$.</p>
@@ -76506,7 +76518,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

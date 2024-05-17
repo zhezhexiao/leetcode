@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1862-sum-of-floored-pairs"><a href="https://leetcode.com/problems/sum-of-floored-pairs">1862. Sum of Floored Pairs</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 52 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 52 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2170-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2170-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code>, return the sum of <code>floor(nums[i] / nums[j])</code> for all pairs of indices <code>0 &lt;= i, j &lt; nums.length</code> in the array. Since the answer may be too large, return it <strong>modulo</strong> <code>10<sup>9</sup> + 7</code>.</p>
 
 <p>The <code>floor()</code> function returns the integer part of the division.</p>
@@ -75701,7 +75705,11 @@ We calculate the floor of the division for every pair of indices in the array th
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-prefix-sum-of-value-range-optimized-enumeration">Solution 1: Prefix Sum of Value Range + Optimized Enumeration</h3>
 <p>First, we count the occurrences of each element in the array $nums$ and record them in the array $cnt$. Then, we calculate the prefix sum of the array $cnt$ and record it in the array $s$, i.e., $s[i]$ represents the count of elements less than or equal to $i$.</p>
 <p>Next, we enumerate the denominator $y$ and the quotient $d$. Using the prefix sum array, we can calculate the count of the numerator $s[\min(mx, d \times y + y - 1)] - s[d \times y - 1]$, where $mx$ represents the maximum value in the array $nums$. Then, we multiply the count of the numerator by the count of the denominator $cnt[y]$, and then multiply by the quotient $d$. This gives us the value of all fractions that meet the conditions. By summing these values, we can get the answer.</p>
@@ -76022,7 +76030,9 @@ We calculate the floor of the division for every pair of indices in the array th
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

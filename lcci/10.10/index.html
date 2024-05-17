@@ -80234,11 +80234,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1010"><a href="https://leetcode.cn/problems/rank-from-stream-lcci">面试题 10.10. 数字流的秩</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>假设你正在读取一串整数。每隔一段时间，你希望能找出数字 x 的秩(小于或等于 x 的值的个数)。请实现数据结构和算法来支持这些操作，也就是说：</p>
 
 <p>实现 <code>track(int x)</code>&nbsp;方法，每读入一个数字都会调用该方法；</p>
@@ -80263,7 +80266,11 @@
     <li><code>track</code>&nbsp;和&nbsp;<code>getRankOfNumber</code> 方法的调用次数均不超过 2000 次</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：树状数组</h3>
 <p>我们可以使用树状数组维护添加过的数字中，有多少个数字小于等于当前数字。</p>
 <p>我们创建一个长度为 $50010$ 的树状数组，对于 <code>track</code> 方法，我们将当前数字加一，添加到树状数组中，对于 <code>getRankOfNumber</code> 方法，我们直接查询树状数组中小于等于 $x + 1$ 的数字个数。</p>
@@ -80808,7 +80815,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2102"><a href="https://leetcode.cn/problems/sequentially-ordinal-rank-tracker">2102. 序列顺序查询</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 67 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 67 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2158-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2158-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 67 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 67 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2158-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2158-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一个观光景点由它的名字&nbsp;<code>name</code> 和景点评分&nbsp;<code>score</code>&nbsp;组成，其中&nbsp;<code>name</code>&nbsp;是所有观光景点中&nbsp;<strong>唯一</strong>&nbsp;的字符串，<code>score</code>&nbsp;是一个整数。景点按照最好到最坏排序。景点评分 <strong>越高</strong>&nbsp;，这个景点越好。如果有两个景点的评分一样，那么 <strong>字典序较小</strong>&nbsp;的景点更好。</p>
 
@@ -80349,7 +80351,11 @@ tracker.get();              // 从好到坏的景点为：branford, orlando, alp
     <li><strong>总共</strong>&nbsp;调用&nbsp;<code>add</code> 和&nbsp;<code>get</code>&nbsp;不超过&nbsp;<code>4 * 10<sup>4</sup></code>&nbsp;</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：有序集合</h3>
 <p>我们可以使用有序集合来存储景点，用一个变量 $i$ 来记录当前查询的次数，初始时 $i = -1$。</p>
 <p>调用 <code>add</code> 方法时，我们将景点的评分取负数，这样就可以使用有序集合按照评分从大到小排序，如果评分相同，按照景点名字的字典序从小到大排序。</p>
@@ -80467,6 +80473,10 @@ tracker.get();              // 从好到坏的景点为：branford, orlando, alp
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：双优先队列（大小根堆）</h3>
 <p>我们注意到，由于本题中的查询操作是按照严格递增的顺序进行的，因此我们可以使用类似于数据流中的中位数的方法，定义两个优先队列 <code>good</code> 和 <code>bad</code>，其中 <code>good</code> 是一个小根堆，存储当前最好的景点，<code>bad</code> 是一个大根堆，存储当前第 $i$ 好的景点。</p>
 <p>每次调用 <code>add</code> 方法时，我们将景点的评分和名字加入 <code>good</code> 中，然后将 <code>good</code> 中的最差的景点加入 <code>bad</code> 中。</p>
@@ -80658,7 +80668,9 @@ tracker.get();              // 从好到坏的景点为：branford, orlando, alp
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

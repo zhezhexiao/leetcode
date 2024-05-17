@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2904-shortest-and-lexicographically-smallest-beautiful-string"><a href="https://leetcode.com/problems/shortest-and-lexicographically-smallest-beautiful-string">2904. Shortest and Lexicographically Smallest Beautiful String</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 367 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 367 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1483-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1483-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a binary string <code>s</code> and a positive integer <code>k</code>.</p>
 
 <p>A substring of <code>s</code> is <strong>beautiful</strong> if the number of <code>1</code>&#39;s in it is exactly <code>k</code>.</p>
@@ -75725,7 +75729,11 @@ The lexicographically smallest beautiful substring with length 2 is the substrin
     <li><code>1 &lt;= k &lt;= s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
 <p>We can enumerate all substrings $s[i: j]$, where $i \lt j$, and check if they are beautiful substrings. If so, we update the answer.</p>
 <p>The time complexity is $O(n^3)$, and the space complexity is $O(n)$. Here, $n$ is the length of the string $s$.</p>
@@ -75953,6 +75961,10 @@ The lexicographically smallest beautiful substring with length 2 is the substrin
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-two-pointers">Solution 2: Two Pointers</h3>
 <p>We can also use two pointers to maintain a sliding window, where pointer $i$ points to the left boundary of the window, and pointer $j$ points to the right boundary of the window. Initially, $i$ and $j$ both point to $0$. In addition, we use a variable $cnt$ to record the number of $1$s in the sliding window.</p>
 <p>We first move pointer $j$ to the right, add $s[j]$ to the sliding window, and update $cnt$. If $cnt$ is greater than $k$, or if $i$ is less than $j$ and $s[i]$ is $0$, we move pointer $i$ to the right and update $cnt$.</p>
@@ -76226,7 +76238,9 @@ The lexicographically smallest beautiful substring with length 2 is the substrin
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

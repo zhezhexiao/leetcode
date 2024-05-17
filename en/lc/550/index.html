@@ -75654,10 +75654,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="550-game-play-analysis-iv"><a href="https://leetcode.com/problems/game-play-analysis-iv">550. Game Play Analysis IV</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <code>Activity</code></p>
 
 <pre>
@@ -75705,7 +75709,11 @@ Activity table:
 Only the player with id 1 logged back in after the first day he had logged in so the answer is 1/3 = 0.33
 </pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-grouping-and-minimum-value-left-join">Solution 1: Grouping and Minimum Value + Left Join</h3>
 <p>We can first find the first login date of each player, and then perform a left join with the original table, with the join condition being that the player ID is the same and the date difference is $-1$, which means the player logged in on the second day. Then, we only need to calculate the ratio of non-null players among the players who logged in on the second day.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">MySQL</label></div>
@@ -75760,6 +75768,10 @@ Only the player with id 1 logged back in after the first day he had logged in so
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-window-function">Solution 2: Window Function</h3>
 <p>We can use the <code>LEAD</code> window function to get the next login date of each player. If the next login date is one day after the current login date, it means that the player logged in on the second day, and we use a field $st$ to record this information. Then, we use the <code>RANK</code> window function to rank the player IDs in ascending order by date, and get the login ranking of each player. Finally, we only need to calculate the ratio of non-null $st$ values among the players with a ranking of $1$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -75810,7 +75822,9 @@ Only the player with id 1 logged back in after the first day he had logged in so
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

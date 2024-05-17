@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="673-number-of-longest-increasing-subsequence"><a href="https://leetcode.com/problems/number-of-longest-increasing-subsequence">673. Number of Longest Increasing Subsequence</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an integer array&nbsp;<code>nums</code>, return <em>the number of longest increasing subsequences.</em></p>
 
 <p><strong>Notice</strong> that the sequence has to be <strong>strictly</strong> increasing.</p>
@@ -75705,7 +75709,11 @@
     <li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
 <p>We define $f[i]$ as the length of the longest increasing subsequence ending with $nums[i]$, and $cnt[i]$ as the number of longest increasing subsequences ending with $nums[i]$. Initially, $f[i]=1$, $cnt[i]=1$. Also, we define $mx$ as the length of the longest increasing subsequence, and $ans$ as the number of longest increasing subsequences.</p>
 <p>For each $nums[i]$, we enumerate all elements $nums[j]$ in $nums[0:i-1]$. If $nums[j] &lt; nums[i]$, then $nums[i]$ can be appended after $nums[j]$ to form a longer increasing subsequence. If $f[i] &lt; f[j] + 1$, it means the length of the longest increasing subsequence ending with $nums[i]$ has increased, so we need to update $f[i]=f[j]+1$ and $cnt[i]=cnt[j]$. If $f[i]=f[j]+1$, it means we have found a longest increasing subsequence with the same length as before, so we need to increase $cnt[i]$ by $cnt[j]$. Then, if $mx &lt; f[i]$, it means the length of the longest increasing subsequence has increased, so we need to update $mx=f[i]$ and $ans=cnt[i]$. If $mx=f[i]$, it means we have found a longest increasing subsequence with the same length as before, so we need to increase $ans$ by $cnt[i]$.</p>
@@ -76035,6 +76043,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-binary-indexed-tree">Solution 2: Binary Indexed Tree</h3>
 <p>We can use a binary indexed tree to maintain the length and count of the longest increasing subsequence in the prefix interval. We remove duplicates from the array $nums$ and sort it to get the array $arr$. Then we enumerate each element $x$ in $nums$, find the position $i$ of $x$ in the array $arr$ by binary search, then query the length and count of the longest increasing subsequence in $[1,i-1]$, denoted as $v$ and $cnt$, then update the length and count of the longest increasing subsequence in $[i]$ to $v+1$ and $\max(cnt,1)$. Finally, we query the length and count of the longest increasing subsequence in $[1,m]$, where $m$ is the length of the array $arr$, which is the answer.</p>
 <p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.</p>
@@ -76706,7 +76718,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

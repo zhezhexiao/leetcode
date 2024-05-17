@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2464-minimum-subarrays-in-a-valid-split"><a href="https://leetcode.com/problems/minimum-subarrays-in-a-valid-split">2464. Minimum Subarrays in a Valid Split 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code>.</p>
 
 <p>Splitting of an integer array <code>nums</code> into <strong>subarrays</strong> is <strong>valid</strong> if:</p>
@@ -75724,7 +75728,11 @@ It can be proved that 2 is the minimum number of subarrays that we can obtain in
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memoization-search">Solution 1: Memoization Search</h3>
 <p>We design a function $dfs(i)$ to represent the minimum number of partitions starting from index $i$. For index $i$, we can enumerate all partition points $j$, i.e., $i \leq j &lt; n$, where $n$ is the length of the array. For each partition point $j$, we need to determine whether the greatest common divisor of $nums[i]$ and $nums[j]$ is greater than $1$. If it is greater than $1$, we can partition, and the number of partitions is $1 + dfs(j + 1)$; otherwise, the number of partitions is $+\infty$. Finally, we take the minimum of all partition numbers.</p>
 <p>The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array.</p>
@@ -75954,7 +75962,9 @@ It can be proved that 2 is the minimum number of subarrays that we can obtain in
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

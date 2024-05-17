@@ -80254,11 +80254,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1114"><a href="https://leetcode.cn/problems/print-in-order">1114. 按序打印</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个类：</p>
 
@@ -80314,7 +80316,11 @@ public class Foo {
     <li><code>nums</code> 是 <code>[1, 2, 3]</code> 的一组排列</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：多线程 + 锁或信号量</h3>
 <p>我们可以用三个信号量 $a$, $b$, $c$ 来控制三个线程的执行顺序，初始时 $a$ 信号量的计数为 $1$，$b$ 和 $c$ 的计数为 $0$。</p>
 <p>线程 $A$ 在执行 <code>first()</code> 方法时，首先需要获取 $a$ 信号量，获取成功后执行 <code>first()</code> 方法，然后释放 $b$ 信号量，这样线程 $B$ 就可以获取 $b$ 信号量并执行 <code>second()</code> 方法。</p>
@@ -80479,6 +80485,10 @@ public class Foo {
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">C++</label></div>
 <div class="tabbed-content">
@@ -80608,7 +80618,9 @@ public class Foo {
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

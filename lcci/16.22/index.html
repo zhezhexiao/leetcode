@@ -80234,11 +80234,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1622"><a href="https://leetcode.cn/problems/langtons-ant-lcci">面试题 16.22. 兰顿蚂蚁</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一只蚂蚁坐在由白色和黑色方格构成的无限网格上。开始时，网格全白，蚂蚁面向右侧。每行走一步，蚂蚁执行以下操作。</p>
 <p>(1) 如果在白色方格上，则翻转方格的颜色，向右(顺时针)转 90 度，并向前移动一个单位。<br>
@@ -80271,7 +80273,11 @@
     <li><code>K &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 模拟</h3>
 <p>我们使用哈希表 $\textit{black}$ 来记录所有黑色方格的位置，哈希表 $\textit{dirs}$ 来记录蚂蚁的四个方向。我们使用变量 $x$, $y$ 来记录蚂蚁的位置，使用变量 $p$ 来记录蚂蚁的方向。我们使用变量 $x_1$, $y_1$, $x_2$, $y_2$ 来记录所有黑色方格的最小横坐标、最小纵坐标、最大横坐标、最大纵坐标。</p>
 <p>我们模拟蚂蚁的行走过程。如果蚂蚁所在的方格是白色的，那么蚂蚁向右转 $90$ 度，将方格涂黑，向前移动一个单位。如果蚂蚁所在的方格是黑色的，那么蚂蚁向左转 $90$ 度，将方格涂白，向前移动一个单位。在模拟的过程中，我们不断更新 $x_1$, $y_1$, $x_2$, $y_2$ 的值，使得它们能够包含蚂蚁走过的所有方格。</p>
@@ -80659,7 +80665,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

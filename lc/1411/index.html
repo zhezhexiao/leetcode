@@ -80254,11 +80254,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1411-n-x-3"><a href="https://leetcode.cn/problems/number-of-ways-to-paint-n-3-grid">1411. 给 N x 3 网格图涂色的方案数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 184 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 184 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1844-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1844-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 184 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 184 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1844-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1844-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你有一个 <code>n x 3</code>&nbsp;的网格图 <code>grid</code>&nbsp;，你需要用 <strong>红，黄，绿</strong>&nbsp;三种颜色之一给每一个格子上色，且确保相邻格子颜色不同（也就是有相同水平边或者垂直边的格子颜色不同）。</p>
 
@@ -80310,7 +80312,11 @@
     <li><code>1 &lt;= n &lt;= 5000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：递推</h3>
 <p>把每一行所有可能的状态进行分类。根据对称性原理，当一行只有 $3$ 个元素时，所有合法状态分类为 $010$ 型以及 $012$ 型。</p>
 <ul>
@@ -80459,6 +80465,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：状态压缩 + 动态规划</h3>
 <p>我们注意到，网格只有 $3$ 列，那么一行中最多有 $3^3=27$ 种不同的涂色方案。</p>
 <p>因此，我们定义 $f[i][j]$ 表示前 $i$ 行中，第 $i$ 行的涂色状态为 $j$ 的方案数。状态 $f[i][j]$ 由 $f[i - 1][k]$ 转移而来，其中 $k$ 是第 $i - 1$ 行的涂色状态，且 $k$ 和 $j$ 满足不同颜色相邻的要求。即：</p>
@@ -81009,7 +81019,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

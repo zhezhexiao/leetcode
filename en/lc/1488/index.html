@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1488-avoid-flood-in-the-city"><a href="https://leetcode.com/problems/avoid-flood-in-the-city">1488. Avoid Flood in The City</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 194 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 194 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1973-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1973-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Your country has an infinite number of lakes. Initially, all the lakes are empty, but when it rains over the <code>nth</code> lake, the <code>nth</code> lake becomes full of water. If it rains over a lake that is <strong>full of water</strong>, there will be a <strong>flood</strong>. Your goal is to avoid floods in any lake.</p>
 
 <p>Given an integer array <code>rains</code> where:</p>
@@ -75738,7 +75742,11 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
     <li><code>0 &lt;= rains[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-binary-search">Solution 1: Greedy + Binary Search</h3>
 <p>We store all sunny days in the $sunny$ array or a sorted set, and use the hash table $rainy$ to record the last rainy day for each lake. We initialize the answer array $ans$ with each element set to $-1$.</p>
 <p>Next, we traverse the $rains$ array. For each rainy day $i$, if $rainy[rains[i]]$ exists, it means that the lake has rained before, so we need to find the first date in the $sunny$ array that is greater than $rainy[rains[i]]$, and replace it with the rainy day. Otherwise, it means that the flood cannot be prevented, and we return an empty array. For each non-rainy day $i$, we store $i$ in the $sunny$ array and set $ans[i]$ to $1$.</p>
@@ -76990,7 +76998,9 @@ After that, it will rain over lakes [1,2]. It&#39;s easy to prove that no matter
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

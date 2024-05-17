@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2499"><a href="https://leetcode.cn/problems/minimum-total-cost-to-make-arrays-unequal">2499. 让数组不相等的最小总代价</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 93 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 93 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2633-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2633-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 93 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 93 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2633-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2633-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums1</code>&nbsp;和&nbsp;<code>nums2</code>&nbsp;，两者长度都为&nbsp;<code>n</code>&nbsp;。</p>
 
@@ -80325,7 +80327,11 @@
     <li><code>1 &lt;= nums1[i], nums2[i] &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：贪心</h3>
 <p>我们先同时遍历数组 <code>nums1</code> 和 <code>nums2</code>，统计相同位置上的值相同的个数 <code>same</code>，这些位置上的值必须交换，因此，将这些位置下标累加到答案中。另外，用数组或哈希表 <code>cnt</code> 统计这些相同值的出现次数。</p>
 <p>如果所有相同值的出现次数均不超过 <code>same</code> 的一半，那么意味着，我们可以在其内部，通过两两交换，使得对应位置上的值不同，而这些交换，已经在上面累加下标时计入了答案中了，无需额外的代价。否则，如果某个值的出现次数超过 <code>same</code> 的一半，那么对于这个值就是多出的个数，我们需要在数组的其他位置上找到合适的，进行交换。这里我们可以直接遍历一遍数组得出。</p>
@@ -80575,7 +80581,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

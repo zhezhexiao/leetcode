@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2773"><a href="https://leetcode.cn/problems/height-of-special-binary-tree">2773. 特殊二叉树的高度 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一棵具有 <code>n</code> 个节点的 <strong>特殊</strong> 二叉树的根节点 <code>root</code> 。特殊二叉树的节点编号从 <code>1</code> 到 <code>n</code> 。假设这棵树有 <code>k</code> 个叶子，顺序如下：<code>b<sub>1</sub> &lt; b<sub>2</sub> &lt; ... &lt; b<sub>k</sub></code> 。</p>
 
@@ -80325,7 +80327,11 @@
     <li>输入保证每个 <code>node.val</code> 的值是唯一的。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="dfs">方法一：DFS</h3>
 <p>题目的关键在于如何判断一个节点是叶子节点，我们设计一个函数 $dfs(root, d)$，其中 $root$ 表示当前节点，而 $d$ 表示当前节点的深度，我们每次搜索时，更新答案 $ans = \max(ans, d)$，然后判断当前节点是否为叶子节点，如果当前节点有左子节点，且左子节点的右子节点不是当前节点，那么我们递归调用 $dfs(root.left, d + 1)$，如果当前节点有右子节点，且右子节点的左子节点不是当前节点，那么我们递归调用 $dfs(root.right, d + 1)$。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(n)$。其中 $n$ 是二叉树的节点数。</p>
@@ -80609,7 +80615,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1238-circular-permutation-in-binary-representation"><a href="https://leetcode.com/problems/circular-permutation-in-binary-representation">1238. Circular Permutation in Binary Representation</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 160 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 160 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1774-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1774-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given 2 integers <code>n</code> and <code>start</code>. Your task is return <strong>any</strong> permutation <code>p</code>&nbsp;of <code>(0,1,2.....,2^n -1) </code>such that :</p>
 
 <ul>
@@ -75722,7 +75726,11 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-code-to-gray-code">Solution 1: Binary Code to Gray Code</h3>
 <p>We observe the arrangement in the problem, and find that in its binary representation, only one bit is different between any two (including the first and last) adjacent numbers. This kind of coding method is Gray code, which is a coding method we will encounter in engineering.</p>
 <p>The rule for converting binary code to binary Gray code is to keep the highest bit of the binary code as the highest bit of the Gray code, and the second highest bit of the Gray code is the XOR of the highest bit and the second highest bit of the binary code. The rest of the Gray code is similar to the second highest bit.</p>
@@ -75864,6 +75872,10 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-conversion-optimization">Solution 2: Conversion Optimization</h3>
 <p>Since $gray(0) = 0$, then $gray(0) \oplus start = start$, and $gray(i)$ is only one binary bit different from $gray(i-1)$, so $gray(i) \oplus start$ is also only one binary bit different from $gray(i-1) \oplus start$.</p>
 <p>Therefore, we can also directly convert the integers $[0,..2^n - 1]$ into the corresponding $gray(i) \oplus start$ to get the Gray code arrangement with $start$ as the first term.</p>
@@ -75936,7 +75948,9 @@ All the adjacent element differ by one bit. Another valid permutation is [3,1,0,
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

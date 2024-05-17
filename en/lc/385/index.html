@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="385-mini-parser"><a href="https://leetcode.com/problems/mini-parser">385. Mini Parser</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a string s represents the serialization of a nested list, implement a parser to deserialize it and return <em>the deserialized</em> <code>NestedInteger</code>.</p>
 
 <p>Each element is either an integer or a list whose elements may also be integers or other lists.</p>
@@ -75706,7 +75710,11 @@
     <li>All the values in the input are in the range <code>[-10<sup>6</sup>, 10<sup>6</sup>]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-recursion">Solution 1: Recursion</h3>
 <p>We first judge whether the string $s$ is empty or an empty list. If so, simply return an empty <code>NestedInteger</code>. If $s$ is an integer, we simply return a <code>NestedInteger</code> containing this integer. Otherwise, we traverse the string $s$ from left to right. If the current depth is $0$ and we encounter a comma or the end of the string $s$, we take a substring and recursively call the function to parse the substring and add the return value to the list. Otherwise, if the current encounter is a left parenthesis, we increase the depth by $1$ and continue to traverse. If we encounter a right parenthesis, we decrease the depth by $1$ and continue to traverse.</p>
 <p>After the traversal is over, return the answer.</p>
@@ -76267,6 +76275,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-stack">Solution 2: Stack</h3>
 <p>We can use a stack to simulate the recursive process.</p>
 <p>We first judge whether the string $s$ is an integer. If so, we simply return a <code>NestedInteger</code> containing this integer. Otherwise, we traverse the string $s$ from left to right. For the character $c$ currently traversed:</p>
@@ -76930,7 +76942,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

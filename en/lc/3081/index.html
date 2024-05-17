@@ -75675,10 +75675,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3081-replace-question-marks-in-string-to-minimize-its-value"><a href="https://leetcode.com/problems/replace-question-marks-in-string-to-minimize-its-value">3081. Replace Question Marks in String to Minimize Its Value</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 126 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 126 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1904-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1904-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a string <code>s</code>. <code>s[i]</code> is either a lowercase English letter or <code>&#39;?&#39;</code>.</p>
 
 <p>For a string <code>t</code> having length <code>m</code> containing <strong>only</strong> lowercase English letters, we define the function <code>cost(i)</code> for an index <code>i</code>&nbsp;as the number of characters <strong>equal</strong> to <code>t[i]</code>&nbsp;that appeared before it, i.e. in the range <code>[0, i - 1]</code>.</p>
@@ -75739,7 +75743,11 @@
     <li><code>s[i]</code> is either a lowercase English letter or <code>&#39;?&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-priority-queue">Solution 1: Greedy + Priority Queue</h3>
 <p>According to the problem, we can find that if a letter $c$ appears $v$ times, then the score it contributes to the answer is $1 + 2 + \cdots + (v - 1) = \frac{v \times (v - 1)}{2}$. To make the answer as small as possible, we should replace the question marks with those letters that appear less frequently.</p>
 <p>Therefore, we can use a priority queue to maintain the occurrence times of each letter, take out the letter with the least occurrence times each time, record it in the array $t$, then increase its occurrence times by one, and put it back into the priority queue. Finally, we sort the array $t$, and then traverse the string $s$, replacing each question mark with the letters in the array $t$ in turn.</p>
@@ -76008,7 +76016,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

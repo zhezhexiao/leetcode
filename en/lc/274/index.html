@@ -75675,10 +75675,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="274-h-index"><a href="https://leetcode.com/problems/h-index">274. H-Index</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an array of integers <code>citations</code> where <code>citations[i]</code> is the number of citations a researcher received for their <code>i<sup>th</sup></code> paper, return <em>the researcher&#39;s h-index</em>.</p>
 
 <p>According to the <a href="https://en.wikipedia.org/wiki/H-index" target="_blank">definition of h-index on Wikipedia</a>: The h-index is defined as the maximum value of <code>h</code> such that the given researcher has published at least <code>h</code> papers that have each been cited at least <code>h</code> times.</p>
@@ -75709,7 +75713,11 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
     <li><code>0 &lt;= citations[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting">Solution 1: Sorting</h3>
 <p>We can sort the array <code>citations</code> in descending order. Then we enumerate the value $h$ from large to small, if there is an $h$ value satisfying $citations[h-1] \geq h$, it means that there are at least $h$ papers that have been cited at least $h$ times, just return $h$ directly. If we cannot find such an $h$ value, it means that all the papers have not been cited, return $0$.</p>
 <p>Time complexity $O(n \times \log n)$, space complexity $O(\log n)$. Here $n$ is the length of the array <code>citations</code>.</p>
@@ -75863,6 +75871,10 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-counting-sum">Solution 2: Counting + Sum</h3>
 <p>We can use an array $cnt$ of length $n+1$, where $cnt[i]$ represents the number of papers with the reference count of $i$. We traverse the array <code>citations</code> and treat the papers with the reference count greater than $n$ as papers with a reference count of $n$. Then we use the reference count as the index and add $1$ to the corresponding element of $cnt$ for each paper. In this way, we have counted the number of papers for each reference count.</p>
 <p>Then we enumerate the value $h$ from large to small, and add the element value of $cnt$ with the index of $h$ to the variable $s$, where $s$ represents the number of papers with a reference count greater than or equal to $h$. If $s \geq h$, it means that at least $h$ papers have been cited at least $h$ times, just return $h$ directly.</p>
@@ -76019,6 +76031,10 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-3-binary-search">Solution 3: Binary Search</h3>
 <p>We notice that if there is a $h$ value that satisfies at least $h$ papers are cited at least $h$ times, then for any $h'&lt;h$, at least $h'$ papers are cited at least $h'$ times. Therefore, we can use the binary search method to find the largest $h$ such that at least $h$ papers are cited at least $h$ times.</p>
 <p>We define the left boundary of binary search $l=0$ and the right boundary $r=n$. Each time we take $mid = \lfloor \frac{l + r + 1}{2} \rfloor$, where $\lfloor x \rfloor$ represents floor $x$. Then we count the number of elements in array <code>citations</code> that are greater than or equal to $mid$, and denote it as $s$. If $s \geq mid$, it means that at least $mid$ papers are cited at least $mid$ times. In this case, we change the left boundary $l$ to $mid$. Otherwise, we change the right boundary $r$ to $mid-1$. When the left boundary $l$ is equal to the right boundary $r$, we find the largest $h$ value, which is $l$ or $r$.</p>
@@ -76213,7 +76229,9 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

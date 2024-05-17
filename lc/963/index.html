@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="963-ii"><a href="https://leetcode.cn/problems/minimum-area-rectangle-ii">963. 最小面积矩形 II</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定在 xy 平面上的一组点，确定由这些点组成的任何矩形的最小面积，其中矩形的边<strong>不一定平行于</strong> x 轴和 y 轴。</p>
 
@@ -80316,7 +80318,11 @@
     <li>与真实值误差不超过 <code>10^-5</code>&nbsp;的答案将视为正确结果。</li>
 </ol>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 枚举</h3>
 <p>我们用哈希表存放所有的点，然后枚举三个点 $p_1 = (x_1, y_1)$, $p_2 = (x_2, y_2)$, $p_3 = (x_3, y_3)$，其中 $p_2$ 和 $p_3$ 是矩形的对角线的两个端点。如果 $p_1$ 和 $p_2$ 构成的直线以及 $p_1$ 和 $p_3$ 构成的直线垂直，并且第四个点 $(x_4, y_4)=(x_2 - x_1 + x_3, y_2 - y_1 + y_3)$ 存在于哈希表中，那么就找到了一个矩形。此时，我们可以计算出矩形的面积，并更新答案。</p>
 <p>最后，如果找到满足条件的矩形，返回其中面积的最小值。否则，返回 $0$。</p>
@@ -80661,7 +80667,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

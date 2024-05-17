@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2827-number-of-beautiful-integers-in-the-range"><a href="https://leetcode.com/problems/number-of-beautiful-integers-in-the-range">2827. Number of Beautiful Integers in the Range</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 111 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 111 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2324-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2324-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given positive integers <code>low</code>, <code>high</code>, and <code>k</code>.</p>
 
 <p>A number is <strong>beautiful</strong> if it meets both of the following conditions:</p>
@@ -75708,7 +75712,11 @@ It can be shown that there is only 1 beautiful integer in the given range.
     <li><code>0 &lt; k &lt;= 20</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-digit-dp">Solution 1: Digit DP</h3>
 <p>We notice that the problem is asking for the number of beautiful integers in the interval $[low, high]$. For such an interval $[l,..r]$ problem, we can usually consider transforming it into finding the answers for $[1, r]$ and $[1, l-1]$, and then subtracting the latter from the former. Moreover, the problem only involves the relationship between different digits, not the specific values, so we can consider using Digit DP to solve it.</p>
 <p>We design a function $dfs(pos, mod, diff, lead, limit)$, which represents the number of schemes when we are currently processing the $pos$-th digit, the result of the current number modulo $k$ is $mod$, the difference between the odd and even digits of the current number is $diff$, whether the current number has leading zeros is $lead$, and whether the current number has reached the upper limit is $limit$.</p>
@@ -76134,7 +76142,9 @@ It can be shown that there is only 1 beautiful integer in the given range.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

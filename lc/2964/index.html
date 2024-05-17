@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2964"><a href="https://leetcode.cn/problems/number-of-divisible-triplet-sums">2964. 可被整除的三元组数量 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <b>下标从 0 开始</b>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;和一个整数&nbsp;<code>d</code>，请返回满足 <code>i &lt; j &lt; k</code> 且 <code>(nums[i] + nums[j] + nums[k]) % d == 0</code> 的三元组 <code>(i, j, k)</code> 的数量。</p>
 <p>&nbsp;</p>
@@ -80294,7 +80296,11 @@
     <li><code>1 &lt;= d &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 枚举</h3>
 <p>我们可以用哈希表 $cnt$ 记录 $nums[i] \bmod d$ 出现的次数，然后枚举 $j$ 和 $k$，计算使得等式 $(nums[i] + nums[j] + nums[k]) \bmod d = 0$ 成立的 $nums[i] \bmod d$ 的值，即 $(d - (nums[j] + nums[k]) \bmod d) \bmod d$，并将其出现次数累加到答案中。然后我们将 $nums[j] \bmod d$ 的出现次数加一。继续枚举 $j$ 和 $k$，直到 $j$ 到达数组末尾。</p>
 <p>时间复杂度 $O(n^2)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。</p>
@@ -80440,7 +80446,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

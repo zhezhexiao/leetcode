@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2661-first-completely-painted-row-or-column"><a href="https://leetcode.com/problems/first-completely-painted-row-or-column">2661. First Completely Painted Row or Column</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 343 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 343 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1502-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1502-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>arr</code>, and an <code>m x n</code> integer <strong>matrix</strong> <code>mat</code>. <code>arr</code> and <code>mat</code> both contain <strong>all</strong> the integers in the range <code>[1, m * n]</code>.</p>
 
 <p>Go through each index <code>i</code> in <code>arr</code> starting from index <code>0</code> and paint the cell in <code>mat</code> containing the integer <code>arr[i]</code>.</p>
@@ -75698,7 +75702,11 @@
     <li>All the integers of <code>mat</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-array-counting">Solution 1: Hash Table + Array Counting</h3>
 <p>We use a hash table $idx$ to record the position of each element in the matrix $mat$, that is $idx[mat[i][j]] = (i, j)$, and define two arrays $row$ and $col$ to record the number of colored elements in each row and each column respectively.</p>
 <p>Traverse the array $arr$. For each element $arr[k]$, we find its position $(i, j)$ in the matrix $mat$, and then add $row[i]$ and $col[j]$ by one. If $row[i] = n$ or $col[j] = m$, it means that the $i$-th row or the $j$-th column has been colored, so $arr[k]$ is the element we are looking for, and we return $k$.</p>
@@ -75973,7 +75981,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

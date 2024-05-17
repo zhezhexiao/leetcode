@@ -80275,11 +80275,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2454-iv"><a href="https://leetcode.cn/problems/next-greater-element-iv">2454. 下一个更大元素 IV</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 90 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 90 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2175-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2175-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 90 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 90 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2175-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2175-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的非负整数数组&nbsp;<code>nums</code>&nbsp;。对于&nbsp;<code>nums</code>&nbsp;中每一个整数，你必须找到对应元素的&nbsp;<strong>第二大</strong>&nbsp;整数。</p>
 
@@ -80333,7 +80335,11 @@
     <li><code>0 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：排序 + 有序集合</h3>
 <p>我们可以将数组中的元素转成二元组 $(x, i)$，其中 $x$ 为元素的值，$i$ 为元素的下标。然后按照元素的值从大到小排序。</p>
 <p>接下来，我们遍历排序后的数组，维护一个有序集合，其中存储的是元素的下标。当我们遍历到元素 $(x, i)$ 时，所有大于 $x$ 的元素的下标都已经在有序集合中了。我们只需要在有序集合中，找到 $i$ 的下下一个元素的下标 $j$，那么 $j$ 对应的元素就是 $x$ 的第二大元素。然后，我们将 $i$ 加入到有序集合中。继续遍历下一个元素。</p>
@@ -81790,7 +81796,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

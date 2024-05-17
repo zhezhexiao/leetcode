@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2606-find-the-substring-with-maximum-cost"><a href="https://leetcode.com/problems/find-the-substring-with-maximum-cost">2606. Find the Substring With Maximum Cost</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 101 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 101 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1422-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1422-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a string <code>s</code>, a string <code>chars</code> of <strong>distinct</strong> characters and an integer array <code>vals</code> of the same length as <code>chars</code>.</p>
 
 <p>The <strong>cost of the substring </strong>is the sum of the values of each character in the substring. The cost of an empty string is considered <code>0</code>.</p>
@@ -75728,7 +75732,11 @@ It can be proven that 0 is the maximum cost.
     <li><code>-1000 &lt;= vals[i] &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-prefix-sum-maintain-the-minimum-prefix-sum">Solution 1: Prefix sum + Maintain the minimum prefix sum</h3>
 <p>According to the description of the problem, we traverse each character $c$ in the string $s$, obtain its corresponding value $v$, and then update the current prefix sum $tot=tot+v$. Then, the cost of the maximum cost substring ending with $c$ is $tot$ minus the minimum prefix sum $mi$, that is, $tot-mi$. We update the answer $ans=max(ans,tot-mi)$ and maintain the minimum prefix sum $mi=min(mi,tot)$.</p>
 <p>After the traversal is over, return the answer $ans$.</p>
@@ -75911,6 +75919,10 @@ It can be proven that 0 is the maximum cost.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-convert-to-the-maximum-subarray-sum-problem">Solution 2: Convert to the maximum subarray sum problem</h3>
 <p>We can consider the value $v$ of each character $c$ as an integer, so the actual problem is to solve the maximum subarray sum problem.</p>
 <p>We use the variable $f$ to maintain the cost of the maximum cost substring ending with the current character $c$. Each time we traverse to a character $c$, we update $f=max(f, 0) + v$. Then we update the answer $ans=max(ans,f)$.</p>
@@ -76081,7 +76093,9 @@ It can be proven that 0 is the maximum cost.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="117-populating-next-right-pointers-in-each-node-ii"><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii">117. Populating Next Right Pointers in Each Node II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a binary tree</p>
 
 <pre>
@@ -75729,7 +75733,11 @@ struct Node {
     <li>The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-bfs">Solution 1: BFS</h3>
 <p>We use a queue $q$ for level order traversal. Each time we traverse a level, we connect the nodes of the current level in order.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.</p>
@@ -76233,6 +76241,10 @@ struct Node {
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-space-optimization">Solution 2: Space Optimization</h3>
 <p>The space complexity of Solution 1 is relatively high because it requires a queue to store the nodes of each level. We can implement it with constant space.</p>
 <p>We define two pointers $prev$ and $next$, which point to the previous node and the first node of the next level, respectively. When traversing the nodes of the current level, we string the nodes of the next level together and find the first node of the next level. After the current level is traversed, we assign the first node $next$ of the next level to $node$ and continue to traverse.</p>
@@ -76779,7 +76791,9 @@ struct Node {
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

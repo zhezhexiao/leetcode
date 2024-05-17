@@ -80281,11 +80281,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1879"><a href="https://leetcode.cn/problems/minimum-xor-sum-of-two-arrays">1879. 两个数组最小的异或值之和</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 53 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 53 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2145-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2145-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 53 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 53 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2145-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2145-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个整数数组 <code>nums1</code> 和 <code>nums2</code> ，它们长度都为 <code>n</code> 。</p>
 
@@ -80327,7 +80329,11 @@
     <li><code>0 &lt;= nums1[i], nums2[i] &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：状态压缩动态规划</h3>
 <p>我们注意到 $n \leq 14$，因此，我们可以考虑使用状态压缩动态规划的方法求解本题。</p>
 <p>我们用一个长度为 $n$ 的二进制数表示当前的状态，第 $i$ 位为 $1$ 表示 $nums2[i]$ 已经被选择，为 $0$ 表示 $nums2[i]$ 还未被选择。</p>
@@ -80528,6 +80534,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：状态压缩动态规划（枚举优化）</h3>
 <p>我们也可以直接在 $[0, 2^n)$ 范围内枚举状态 $i$，假设 $i$ 的二进制表示中有 $k$ 个 $1$，那么当前枚举的就是 $nums1$ 的第 $k$ 个数，下标为 $k-1$。状态转移方程为 $f[i]=\min(f[i],f[i\oplus 2^j]+(nums1[k-1]\oplus nums2[j]))$，其中 $j$ 是 $i$ 的二进制表示中的某个 $1$ 所在的位置。</p>
 <p>时间复杂度 $O(n \times 2^n)$，空间复杂度 $O(2^n)$。其中 $n$ 是数组的长度。</p>
@@ -80707,6 +80717,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_5">方法三</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:5"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><input id="__tabbed_3_3" name="__tabbed_3" type="radio" /><input id="__tabbed_3_4" name="__tabbed_3" type="radio" /><input id="__tabbed_3_5" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python3</label><label for="__tabbed_3_2">Java</label><label for="__tabbed_3_3">C++</label><label for="__tabbed_3_4">Go</label><label for="__tabbed_3_5">TypeScript</label></div>
 <div class="tabbed-content">
@@ -80894,7 +80908,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80243,11 +80243,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1606"><a href="https://leetcode.cn/problems/smallest-difference-lcci">面试题 16.06. 最小差</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个整数数组<code>a</code>和<code>b</code>，计算具有最小差绝对值的一对数值（每个数组中取一个值），并返回该对数值的差</p>
 <p><strong>示例：</strong></p>
@@ -80261,7 +80263,11 @@
 <li>正确结果在区间[-2147483648, 2147483647]内</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：排序 + 二分查找</h3>
 <p>我们可以对数组 $b$ 进行排序，并对数组 $a$ 中的每个元素 $x$ 在数组 $b$ 中进行二分查找，找到最接近 $x$ 的元素 $y$，那么 $x$ 和 $y$ 的差的绝对值就是 $x$ 和 $b$ 中最接近 $x$ 的元素的差的绝对值。</p>
 <p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $b$ 的长度。</p>
@@ -80541,6 +80547,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 <h3 id="_4">方法二：排序 + 双指针</h3>
 <p>我们可以对数组 $a$ 和 $b$ 分别进行排序，然后使用双指针的方法，维护两个指针 $i$ 和 $j$，初始时分别指向数组 $a$ 和 $b$ 的起始位置。每一次，我们计算 $a[i]$ 和 $b[j]$ 的差的绝对值，并且更新答案。如果 $a[i]$ 和 $b[j]$ 指向的两个元素中的一个元素比另一个元素要小，则将指向较小元素的指针向前移动一步。当至少有一个指针超出数组范围时，遍历结束。</p>
 <p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $a$ 和 $b$ 的长度。</p>
@@ -80728,7 +80738,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

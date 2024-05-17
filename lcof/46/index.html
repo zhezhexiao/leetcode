@@ -80243,11 +80243,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="46"><a href="https://leetcode.cn/problems/ba-shu-zi-fan-yi-cheng-zi-fu-chuan-lcof/">面试题 46. 把数字翻译成字符串</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 &ldquo;a&rdquo; ，1 翻译成 &ldquo;b&rdquo;，&hellip;&hellip;，11 翻译成 &ldquo;l&rdquo;，&hellip;&hellip;，25 翻译成 &ldquo;z&rdquo;。一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。</p>
 
@@ -80267,7 +80269,11 @@
     <li><code>0 &lt;= num &lt; 2<sup>31</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：记忆化搜索</h3>
 <p>我们先将数字 <code>num</code> 转为字符串 $s$，字符串 $s$ 的长度记为 $n$。</p>
 <p>然后我们设计一个函数 $dfs(i)$，表示从第 $i$ 个数字开始的不同翻译的数目。那么答案就是 $dfs(0)$。</p>
@@ -80616,6 +80622,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 <h3 id="_4">方法二：动态规划</h3>
 <p>我们可以将方法一中的记忆化搜索改为动态规划。</p>
 <p>定义 $f[i]$ 表示前 $i$ 个数字的不同翻译的数目，那么答案就是 $f[n]$。初始化 $f[0] = 1$, $f[1] = 1$。</p>
@@ -80862,7 +80872,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

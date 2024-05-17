@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="209"><a href="https://leetcode.cn/problems/minimum-size-subarray-sum">209. 长度最小的子数组</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个含有&nbsp;<code>n</code><strong>&nbsp;</strong>个正整数的数组和一个正整数 <code>target</code><strong> 。</strong></p>
 
@@ -80324,7 +80326,11 @@
     <li>如果你已经实现<em> </em><code>O(n)</code> 时间复杂度的解法, 请尝试设计一个 <code>O(n log(n))</code> 时间复杂度的解法。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：前缀和 + 二分查找</h3>
 <p>我们先预处理出数组 $nums$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $nums$ 前 $i$ 项元素之和。由于数组 $nums$ 中的元素都是正整数，因此数组 $s$ 也是单调递增的。另外，我们初始化答案 $ans = n + 1$，其中 $n$ 为数组 $nums$ 的长度。</p>
 <p>接下来，我们遍历前缀和数组 $s$，对于其中的每个元素 $s[i]$，我们可以通过二分查找的方法找到满足 $s[j] \geq s[i] + target$ 的最小下标 $j$，如果 $j \leq n$，则说明存在满足条件的子数组，我们可以更新答案，即 $ans = min(ans, j - i)$。</p>
@@ -80628,6 +80634,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：双指针</h3>
 <p>我们可以使用双指针 $j$ 和 $i$ 维护一个窗口，其中窗口中的所有元素之和小于 $target$。初始时 $j = 0$，答案 $ans = n + 1$，其中 $n$ 为数组 $nums$ 的长度。</p>
 <p>接下来，指针 $i$ 从 $0$ 开始向右移动，每次移动一步，我们将指针 $i$ 对应的元素加入窗口，同时更新窗口中元素之和。如果窗口中元素之和大于等于 $target$，说明当前子数组满足条件，我们可以更新答案，即 $ans = \min(ans, i - j + 1)$。然后我们不断地从窗口中移除元素 $nums[j]$，直到窗口中元素之和小于 $target$，然后重复上述过程。</p>
@@ -80793,7 +80803,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

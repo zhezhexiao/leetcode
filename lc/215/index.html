@@ -80278,11 +80278,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="215-k"><a href="https://leetcode.cn/problems/kth-largest-element-in-an-array">215. 数组中的第 K 个最大元素</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定整数数组 <code>nums</code> 和整数 <code>k</code>，请返回数组中第 <code><strong>k</strong></code> 个最大的元素。</p>
 
@@ -80314,7 +80316,11 @@
     <li><code>-10<sup>4</sup>&nbsp;&lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：排序</h3>
 <p>我们可以将数组 $nums$ 升序排列，然后获取 $nums[n-k]$。</p>
 <p>时间复杂度 $O(n \times \log n)$，其中 $n$ 表示数组 $nums$ 的长度。</p>
@@ -80658,6 +80664,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="partition">方法二：Partition</h3>
 <p>我们注意到，并不是所有时候，都需要整个数组进入有序状态，只需要<strong>局部有序</strong>，或者说，从大到小排序，只要 $[0..k)$ 位置的元素有序，那么就能确定结果，此处使用<strong>快速排序</strong>。</p>
 <p>快速排序有一特点，每一次循环结束时，能够确定的是 $partition$ 一定处于它该处于的索引位置。从而根据它得知，结果值是在左数组还是在右数组当中，然后对那一数组进行排序即可。</p>
@@ -80724,7 +80734,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

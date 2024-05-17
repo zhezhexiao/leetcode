@@ -80245,11 +80245,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1251"><a href="https://leetcode.cn/problems/average-selling-price">1251. 平均售价</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Prices</code></p>
 
@@ -80325,7 +80327,11 @@ UnitsSold table:
 产品 1 的平均售价 = ((100 * 5)+(15 * 20) )/ 115 = 6.96
 产品 2 的平均售价 = ((200 * 15)+(30 * 30) )/ 230 = 16.96</pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：左连接 + 分组统计</h3>
 <p>我们可以使用左连接，将 <code>Prices</code> 表和 <code>UnitsSold</code> 表连接起来，连接条件为 <code>product_id</code> 相等，并且 <code>purchase_date</code> 在 <code>start_date</code> 和 <code>end_date</code> 之间。然后使用 <code>GROUP BY</code> 子句对 <code>product_id</code> 进行分组，使用 <code>AVG</code> 函数计算平均价格。注意，如果某个产品没有销售记录，那么 <code>AVG</code> 函数会返回 <code>NULL</code>，因此我们可以使用 <code>IFNULL</code> 函数将其转换为 $0$。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -80352,7 +80358,9 @@ UnitsSold table:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

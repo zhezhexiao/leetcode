@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1905-count-sub-islands"><a href="https://leetcode.com/problems/count-sub-islands">1905. Count Sub Islands</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 246 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 246 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1678-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1678-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given two <code>m x n</code> binary matrices <code>grid1</code> and <code>grid2</code> containing only <code>0</code>&#39;s (representing water) and <code>1</code>&#39;s (representing land). An <strong>island</strong> is a group of <code>1</code>&#39;s connected <strong>4-directionally</strong> (horizontal or vertical). Any cells outside of the grid are considered water cells.</p>
 
 <p>An island in <code>grid2</code> is considered a <strong>sub-island </strong>if there is an island in <code>grid1</code> that contains <strong>all</strong> the cells that make up <strong>this</strong> island in <code>grid2</code>.</p>
@@ -75717,7 +75721,11 @@ The 1s colored red in grid2 are those considered to be part of a sub-island. The
     <li><code>grid1[i][j]</code> and <code>grid2[i][j]</code> are either <code>0</code> or <code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dfs">Solution 1: DFS</h3>
 <p>We can traverse each cell $(i, j)$ in the matrix <code>grid2</code>. If the value of the cell is $1$, we start a depth-first search from this cell, set the value of all cells connected to this cell to $0$, and record whether the corresponding cell in <code>grid1</code> is also $1$ for all cells connected to this cell. If it is $1$, it means that this cell is also an island in <code>grid1</code>, otherwise it is not. Finally, we count the number of sub-islands in <code>grid2</code>.</p>
 <p>The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Here, $m$ and $n$ are the number of rows and columns of the matrices <code>grid1</code> and <code>grid2</code>, respectively.</p>
@@ -75983,6 +75991,10 @@ The 1s colored red in grid2 are those considered to be part of a sub-island. The
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2">Solution 2</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
 <div class="tabbed-content">
@@ -76028,7 +76040,9 @@ The 1s colored red in grid2 are those considered to be part of a sub-island. The
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

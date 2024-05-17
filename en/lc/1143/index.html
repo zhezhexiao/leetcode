@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1143-longest-common-subsequence"><a href="https://leetcode.com/problems/longest-common-subsequence">1143. Longest Common Subsequence</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given two strings <code>text1</code> and <code>text2</code>, return <em>the length of their longest <strong>common subsequence</strong>. </em>If there is no <strong>common subsequence</strong>, return <code>0</code>.</p>
 
 <p>A <strong>subsequence</strong> of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.</p>
@@ -75698,7 +75702,11 @@
     <li><code>text1</code> and <code>text2</code> consist of only lowercase English characters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
 <p>We define $f[i][j]$ as the length of the longest common subsequence of the first $i$ characters of $text1$ and the first $j$ characters of $text2$. Therefore, the answer is $f[m][n]$, where $m$ and $n$ are the lengths of $text1$ and $text2$, respectively.</p>
 <p>If the $i$th character of $text1$ and the $j$th character of $text2$ are the same, then $f[i][j] = f[i - 1][j - 1] + 1$; if the $i$th character of $text1$ and the $j$th character of $text2$ are different, then $f[i][j] = max(f[i - 1][j], f[i][j - 1])$. The state transition equation is:</p>
@@ -76026,7 +76034,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

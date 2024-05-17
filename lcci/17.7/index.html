@@ -80234,11 +80234,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1707"><a href="https://leetcode.cn/problems/baby-names-lcci">面试题 17.07. 婴儿名字</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>每年，政府都会公布一万个最常见的婴儿名字和它们出现的频率，也就是同名婴儿的数量。有些名字有多种拼法，例如，John 和 Jon 本质上是相同的名字，但被当成了两个名字公布出来。给定两个列表，一个是名字及对应的频率，另一个是本质相同的名字对。设计一个算法打印出每个真实名字的实际频率。注意，如果 John 和 Jon 是相同的，并且 Jon 和 Johnny 相同，则 John 与 Johnny 也相同，即它们有传递和对称性。</p>
 
 <p>在结果列表中，选择<strong>字典序最小</strong>的名字作为真实名字。</p>
@@ -80254,7 +80257,11 @@
     <li><code>names.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="dfs">方法一：哈希表 + DFS</h3>
 <p>对于每个同义词对，我们将其两个名字建立双向边，存放在邻接表 $g$ 中，然后，我们遍历所有名字，将其存放在集合 $s$ 中，同时将其频率存放在哈希表 $cnt$ 中。</p>
 <p>接下来，我们遍历集合 $s$ 中的每个名字，如果该名字未被访问过，则进行深度优先搜索，找到该名字所在的连通分量中的所有名字，以字典序最小的名字为真实名字，将其频率求和，即为真实名字的频率。然后，我们将该名字以及其频率存放在答案数组中。</p>
@@ -80770,7 +80777,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

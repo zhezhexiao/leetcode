@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1707-maximum-xor-with-an-element-from-array"><a href="https://leetcode.com/problems/maximum-xor-with-an-element-from-array">1707. Maximum XOR With an Element From Array</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 221 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 221 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2358-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2358-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> consisting of non-negative integers. You are also given a <code>queries</code> array, where <code>queries[i] = [x<sub>i</sub>, m<sub>i</sub>]</code>.</p>
 
 <p>The answer to the <code>i<sup>th</sup></code> query is the maximum bitwise <code>XOR</code> value of <code>x<sub>i</sub></code> and any element of <code>nums</code> that does not exceed <code>m<sub>i</sub></code>. In other words, the answer is <code>max(nums[j] XOR x<sub>i</sub>)</code> for all <code>j</code> such that <code>nums[j] &lt;= m<sub>i</sub></code>. If all elements in <code>nums</code> are larger than <code>m<sub>i</sub></code>, then the answer is <code>-1</code>.</p>
@@ -75695,7 +75699,11 @@
     <li><code>0 &lt;= nums[j], x<sub>i</sub>, m<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-offline-query-binary-trie">Solution 1: Offline Query + Binary Trie</h3>
 <p>From the problem description, we know that each query is independent and the result of the query is irrelevant to the order of elements in $nums$. Therefore, we consider sorting all queries in ascending order of $m_i$, and also sorting $nums$ in ascending order.</p>
 <p>Next, we use a binary trie to maintain the elements in $nums$. We use a pointer $j$ to record the current elements in the trie, initially $j=0$. For each query $[x_i, m_i]$, we continuously insert elements from $nums$ into the trie until $nums[j] &gt; m_i$. At this point, we can query all elements not exceeding $m_i$ in the trie, and we take the XOR value of the element with the maximum XOR value with $x_i$ as the answer.</p>
@@ -76246,7 +76254,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

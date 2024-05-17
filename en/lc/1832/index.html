@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1832-check-if-the-sentence-is-pangram"><a href="https://leetcode.com/problems/check-if-the-sentence-is-pangram">1832. Check if the Sentence Is Pangram</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 237 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 237 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1166-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1166-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>A <strong>pangram</strong> is a sentence where every letter of the English alphabet appears at least once.</p>
 
 <p>Given a string <code>sentence</code> containing only lowercase English letters, return<em> </em><code>true</code><em> if </em><code>sentence</code><em> is a <strong>pangram</strong>, or </em><code>false</code><em> otherwise.</em></p>
@@ -75692,7 +75696,11 @@
     <li><code>sentence</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-array-or-hash-table">Solution 1: Array or Hash Table</h3>
 <p>Traverse the string <code>sentence</code>, use an array or hash table to record the letters that have appeared, and finally check whether there are $26$ letters in the array or hash table.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(C)$. Where $n$ is the length of the string <code>sentence</code>, and $C$ is the size of the character set. In this problem, $C = 26$.</p>
@@ -75848,6 +75856,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-bit-manipulation">Solution 2: Bit Manipulation</h3>
 <p>We can also use an integer $mask$ to record the letters that have appeared, where the $i$-th bit of $mask$ indicates whether the $i$-th letter has appeared.</p>
 <p>Finally, check whether there are $26$ $1$s in the binary representation of $mask$, that is, check whether $mask$ is equal to $2^{26} - 1$. If so, return <code>true</code>, otherwise return <code>false</code>.</p>
@@ -75976,7 +75988,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

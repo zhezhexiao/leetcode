@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2897-apply-operations-on-array-to-maximize-sum-of-squares"><a href="https://leetcode.com/problems/apply-operations-on-array-to-maximize-sum-of-squares">2897. Apply Operations on Array to Maximize Sum of Squares</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 366 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 366 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2301-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2301-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and a <strong>positive</strong> integer <code>k</code>.</p>
 
 <p>You can do the following operation on the array <strong>any</strong> number of times:</p>
@@ -75712,7 +75716,11 @@ It can be shown that this is the maximum value we can get.
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-bitwise-operation-greedy">Solution 1: Bitwise Operation + Greedy</h3>
 <p>According to the problem description, for an operation, we can change $nums[i]$ to $nums[i] \text{ AND } nums[j]$, and change $nums[j]$ to $nums[i] \text{ OR } nums[j]$. Let's consider the bits of the numbers. If two bits are both $1$ or both $0$, the result of the operation will not change the bits. If two bits are different, the result of the operation will change the bits to $0$ and $1$, respectively. Therefore, we can move $1$ bits to $0$ bits, but not vice versa.</p>
 <p>We can use an array $cnt$ to count the number of $1$ bits in each position, and then select $k$ numbers from them. To maximize the sum of squares, we should choose the largest numbers as much as possible. This is because, assuming the sum of squares of two numbers is $a^2 + b^2$ (where $a \gt b$), changing them to $(a + c)^2 + (b - c)^2 = a^2 + b^2 + 2c(a - b) + 2c^2 \gt a^2 + b^2$ will increase the sum of squares. Therefore, to maximize the sum of squares, we should choose the largest number.</p>
@@ -75957,7 +75965,9 @@ It can be shown that this is the maximum value we can get.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

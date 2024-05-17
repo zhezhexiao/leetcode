@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2959-number-of-possible-sets-of-closing-branches"><a href="https://leetcode.com/problems/number-of-possible-sets-of-closing-branches">2959. Number of Possible Sets of Closing Branches</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 119 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 119 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2077-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2077-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There is a company with <code>n</code> branches across the country, some of which are connected by roads. Initially, all branches are reachable from each other by traveling some roads.</p>
 
 <p>The company has realized that they are spending an excessive amount of time traveling between their branches. As a result, they have decided to close down some of these branches (<strong>possibly none</strong>). However, they want to ensure that the remaining branches have a distance of at most <code>maxDistance</code> from each other.</p>
@@ -75743,7 +75747,11 @@ It can be proven, that there are only 2 possible sets of closing branches.
     <li>All branches are reachable from each other by traveling some roads.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-enumeration-floyd-algorithm">Solution 1: Binary Enumeration + Floyd Algorithm</h3>
 <p>We notice that $n \leq 10$, so we might as well consider using the method of binary enumeration to enumerate all subsets of departments.</p>
 <p>For each subset of departments, we can use the Floyd algorithm to calculate the shortest distance between the remaining departments, and then judge whether it meets the requirements of the problem. Specifically, we first enumerate the middle point $k$, then enumerate the starting point $i$ and the ending point $j$. If $g[i][k] + g[k][j] &lt; g[i][j]$, then we update $g[i][j]$ with the shorter distance $g[i][k] + g[k][j]$.</p>
@@ -76106,7 +76114,9 @@ It can be proven, that there are only 2 possible sets of closing branches.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

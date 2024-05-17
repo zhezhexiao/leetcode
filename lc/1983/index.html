@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1983"><a href="https://leetcode.cn/problems/widest-pair-of-indices-with-equal-range-sum">1983. 范围和相等的最宽索引对 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个 <strong>以0为索引</strong> 的二进制数组 <code>nums1</code> 和 <code>nums2</code> 。找出 <strong>最宽</strong> 的索引对 <code>(i, j)</code> ，使的&nbsp;<code>i &lt;= j</code>&nbsp;并且&nbsp;<code>nums1[i] + nums1[i+1] + ... + nums1[j] == nums2[i] + nums2[i+1] + ... + nums2[j]</code>。</p>
 
@@ -80315,7 +80317,11 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
     <li><code>nums2[i]</code>&nbsp;仅为&nbsp;<code>0</code>&nbsp;或&nbsp;<code>1</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：前缀和 + 哈希表</h3>
 <p>我们观察到，对于任意的索引对 $(i, j)$，如果 $nums1[i] + nums1[i+1] + ... + nums1[j] = nums2[i] + nums2[i+1] + ... + nums2[j]$，那么 $nums1[i] - nums2[i] + nums1[i+1] - nums2[i+1] + ... + nums1[j] - nums2[j] = 0$。如果我们将数组 $nums1$ 与数组 $nums2$ 对应位置的元素相减，得到一个新的数组 $nums$，那么问题转换为在数组 $nums$ 中找到一个最长的子数组，使得子数组的和为 $0$。这可以通过前缀和 + 哈希表的方法求解。</p>
 <p>我们定义一个变量 $s$ 表示当前 $nums$ 的前缀和，用一个哈希表 $d$ 保存每个前缀和第一次出现的位置。初始时 $s = 0$, $d[0] = -1$。</p>
@@ -80488,7 +80494,9 @@ i和j之间的距离是j - i + 1 = 1 - 1 + 1 = 1。
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

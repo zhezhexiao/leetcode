@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2007-find-original-array-from-doubled-array"><a href="https://leetcode.com/problems/find-original-array-from-doubled-array">2007. Find Original Array From Doubled Array</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 61 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 61 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1557-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1557-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>An integer array <code>original</code> is transformed into a <strong>doubled</strong> array <code>changed</code> by appending <strong>twice the value</strong> of every element in <code>original</code>, and then randomly <strong>shuffling</strong> the resulting array.</p>
 
 <p>Given an array <code>changed</code>, return <code>original</code><em> if </em><code>changed</code><em> is a <strong>doubled</strong> array. If </em><code>changed</code><em> is not a <strong>doubled</strong> array, return an empty array. The elements in</em> <code>original</code> <em>may be returned in <strong>any</strong> order</em>.</p>
@@ -75708,7 +75712,11 @@ Other original arrays could be [4,3,1] or [3,1,4].
     <li><code>0 &lt;= changed[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting">Solution 1: Sorting</h3>
 <p>We notice that if the array <code>changed</code> is a double array, then the smallest element in the array <code>changed</code> must also be an element in the original array. Therefore, we can first sort the array <code>changed</code>, and then start from the first element to traverse the array <code>changed</code> in ascending order.</p>
 <p>We use a hash table or array $cnt$ to count the occurrence of each element in the array <code>changed</code>. For each element $x$ in the array <code>changed</code>, we first check whether $x$ exists in $cnt$. If it does not exist, we skip this element. Otherwise, we subtract one from $cnt[x]$, and check whether $x \times 2$ exists in $cnt$. If it does not exist, we return an empty array directly. Otherwise, we subtract one from $cnt[x \times 2]$, and add $x$ to the answer array.</p>
@@ -75936,7 +75944,9 @@ Other original arrays could be [4,3,1] or [3,1,4].
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

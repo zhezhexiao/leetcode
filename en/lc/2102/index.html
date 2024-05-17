@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2102-sequentially-ordinal-rank-tracker"><a href="https://leetcode.com/problems/sequentially-ordinal-rank-tracker">2102. Sequentially Ordinal Rank Tracker</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 67 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 67 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2158-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2158-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>A scenic location is represented by its <code>name</code> and attractiveness <code>score</code>, where <code>name</code> is a <strong>unique</strong> string among all locations and <code>score</code> is an integer. Locations can be ranked from the best to the worst. The <strong>higher</strong> the score, the better the location. If the scores of two locations are equal, then the location with the <strong>lexicographically smaller</strong> name is better.</p>
 
 <p>You are building a system that tracks the ranking of locations with the system initially starting with no locations. It supports:</p>
@@ -75745,7 +75749,11 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
     <li>At most <code>4 * 10<sup>4</sup></code> calls <strong>in total</strong> will be made to <code>add</code> and <code>get</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-ordered-set">Solution 1: Ordered Set</h3>
 <p>We can use an ordered set to store the attractions, and a variable $i$ to record the current number of queries, initially $i = -1$.</p>
 <p>When calling the <code>add</code> method, we take the negative of the attraction's rating, so that we can use the ordered set to sort by rating in descending order. If the ratings are the same, sort by the dictionary order of the attraction names in ascending order.</p>
@@ -75863,6 +75871,10 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-double-priority-queue-min-max-heap">Solution 2: Double Priority Queue (Min-Max Heap)</h3>
 <p>We notice that the query operations in this problem are performed in strictly increasing order. Therefore, we can use a method similar to the median in the data stream. We define two priority queues <code>good</code> and <code>bad</code>. <code>good</code> is a min-heap, storing the current best attractions, and <code>bad</code> is a max-heap, storing the current $i$-th best attraction.</p>
 <p>Each time the <code>add</code> method is called, we add the attraction's rating and name to <code>good</code>, and then add the worst attraction in <code>good</code> to <code>bad</code>.</p>
@@ -76054,7 +76066,9 @@ tracker.get();              // Sorted locations: branford, orlando, alpine, alps
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

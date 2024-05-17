@@ -80299,11 +80299,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1631"><a href="https://leetcode.cn/problems/path-with-minimum-effort">1631. 最小体力消耗路径</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 212 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 212 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1947-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1947-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 212 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 212 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1947-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1947-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你准备参加一场远足活动。给你一个二维 <code>rows x columns</code> 的地图 <code>heights</code> ，其中 <code>heights[row][col]</code> 表示格子 <code>(row, col)</code> 的高度。一开始你在最左上角的格子 <code>(0, 0)</code> ，且你希望去最右下角的格子 <code>(rows-1, columns-1)</code> （注意下标从 <strong>0</strong> 开始编号）。你每次可以往 <strong>上</strong>，<strong>下</strong>，<strong>左</strong>，<strong>右</strong> 四个方向之一移动，你想要找到耗费 <strong>体力</strong> 最小的一条路径。</p>
 
@@ -80353,7 +80355,11 @@
     <li><code>1 <= heights[i][j] <= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：并查集</h3>
 <p>对于本题，我们可以把每个格子当做图的一个节点，把相邻两个格子的高度差绝对值当做边的权重，因此本题是求解从最左上角的节点到最右下角的节点的连通性问题。</p>
 <p>我们先构建一个边集，然后按照边的权重从小到大进行排序，逐个添加边，直到最左上角的节点和最右下角的节点连通为止，此时的边的权重就是题目的最小体力消耗值。</p>
@@ -81006,6 +81012,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="bfs">方法二：二分查找 + BFS</h3>
 <p>我们注意到，如果一个路径的最大体力消耗值为 $x$，那么对于任意 $y &gt; x$，该路径也是满足条件的，这存在着单调性，因此我们可以使用二分查找的方法，找到最小的满足条件的体力消耗值。</p>
 <p>我们定义二分查找的左边界 $l=0$，右边界 $r=10^6$，每次取 $mid=(l+r)/2$，然后使用 BFS 判断是否存在一条从左上角到右下角的路径，使得路径上相邻节点的高度差绝对值都不大于 $mid$，如果存在，那么说明 $mid$ 还有可能是最小的满足条件的体力消耗值，因此令 $r=mid$，否则令 $l=mid+1$。</p>
@@ -81390,6 +81400,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="dijkstra">方法三：堆优化的 Dijkstra 算法</h3>
 <p>我们可以把每个格子当做图的一个节点，把相邻两个格子的高度差绝对值当做边的权重，因此本题是求解从最左上角的节点到最右下角的节点的最短路径问题。</p>
 <p>我们可以使用 Dijkstra 算法求解最短路径，使用优先队列（堆）来优化时间复杂度。具体地，我们维护一个大小为 $m \times n$ 的二维数组 $dist$，其中 $dist[i][j]$ 表示从左上角到节点 $(i,j)$ 的最短路径的最大权重，初始时 $dist[0][0]=0$，其余元素均为正无穷大。</p>
@@ -81695,7 +81709,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

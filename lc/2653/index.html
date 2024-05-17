@@ -80266,11 +80266,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2653"><a href="https://leetcode.cn/problems/sliding-subarray-beauty">2653. 滑动子数组的美丽值</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 342 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 342 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1785-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1785-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 342 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 342 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1785-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1785-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;的整数数组&nbsp;<code>nums</code>&nbsp;，请你求出每个长度为&nbsp;<code>k</code>&nbsp;的子数组的 <b>美丽值</b>&nbsp;。</p>
 
@@ -80328,7 +80330,11 @@
     <li><code>-50&nbsp;&lt;= nums[i] &lt;= 50&nbsp;</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：滑动窗口</h3>
 <p>我们注意到，数组 $nums$ 中元素的范围为 $[-50,50]$，因此，我们可以用一个数组长度为 $101$ 的数组 $cnt$ 统计 $[-50,50]$ 中每个数出现的次数。由于负数的存在，我们可以将每个数加上 $50$，使得每个数都变成非负数，这样就可以用数组 $cnt$ 统计每个数出现的次数了。</p>
 <p>接下来，我们遍历数组 $nums$，维护一个长度为 $k$ 的滑动窗口，窗口中所有元素出现的次记数录在数组 $cnt$ 中，然后我们遍历数组 $cnt$，找到第 $x$ 小的负数，即为当前滑动窗口的美丽值。如果不存在第 $x$ 小的负数，那么美丽值为 $0$。</p>
@@ -80623,6 +80629,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：双优先队列（大小根堆） + 延迟删除</h3>
 <p>我们可以使用两个优先队列（大小根堆）维护当前窗口中的元素，其中一个优先队列存储当前窗口中较小的 $x$ 个元素，另一个优先队列存储当前窗口中较大的 $k - x$ 个元素。我们还需要一个延迟删除字典 <code>delayed</code>，用于记录当前窗口中的元素是否需要删除。</p>
 <p>我们设计一个类 <code>MedianFinder</code>，用于维护当前窗口中的元素。该类包含以下方法：</p>
@@ -81371,7 +81381,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

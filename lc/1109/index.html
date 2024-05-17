@@ -80260,11 +80260,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1109"><a href="https://leetcode.cn/problems/corporate-flight-bookings">1109. 航班预订统计</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 144 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 144 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1569-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1569-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 144 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 144 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1569-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1569-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>这里有&nbsp;<code>n</code>&nbsp;个航班，它们分别从 <code>1</code> 到 <code>n</code> 进行编号。</p>
 
@@ -80313,7 +80315,11 @@
     <li><code>1 &lt;= seats<sub>i</sub> &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：差分数组</h3>
 <p>我们注意到，每一次预订都是在某个区间 <code>[first, last]</code> 内的所有航班上预订了 <code>seats</code> 个座位。因此，我们可以利用差分数组的思想，对于每一次预订，将 <code>first</code> 位置的数加上 <code>seats</code>，将 <code>last + 1</code> 位置的数减去 <code>seats</code>。最后，对差分数组求前缀和，即可得到每个航班预定的座位总数。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 为航班数。忽略答案的空间消耗，空间复杂度 $O(1)$。</p>
@@ -80523,6 +80529,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：树状数组 + 差分思想</h3>
 <p>我们也可以利用树状数组，结合差分的思想，来实现上述操作。我们可以将每一次预订看作是在某个区间 <code>[first, last]</code> 内的所有航班上预订了 <code>seats</code> 个座位。因此，我们可以对每一次预订，对树状数组的 <code>first</code> 位置加上 <code>seats</code>，对树状数组的 <code>last + 1</code> 位置减去 <code>seats</code>。最后，对树状数组每个位置求前缀和，即可得到每个航班预定的座位总数。</p>
 <p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 为航班数。</p>
@@ -80841,7 +80851,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

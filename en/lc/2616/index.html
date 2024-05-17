@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2616-minimize-the-maximum-difference-of-pairs"><a href="https://leetcode.com/problems/minimize-the-maximum-difference-of-pairs">2616. Minimize the Maximum Difference of Pairs</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 340 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 340 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2155-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2155-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>p</code>. Find <code>p</code> pairs of indices of <code>nums</code> such that the <strong>maximum</strong> difference amongst all the pairs is <strong>minimized</strong>. Also, ensure no index appears more than once amongst the <code>p</code> pairs.</p>
 
 <p>Note that for a pair of elements at the index <code>i</code> and <code>j</code>, the difference of this pair is <code>|nums[i] - nums[j]|</code>, where <code>|x|</code> represents the <strong>absolute</strong> <strong>value</strong> of <code>x</code>.</p>
@@ -75694,7 +75698,11 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
     <li><code>0 &lt;= p &lt;= (nums.length)/2</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search-greedy">Solution 1: Binary search + Greedy</h3>
 <p>We find that the maximum difference has the monotonicity, that is, if the maximum difference $x$ satisfies the condition, then $x-1$ must also satisfy the condition. Therefore, we can use the binary search method to find the smallest maximum difference that satisfies the condition.</p>
 <p>We can sort the array <code>nums</code>, then enumerate the maximum difference $x$, and determine whether there are $p$ index pairs, where each index pair corresponds to the maximum value of the difference of the corresponding value. If it exists, we can reduce $x$, otherwise we can increase $x$.</p>
@@ -75878,7 +75886,9 @@ The maximum difference is max(|nums[1] - nums[4]|, |nums[2] - nums[5]|) = max(0,
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

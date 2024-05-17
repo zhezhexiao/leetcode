@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="635"><a href="https://leetcode.cn/problems/design-log-storage-system">635. 设计日志存储系统 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你将获得多条日志，每条日志都有唯一的 <code>id</code> 和 <code>timestamp</code> ，<code>timestamp</code> 是形如 <code>Year:Month:Day:Hour:Minute:Second</code> 的字符串，<code>2017:01:01:23:59:59</code> ，所有值域都是零填充的十进制数。</p>
 
@@ -80316,7 +80318,11 @@ logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour");
     <li>最多调用 <code>500</code> 次 <code>put</code> 和 <code>retrieve</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：字符串比较</h3>
 <p>将日志的 <code>id</code> 和 <code>timestamp</code> 作为元组存入数组中，然后在 <code>retrieve()</code> 方法中，根据 <code>granularity</code> 截取 <code>start</code> 和 <code>end</code> 的相应部分，然后遍历数组，将符合条件的 <code>id</code> 加入结果数组中。</p>
 <p>时间复杂度方面，<code>put()</code> 方法的时间复杂度为 $O(1)$，<code>retrieve()</code> 方法的时间复杂度为 $O(n)$，其中 $n$ 为数组的长度。</p>
@@ -80644,7 +80650,9 @@ logSystem.retrieve("2016:01:01:01:01:01", "2017:01:01:23:00:00", "Hour");
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75654,10 +75654,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="674-longest-continuous-increasing-subsequence"><a href="https://leetcode.com/problems/longest-continuous-increasing-subsequence">674. Longest Continuous Increasing Subsequence</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an unsorted array of integers <code>nums</code>, return <em>the length of the longest <strong>continuous increasing subsequence</strong> (i.e. subarray)</em>. The subsequence must be <strong>strictly</strong> increasing.</p>
 
 <p>A <strong>continuous increasing subsequence</strong> is defined by two indices <code>l</code> and <code>r</code> (<code>l &lt; r</code>) such that it is <code>[nums[l], nums[l + 1], ..., nums[r - 1], nums[r]]</code> and for each <code>l &lt;= i &lt; r</code>, <code>nums[i] &lt; nums[i + 1]</code>.</p>
@@ -75690,7 +75694,11 @@ increasing.
     <li><code>-10<sup>9</sup> &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-one-pass-scan">Solution 1: One-pass Scan</h3>
 <p>We can traverse the array $nums$, using a variable $cnt$ to record the length of the current consecutive increasing sequence. Initially, $cnt = 1$.</p>
 <p>Then, we start from index $i = 1$ and traverse the array $nums$ to the right. Each time we traverse, if $nums[i - 1] &lt; nums[i]$, it means that the current element can be added to the consecutive increasing sequence, so we set $cnt = cnt + 1$, and then update the answer to $ans = \max(ans, cnt)$. Otherwise, it means that the current element cannot be added to the consecutive increasing sequence, so we set $cnt = 1$.</p>
@@ -75900,6 +75908,10 @@ increasing.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-two-pointers">Solution 2: Two Pointers</h3>
 <p>We can also use two pointers $i$ and $j$ to find each consecutive increasing sequence, and find the length of the longest consecutive increasing sequence as the answer.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
@@ -76129,7 +76141,9 @@ increasing.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

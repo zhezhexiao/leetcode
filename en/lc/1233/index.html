@@ -75681,10 +75681,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1233-remove-sub-folders-from-the-filesystem"><a href="https://leetcode.com/problems/remove-sub-folders-from-the-filesystem">1233. Remove Sub-Folders from the Filesystem</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 159 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 159 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1544-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1544-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a list of folders <code>folder</code>, return <em>the folders after removing all <strong>sub-folders</strong> in those folders</em>. You may return the answer in <strong>any order</strong>.</p>
 
 <p>If a <code>folder[i]</code> is located within another <code>folder[j]</code>, it is called a <strong>sub-folder</strong> of it.</p>
@@ -75730,7 +75734,11 @@
     <li>Each folder name is <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting">Solution 1: Sorting</h3>
 <p>First, we sort the array <code>folder</code> in lexicographical order, then traverse the array. For the current folder $f$ we are traversing, if its length is greater than or equal to the length of the last folder in the answer array, and its prefix includes the last folder in the answer array plus a <code>/</code>, then $f$ is a subfolder of the last folder in the answer array, and we don't need to add it to the answer array. Otherwise, we add $f$ to the answer array.</p>
 <p>After the traversal ends, the folders in the answer array are the answer required by the problem.</p>
@@ -75851,6 +75859,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-trie">Solution 2: Trie</h3>
 <p>We can use a trie to store all the folders in the array <code>folder</code>. Each node of the trie contains a <code>children</code> field, used to store the child nodes of the current node, and a <code>fid</code> field, used to store the index of the folder corresponding to the current node in the array <code>folder</code>.</p>
 <p>For each folder $f$ in the array <code>folder</code>, we first split $f$ into several substrings according to <code>/</code>, then start from the root node and add the substrings to the trie in turn. Next, we start from the root node to search the trie. If the <code>fid</code> field of the current node is not <code>-1</code>, it means that the folder corresponding to the current node is a folder in the answer array. We add it to the answer array and return. Otherwise, we recursively search all child nodes of the current node and finally return the answer array.</p>
@@ -76243,6 +76255,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-3">Solution 3</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Go</label></div>
 <div class="tabbed-content">
@@ -76342,7 +76358,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

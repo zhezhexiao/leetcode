@@ -80269,11 +80269,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2080"><a href="https://leetcode.cn/problems/range-frequency-queries">2080. 区间内查询数字的频率</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 268 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 268 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1702-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1702-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 268 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 268 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1702-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1702-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>请你设计一个数据结构，它能求出给定子数组内一个给定值的 <strong>频率</strong>&nbsp;。</p>
 
@@ -80315,7 +80317,11 @@ rangeFreqQuery.query(0, 11, 33); // 返回 2 。33 在整个子数组中出现 2
     <li>调用&nbsp;<code>query</code>&nbsp;不超过&nbsp;<code>10<sup>5</sup></code>&nbsp;次。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表</h3>
 <p>我们用一个哈希表 $g$ 来存储每个值对应的下标数组。在构造函数中，我们遍历数组 $\text{arr}$，将每个值对应的下标加入到哈希表中。</p>
 <p>在查询函数中，我们首先判断哈希表中是否存在给定的值。如果不存在，说明该值在数组中不存在，直接返回 $0$。否则，我们获取该值对应的下标数组 $\text{idx}$。然后我们使用二分查找找到下标数组中第一个大于等于 $\text{left}$ 的下标 $l$，以及第一个大于 $\text{right}$ 的下标 $r$。最后返回 $r - l$ 即可。</p>
@@ -80608,7 +80614,9 @@ rangeFreqQuery.query(0, 11, 33); // 返回 2 。33 在整个子数组中出现 2
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

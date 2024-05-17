@@ -80254,11 +80254,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1581"><a href="https://leetcode.cn/problems/customer-who-visited-but-did-not-make-any-transactions">1581. 进店却未进行过交易的顾客</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Visits</code></p>
 
@@ -80341,7 +80343,11 @@ ID = 54 的顾客三度造访了购物中心。在 2 次访问中，他们没有
 ID = 96 的顾客曾经去过购物中心，并且没有进行任何交易。
 如我们所见，ID 为 30 和 96 的顾客一次没有进行任何交易就去了购物中心。顾客 54 也两次访问了购物中心并且没有进行任何交易。</pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：子查询 + 分组统计</h3>
 <p>我们可以使用子查询，先找出所有没有进行交易的 <code>visit_id</code>，然后按照 <code>customer_id</code> 进行分组，统计每个顾客的没有进行交易的次数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -80360,6 +80366,10 @@ ID = 96 的顾客曾经去过购物中心，并且没有进行任何交易。
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：左连接 + 分组统计</h3>
 <p>我们也可以使用左连接，将 <code>Visits</code> 表和 <code>Transactions</code> 表按照 <code>visit_id</code> 进行连接，然后筛选出 <code>amount</code> 为 <code>NULL</code> 的记录，按照 <code>customer_id</code> 进行分组，统计每个顾客的没有进行交易的次数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -80382,7 +80392,9 @@ ID = 96 的顾客曾经去过购物中心，并且没有进行任何交易。
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="926-flip-string-to-monotone-increasing"><a href="https://leetcode.com/problems/flip-string-to-monotone-increasing">926. Flip String to Monotone Increasing</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>A binary string is monotone increasing if it consists of some number of <code>0</code>&#39;s (possibly none), followed by some number of <code>1</code>&#39;s (also possibly none).</p>
 
 <p>You are given a binary string <code>s</code>. You can flip <code>s[i]</code> changing it from <code>0</code> to <code>1</code> or from <code>1</code> to <code>0</code>.</p>
@@ -75694,7 +75698,11 @@
     <li><code>s[i]</code> is either <code>&#39;0&#39;</code> or <code>&#39;1&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-prefix-sum-enumeration">Solution 1: Prefix Sum + Enumeration</h3>
 <p>First, we count the number of '0's in string $s$, denoted as $tot$. We define a variable $ans$ for the answer, initially set $ans = tot$, which represents the number of flips to change all '0's to '1's.</p>
 <p>Then, we can enumerate each position $i$, change all '1's to the left of position $i$ (including $i$) to '0', and change all '0's to the right of position $i$ to '1'. We calculate the number of flips in this case, which is $i + 1 - cur + tot - cur$, where $cur$ represents the number of '0's to the left of position $i$ (including $i$). We update the answer $ans = \min(ans, i + 1 - cur + tot - cur)$.</p>
@@ -75872,7 +75880,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

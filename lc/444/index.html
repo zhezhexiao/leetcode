@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="444"><a href="https://leetcode.cn/problems/sequence-reconstruction">444. 序列重建 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个长度为 <code>n</code> 的整数数组 <code>nums</code> ，其中 <code>nums</code> 是范围为 <code>[1，n]</code> 的整数的排列。还提供了一个 2D 整数数组&nbsp;<code>sequences</code>&nbsp;，其中&nbsp;<code>sequences[i]</code>&nbsp;是&nbsp;<code>nums</code>&nbsp;的子序列。<br />
 检查 <code>nums</code> 是否是唯一的最短&nbsp;<strong>超序列</strong> 。最短 <strong>超序列</strong> 是 <strong>长度最短</strong> 的序列，并且所有序列&nbsp;<code>sequences[i]</code>&nbsp;都是它的子序列。对于给定的数组&nbsp;<code>sequences</code>&nbsp;，可能存在多个有效的 <strong>超序列</strong> 。</p>
@@ -80324,7 +80326,11 @@
     <li><code>sequences[i]</code>&nbsp;是&nbsp;<code>nums</code> 的一个子序列</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：拓扑排序</h3>
 <p>我们可以先遍历每个子序列 <code>seq</code>，对于每个相邻的元素 $a$ 和 $b$，我们在 $a$ 和 $b$ 之间建立一条有向边 $a \to b$。同时统计每个节点的入度，最后将所有入度为 $0$ 的节点加入队列中。</p>
 <p>当队列中的节点个数等于 $1$ 时，我们取出队首节点 $i$，将 $i$ 从图中删除，并将 $i$ 的所有相邻节点的入度减 $1$。如果减 $1$ 后相邻节点的入度为 $0$，则将这些节点加入队列中。重复上述操作，直到队列的长度不为 $1$。此时判断队列是否为空，如果不为空，说明有多个最短超序列，返回 <code>false</code>；如果为空，说明只有一个最短超序列，返回 <code>true</code>。</p>
@@ -80609,7 +80615,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

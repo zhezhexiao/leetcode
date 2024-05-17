@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3092-id"><a href="https://leetcode.cn/problems/most-frequent-ids">3092. 最高频率的 ID</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 390 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 390 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1793-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1793-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 390 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 390 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1793-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1793-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你需要在一个集合里动态记录 ID 的出现频率。给你两个长度都为 <code>n</code>&nbsp;的整数数组&nbsp;<code>nums</code> 和&nbsp;<code>freq</code>&nbsp;，<code>nums</code>&nbsp;中每一个元素表示一个 ID ，对应的 <code>freq</code>&nbsp;中的元素表示这个 ID 在集合中此次操作后需要增加或者减少的数目。</p>
 
@@ -80321,7 +80323,11 @@
     <li>输入保证任何操作后，集合中的元素出现次数不会为负数。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 优先队列（大根堆）</h3>
 <p>我们用一个哈希表 $cnt$ 来记录每个 ID 的出现次数，用一个哈希表 $lazy$ 来记录每个次数需要被删除的个数。用一个优先队列 $pq$ 来维护出现次数的最大值。</p>
 <p>每一次操作 $(x, f)$，我们需要更新 $x$ 的出现次数 $cnt[x]$，这意味着 $cnt[x]$ 在 $lazy$ 中的值需要增加 $1$，表示该次数需要删除的个数增加 $1$。然后我们更新 $cnt[x]$ 的值，将 $cnt[x]$ 加上 $f$。然后我们更新后的 $cnt[x]$ 的值加入优先队列 $pq$ 中。然后我们检查优先队列 $pq$ 的堆顶元素，如果 $lazy$ 中对应的次数需要删除的个数大于 $0$，我们就将堆顶元素弹出。最后，我们判断优先队列是否为空，如果不为空，堆顶元素就是出现次数的最大值，我们将其加入答案数组中。</p>
@@ -80522,7 +80528,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

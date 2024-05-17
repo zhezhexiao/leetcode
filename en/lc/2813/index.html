@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2813-maximum-elegance-of-a-k-length-subsequence"><a href="https://leetcode.com/problems/maximum-elegance-of-a-k-length-subsequence">2813. Maximum Elegance of a K-Length Subsequence</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 357 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 357 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2582-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2582-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>items</code> of length <code>n</code> and an integer <code>k</code>.</p>
 
 <p><code>items[i] = [profit<sub>i</sub>, category<sub>i</sub>]</code>, where <code>profit<sub>i</sub></code> and <code>category<sub>i</sub></code> denote the profit and category of the <code>i<sup>th</sup></code> item respectively.</p>
@@ -75730,7 +75734,11 @@ Hence, the maximum elegance is 6 + 1<sup>2</sup> = 7.  </pre>
     <li><code>1 &lt;= k &lt;= n</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy">Solution 1: Greedy</h3>
 <p>We can sort all items by profit from large to small. First choose the first $k$ items and calculate the total profit $tot$. Use a hash table $vis$ to record the categories of these $k$ items, use a stack $dup$ to record the profits of the repeated categories in order, and use a variable $ans$ to record the current maximum elegance.</p>
 <p>Next, we consider starting from the $k+1$ item. If its category is already in $vis$, it means that if we choose this category, the number of different categories will not increase, so we can skip this item directly. If there is no duplicate category before, we can also skip this item directly. Otherwise, we can consider replacing the top item of $dup$ stack (the item with the minimum profit in the duplicate category) with the current item, which can increase the total profit by $p - dup.pop()$ and increase the number of different categories by $1$, so we can update $tot$ and $ans$.</p>
@@ -76012,7 +76020,9 @@ Hence, the maximum elegance is 6 + 1<sup>2</sup> = 7.  </pre>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

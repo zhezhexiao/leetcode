@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3050-pizza-toppings-cost-analysis"><a href="https://leetcode.com/problems/pizza-toppings-cost-analysis">3050. Pizza Toppings Cost Analysis 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <code><font face="monospace">Toppings</font></code></p>
 
 <pre>
@@ -75706,7 +75710,11 @@ There are only four different combinations possible with the three topings:
 - Chicken, Extra Cheese, Pepperoni: Total cost is $1.45 (Chicken $0.55, Extra Cheese $0.40, Pepperoni $0.50).
 Output table is ordered by the total cost in descending order.</pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-window-function-conditional-join">Solution 1: Window Function + Conditional Join</h3>
 <p>First, we use a window function to sort the table by the <code>topping_name</code> field and add a <code>rk</code> field to each row, representing the ranking of the current row.</p>
 <p>Then we use conditional join to join the table <code>T</code> three times, named as <code>t1</code>, <code>t2</code>, <code>t3</code> respectively. The join conditions are <code>t1.rk &lt; t2.rk</code> and <code>t2.rk &lt; t3.rk</code>. After that, we calculate the total price of the three toppings, sort by total price in descending order, and then sort by topping name in ascending order.</p>
@@ -75744,7 +75752,9 @@ Output table is ordered by the total cost in descending order.</pre>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

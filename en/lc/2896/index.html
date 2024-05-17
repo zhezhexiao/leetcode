@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2896-apply-operations-to-make-two-strings-equal"><a href="https://leetcode.com/problems/apply-operations-to-make-two-strings-equal">2896. Apply Operations to Make Two Strings Equal</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 366 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 366 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2172-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2172-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given two <strong>0-indexed</strong> binary strings <code>s1</code> and <code>s2</code>, both of length <code>n</code>, and a positive integer <code>x</code>.</p>
 
 <p>You can perform any of the following operations on the string <code>s1</code> <strong>any</strong> number of times:</p>
@@ -75707,7 +75711,11 @@ The total cost is 1 + 1 + 2 = 4. It can be shown that it is the minimum cost pos
     <li><code>s1</code> and <code>s2</code> consist only of the characters <code>&#39;0&#39;</code> and <code>&#39;1&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memoization">Solution 1: Memoization</h3>
 <p>We notice that since each operation reverses two characters, if the number of different characters in the two strings is odd, it is impossible to make them equal, and we directly return $-1$. Otherwise, we store the indices of the different characters in the two strings in an array $idx$, and let $m$ be the length of $idx$.</p>
 <p>Next, we design a function $dfs(i, j)$, which represents the minimum cost of reversing the characters in $idx[i..j]$. The answer is $dfs(0, m - 1)$.</p>
@@ -76024,6 +76032,10 @@ The total cost is 1 + 1 + 2 = 4. It can be shown that it is the minimum cost pos
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2">Solution 2</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label></div>
 <div class="tabbed-content">
@@ -76085,7 +76097,9 @@ The total cost is 1 + 1 + 2 = 4. It can be shown that it is the minimum cost pos
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2345"><a href="https://leetcode.cn/problems/finding-the-number-of-visible-mountains">2345. 寻找可见山的数量 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>下标从 0 开始&nbsp;</strong>的二维整数数组 <code>peaks</code>，其中 <code>peaks[i] = [x<sub>i</sub>, y<sub>i</sub>]</code> 表示山 <code>i</code> 在坐标 <code>(x<sub>i</sub>, y<sub>i</sub>)</code>&nbsp;处有一个峰值。山可以被描述为一个直角等腰三角形，它的底部沿着 <code>x</code>&nbsp;轴，山峰处有一个直角。更正式地说，上山和下山的&nbsp;<strong>梯度&nbsp;</strong>分别为 <code>1</code>&nbsp;和 <code>-1</code>。</p>
 
@@ -80316,7 +80318,11 @@
     <li><code>1 &lt;= x<sub>i</sub>, y<sub>i</sub> &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：区间排序 + 遍历</h3>
 <p>我们先将每座山 $(x, y)$ 转换成横坐标的区间 $(x - y, x + y)$，然后对区间按照左端点升序排序，右端点降序排序。</p>
 <p>接下来，初始化当前区间的右端点为 $-\infty$，遍历每座山，如果当前山的右端点小于等于当前区间的右端点，则跳过该山，否则更新当前区间的右端点为当前山的右端点，如果当前山的区间只出现一次，则答案加一。</p>
@@ -80500,6 +80506,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label></div>
 <div class="tabbed-content">
@@ -80555,7 +80565,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80243,10 +80243,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="04"><a href="https://leetcode.cn/problems/er-wei-shu-zu-zhong-de-cha-zhao-lcof/">面试题 04. 二维数组中的查找</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
+<!-- description:start -->
+
 <p>在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
 
 <p> </p>
@@ -80281,7 +80285,11 @@
 
 <p><strong>注意：</strong>本题与主站 240 题相同：<a href="https://leetcode.cn/problems/search-a-2d-matrix-ii/">https://leetcode.cn/problems/search-a-2d-matrix-ii/</a></p>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：二分查找</h3>
 <p>由于每一行的所有元素升序排列，因此，对于每一行，我们可以使用二分查找找到第一个大于等于 <code>target</code> 的元素，然后判断该元素是否等于 <code>target</code>。如果等于 <code>target</code>，说明找到了目标值，直接返回 <code>true</code>。如果不等于 <code>target</code>，说明这一行的所有元素都小于 <code>target</code>，应该继续搜索下一行。</p>
 <p>如果所有行都搜索完了，都没有找到目标值，说明目标值不存在，返回 <code>false</code>。</p>
@@ -80550,6 +80558,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 <h3 id="_4">方法二：从左下角或右上角搜索</h3>
 <p>这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 <code>matrix[i][j]</code>与 <code>target</code> 的大小关系：</p>
 <ul>
@@ -80711,7 +80723,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

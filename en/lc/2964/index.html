@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2964-number-of-divisible-triplet-sums"><a href="https://leetcode.com/problems/number-of-divisible-triplet-sums">2964. Number of Divisible Triplet Sums 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>d</code>, return <em>the number of triplets</em> <code>(i, j, k)</code> <em>such that</em> <code>i &lt; j &lt; k</code> <em>and</em> <code>(nums[i] + nums[j] + nums[k]) % d == 0</code>.</p>
 <p>&nbsp;</p>
 <p><strong class="example">Example 1:</strong></p>
@@ -75691,7 +75695,11 @@ It can be shown that no other triplet is divisible by 5. Hence, the answer is 3.
     <li><code>1 &lt;= d &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-enumeration">Solution 1: Hash Table + Enumeration</h3>
 <p>We can use a hash table $cnt$ to record the occurrence times of $nums[i] \bmod d$, then enumerate $j$ and $k$, calculate the value of $nums[i] \bmod d$ that makes the equation $(nums[i] + nums[j] + nums[k]) \bmod d = 0$ hold, which is $(d - (nums[j] + nums[k]) \bmod d) \bmod d$, and accumulate its occurrence times to the answer. Then we increase the occurrence times of $nums[j] \bmod d$ by one. Continue to enumerate $j$ and $k$ until $j$ reaches the end of the array.</p>
 <p>The time complexity is $O(n^2)$, and the space complexity is $O(n)$. Here, $n$ is the length of the array $nums$.</p>
@@ -75837,7 +75845,9 @@ It can be shown that no other triplet is divisible by 5. Hence, the answer is 3.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

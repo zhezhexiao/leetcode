@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2107-number-of-unique-flavors-after-sharing-k-candies"><a href="https://leetcode.com/problems/number-of-unique-flavors-after-sharing-k-candies">2107. Number of Unique Flavors After Sharing K Candies 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>candies</code>, where <code>candies[i]</code> represents the flavor of the <code>i<sup>th</sup></code> candy. Your mom wants you to share these candies with your little sister by giving her <code>k</code> <strong>consecutive</strong> candies, but you want to keep as many flavors of candies as possible.</p>
 
 <p>Return <em>the <strong>maximum</strong> number of <strong>unique</strong> flavors of candy you can keep after sharing </em><em> with your sister.</em></p>
@@ -75709,7 +75713,11 @@ There are 3 unique flavors, so return 3.
     <li><code>0 &lt;= k &lt;= candies.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sliding-window-hash-table">Solution 1: Sliding Window + Hash Table</h3>
 <p>We can maintain a sliding window of size $k$, where the candies outside the window are for ourselves, and the $k$ candies inside the window are shared with our sister and mother. We can use a hash table $cnt$ to record the flavors of the candies outside the window and their corresponding quantities.</p>
 <p>Initially, the hash table $cnt$ stores the flavors of the candies from $candies[k]$ to $candies[n-1]$ and their corresponding quantities. At this time, the number of candy flavors is the size of the hash table $cnt$, that is, $ans = cnt.size()$.</p>
@@ -75948,7 +75956,9 @@ There are 3 unique flavors, so return 3.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

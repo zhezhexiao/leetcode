@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="87-scramble-string"><a href="https://leetcode.com/problems/scramble-string">87. Scramble String</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>We can scramble a string s to get a string t using the following algorithm:</p>
 
 <ol>
@@ -75719,7 +75723,11 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
     <li><code>s1</code> and <code>s2</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memorized-search">Solution 1: Memorized Search</h3>
 <p>We design a function $dfs(i, j, k)$, which means whether the substring starting from $i$ with length $k$ in $s_1$ can be converted into the substring starting from $j$ with length $k$ in $s_2$. If it can be converted, return <code>true</code>, otherwise return <code>false</code>. The answer is $dfs(0, 0, n)$, where $n$ is the length of the string.</p>
 <p>The calculation method of function $dfs(i, j, k)$ is as follows:</p>
@@ -76060,6 +76068,10 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-dynamic-programming-interval-dp">Solution 2: Dynamic Programming (Interval DP)</h3>
 <p>We define $f[i][j][k]$ as whether the substring of length $k$ starting from $i$ of string $s_1$ can be transformed into the substring of length $k$ starting from $j$ of string $s_2$. Then the answer is $f[0][0][n]$, where $n$ is the length of the string.</p>
 <p>For substring of length $1$, if $s_1[i] = s_2[j]$, then $f[i][j][1] = true$, otherwise $f[i][j][1] = false$.</p>
@@ -76394,7 +76406,9 @@ As one possible scenario led s1 to be scrambled to s2, we return true.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

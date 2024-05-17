@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2563"><a href="https://leetcode.cn/problems/count-the-number-of-fair-pairs">2563. 统计公平数对的数目</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 332 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 332 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1720-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1720-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 332 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 332 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1720-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1720-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始、长度为 <code>n</code> 的整数数组&nbsp;<code>nums</code>&nbsp;，和两个整数&nbsp;<code>lower</code> 和&nbsp;<code>upper</code> ，返回 <strong>公平数对的数目</strong> 。</p>
 
@@ -80307,7 +80309,11 @@
     <li><code>-10<sup>9</sup>&nbsp;&lt;= lower &lt;= upper &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：排序 + 二分查找</h3>
 <p>我们先对数组 <code>nums</code> 按照升序排序，然后枚举 <code>nums[i]</code>，对于每个 <code>nums[i]</code>，我们通过二分查找找到 <code>nums[j]</code> 的下界 <code>j</code>，即第一个满足 <code>nums[j] &gt;= lower - nums[i]</code> 的下标，然后再通过二分查找找到 <code>nums[k]</code> 的下界 <code>k</code>，即第一个满足 <code>nums[k] &gt;= upper - nums[i] + 1</code> 的下标，那么 <code>[j, k)</code> 即为 <code>nums[j]</code> 满足 <code>lower &lt;= nums[i] + nums[j] &lt;= upper</code> 的下标范围，这些下标对应的 <code>nums[j]</code> 的个数即为 <code>k - j</code>，将其累加到答案中即可。注意 $j \gt i$。</p>
 <p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 <code>nums</code> 的长度。</p>
@@ -80485,7 +80491,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

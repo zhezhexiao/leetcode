@@ -22,7 +22,7 @@
     
     
       
-        <title>LCP 68. 美观的花束 - LeetCode Wiki</title>
+        <title>68 - LeetCode Wiki</title>
       
     
     
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LCP 68. 美观的花束
+              68
             
           </span>
         </div>
@@ -80150,11 +80150,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="lcp-68"><a href="https://leetcode.cn/problems/1GxJYY">LCP 68. 美观的花束</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>力扣嘉年华的花店中从左至右摆放了一排鲜花，记录于整型一维矩阵 <code>flowers</code> 中每个数字表示该位置所种鲜花的品种编号。你可以选择一段区间的鲜花做成插花，且不能丢弃。
 在你选择的插花中，如果每一品种的鲜花数量都不超过 <code>cnt</code> 朵，那么我们认为这束插花是 「美观的」。</p>
@@ -80190,7 +80192,11 @@
 <li><code>1 &lt;= flowers[i] &lt;= 10^5</code></li>
 <li><code>1 &lt;= cnt &lt;= 10^5</code></li>
 </ul>
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：双指针</h3>
 <p>我们用双指针 $j$ 和 $i$ 分别指向当前窗口的左右端点，用数组或哈希表 $d$ 记录当前窗口内的元素以及出现的次数。</p>
 <p>遍历数组 $flowers$，每一次我们将 $flowers[i]$ 加入到窗口中，即 $d[flowers[i]]++$，然后判断 $d[flowers[i]]$ 是否大于 $cnt$，如果大于 $cnt$，则我们需要将 $flowers[j]$ 从窗口中移除，即 $d[flowers[j]]--$，并将 $j$ 右移，直到 $d[flowers[i]] \leq cnt$。此时窗口内的元素都不超过 $cnt$ 个，因此我们可以将 $i - j + 1$ 加到答案中。</p>
@@ -80336,7 +80342,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

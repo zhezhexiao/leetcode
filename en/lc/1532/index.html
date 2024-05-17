@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1532-the-most-recent-three-orders"><a href="https://leetcode.com/problems/the-most-recent-three-orders">1532. The Most Recent Three Orders 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <code>Customers</code></p>
 
 <pre>
@@ -75743,7 +75747,11 @@ We sort the result table by customer_name in ascending order, by customer_id in 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you write a general solution for the most recent <code>n</code> orders?</p>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-equi-join-window-function">Solution 1: Equi-Join + Window Function</h3>
 <p>We can use an equi-join to join the <code>Customers</code> table and the <code>Orders</code> table based on <code>customer_id</code>, and then use the window function <code>row_number()</code> to sort the orders for each customer by <code>order_date</code> in descending order and assign a row number to each order. Finally, we can filter out the orders with a row number less than or equal to $3$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -75786,7 +75794,9 @@ We sort the result table by customer_name in ascending order, by customer_id in 
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

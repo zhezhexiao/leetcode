@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2954-count-the-number-of-infection-sequences"><a href="https://leetcode.com/problems/count-the-number-of-infection-sequences">2954. Count the Number of Infection Sequences</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 374 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 374 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2644-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2644-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer <code>n</code> and a <strong>0-indexed</strong><strong> </strong>integer array <code>sick</code> which is <strong>sorted</strong> in <strong>increasing</strong> order.</p>
 
 <p>There are <code>n</code> children standing in a queue with positions <code>0</code> to <code>n - 1</code> assigned to them. The array <code>sick</code> contains the positions of the children who are infected with an infectious disease. An infected child at position <code>i</code> can spread the disease to either of its immediate neighboring children at positions <code>i - 1</code> and <code>i + 1</code> <strong>if</strong> they exist and are currently not infected. <strong>At most one</strong> child who was previously not infected can get infected with the disease in one second.</p>
@@ -75709,7 +75713,11 @@ Finally, the child at position 2 gets infected because it is adjacent to childre
     <li><code>sick</code> is sorted in increasing order.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-combinatorial-mathematics-multiplicative-inverse-fast-power">Solution 1: Combinatorial Mathematics + Multiplicative Inverse + Fast Power</h3>
 <p>According to the problem description, the children who have a cold have divided the children who have not yet caught a cold into several continuous segments. We can use an array $nums$ to record the number of children who are not cold in each segment, and there are a total of $s = \sum_{i=0}^{k} nums[k]$ children who are not cold. We can find that the number of cold sequences is the number of permutations of $s$ different elements, that is, $s!$.</p>
 <p>Assuming that there is only one transmission scheme for each segment of children who are not cold, there are $\frac{s!}{\prod_{i=0}^{k} nums[k]!}$ cold sequences in total.</p>
@@ -76166,7 +76174,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

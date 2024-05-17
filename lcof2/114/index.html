@@ -80234,9 +80234,11 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="offer-ii-114"><a href="https://leetcode.cn/problems/Jf1JuT">剑指 Offer II 114. 外星文字典</a></h1>
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有一种使用英语字母的外星文语言，这门语言的字母顺序与英语顺序不同。</p>
 
@@ -80289,7 +80291,11 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 269&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/alien-dictionary/">https://leetcode.cn/problems/alien-dictionary/</a></p>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="bfs">方法一：拓扑排序 + BFS</h3>
 <p>用数组 $g$ 记录在火星字典中的字母先后关系，$g[i][j] = true$ 表示字母 $i + 'a'$ 在字母 $j + 'a'$ 的前面；用数组 $s$ 记录当前字典出现过的字母，$cnt$ 表示出现过的字母数。</p>
 <p>一个很简单的想法是遍历每一个单词，比较该单词和其后的所有单词，把所有的先后关系更新进数组 $g$，这样遍历时间复杂度为 $O(n^3)$；但是我们发现其实比较相邻的两个单词就可以了，比如 $a &lt; b &lt; c$ 则比较 $a &lt; b$ 和 $b &lt; c$， $a$ 和 $c$ 的关系便确定了。因此算法可以优化成比较相邻两个单词，时间复杂度为 $O(n^2)$。</p>
@@ -80682,7 +80688,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80252,10 +80252,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="40-k"><a href="https://leetcode.cn/problems/zui-xiao-de-kge-shu-lcof/">面试题 40. 最小的 k 个数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
+<!-- description:start -->
+
 <p>输入整数数组 <code>arr</code> ，找出其中最小的 <code>k</code> 个数。例如，输入4、5、1、6、2、7、3、8这8个数字，则最小的4个数字是1、2、3、4。</p>
 
 <p>&nbsp;</p>
@@ -80280,7 +80284,11 @@
     <li><code>0 &lt;= arr[i]&nbsp;&lt;= 10000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：排序</h3>
 <p>我们可以直接对数组 <code>arr</code> 按从小到大排序，然后取前 $k$ 个数即可。</p>
 <p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 <code>arr</code> 的长度。</p>
@@ -80540,6 +80548,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 <h3 id="_4">方法二：优先队列（大根堆）</h3>
 <p>我们可以用优先队列（大根堆）维护最小的 $k$ 个数。</p>
 <p>遍历数组 <code>arr</code>，对于当前遍历到的数 $x$，我们先将其加入优先队列中，然后判断优先队列的大小是否超过 $k$，如果超过了，就将堆顶元素弹出。最后将优先队列中的数存入数组并返回即可。</p>
@@ -80692,6 +80704,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 <h3 id="_5">方法三：快排思想</h3>
 <p>我们可以利用快速排序的思想，每次划分后判断划分点的位置是否为 $k$，如果是，就直接返回划分点左边的数即可，否则根据划分点的位置决定下一步划分的区间。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(\log n)$。其中 $n$ 为数组 <code>arr</code> 的长度。</p>
@@ -80931,7 +80947,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

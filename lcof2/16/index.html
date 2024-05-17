@@ -80243,9 +80243,11 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="offer-ii-016"><a href="https://leetcode.cn/problems/wtcaE1">剑指 Offer II 016. 不含重复字符的最长子字符串</a></h1>
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 <code>s</code> ，请你找出其中不含有重复字符的&nbsp;<strong>最长连续子字符串&nbsp;</strong>的长度。</p>
 
@@ -80296,7 +80298,11 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 3&nbsp;题相同：&nbsp;<a href="https://leetcode.cn/problems/longest-substring-without-repeating-characters/">https://leetcode.cn/problems/longest-substring-without-repeating-characters/</a></p>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：双指针 + 哈希表</h3>
 <p>我们用两个指针 $j$ 和 $i$ 维护一个不包含重复字符的子串，其中 $j$ 为子串的左边界，$i$ 为子串的右边界，用一个哈希表或数组 $ss$ 记录窗口中所有出现过的字符。</p>
 <p>接下来，我们遍历字符串 $s$，对于当前遍历到的字符 $s[i]$，如果 $s[i]$ 在 $[j, i)$ 范围内有与 $s[i]$ 相同的字符，我们就不断地向右移动指针 $j$，直到 $ss[s[i]]$ 为 <code>false</code>，此时 $[j,i)$ 中没有任何与 $s[i]$ 相同的字符，我们就找到了以字符 $s[i]$ 为结尾的最长子串。对于每个 $i$，我们都更新最长子串的长度，最终返回答案。</p>
@@ -80451,6 +80457,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 <h3 id="_4">方法二</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label></div>
 <div class="tabbed-content">
@@ -80484,7 +80494,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

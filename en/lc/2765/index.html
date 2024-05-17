@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2765-longest-alternating-subarray"><a href="https://leetcode.com/problems/longest-alternating-subarray">2765. Longest Alternating Subarray</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 108 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 108 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1580-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1580-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A subarray <code>s</code> of length <code>m</code> is called <strong>alternating</strong> if:</p>
 
 <ul>
@@ -75692,7 +75696,11 @@
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
 <p>We can enumerate the left endpoint $i$ of the subarray, and for each $i$, we need to find the longest subarray that satisfies the condition. We can start traversing to the right from $i$, and each time we encounter adjacent elements whose difference does not satisfy the alternating condition, we find a subarray that satisfies the condition. We can use a variable $k$ to record whether the difference of the current element should be $1$ or $-1$. If the difference of the current element should be $-k$, then we take the opposite of $k$. When we find a subarray $nums[i..j]$ that satisfies the condition, we update the answer to $\max(ans, j - i + 1)$.</p>
 <p>The time complexity is $O(n^2)$, where $n$ is the length of the array. We need to enumerate the left endpoint $i$ of the subarray, and for each $i$, we need $O(n)$ time to find the longest subarray that satisfies the condition. The space complexity is $O(1)$.</p>
@@ -75858,7 +75866,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

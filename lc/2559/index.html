@@ -80266,11 +80266,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2559"><a href="https://leetcode.cn/problems/count-vowel-strings-in-ranges">2559. 统计范围内的元音字符串数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 331 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 331 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1435-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1435-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 331 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 331 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1435-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1435-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong> 开始的字符串数组 <code>words</code> 以及一个二维整数数组 <code>queries</code> 。</p>
 
@@ -80314,7 +80316,11 @@
     <li><code>0 &lt;= queries[j][0] &lt;= queries[j][1] &lt;&nbsp;words.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：预处理 + 二分查找</h3>
 <p>我们可以预处理出所有以元音开头和结尾的字符串的下标，按顺序记录在数组 $nums$ 中。</p>
 <p>接下来，我们遍历每个查询 $(l, r)$，通过二分查找在 $nums$ 中找到第一个大于等于 $l$ 的下标 $i$，以及第一个大于 $r$ 的下标 $j$，那么当前查询的答案就是 $j - i$。</p>
@@ -80525,6 +80531,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：前缀和</h3>
 <p>我们可以创建一个长度为 $n+1$ 的前缀和数组 $s$，其中 $s[i]$ 表示数组 $words$ 的前 $i$ 个字符串中以元音开头和结尾的字符串的数目。初始时 $s[0] = 0$。</p>
 <p>接下来，我们遍历数组 $words$，如果当前字符串以元音开头和结尾，那么 $s[i+1] = s[i] + 1$，否则 $s[i+1] = s[i]$。</p>
@@ -80698,7 +80708,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

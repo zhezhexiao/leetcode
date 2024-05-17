@@ -80260,11 +80260,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="403"><a href="https://leetcode.cn/problems/frog-jump">403. 青蛙过河</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一只青蛙想要过河。 假定河流被等分为若干个单元格，并且在每一个单元格内都有可能放有一块石子（也有可能没有）。 青蛙可以跳上石子，但是不可以跳入水中。</p>
 
@@ -80299,7 +80301,11 @@
     <li><code>stones</code>&nbsp;按严格升序排列</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 记忆化搜索</h3>
 <p>我们用哈希表 $pos$ 记录每个石子的下标，接下来设计一个函数 $dfs(i, k)$，表示青蛙从第 $i$ 个石子跳跃且上一次跳跃距离为 $k$，如果青蛙能够到达终点，那么函数返回 <code>true</code>，否则返回 <code>false</code>。</p>
 <p>函数 $dfs(i, k)$ 的计算过程如下：</p>
@@ -80692,6 +80698,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：动态规划</h3>
 <p>我们定义 $f[i][k]$ 表示青蛙能否达到「现在所处的石子编号」为 $i$，「上一次跳跃距离」为 $k$ 的状态。初始时 $f[0][0] = true$，其余均为 <code>false</code>。</p>
 <p>考虑 $f[i]$，我们可以枚举上一块石子的编号 $j$，那么上一次跳跃的距离 $k=stones[i]-stones[j]$。如果 $k-1 \gt j$，那么青蛙无法从第 $j$ 块石子跳跃到第 $i$ 块石子，我们可以直接跳过这种情况。否则，青蛙可以从第 $j$ 块石子跳跃到第 $i$ 块石子，那么 $f[i][k] = f[j][k-1] \lor f[j][k] \lor f[j][k+1]$。如果 $i=n-1$，且 $f[i][k]=true$，那么青蛙可以成功过河，我们就可以返回 <code>true</code>。</p>
@@ -80955,7 +80965,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

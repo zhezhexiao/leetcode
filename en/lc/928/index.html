@@ -75675,10 +75675,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="928-minimize-malware-spread-ii"><a href="https://leetcode.com/problems/minimize-malware-spread-ii">928. Minimize Malware Spread II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a network of <code>n</code> nodes represented as an <code>n x n</code> adjacency matrix <code>graph</code>, where the <code>i<sup>th</sup></code> node is directly connected to the <code>j<sup>th</sup></code> node if <code>graph[i][j] == 1</code>.</p>
 
 <p>Some nodes <code>initial</code> are initially infected by malware. Whenever two nodes are directly connected, and at least one of those two nodes is infected by malware, both nodes will be infected by malware. This spread of malware will continue until no more nodes can be infected in this manner.</p>
@@ -75717,7 +75721,11 @@
     <li>All the integers in <code>initial</code> are <strong>unique</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-union-find">Solution 1: Union-Find</h3>
 <p>We can use the union-find data structure to merge all nodes that are not in $initial$ and satisfy $graph[i][j] = 1$.</p>
 <p>Next, we create a hash table $g$, where $g[i]$ represents the root node of the connected component that is connected to node $i$. We also need a counter $cnt$ to count how many initial nodes each root node is infected by.</p>
@@ -76514,7 +76522,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1401-circle-and-rectangle-overlapping"><a href="https://leetcode.com/problems/circle-and-rectangle-overlapping">1401. Circle and Rectangle Overlapping</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 23 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 23 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1708-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1708-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a circle represented as <code>(radius, xCenter, yCenter)</code> and an axis-aligned rectangle represented as <code>(x1, y1, x2, y2)</code>, where <code>(x1, y1)</code> are the coordinates of the bottom-left corner, and <code>(x2, y2)</code> are the coordinates of the top-right corner of the rectangle.</p>
 
 <p>Return <code>true</code><em> if the circle and rectangle are overlapped otherwise return </em><code>false</code>. In other words, check if there is <strong>any</strong> point <code>(x<sub>i</sub>, y<sub>i</sub>)</code> that belongs to the circle and the rectangle at the same time.</p>
@@ -75692,7 +75696,11 @@
     <li><code>-10<sup>4</sup> &lt;= y1 &lt; y2 &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-mathematics">Solution 1: Mathematics</h3>
 <p>For a point $(x, y)$, its shortest distance to the center of the circle $(xCenter, yCenter)$ is $\sqrt{(x - xCenter)^2 + (y - yCenter)^2}$. If this distance is less than or equal to the radius $radius$, then this point is within the circle (including the boundary).</p>
 <p>For points within the rectangle (including the boundary), their x-coordinates $x$ satisfy $x_1 \leq x \leq x_2$, and their y-coordinates $y$ satisfy $y_1 \leq y \leq y_2$. To determine whether the circle and rectangle overlap, we need to find a point $(x, y)$ within the rectangle such that $a = |x - xCenter|$ and $b = |y - yCenter|$ are minimized. If $a^2 + b^2 \leq radius^2$, then the circle and rectangle overlap.</p>
@@ -75881,7 +75889,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

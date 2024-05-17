@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="875-koko-eating-bananas"><a href="https://leetcode.com/problems/koko-eating-bananas">875. Koko Eating Bananas</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Koko loves to eat bananas. There are <code>n</code> piles of bananas, the <code>i<sup>th</sup></code> pile has <code>piles[i]</code> bananas. The guards have gone and will come back in <code>h</code> hours.</p>
 
 <p>Koko can decide her bananas-per-hour eating speed of <code>k</code>. Each hour, she chooses some pile of bananas and eats <code>k</code> bananas from that pile. If the pile has less than <code>k</code> bananas, she eats all of them instead and will not eat any more bananas during this hour.</p>
@@ -75694,7 +75698,11 @@
     <li><code>1 &lt;= piles[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>We notice that if Koko can eat all the bananas at a speed of $k$ within $h$ hours, then she can also eat all the bananas at a speed of $k' &gt; k$ within $h$ hours. This shows monotonicity, so we can use binary search to find the smallest $k$ that satisfies the condition.</p>
 <p>We define the left boundary of the binary search as $l = 1$, and the right boundary as $r = \max(\text{piles})$. For each binary search, we take the middle value $mid = \frac{l + r}{2}$, and then calculate the time $s$ required to eat bananas at a speed of $mid$. If $s \leq h$, it means that the speed of $mid$ can meet the condition, and we update the right boundary $r$ to $mid$; otherwise, we update the left boundary $l$ to $mid + 1$. Finally, when $l = r$, we find the smallest $k$ that satisfies the condition.</p>
@@ -75923,7 +75931,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

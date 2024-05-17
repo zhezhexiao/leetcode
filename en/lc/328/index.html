@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="328-odd-even-linked-list"><a href="https://leetcode.com/problems/odd-even-linked-list">328. Odd Even Linked List</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given the <code>head</code> of a singly linked list, group all the nodes with odd indices together followed by the nodes with even indices, and return <em>the reordered list</em>.</p>
 
 <p>The <strong>first</strong> node is considered <strong>odd</strong>, and the <strong>second</strong> node is <strong>even</strong>, and so on.</p>
@@ -75680,7 +75684,11 @@
     <li><code>-10<sup>6</sup> &lt;= Node.val &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-single-pass">Solution 1: Single Pass</h3>
 <p>We can use two pointers $a$ and $b$ to represent the tail nodes of the odd and even nodes respectively. Initially, pointer $a$ points to the head node $head$ of the list, and pointer $b$ points to the second node $head.next$ of the list. In addition, we use a pointer $c$ to point to the head node $head.next$ of the even nodes, which is the initial position of pointer $b$.</p>
 <p>We traverse the list, set pointer $a$ to point to the next node of $b$, i.e., $a.next = b.next$, then move pointer $a$ back by one position, i.e., $a = a.next$; set pointer $b$ to point to the next node of $a$, i.e., $b.next = a.next$, then move pointer $b$ back by one position, i.e., $b = b.next$. Continue to traverse until $b$ reaches the end of the list.</p>
@@ -75942,7 +75950,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

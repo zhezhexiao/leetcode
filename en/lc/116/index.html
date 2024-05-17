@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="116-populating-next-right-pointers-in-each-node"><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node">116. Populating Next Right Pointers in Each Node</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>perfect binary tree</strong> where all leaves are on the same level, and every parent has two children. The binary tree has the following definition:</p>
 
 <pre>
@@ -75729,7 +75733,11 @@ struct Node {
     <li>The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-bfs">Solution 1: BFS</h3>
 <p>Use a queue for level order traversal, and each time you traverse a level, connect the nodes of the current level in order.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.</p>
@@ -76117,6 +76125,10 @@ struct Node {
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-dfs">Solution 2: DFS</h3>
 <p>Use recursion for preorder traversal, and each time you traverse to a node, connect its left and right child nodes in order.</p>
 <p>Specifically, we design a function $dfs(left, right)$, which points the $next$ pointer of the $left$ node to the $right$ node. In the function, we first check whether $left$ and $right$ are null. If both are not null, point $left.next$ to $right$, and then recursively call $dfs(left.left, left.right)$, $dfs(left.right, right.left)$, $dfs(right.left, right.right)$.</p>
@@ -76457,7 +76469,9 @@ struct Node {
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

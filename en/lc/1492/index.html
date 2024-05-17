@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1492-the-kth-factor-of-n"><a href="https://leetcode.com/problems/the-kth-factor-of-n">1492. The kth Factor of n</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 29 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 29 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1231-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1231-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given two positive integers <code>n</code> and <code>k</code>. A factor of an integer <code>n</code> is defined as an integer <code>i</code> where <code>n % i == 0</code>.</p>
 
 <p>Consider a list of all factors of <code>n</code> sorted in <strong>ascending order</strong>, return <em>the </em><code>k<sup>th</sup></code><em> factor</em> in this list or return <code>-1</code> if <code>n</code> has less than <code>k</code> factors.</p>
@@ -75705,7 +75709,11 @@
 
 <p>Could you solve this problem in less than O(n) complexity?</p>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-brute-force-enumeration">Solution 1: Brute Force Enumeration</h3>
 <p>A "factor" is a number that can divide another number. Therefore, we only need to enumerate from $1$ to $n$, find all numbers that can divide $n$, and then return the $k$-th one.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(1)$.</p>
@@ -75819,6 +75827,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-optimized-enumeration">Solution 2: Optimized Enumeration</h3>
 <p>We can observe that if $n$ has a factor $x$, then $n$ must also have a factor $n/x$.</p>
 <p>Therefore, we first need to enumerate $[1,2,...\left \lfloor \sqrt{n}  \right \rfloor]$, find all numbers that can divide $n$. If we find the $k$-th factor, then we can return it directly. If we do not find the $k$-th factor, then we need to enumerate $[\left \lfloor \sqrt{n}  \right \rfloor ,..1]$ in reverse order, and find the $k$-th factor.</p>
@@ -76031,7 +76043,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

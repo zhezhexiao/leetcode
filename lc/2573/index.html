@@ -80275,11 +80275,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2573-lcp"><a href="https://leetcode.cn/problems/find-the-string-with-lcp">2573. 找出对应 LCP 矩阵的字符串</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 333 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 333 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2681-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2681-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 333 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 333 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2681-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2681-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>对任一由 <code>n</code> 个小写英文字母组成的字符串 <code>word</code> ，我们可以定义一个 <code>n x n</code> 的矩阵，并满足：</p>
 
@@ -80326,7 +80328,11 @@
     <li><code><font face="monospace">0 &lt;= lcp[i][j] &lt;= n</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：贪心 + 构造</h3>
 <p>由于构造的字符串要求字典序最小，因此我们可以从字符 <code>'a'</code> 开始，填充到字符串 $s$ 中。</p>
 <p>如果当前位置 $i$ 还未填充字符，那么我们可以将字符 <code>'a'</code> 填充到 $i$ 位置，然后枚举所有 $j \gt i$ 的位置，如果 $lcp[i][j] \gt 0$，那么位置 $j$ 也应该填充字符 <code>'a'</code>。然后我们将字符 <code>'a'</code> 的 ASCII 码加一，继续填充剩余未填充的位置。</p>
@@ -80712,7 +80718,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

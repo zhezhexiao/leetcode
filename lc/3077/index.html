@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3077-k"><a href="https://leetcode.cn/problems/maximum-strength-of-k-disjoint-subarrays">3077. K 个不相交子数组的最大能量值</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 388 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 388 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2556-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2556-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 388 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 388 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2556-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2556-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个长度为 <code>n</code>&nbsp;下标从 <strong>0</strong>&nbsp;开始的整数数组&nbsp;<code>nums</code>&nbsp;和一个 <strong>正奇数</strong>&nbsp;整数&nbsp;<code>k</code>&nbsp;。</p>
 
@@ -80311,7 +80313,11 @@
     <li><code>k</code> 是奇数。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划</h3>
 <p>对于第 $i$ 个数 $nums[i - 1]$，如果它被选择，且位于第 $j$ 个子数组，那么它对答案的贡献是 $nums[i - 1] \times (k - j + 1) \times (-1)^{j+1}$，我们不妨将 $(-1)^{j+1}$ 记为 $sign$，那么它对答案的贡献是 $sign \times nums[i - 1] \times (k - j + 1)$。</p>
 <p>我们定义 $f[i][j][0]$ 表示从前 $i 个数中选择 $j$ 个子数组，且第 $i$ 个数不被选的最大能量值，定义 $f[i][j][1]$ 表示从前 $i$ 个数中选择 $j$ 个子数组，且第 $i$ 个数被选的最大能量值。初始时 $f[0][0][1] = 0$，其余的值都是 $-\infty$。</p>
@@ -80560,7 +80566,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

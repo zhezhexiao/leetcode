@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1351-count-negative-numbers-in-a-sorted-matrix"><a href="https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix">1351. Count Negative Numbers in a Sorted Matrix</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 176 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 176 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1139-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1139-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a <code>m x n</code> matrix <code>grid</code> which is sorted in non-increasing order both row-wise and column-wise, return <em>the number of <strong>negative</strong> numbers in</em> <code>grid</code>.</p>
 
 <p>&nbsp;</p>
@@ -75700,7 +75704,11 @@
 
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Could you find an <code>O(n + m)</code> solution?</p>
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-start-traversing-from-the-bottom-left-or-top-right">Solution 1: Start Traversing from the Bottom Left or Top Right</h3>
 <p>According to the characteristic that <strong>both rows and columns are arranged in non-increasing order</strong>, we can start traversing from the <strong>bottom left corner</strong> towards the <strong>top right direction</strong>.</p>
 <p>When encountering a negative number, it indicates that all elements to the right of the current position in this row are negative. We add the number of remaining elements in this row to the answer, that is, $n - j$, and move up a row, that is, $i \leftarrow i - 1$. Otherwise, move to the right column, that is, $j \leftarrow j + 1$.</p>
@@ -75938,6 +75946,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-binary-search">Solution 2: Binary Search</h3>
 <p>Traverse each row, use binary search to find the first position less than $0$ in each row. All elements to the right of this position are negative, and add the number of negative numbers to the answer.</p>
 <p>After the traversal is over, return the answer.</p>
@@ -76172,7 +76184,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

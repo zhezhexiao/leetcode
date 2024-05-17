@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2653-sliding-subarray-beauty"><a href="https://leetcode.com/problems/sliding-subarray-beauty">2653. Sliding Subarray Beauty</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 342 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 342 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1785-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1785-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> containing <code>n</code> integers, find the <strong>beauty</strong> of each subarray of size <code>k</code>.</p>
 
 <p>The <strong>beauty</strong> of a subarray is the <code>x<sup>th</sup></code><strong> smallest integer </strong>in the subarray if it is <strong>negative</strong>, or <code>0</code> if there are fewer than <code>x</code> negative integers.</p>
@@ -75727,7 +75731,11 @@ For [0, -3], the 1<sup>st</sup> smallest negative integer is -3.</pre>
     <li><code>-50&nbsp;&lt;= nums[i] &lt;= 50&nbsp;</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sliding-window">Solution 1: Sliding Window</h3>
 <p>We notice that the range of elements in the array $nums$ is $[-50,50]$. Therefore, we can use an array of length $101$, denoted as $cnt$, to count the occurrences of each number in $[-50,50]$. Due to the presence of negative numbers, we can add $50$ to each number to make them all non-negative, so we can use the array $cnt$ to count the occurrences of each number.</p>
 <p>Next, we traverse the array $nums$, maintaining a sliding window of length $k$. The occurrence times of all elements in the window are recorded in the array $cnt$. Then we traverse the array $cnt$ to find the $x$-th smallest number, which is the beauty value of the current sliding window. If there is no $x$-th smallest number, then the beauty value is $0$.</p>
@@ -76022,6 +76030,10 @@ For [0, -3], the 1<sup>st</sup> smallest negative integer is -3.</pre>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-double-priority-queue-min-max-heap-delayed-deletion">Solution 2: Double Priority Queue (Min-Max Heap) + Delayed Deletion</h3>
 <p>We can use two priority queues (min-max heap) to maintain the elements in the current window, one priority queue stores the smaller $x$ elements in the current window, and the other priority queue stores the larger $k - x$ elements in the current window. We also need a delayed deletion dictionary <code>delayed</code> to record whether the elements in the current window need to be deleted.</p>
 <p>We design a class <code>MedianFinder</code> to maintain the elements in the current window. This class includes the following methods:</p>
@@ -76770,7 +76782,9 @@ For [0, -3], the 1<sup>st</sup> smallest negative integer is -3.</pre>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

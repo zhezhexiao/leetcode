@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2847"><a href="https://leetcode.cn/problems/smallest-number-with-given-digit-product">2847. 给定数字乘积的最小数字 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>正</strong> 整数 <code>n</code>，返回一个字符串，表示 <strong>最小的正整数</strong>，使其各位数字的乘积等于 <code>n</code>&nbsp;，如果不存在这样的数字，则返回 <code>"-1"</code>&nbsp;。</p>
 
@@ -80293,7 +80295,11 @@
     <li><code>1 &lt;= n &lt;= 10<sup>18</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：质因数分解 + 贪心</h3>
 <p>我们考虑对数字 $n$ 进行质因数分解，如果 $n$ 的质因数中存在大于 $9$ 的质数，那么一定无法找到符合条件的数字，因为大于 $9$ 的质数无法通过 $1$ 到 $9$ 的数字相乘得到，例如 $11$ 无法通过 $1$ 到 $9$ 的数字相乘得到，因此我们只需要考虑 $n$ 的质因数中是否存在大于 $9$ 的质数即可，如果存在，直接返回 $-1$。</p>
 <p>否则，如果质因数中包含 $7$ 和 $5$，那么数字 $n$ 首先可以拆分为若干个 $7$ 和 $5$，两个数字 $3$ 可以合成一个数字 $9$，三个数字 $2$ 可以合成一个数字 $8$，数字 $2$ 和数字 $3$ 可以合成一个数字 $6$，因此我们只需要将数字拆分为 $[2,..9]$ 的数字即可，我们可以使用贪心的方法，优先拆分出数字 $9$，然后拆分出数字 $8$，依次类推。</p>
@@ -80464,7 +80470,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

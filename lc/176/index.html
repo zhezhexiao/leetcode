@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="176"><a href="https://leetcode.cn/problems/second-highest-salary">176. 第二高的薪水</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code>Employee</code> 表：</p>
 <div class="original__bRMd">
@@ -80331,7 +80333,11 @@ Employee 表：
 </div>
 </div>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="limit">方法一：使用 LIMIT 语句和子查询</h3>
 <p>我们可以按照薪水降序排列，然后使用 <code>LIMIT</code> 语句来获取第二高的薪水，如果不存在第二高的薪水，那么就返回 <code>null</code>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">MySQL</label></div>
@@ -80398,6 +80404,10 @@ Employee 表：
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="max">方法二：使用 MAX() 函数和子查询</h3>
 <p>我们也可以使用 <code>MAX()</code> 函数，从小于 <code>MAX()</code> 的薪水中挑选一个最大的薪水即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -80414,6 +80424,10 @@ Employee 表：
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="distinct">方法三：使用 DISTINCT 和窗口函数</h3>
 <p>我们还可以先通过 <code>DENSE_RANK()</code> 函数计算出每个员工的薪水排名，然后再筛选出排名为 $2$ 的员工薪水即可。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">MySQL</label></div>
@@ -80428,7 +80442,9 @@ Employee 表：
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

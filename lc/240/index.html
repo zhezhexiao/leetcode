@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="240-ii"><a href="https://leetcode.cn/problems/search-a-2d-matrix-ii">240. 搜索二维矩阵 II</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>编写一个高效的算法来搜索&nbsp;<code><em>m</em>&nbsp;x&nbsp;<em>n</em></code>&nbsp;矩阵 <code>matrix</code> 中的一个目标值 <code>target</code> 。该矩阵具有以下特性：</p>
 
@@ -80315,7 +80317,11 @@
     <li><code>-10<sup>9</sup>&nbsp;&lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：二分查找</h3>
 <p>由于每一行的所有元素升序排列，因此，对于每一行，我们可以使用二分查找找到第一个大于等于 <code>target</code> 的元素，然后判断该元素是否等于 <code>target</code>。如果等于 <code>target</code>，说明找到了目标值，直接返回 <code>true</code>。如果不等于 <code>target</code>，说明这一行的所有元素都小于 <code>target</code>，应该继续搜索下一行。</p>
 <p>如果所有行都搜索完了，都没有找到目标值，说明目标值不存在，返回 <code>false</code>。</p>
@@ -80574,6 +80580,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：从左下角或右上角搜索</h3>
 <p>这里我们以左下角作为起始搜索点，往右上方向开始搜索，比较当前元素 <code>matrix[i][j]</code>与 <code>target</code> 的大小关系：</p>
 <ul>
@@ -80787,7 +80797,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

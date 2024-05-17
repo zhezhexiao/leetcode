@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="895"><a href="https://leetcode.cn/problems/maximum-frequency-stack">895. 最大频率栈</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>设计一个类似堆栈的数据结构，将元素推入堆栈，并从堆栈中弹出<strong>出现频率</strong>最高的元素。</p>
 
@@ -80324,7 +80326,11 @@ freqStack.pop ();//返回 4 ，因为 4, 5 和 7 出现频率最高，但 4 是�
     <li>输入保证在调用&nbsp;<code>pop</code>&nbsp;之前堆栈中至少有一个元素。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 优先队列（大根堆）</h3>
 <p>根据题目描述，我们需要设计一个支持弹出“出现频率最高”的元素的数据结构。如果存在多个元素出现频率相同，那么弹出最接近栈顶的元素。</p>
 <p>我们可以使用哈希表 $cnt$ 记录每个元素出现的频率，用一个优先队列（大根堆） $q$ 维护元素频率以及对应的压栈时间戳。</p>
@@ -80574,6 +80580,10 @@ freqStack.pop ();//返回 4 ，因为 4, 5 和 7 出现频率最高，但 4 是�
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：双哈希表</h3>
 <p>在方法一中，为了能弹出符合要求的元素，我们维护了一个优先队列，每次都需要对优先队列进行操作，时间复杂度为 $O(\log n)$。如果我们能够在 $O(1)$ 的时间内找到符合要求的元素，那么整个数据结构每次操作的时间复杂度就可以降低到 $O(1)$。</p>
 <p>实际上，我们可以用一个变量 $mx$ 记录当前出现频率的最大值，用一个哈希表 $d$ 记录每个出现频率对应的元素列表，与方法一相同，用一个哈希表 $cnt$ 记录每个元素出现的频率。</p>
@@ -80825,7 +80835,9 @@ freqStack.pop ();//返回 4 ，因为 4, 5 和 7 出现频率最高，但 4 是�
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1128-number-of-equivalent-domino-pairs"><a href="https://leetcode.com/problems/number-of-equivalent-domino-pairs">1128. Number of Equivalent Domino Pairs</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 146 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 146 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1332-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1332-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a list of <code>dominoes</code>, <code>dominoes[i] = [a, b]</code> is <strong>equivalent to</strong> <code>dominoes[j] = [c, d]</code> if and only if either (<code>a == c</code> and <code>b == d</code>), or (<code>a == d</code> and <code>b == c</code>) - that is, one domino can be rotated to be equal to another domino.</p>
 
 <p>Return <em>the number of pairs </em><code>(i, j)</code><em> for which </em><code>0 &lt;= i &lt; j &lt; dominoes.length</code><em>, and </em><code>dominoes[i]</code><em> is <strong>equivalent to</strong> </em><code>dominoes[j]</code>.</p>
@@ -75689,7 +75693,11 @@
     <li><code>1 &lt;= dominoes[i][j] &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-counting">Solution 1: Counting</h3>
 <p>We can concatenate the two numbers of each domino in order of size to form a two-digit number, so that equivalent dominoes can be concatenated into the same two-digit number. For example, both <code>[1, 2]</code> and <code>[2, 1]</code> are concatenated into the two-digit number <code>12</code>, and both <code>[3, 4]</code> and <code>[4, 3]</code> are concatenated into the two-digit number <code>34</code>.</p>
 <p>Then we traverse all the dominoes, using an array $cnt$ of length $100$ to record the number of occurrences of each two-digit number. For each domino, the two-digit number we concatenate is $x$, then the answer will increase by $cnt[x]$, and then we add $1$ to the value of $cnt[x]$. Continue to traverse the next domino, and we can count the number of all equivalent domino pairs.</p>
@@ -75794,7 +75802,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

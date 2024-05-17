@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1692-count-ways-to-distribute-candies"><a href="https://leetcode.com/problems/count-ways-to-distribute-candies">1692. Count Ways to Distribute Candies 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There are <code>n</code> <strong>unique</strong> candies (labeled <code>1</code> through <code>n</code>) and <code>k</code> bags. You are asked to distribute <strong>all</strong> the candies into the bags such that every bag has <strong>at least</strong> one candy.</p>
 
 <p>There can be multiple ways to distribute the candies. Two ways are considered <strong>different</strong> if the candies in one bag in the first way are not all in the same bag in the second way. The order of the bags and the order of the candies within each bag do not matter.</p>
@@ -75701,7 +75705,11 @@
     <li><code>1 &lt;= k &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
 <p>We define $f[i][j]$ as the number of different ways to distribute $i$ candies to $j$ bags. Initially, $f[0][0]=1$, and the answer is $f[n][k]$.</p>
 <p>We consider how to distribute the $i$-th candy. If the $i$-th candy is distributed to a new bag, then $f[i][j]=f[i-1][j-1]$. If the $i$-th candy is distributed to an existing bag, then $f[i][j]=f[i-1][j]\times j$. Therefore, the state transition equation is:</p>
@@ -75852,7 +75860,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

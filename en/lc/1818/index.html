@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1818-minimum-absolute-sum-difference"><a href="https://leetcode.com/problems/minimum-absolute-sum-difference">1818. Minimum Absolute Sum Difference</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 235 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 235 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1934-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1934-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given two positive integer arrays <code>nums1</code> and <code>nums2</code>, both of length <code>n</code>.</p>
 
 <p>The <strong>absolute sum difference</strong> of arrays <code>nums1</code> and <code>nums2</code> is defined as the <strong>sum</strong> of <code>|nums1[i] - nums2[i]|</code> for each <code>0 &lt;= i &lt; n</code> (<strong>0-indexed</strong>).</p>
@@ -75722,7 +75726,11 @@ This yields an absolute sum difference of |10-9| + |10-3| + |4-5| + |4-1| + |2-7
     <li><code>1 &lt;= nums1[i], nums2[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting-binary-search">Solution 1: Sorting + Binary Search</h3>
 <p>According to the problem, we can first calculate the absolute difference sum of <code>nums1</code> and <code>nums2</code> without any replacements, denoted as $s$.</p>
 <p>Next, we enumerate each element $nums1[i]$ in <code>nums1</code>, replacing it with the element closest to $nums2[i]$ that also exists in <code>nums1</code>. Therefore, before the enumeration, we can make a copy of <code>nums1</code>, resulting in the array <code>nums</code>, and sort <code>nums</code>. Then, we perform a binary search in <code>nums</code> for the element closest to $nums2[i]$, denoted as $nums[j]$, and calculate $|nums1[i] - nums2[i]| - |nums[j] - nums2[i]|$, updating the maximum value of the difference $mx$.</p>
@@ -76128,7 +76136,9 @@ This yields an absolute sum difference of |10-9| + |10-3| + |4-5| + |4-1| + |2-7
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

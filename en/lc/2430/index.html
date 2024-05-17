@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2430-maximum-deletions-on-a-string"><a href="https://leetcode.com/problems/maximum-deletions-on-a-string">2430. Maximum Deletions on a String</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 313 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 313 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2101-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2101-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> consisting of only lowercase English letters. In one operation, you can:</p>
 
 <ul>
@@ -75735,7 +75739,11 @@ We used 4 operations so return 4. It can be proven that 4 is the maximum number 
     <li><code>s</code> consists only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memoization-search">Solution 1: Memoization Search</h3>
 <p>We design a function $dfs(i)$, which represents the maximum number of operations needed to delete all characters from $s[i..]$. The answer is $dfs(0)$.</p>
 <p>The calculation process of the function $dfs(i)$ is as follows:</p>
@@ -76028,6 +76036,10 @@ We used 4 operations so return 4. It can be proven that 4 is the maximum number 
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
 <p>We can change the memoization search in Solution 1 to dynamic programming. Define $f[i]$ to represent the maximum number of operations needed to delete all characters from $s[i..]$. Initially, $f[i]=1$, and the answer is $f[0]$.</p>
 <p>We can enumerate $i$ from back to front. For each $i$, we enumerate the length of the string $j$, where $1 \leq j \leq (n-1)/2$. If $s[i..i+j] = s[i+j..i+j+j]$, we can delete $s[i..i+j]$, then $f[i]=max(f[i], f[i+j]+1)$. We need to enumerate all $j$ to find the maximum value of $f[i]$.</p>
@@ -76244,7 +76256,9 @@ We used 4 operations so return 4. It can be proven that 4 is the maximum number 
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

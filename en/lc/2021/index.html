@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2021-brightest-position-on-street"><a href="https://leetcode.com/problems/brightest-position-on-street">2021. Brightest Position on Street 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>A perfectly straight street is represented by a number line. The street has street lamp(s) on it and is represented by a 2D integer array <code>lights</code>. Each <code>lights[i] = [position<sub>i</sub>, range<sub>i</sub>]</code> indicates that there is a street lamp at position <code>position<sub>i</sub></code> that lights up the area from <code>[position<sub>i</sub> - range<sub>i</sub>, position<sub>i</sub> + range<sub>i</sub>]</code> (<strong>inclusive</strong>).</p>
 
 <p>The <strong>brightness</strong> of a position <code>p</code> is defined as the number of street lamp that light up the position <code>p</code>.</p>
@@ -75719,7 +75723,11 @@ Out of all these positions, -1 is the smallest, so return it.
     <li><code>0 &lt;= range<sub>i</sub> &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-difference-array-hash-table-sorting">Solution 1: Difference Array + Hash Table + Sorting</h3>
 <p>We can consider the range illuminated by each street light as an interval, with the left endpoint $l = position_i - range_i$ and the right endpoint $r = position_i + range_i$. We can use the idea of a difference array. For each interval $[l, r]$, we add $1$ to the value at position $l$ and subtract $1$ from the value at position $r + 1$. We use a hash table to maintain the change value at each position.</p>
 <p>Then we traverse each position in ascending order, calculate the brightness $s$ at the current position. If the previous maximum brightness $mx &lt; s$, then update the maximum brightness $mx = s$ and record the current position $ans = i$.</p>
@@ -75949,7 +75957,9 @@ Out of all these positions, -1 is the smallest, so return it.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

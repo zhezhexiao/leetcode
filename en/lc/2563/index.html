@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2563-count-the-number-of-fair-pairs"><a href="https://leetcode.com/problems/count-the-number-of-fair-pairs">2563. Count the Number of Fair Pairs</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 332 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 332 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1720-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1720-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a <strong>0-indexed</strong> integer array <code>nums</code> of size <code>n</code> and two integers <code>lower</code> and <code>upper</code>, return <em>the number of fair pairs</em>.</p>
 
 <p>A pair <code>(i, j)</code> is <b>fair </b>if:</p>
@@ -75703,7 +75707,11 @@
     <li><code><font face="monospace">-10<sup>9</sup>&nbsp;&lt;= lower &lt;= upper &lt;= 10<sup>9</sup></font></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting-binary-search">Solution 1: Sorting + Binary Search</h3>
 <p>First, we sort the array <code>nums</code> in ascending order. Then, for each <code>nums[i]</code>, we use binary search to find the lower bound <code>j</code> of <code>nums[j]</code>, i.e., the first index that satisfies <code>nums[j] &gt;= lower - nums[i]</code>. Then, we use binary search again to find the lower bound <code>k</code> of <code>nums[k]</code>, i.e., the first index that satisfies <code>nums[k] &gt;= upper - nums[i] + 1</code>. Therefore, <code>[j, k)</code> is the index range for <code>nums[j]</code> that satisfies <code>lower &lt;= nums[i] + nums[j] &lt;= upper</code>. The count of these indices corresponding to <code>nums[j]</code> is <code>k - j</code>, and we can add this to the answer. Note that $j &gt; i$.</p>
 <p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Where $n$ is the length of the array <code>nums</code>.</p>
@@ -75881,7 +75889,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

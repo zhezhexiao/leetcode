@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1176-diet-plan-performance"><a href="https://leetcode.com/problems/diet-plan-performance">1176. Diet Plan Performance 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 152 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 152 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1397-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1397-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>A dieter consumes&nbsp;<code>calories[i]</code>&nbsp;calories on the <code>i</code>-th day.&nbsp;</p>
 
 <p>Given an integer <code>k</code>, for <strong>every</strong> consecutive sequence of <code>k</code> days (<code>calories[i], calories[i+1], ..., calories[i+k-1]</code>&nbsp;for all <code>0 &lt;= i &lt;= n-k</code>), they look at <em>T</em>, the total calories consumed during that sequence of <code>k</code> days (<code>calories[i] + calories[i+1] + ... + calories[i+k-1]</code>):</p>
@@ -75718,7 +75722,11 @@ calories[2] + calories[3] &lt; lower so 1 point is lost.
     <li><code>0 &lt;= lower &lt;= upper</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-prefix-sum">Solution 1: Prefix Sum</h3>
 <p>First, we preprocess a prefix sum array $s$ of length $n+1$, where $s[i]$ represents the total calories of the first $i$ days.</p>
 <p>Then we traverse the prefix sum array $s$. For each position $i$, we calculate $s[i+k]-s[i]$, which is the total calories for the consecutive $k$ days starting from the $i$th day. According to the problem description, for each $s[i+k]-s[i]$, we judge its value with $lower$ and $upper$, and update the answer accordingly.</p>
@@ -75909,6 +75917,10 @@ calories[2] + calories[3] &lt; lower so 1 point is lost.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-sliding-window">Solution 2: Sliding Window</h3>
 <p>We maintain a sliding window of length $k$, and the sum of the elements in the window is denoted as $s$. If $s \lt lower$, the score decreases by $1$; if $s &gt; upper$, the score increases by $1$.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the <code>calories</code> array. The space complexity is $O(1)$.</p>
@@ -76130,7 +76142,9 @@ calories[2] + calories[3] &lt; lower so 1 point is lost.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

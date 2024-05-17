@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="879-profitable-schemes"><a href="https://leetcode.com/problems/profitable-schemes">879. Profitable Schemes</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There is a group of <code>n</code> members, and a list of various crimes they could commit. The <code>i<sup>th</sup></code> crime generates a <code>profit[i]</code> and requires <code>group[i]</code> members to participate in it. If a member participates in one crime, that member can&#39;t participate in another crime.</p>
 
 <p>Let&#39;s call a <strong>profitable scheme</strong> any subset of these crimes that generates at least <code>minProfit</code> profit, and the total number of members participating in that subset of crimes is at most <code>n</code>.</p>
@@ -75699,7 +75703,11 @@ There are 7 possible schemes: (0), (1), (2), (0,1), (0,2), (1,2), and (0,1,2).</
     <li><code>0 &lt;= profit[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-recursion-with-memoization">Solution 1: recursion with memoization</h3>
 <p>We design a function $dfs(i, j, k)$, which means that we start from the $i$-th job, and have chosen $j$ employees, and the current profit is $k$, then the number of schemes in this case is $dfs(0, 0, 0)$.</p>
 <p>The execution process of function $dfs(i, j, k)$ is as follows:</p>
@@ -75934,6 +75942,10 @@ There are 7 possible schemes: (0), (1), (2), (0,1), (0,2), (1,2), and (0,1,2).</
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
 <p>We define $f[i][j][k]$ to be the number of schemes to make a profit of at least $k$ with $i$ jobs and $j$ workers. Initially, we have $f[0][j][0] = 1$, which means that there is only one scheme to make a profit of $0$ without any jobs.</p>
 <p>For the $i$-th job, we can choose to work or not to work. If we do not work, then $f[i][j][k] = f[i - 1][j][k]$; if we work, then $f[i][j][k] = f[i - 1][j - group[i - 1]][max(0, k - profit[i - 1])]$. We need to enumerate $j$ and $k$, and add up all the schemes.</p>
@@ -76129,7 +76141,9 @@ There are 7 possible schemes: (0), (1), (2), (0,1), (0,2), (1,2), and (0,1,2).</
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

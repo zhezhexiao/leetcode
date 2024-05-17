@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2103-rings-and-rods"><a href="https://leetcode.com/problems/rings-and-rods">2103. Rings and Rods</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 271 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 271 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1257-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1257-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There are <code>n</code> rings and each ring is either red, green, or blue. The rings are distributed <strong>across ten rods</strong> labeled from <code>0</code> to <code>9</code>.</p>
 
 <p>You are given a string <code>rings</code> of length <code>2n</code> that describes the <code>n</code> rings that are placed onto the rods. Every two characters in <code>rings</code> forms a <strong>color-position pair</strong> that is used to describe each ring where:</p>
@@ -75720,7 +75724,11 @@ Only one ring is given. Thus, no rods have all three colors.
     <li><code>rings[i]</code> where <code>i</code> is <strong>odd</strong> is a digit from <code>&#39;0&#39;</code> to <code>&#39;9&#39;</code> (<strong>0-indexed</strong>).</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-bit-manipulation">Solution 1: Bit Manipulation</h3>
 <p>We can use an array $mask$ of length $10$ to represent the color situation of the rings on each rod, where $mask[i]$ represents the color situation of the ring on the $i$th rod. If there are red, green, and blue rings on the $i$th rod, then the binary representation of $mask[i]$ is $111$, that is, $mask[i] = 7$.</p>
 <p>We traverse the string $rings$. For each color position pair $(c, j)$, where $c$ represents the color of the ring and $j$ represents the number of the rod where the ring is located, we set the corresponding binary bit of $mask[j]$, that is, $mask[j] |= d[c]$, where $d[c]$ represents the binary bit corresponding to color $c$.</p>
@@ -75984,6 +75992,10 @@ Only one ring is given. Thus, no rods have all three colors.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2">Solution 2</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">TypeScript</label></div>
 <div class="tabbed-content">
@@ -76005,7 +76017,9 @@ Only one ring is given. Thus, no rods have all three colors.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

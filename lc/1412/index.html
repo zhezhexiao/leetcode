@@ -80245,11 +80245,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1412"><a href="https://leetcode.cn/problems/find-the-quiet-students-in-all-exams">1412. 查找成绩处于中游的学生 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表: <code>Student</code></p>
 
@@ -80334,7 +80336,11 @@ Exam 表：
 因为学生 5 从来没有参加过任何测验, 所以他被排除于结果表。
 由此, 我们仅仅返回学生 2 的信息。</pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="rank">方法一：使用 RANK() 窗口函数 + 分组聚合</h3>
 <p>我们可以使用 <code>RANK()</code> 窗口函数来计算每个学生在每场考试中的正序排名 $rk1$ 和倒序排序 $rk2$，得到表 $T$。</p>
 <p>接下来，我们将表 $T$ 与表 $Student$ 进行内连接，然后按照学生编号进行分组聚合，得到每个学生在所有考试中的正序排名为 $1$ 的次数 $cnt1$ 和倒序排名为 $1$ 的次数 $cnt2$。如果 $cnt1$ 和 $cnt2$ 都为 $0$，则说明该学生在所有考试中都处于中游。</p>
@@ -80388,7 +80394,9 @@ Exam 表：
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

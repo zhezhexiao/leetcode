@@ -75634,10 +75634,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3149-find-the-minimum-cost-array-permutation"><a href="https://leetcode.com/problems/find-the-minimum-cost-array-permutation">3149. Find the Minimum Cost Array Permutation</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> which is a <span data-keyword="permutation">permutation</span> of <code>[0, 1, 2, ..., n - 1]</code>. The <strong>score</strong> of any permutation of <code>[0, 1, 2, ..., n - 1]</code> named <code>perm</code> is defined as:</p>
 
 <p><code>score(perm) = |perm[0] - nums[perm[1]]| + |perm[1] - nums[perm[2]]| + ... + |perm[n - 1] - nums[perm[0]]|</code></p>
@@ -75681,7 +75685,11 @@
     <li><code>nums</code> is a permutation of <code>[0, 1, 2, ..., n - 1]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memoization-search">Solution 1: Memoization Search</h3>
 <p>We notice that for any permutation $\text{perm}$, if we cyclically shift it to the left any number of times, the score of the permutation remains the same. Since the problem requires returning the lexicographically smallest permutation, we can determine that the first element of the permutation must be $0$.</p>
 <p>Also, since the data range of the problem does not exceed $14$, we can consider using the method of state compression to represent the set of numbers selected in the current permutation. We use a binary number $\text{mask}$ of length $n$ to represent the set of numbers selected in the current permutation, where the $i$-th bit of $\text{mask}$ is $1$ indicates that the number $i$ has been selected, and $0$ indicates that the number $i$ has not been selected yet.</p>
@@ -76117,7 +76125,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

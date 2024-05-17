@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2187-minimum-time-to-complete-trips"><a href="https://leetcode.com/problems/minimum-time-to-complete-trips">2187. Minimum Time to Complete Trips</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 282 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 282 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1640-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1640-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an array <code>time</code> where <code>time[i]</code> denotes the time taken by the <code>i<sup>th</sup></code> bus to complete <strong>one trip</strong>.</p>
 
 <p>Each bus can make multiple trips <strong>successively</strong>; that is, the next trip can start <strong>immediately after</strong> completing the current trip. Also, each bus operates <strong>independently</strong>; that is, the trips of one bus do not influence the trips of any other bus.</p>
@@ -75695,7 +75699,11 @@ So the minimum time needed to complete 1 trip is 2.
     <li><code>1 &lt;= time[i], totalTrips &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>We notice that if we can complete at least $totalTrips$ trips in $t$ time, then we can also complete at least $totalTrips$ trips in $t' &gt; t$ time. Therefore, we can use the method of binary search to find the smallest $t$.</p>
 <p>We define the left boundary of the binary search as $l = 1$, and the right boundary as $r = \min(time) \times totalTrips$. For each binary search, we calculate the middle value $\text{mid} = \frac{l + r}{2}$, and then calculate the number of trips that can be completed in $\text{mid}$ time. If this number is greater than or equal to $totalTrips$, then we reduce the right boundary to $\text{mid}$, otherwise we increase the left boundary to $\text{mid} + 1$.</p>
@@ -75859,7 +75867,9 @@ So the minimum time needed to complete 1 trip is 2.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

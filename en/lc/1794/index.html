@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1794-count-pairs-of-equal-substrings-with-minimum-difference"><a href="https://leetcode.com/problems/count-pairs-of-equal-substrings-with-minimum-difference">1794. Count Pairs of Equal Substrings With Minimum Difference 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given two strings <code>firstString</code> and <code>secondString</code> that are <strong>0-indexed</strong> and consist only of lowercase English letters. Count the number of index quadruples <code>(i,j,a,b)</code> that satisfy the following conditions:</p>
 
 <ul>
@@ -75697,7 +75701,11 @@
     <li>Both strings consist only of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-hash-table">Solution 1: Greedy + Hash Table</h3>
 <p>The problem actually asks us to find a smallest index $i$ and a largest index $j$ such that $firstString[i]$ equals $secondString[j]$, and the value of $i - j$ is the smallest among all index pairs that meet the conditions.</p>
 <p>Therefore, we first use a hash table $last$ to record the index of the last occurrence of each character in $secondString$. Then we traverse $firstString$. For each character $c$, if $c$ has appeared in $secondString$, we calculate $i - last[c]$. If the value of $i - last[c]$ is less than the current minimum value, we update the minimum value and set the answer to 1. If the value of $i - last[c]$ equals the current minimum value, we increment the answer by 1.</p>
@@ -75912,7 +75920,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

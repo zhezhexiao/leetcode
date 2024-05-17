@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1215-stepping-numbers"><a href="https://leetcode.com/problems/stepping-numbers">1215. Stepping Numbers 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 10 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 10 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1674-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1674-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>A <strong>stepping number</strong> is an integer such that all of its adjacent digits have an absolute difference of exactly <code>1</code>.</p>
 
 <ul>
@@ -75685,7 +75689,11 @@
     <li><code>0 &lt;= low &lt;= high &lt;= 2 * 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-bfs">Solution 1: BFS</h3>
 <p>First, if $low$ is $0$, we need to add $0$ to the answer.</p>
 <p>Next, we create a queue $q$ and add $1 \sim 9$ to the queue. Then, we repeatedly take out elements from the queue. Let the current element be $v$. If $v$ is greater than $high$, we stop searching. If $v$ is in the range $[low, high]$, we add $v$ to the answer. Then, we need to record the last digit of $v$ as $x$. If $x \gt 0$, we add $v \times 10 + x - 1$ to the queue. If $x \lt 9$, we add $v \times 10 + x + 1$ to the queue. Repeat the above steps until the queue is empty.</p>
@@ -75964,7 +75972,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

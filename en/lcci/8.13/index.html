@@ -75634,10 +75634,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="0813-pile-box"><a href="https://leetcode.cn/problems/pile-box-lcci">08.13. Pile Box</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You have a stack of n boxes, with widths wi, heights hi, and depths di. The boxes cannot be rotated and can only be stacked on top of one another if each box in the stack is strictly larger than the box above it in width, height, and depth. Implement a method to compute the height of the tallest possible stack. The height of a stack is the sum of the heights of each box.</p>
 <p>The input use <code>[wi, di, hi]</code>&nbsp;to represents each box.</p>
 <p><strong>Example1:</strong></p>
@@ -75661,7 +75665,11 @@
     <li><code>box.length &lt;= 3000</code></li>
 </ol>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting-dynamic-programming">Solution 1: Sorting + Dynamic Programming</h3>
 <p>First, we sort the boxes in ascending order by width and descending order by depth, then use dynamic programming to solve the problem.</p>
 <p>We define $f[i]$ as the maximum height with the $i$-th box at the bottom. For $f[i]$, we enumerate $j \in [0, i)$, if $box[j][1] &lt; box[i][1]$ and $box[j][2] &lt; box[i][2]$, then we can put the $j$-th box on top of the $i$-th box, in which case $f[i] = \max{f[i], f[j]}$. Finally, we add the height of the $i$-th box to $f[i]$ to get the final value of $f[i]$.</p>
@@ -75901,7 +75909,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

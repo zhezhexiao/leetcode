@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="802"><a href="https://leetcode.cn/problems/find-eventual-safe-states">802. 找到最终的安全状态</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个有 <code>n</code> 个节点的有向图，节点按 <code>0</code> 到 <code>n - 1</code> 编号。图由一个 <strong>索引从 0 开始</strong> 的 2D 整数数组&nbsp;<code>graph</code>表示，&nbsp;<code>graph[i]</code>是与节点 <code>i</code> 相邻的节点的整数数组，这意味着从节点 <code>i</code> 到&nbsp;<code>graph[i]</code>中的每个节点都有一条边。</p>
 
@@ -80321,7 +80323,11 @@
     <li>图中边的数目在范围 <code>[1, 4 * 10<sup>4</sup>]</code> 内。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：拓扑排序</h3>
 <p>出度为零的点是安全的，如果一个点<strong>只能</strong>到达安全的点，那么它同样是安全的，所以问题转换成了拓扑排序。</p>
 <p>我们可以将图中所有边反向，得到一个反图，然后在反图上运行拓扑排序。</p>
@@ -80618,6 +80624,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="dfs">方法二：DFS + 三色标记法</h3>
 <p>若起始节点位于一个环内，或者能到达一个环，则该节点不是安全的。否则，该节点是安全的。</p>
 <ul>
@@ -80881,7 +80891,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

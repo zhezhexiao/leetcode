@@ -80243,11 +80243,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="0801"><a href="https://leetcode.cn/problems/three-steps-problem-lcci">面试题 08.01. 三步问题</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
+
 <p>三步问题。有个小孩正在上楼梯，楼梯有n阶台阶，小孩一次可以上1阶、2阶或3阶。实现一种方法，计算小孩有多少种上楼梯的方式。结果可能很大，你需要对结果模1000000007。</p>
 
 <p> <strong>示例1:</strong></p>
@@ -80271,7 +80274,11 @@
 <li>n范围在[1, 1000000]之间</li>
 </ol>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：递推</h3>
 <p>我们定义 $f[i]$ 表示上第 $i$ 阶台阶的方法数，初始时 $f[1]=1$, $f[2]=2$, $f[3]=4$。答案为 $f[n]$。</p>
 <p>递推公式为 $f[i] = f[i-1] + f[i-2] + f[i-3]$。</p>
@@ -80487,6 +80494,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 <h3 id="_4">方法二：矩阵快速幂加速递推</h3>
 <p>我们设 $F(n)$ 表示一个 $1 \times 3$ 的矩阵 $\begin{bmatrix} F_{n - 1} &amp; F_{n - 2} &amp; F_{n - 3} \end{bmatrix}$，其中 $F_{n - 1}$, $F_{n - 2}$ 和 $F_{n - 3}$ 分别表示上第 $n - 1$ 阶、第 $n - 2$ 阶和第 $n - 3$ 阶台阶的方法数。</p>
 <p>我们希望根据 $F(n-1) = \begin{bmatrix} F_{n - 2} &amp; F_{n - 3} &amp; F_{n - 4} \end{bmatrix}$ 推出 $F(n)$。也即是说，我们需要一个矩阵 $base$，使得 $F(n - 1) \times base = F(n)$，即：</p>
@@ -80955,7 +80966,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

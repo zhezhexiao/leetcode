@@ -80260,11 +80260,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="87"><a href="https://leetcode.cn/problems/scramble-string">87. 扰乱字符串</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>使用下面描述的算法可以扰乱字符串 <code>s</code> 得到字符串 <code>t</code> ：</p>
 <ol>
@@ -80322,7 +80324,11 @@
     <li><code>s1</code> 和 <code>s2</code> 由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：记忆化搜索</h3>
 <p>我们设计一个函数 $dfs(i, j, k)$，表示字符串 $s_1$ 从 $i$ 开始长度为 $k$ 的子串是否能变换为字符串 $s_2$ 从 $j$ 开始长度为 $k$ 的子串。如果能变换，返回 <code>true</code>，否则返回 <code>false</code>。那么答案就是 $dfs(0, 0, n)$，其中 $n$ 是字符串的长度。</p>
 <p>函数 $dfs(i, j, k)$ 的计算方式如下：</p>
@@ -80663,6 +80669,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="dp">方法二：动态规划（区间 DP）</h3>
 <p>我们定义 $f[i][j][k]$ 表示字符串 $s_1$ 从 $i$ 开始长度为 $k$ 的子串是否能变换为字符串 $s_2$ 从 $j$ 开始长度为 $k$ 的子串。那么答案就是 $f[0][0][n]$，其中 $n$ 是字符串的长度。</p>
 <p>对于长度为 $1$ 的子串，如果 $s_1[i] = s_2[j]$，那么 $f[i][j][1] = true$，否则 $f[i][j][1] = false$。</p>
@@ -80997,7 +81007,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

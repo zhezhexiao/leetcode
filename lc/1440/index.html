@@ -80245,11 +80245,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1440"><a href="https://leetcode.cn/problems/evaluate-boolean-expression">1440. 计算布尔表达式的值 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表 <code>Variables</code>:</p>
 
@@ -80331,7 +80333,11 @@ Expressions 表:
 如上所示, 你需要通过使用 Variables 表来找到 Expressions 表中的每一个布尔表达式的值.
 </pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="case">方法一：等值连接 + CASE 表达式</h3>
 <p>我们可以通过等值连接，将 <code>Expressions</code> 表中的每一行与 <code>Variables</code> 表中的两行进行关联，关联的条件是 <code>left_operand = name</code> 和 <code>right_operand = name</code>，然后通过 <code>CASE</code> 表达式来判断布尔表达式的值。如果 <code>operator</code> 为 <code>=</code>，则判断两个值是否相等；如果 <code>operator</code> 为 <code>&gt;</code>，则判断左值是否大于右值；如果 <code>operator</code> 为 <code>&lt;</code>，则判断左值是否小于右值。若是，那么布尔表达式的值为 <code>true</code>，否则为 <code>false</code>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -80374,7 +80380,9 @@ Expressions 表:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2564-substring-xor-queries"><a href="https://leetcode.com/problems/substring-xor-queries">2564. Substring XOR Queries</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 332 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 332 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1959-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1959-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>binary string</strong> <code>s</code>, and a <strong>2D</strong> integer array <code>queries</code> where <code>queries[i] = [first<sub>i</sub>, second<sub>i</sub>]</code>.</p>
 
 <p>For the <code>i<sup>th</sup></code> query, find the <strong>shortest substring</strong> of <code>s</code> whose <strong>decimal value</strong>, <code>val</code>, yields <code>second<sub>i</sub></code> when <strong>bitwise XORed</strong> with <code>first<sub>i</sub></code>. In other words, <code>val ^ first<sub>i</sub> == second<sub>i</sub></code>.</p>
@@ -75713,7 +75717,11 @@
     <li><code>0 &lt;= first<sub>i</sub>, second<sub>i</sub> &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-preprocessing-enumeration">Solution 1: Preprocessing + Enumeration</h3>
 <p>We can first preprocess all substrings of length $1$ to $32$ into their corresponding decimal values, find the minimum index and the corresponding right endpoint index for each value, and store them in the hash table $d$.</p>
 <p>Then we enumerate each query. For each query $[first, second]$, we only need to check in the hash table $d$ whether there exists a key-value pair with the key as $first \oplus second$. If it exists, add the corresponding minimum index and right endpoint index to the answer array. Otherwise, add $[-1, -1]$.</p>
@@ -75918,7 +75926,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

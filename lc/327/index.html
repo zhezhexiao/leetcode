@@ -80281,11 +80281,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="327"><a href="https://leetcode.cn/problems/count-of-range-sum">327. 区间和的个数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>nums</code> 以及两个整数 <code>lower</code> 和 <code>upper</code> 。求数组中，值位于范围 <code>[lower, upper]</code> （包含 <code>lower</code> 和 <code>upper</code>）之内的 <strong>区间和的个数</strong> 。</p>
 
@@ -80317,7 +80319,11 @@
     <li>题目数据保证答案是一个 <strong>32 位</strong> 的整数</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：前缀和 + 树状数组</h3>
 <p>题目要求区间和，因此我们可以先求出前缀和数组 $s$，其中 $s[i]$ 表示 $nums$ 中前 $i$ 个元素的和。那么对于任意的 $i \lt j$，$s[j+1] - s[i]$ 就是 $nums$ 中下标在 $[i, j]$ 的元素之和。</p>
 <p>而 $lower \leq s[j+1] - s[i] \leq upper$，可以转换为 $s[j+1] - upper \leq s[i] \leq s[j+1] - lower$，也就是说，对于当前前缀和 $s[j+1]$，我们需要统计 $s$ 中有多少个下标 $i$ 满足 $s[j+1] - upper \leq s[i] \leq s[j+1] - lower$。</p>
@@ -80899,7 +80905,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

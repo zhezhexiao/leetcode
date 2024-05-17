@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2845-count-of-interesting-subarrays"><a href="https://leetcode.com/problems/count-of-interesting-subarrays">2845. Count of Interesting Subarrays</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 361 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 361 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2073-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2073-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>, an integer <code>modulo</code>, and an integer <code>k</code>.</p>
 
 <p>Your task is to find the count of subarrays that are <strong>interesting</strong>.</p>
@@ -75717,7 +75721,11 @@ It can be shown that there are no other interesting subarrays. So, the answer is
     <li><code>0 &lt;= k &lt; modulo</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-prefix-sum">Solution 1: Hash Table + Prefix Sum</h3>
 <p>The problem requires the number of indices $i$ in an interval that satisfy $nums[i] \bmod modulo = k$. We can transform the array $nums$ into a $0-1$ array $arr$, where $arr[i] = 1$ indicates $nums[i] \bmod modulo = k$, otherwise $arr[i] = 0$.</p>
 <p>For an interval $[l, r]$, we can calculate the number of $1$s in $arr[l..r]$ through the prefix sum array $s$, i.e., $s[r] - s[l - 1]$, where $s[0] = 0$.</p>
@@ -75905,7 +75913,9 @@ It can be shown that there are no other interesting subarrays. So, the answer is
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

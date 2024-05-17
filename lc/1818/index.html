@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1818"><a href="https://leetcode.cn/problems/minimum-absolute-sum-difference">1818. 绝对差值和</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 235 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 235 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1934-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1934-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 235 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 235 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1934-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1934-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个正整数数组 <code>nums1</code> 和 <code>nums2</code> ，数组的长度都是 <code>n</code> 。</p>
 
@@ -80325,7 +80327,11 @@
     <li><code>1 <= nums1[i], nums2[i] <= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：排序 + 二分查找</h3>
 <p>根据题意，我们可以先计算出在不进行替换的情况下，<code>nums1</code> 和 <code>nums2</code> 的绝对差值和，记为 $s$。</p>
 <p>接下来，我们枚举 <code>nums1</code> 中的每个元素 $nums1[i]$，将其替换为与 $nums2[i]$ 最接近的元素，并且这个最接近的元素在 <code>nums1</code> 中。因此，我们可以在枚举之前，先复制一份 <code>nums1</code>，得到数组 <code>nums</code>，并将 <code>nums</code> 排序。接下来，就在 <code>nums</code> 中二分查找与 $nums2[i]$ 最接近的元素，记为 $nums[j]$，并计算 $|nums1[i] - nums2[i]| - |nums[j] - nums2[i]|$，更新差值 $mx$ 的最大值。</p>
@@ -80731,7 +80737,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

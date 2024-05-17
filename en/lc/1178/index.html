@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1178-number-of-valid-words-for-each-puzzle"><a href="https://leetcode.com/problems/number-of-valid-words-for-each-puzzle">1178. Number of Valid Words for Each Puzzle</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 152 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 152 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2233-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2233-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>With respect to a given <code>puzzle</code> string, a <code>word</code> is <em>valid</em> if both the following conditions are satisfied:</p>
 <ul>
     <li><code>word</code> contains the first letter of <code>puzzle</code>.</li>
@@ -75718,7 +75722,11 @@ There are no valid words for &quot;gaswxyz&quot; cause none of the words in the 
     <li>Each <code>puzzles[i] </code>does not contain repeated characters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-state-compression-hash-table-subset-enumeration">Solution 1: State Compression + Hash Table + Subset Enumeration</h3>
 <p>According to the problem description, for each puzzle $p$ in the puzzle array $puzzles$, we need to count how many words $w$ contain the first letter of the puzzle $p$, and every letter in $w$ can be found in $p$.</p>
 <p>Since each repeated letter in a word only needs to be counted once, we can use the method of binary state compression to convert each word $w$ into a binary number $mask$, where the $i$th bit of $mask$ is $1$ if and only if the letter $i$ appears in the word $w$. We use a hash table $cnt$ to count the number of times each compressed state of all words appears.</p>
@@ -75995,7 +76003,9 @@ There are no valid words for &quot;gaswxyz&quot; cause none of the words in the 
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

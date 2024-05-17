@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="534-game-play-analysis-iii"><a href="https://leetcode.com/problems/game-play-analysis-iii">534. Game Play Analysis III 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <code>Activity</code></p>
 
 <pre>
@@ -75722,7 +75726,11 @@ For the player with id 3, 0 + 5 = 5 games played by 2018-07-03.
 Note that for each player we only care about the days when the player logged in.
 </pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-window-function">Solution 1: Window Function</h3>
 <p>We can use the window function <code>SUM() OVER()</code> to group by <code>player_id</code>, sort by <code>event_date</code>, and calculate the total number of games played by each user up to the current date.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -75749,6 +75757,10 @@ Note that for each player we only care about the days when the player logged in.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-self-join-group-by">Solution 2: Self-Join + Group By</h3>
 <p>We can also use a self-join to join the <code>Activity</code> table with itself on the condition of <code>t1.player_id = t2.player_id AND t1.event_date &gt;= t2.event_date</code>, and then group by <code>t1.player_id</code> and <code>t1.event_date</code>, and calculate the cumulative sum of <code>t2.games_played</code>. This will give us the total number of games played by each user up to the current date.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -75777,6 +75789,10 @@ Note that for each player we only care about the days when the player logged in.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-3">Solution 3</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">MySQL</label></div>
 <div class="tabbed-content">
@@ -75802,7 +75818,9 @@ Note that for each player we only care about the days when the player logged in.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

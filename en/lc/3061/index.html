@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3061-calculate-trapping-rain-water"><a href="https://leetcode.com/problems/calculate-trapping-rain-water">3061. Calculate Trapping Rain Water 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <font face="monospace">Heights</font></p>
 
 <pre>
@@ -75702,7 +75706,11 @@ Heights table:
 The elevation map depicted above (in the black section) is graphically represented with the x-axis denoting the id and the y-axis representing the heights [0,1,0,2,1,0,1,3,2,1,2,1]. In this scenario, 6 units of rainwater are trapped within the blue section.
 </pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-window-function-summation">Solution 1: Window Function + Summation</h3>
 <p>We use the window function <code>MAX(height) OVER (ORDER BY id)</code> to calculate the maximum height for each position and its left side, and use <code>MAX(height) OVER (ORDER BY id DESC)</code> to calculate the maximum height for each position and its right side, denoted as <code>l</code> and <code>r</code> respectively. Then, the amount of water stored at each position is <code>min(l, r) - height</code>. Finally, we sum them up.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label><label for="__tabbed_1_2">Python3</label></div>
@@ -75751,7 +75759,9 @@ The elevation map depicted above (in the black section) is graphically represent
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

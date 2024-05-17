@@ -80245,11 +80245,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3057"><a href="https://leetcode.cn/problems/employees-project-allocation">3057. 员工项目分配 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Project</code></p>
 
@@ -80325,7 +80327,11 @@ Employees 表：
 结果表以 employee_id，project_id 升序排序。
 </pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：分组统计 + 等值连接</h3>
 <p>我们先根据 <code>employee_id</code> 连接 <code>Project</code> 表和 <code>Employees</code> 表，然后再根据 <code>team</code> 分组统计每个团队的平均工作量，记录在临时表 <code>T</code> 中。</p>
 <p>然后，我们再次连接 <code>Project</code> 表和 <code>Employees</code> 表，同时连接 <code>T</code> 表，找出工作量大于团队平均工作量的员工，并且按照 <code>employee_id</code> 和 <code>project_id</code> 排序。</p>
@@ -80407,7 +80413,9 @@ Employees 表：
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

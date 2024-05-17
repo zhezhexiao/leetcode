@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="741-cherry-pickup"><a href="https://leetcode.com/problems/cherry-pickup">741. Cherry Pickup</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an <code>n x n</code> <code>grid</code> representing a field of cherries, each cell is one of three possible integers.</p>
 
 <ul>
@@ -75709,7 +75713,11 @@ The total number of cherries picked up is 5, and this is the maximum possible.
     <li><code>grid[n - 1][n - 1] != -1</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
 <p>According to the problem description, the player starts from $(0, 0)$, reaches $(n-1, n-1)$, and then returns to the starting point $(0, 0)$. We can consider the player as starting from $(0, 0)$ to $(n-1, n-1)$ twice.</p>
 <p>Therefore, we define $f[k][i_1][i_2]$ as the maximum number of cherries that can be picked when both have walked $k$ steps and reached $(i_1, k-i_1)$ and $(i_2, k-i_2)$ respectively. Initially, $f[0][0][0] = grid[0][0]$. The initial values of other $f[k][i_1][i_2]$ are negative infinity. The answer is $\max(0, f[2n-2][n-1][n-1])$.</p>
@@ -76113,7 +76121,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

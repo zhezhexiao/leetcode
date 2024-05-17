@@ -80275,11 +80275,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1586-ii"><a href="https://leetcode.cn/problems/binary-search-tree-iterator-ii">1586. 二叉搜索树迭代器 II 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现二叉搜索树（BST）的<a href="https://baike.baidu.com/item/中序遍历/757281?fr=aladdin">中序遍历</a>迭代器&nbsp;<code>BSTIterator</code>&nbsp;类：</p>
 
@@ -80336,7 +80338,11 @@ bSTIterator.prev(); // 状态变为 [3, 7, &lt;u&gt;9&lt;/u&gt;, 15, 20], 返回
     <li>最多调用&nbsp;10<sup>5</sup>&nbsp;次&nbsp;<code>hasNext</code>、&nbsp;<code>next</code>、&nbsp;<code>hasPrev</code>&nbsp;和&nbsp;<code>prev</code>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：中序遍历 + 数组</h3>
 <p>我们可以使用中序遍历将二叉搜索树的所有节点的值存储到数组 $nums$ 中，然后使用数组实现迭代器。我们定义一个指针 $i$，初始时 $i = -1$，表示指向数组 $nums$ 中的一个元素。每次调用 $next()$ 时，我们将 $i$ 的值加 $1$，并返回 $nums[i]$；每次调用 $prev()$ 时，我们将 $i$ 的值减 $1$，并返回 $nums[i]$。</p>
 <p>时间复杂度方面，初始化迭代器需要 $O(n)$ 的时间，其中 $n$ 是二叉搜索树的节点数。每次调用 $next()$ 和 $prev()$ 都需要 $O(1)$ 的时间。空间复杂度方面，我们需要 $O(n)$ 的空间存储二叉搜索树的所有节点的值。</p>
@@ -80890,7 +80896,9 @@ bSTIterator.prev(); // 状态变为 [3, 7, &lt;u&gt;9&lt;/u&gt;, 15, 20], 返回
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

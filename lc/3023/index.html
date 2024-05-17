@@ -80269,11 +80269,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3023-i"><a href="https://leetcode.cn/problems/find-pattern-in-infinite-stream-i">3023. 在无限流中寻找模式 I 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个二进制数组&nbsp;<code>pattern</code>&nbsp;和一个类 <code>InfiniteStream</code>&nbsp;的对象&nbsp;<code>stream</code>&nbsp;表示一个下标从 <strong>0</strong>&nbsp;开始的二进制位无限流。</p>
 
@@ -80322,7 +80324,11 @@
     <li>生成的输入使模式的开始下标在流的前&nbsp;<code>10<sup>5</sup></code>&nbsp;个二进制位中。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：位运算 + 滑动窗口</h3>
 <p>我们注意到，数组 $pattern$ 的长度不超过 $100$，因此，我们可以用两个 $64$ 位的整数 $a$ 和 $b$ 来表示 $pattern$ 左右两半的二进制数。</p>
 <p>接下来，我们遍历数据流，同样维护两个 $64$ 位的整数 $x$ 和 $y$ 表示当前 $pattern$ 长度的窗口的二进制数。如果当前达到了窗口的长度，我们比较 $a$ 和 $x$ 是否相等，以及 $b$ 和 $y$ 是否相等，如果是，我们返回当前数据流的索引即可。</p>
@@ -80595,7 +80601,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

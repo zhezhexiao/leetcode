@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1650-lowest-common-ancestor-of-a-binary-tree-iii"><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree-iii">1650. Lowest Common Ancestor of a Binary Tree III 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given two nodes of a&nbsp;binary tree <code>p</code> and <code>q</code>, return <em>their&nbsp;lowest common ancestor (LCA)</em>.</p>
 
 <p>Each node will have a reference to its parent node. The definition for <code>Node</code> is below:</p>
@@ -75726,7 +75730,11 @@ class Node {
     <li><code>p</code> and <code>q</code> exist in the tree.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table">Solution 1: Hash Table</h3>
 <p>We use a hash table $vis$ to record all nodes on the path from node $p$ to the root node. Then we start from node $q$ and traverse towards the root node. If we encounter a node that exists in the hash table $vis$, then this node is the nearest common ancestor of $p$ and $q$, and we can return it directly.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Here, $n$ is the number of nodes in the binary tree.</p>
@@ -75980,6 +75988,10 @@ class Node {
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-two-pointers">Solution 2: Two Pointers</h3>
 <p>We can use two pointers $a$ and $b$ to point to nodes $p$ and $q$ respectively, and then traverse towards the root node. When $a$ and $b$ meet, it is the nearest common ancestor of $p$ and $q$. Otherwise, if pointer $a$ traverses to the root node, then we let it point to node $q$, and do the same for pointer $b$. In this way, when the two pointers meet, it is the nearest common ancestor of $p$ and $q$.</p>
 <p>The time complexity is $O(n)$, where $n$ is the number of nodes in the binary tree. The space complexity is $O(1)$.</p>
@@ -76219,7 +76231,9 @@ class Node {
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

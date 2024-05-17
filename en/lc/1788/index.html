@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1788-maximize-the-beauty-of-the-garden"><a href="https://leetcode.com/problems/maximize-the-beauty-of-the-garden">1788. Maximize the Beauty of the Garden 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There is a garden of <code>n</code> flowers, and each flower has an integer beauty value. The flowers are arranged in a line. You are given an integer array <code>flowers</code> of size <code>n</code> and each <code>flowers[i]</code> represents the beauty of the <code>i<sup>th</sup></code> flower.</p>
 
 <p>A garden is <strong>valid</strong> if it meets these conditions:</p>
@@ -75727,7 +75731,11 @@
 
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-prefix-sum">Solution 1: Hash Table + Prefix Sum</h3>
 <p>We use a hash table $d$ to record the first occurrence of each aesthetic value, and a prefix sum array $s$ to record the sum of the aesthetic values before the current position. If an aesthetic value $v$ appears at positions $i$ and $j$ (where $i \lt j$), then we can get a valid garden $[i+1,j]$, whose aesthetic value is $s[i] - s[j + 1] + v \times 2$. We use this value to update the answer. Otherwise, we record the current position $i$ of the aesthetic value in the hash table $d$. Next, we update the prefix sum. If the aesthetic value $v$ is negative, we treat it as $0$.</p>
 <p>After traversing all the aesthetic values, we can get the answer.</p>
@@ -75948,7 +75956,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

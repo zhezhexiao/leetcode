@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2182-construct-string-with-repeat-limit"><a href="https://leetcode.com/problems/construct-string-with-repeat-limit">2182. Construct String With Repeat Limit</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 281 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 281 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1680-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1680-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a string <code>s</code> and an integer <code>repeatLimit</code>. Construct a new string <code>repeatLimitedString</code> using the characters of <code>s</code> such that no letter appears <strong>more than</strong> <code>repeatLimit</code> times <strong>in a row</strong>. You do <strong>not</strong> have to use all characters from <code>s</code>.</p>
 
 <p>Return <em>the <strong>lexicographically largest</strong> </em><code>repeatLimitedString</code> <em>possible</em>.</p>
@@ -75715,7 +75719,11 @@ Note that the string &quot;bbabaaa&quot; is lexicographically larger but the let
     <li><code>s</code> consists of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-algorithm">Solution 1: Greedy Algorithm</h3>
 <p>First, we use an array $cnt$ of length $26$ to count the number of occurrences of each character in string $s$. Then, we enumerate the $i$th letter of the alphabet in descending order, each time taking out at most $\min(cnt[i], repeatLimit)$ of letter $i$. If after taking them out $cnt[i]$ is still greater than $0$, we continue to take the $j$th letter of the alphabet, where $j$ is the largest index satisfying $j &lt; i$ and $cnt[j] &gt; 0$, until all letters are taken.</p>
 <p>The time complexity is $O(n + |\Sigma|)$, and the space complexity is $O(|\Sigma|)$. Here, $n$ is the length of string $s$, and $\Sigma$ is the character set. In this problem, $|\Sigma| = 26$.</p>
@@ -76011,7 +76019,9 @@ Note that the string &quot;bbabaaa&quot; is lexicographically larger but the let
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

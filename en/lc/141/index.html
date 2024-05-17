@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="141-linked-list-cycle"><a href="https://leetcode.com/problems/linked-list-cycle">141. Linked List Cycle</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given <code>head</code>, the head of a linked list, determine if the linked list has a cycle in it.</p>
 
 <p>There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the&nbsp;<code>next</code>&nbsp;pointer. Internally, <code>pos</code>&nbsp;is used to denote the index of the node that&nbsp;tail&#39;s&nbsp;<code>next</code>&nbsp;pointer is connected to.&nbsp;<strong>Note that&nbsp;<code>pos</code>&nbsp;is not passed as a parameter</strong>.</p>
@@ -75713,7 +75717,11 @@
 <p>&nbsp;</p>
 <p><strong>Follow up:</strong> Can you solve it using <code>O(1)</code> (i.e. constant) memory?</p>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table">Solution 1: Hash Table</h3>
 <p>We can traverse the linked list and use a hash table $s$ to record each node. When a node appears for the second time, it indicates that there is a cycle, and we directly return <code>true</code>. Otherwise, when the linked list traversal ends, we return <code>false</code>.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(n)$, where $n$ is the number of nodes in the linked list.</p>
@@ -75927,6 +75935,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-fast-and-slow-pointers">Solution 2: Fast and Slow Pointers</h3>
 <p>We define two pointers, $fast$ and $slow$, both initially pointing to $head$.</p>
 <p>The fast pointer moves two steps at a time, and the slow pointer moves one step at a time, in a continuous loop. When the fast and slow pointers meet, it indicates that there is a cycle in the linked list. If the loop ends without the pointers meeting, it indicates that there is no cycle in the linked list.</p>
@@ -76255,7 +76267,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

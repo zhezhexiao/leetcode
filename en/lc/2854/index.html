@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2854-rolling-average-steps"><a href="https://leetcode.com/problems/rolling-average-steps">2854. Rolling Average Steps 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <code><font face="monospace">Steps</font></code></p>
 
 <pre>
@@ -75722,7 +75726,11 @@ Steps table:
 - For user id 3, the step counts for the three consecutive days up to 2021-09-10 are available. Consequently, the rolling average for this particular date is computed as (557 + 840 + 627) / 3 = 674.67.
 - For user id 4 and 5, the calculation of the rolling average is not viable as there is insufficient data for the consecutive three days. Output table ordered by user_id and steps_date in ascending order.</pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-window-functions">Solution 1: Window Functions</h3>
 <p>We can use the window function <code>LAG() OVER()</code> to calculate the difference in days between the current date and the date before the last date for each user. If the difference is $2$, it means that there are continuous data for $3$ days between these two dates. We can use the window function <code>AVG() OVER()</code> to calculate the average of these $3$ data.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -75791,7 +75799,9 @@ Steps table:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

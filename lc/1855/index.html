@@ -80266,11 +80266,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1855"><a href="https://leetcode.cn/problems/maximum-distance-between-a-pair-of-values">1855. 下标对中的最大距离</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 240 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 240 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1514-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1514-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 240 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 240 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1514-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1514-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个 <strong>非递增</strong> 的整数数组 <code>nums1</code>​​​​​​ 和 <code>nums2</code>​​​​​​ ，数组下标均 <strong>从 0 开始</strong> 计数。</p>
 
@@ -80319,7 +80321,11 @@
     <li><code>nums1</code> 和 <code>nums2</code> 都是 <strong>非递增</strong> 数组</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：二分查找</h3>
 <p>假设 $nums1$, $nums2$ 的长度分别为 $m$ 和 $n$。</p>
 <p>遍历数组 $nums1$，对于每个数字 $nums1[i]$，二分查找 $nums2$ 在 $[i,n)$ 范围内的数字，找到<strong>最后一个</strong>大于等于 $nums1[i]$ 的位置 $j$，计算此位置与 $i$ 的距离，并更新最大距离值 $ans$。</p>
@@ -80584,6 +80590,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：双指针</h3>
 <p>在方法一中，我们只利用到 $nums2$ 是非递增数组这一条件，实际上，$nums1$ 也是非递增数组，我们可以用双指针 $i$ 和 $j$ 来遍历 $nums1$ 和 $nums2$。</p>
 <p>时间复杂度 $O(m+n)$，其中 $m$ 和 $n$ 分别为 $nums1$ 和 $nums2$ 的长度。空间复杂度 $O(1)$。</p>
@@ -80793,7 +80803,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1705-maximum-number-of-eaten-apples"><a href="https://leetcode.com/problems/maximum-number-of-eaten-apples">1705. Maximum Number of Eaten Apples</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 221 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 221 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1929-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1929-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There is a special kind of apple tree that grows apples every day for <code>n</code> days. On the <code>i<sup>th</sup></code> day, the tree grows <code>apples[i]</code> apples that will rot after <code>days[i]</code> days, that is on day <code>i + days[i]</code> the apples will be rotten and cannot be eaten. On some days, the apple tree does not grow any apples, which are denoted by <code>apples[i] == 0</code> and <code>days[i] == 0</code>.</p>
 
 <p>You decided to eat <strong>at most</strong> one apple a day (to keep the doctors away). Note that you can keep eating after the first <code>n</code> days.</p>
@@ -75701,7 +75705,11 @@
     <li><code>days[i] = 0</code> if and only if <code>apples[i] = 0</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-priority-queue">Solution 1: Greedy + Priority Queue</h3>
 <p>We can greedily choose the apple that is most likely to rot among the unrotten apples, so that we can eat as many apples as possible.</p>
 <p>Therefore, we can use a priority queue (min heap) to store the rotting time of the apples and the corresponding number of apples. Each time we take out the apple with the smallest rotting time from the priority queue, then reduce its quantity by one. If the quantity of the apple is not zero after reduction, we put it back into the priority queue. If the apple has rotted, we pop it out from the priority queue.</p>
@@ -75914,7 +75922,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

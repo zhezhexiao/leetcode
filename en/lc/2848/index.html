@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2848-points-that-intersect-with-cars"><a href="https://leetcode.com/problems/points-that-intersect-with-cars">2848. Points That Intersect With Cars</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 362 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 362 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1229-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1229-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>nums</code> representing the coordinates of the cars parking on a number line. For any index <code>i</code>, <code>nums[i] = [start<sub>i</sub>, end<sub>i</sub>]</code> where <code>start<sub>i</sub></code> is the starting point of the <code>i<sup>th</sup></code> car and <code>end<sub>i</sub></code> is the ending point of the <code>i<sup>th</sup></code> car.</p>
 
 <p>Return <em>the number of integer points on the line that are covered with <strong>any part</strong> of a car.</em></p>
@@ -75691,7 +75695,11 @@
     <li><code><font face="monospace">1 &lt;= start<sub>i</sub>&nbsp;&lt;= end<sub>i</sub>&nbsp;&lt;= 100</font></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-difference-array">Solution 1: Difference Array</h3>
 <p>We create a difference array $d$ of length $110$, then traverse the given array. For each interval $[a, b]$, we increase $d[a]$ by $1$ and decrease $d[b + 1]$ by $1$. Finally, we traverse the difference array $d$, calculate the prefix sum $s$ at each position. If $s &gt; 0$, it means that the position is covered, and we increase the answer by $1$.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(M)$. Here, $n$ is the length of the given array, and $M$ is the maximum value in the array.</p>
@@ -75851,7 +75859,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

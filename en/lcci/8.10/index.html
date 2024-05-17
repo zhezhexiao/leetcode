@@ -75643,10 +75643,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="0810-color-fill"><a href="https://leetcode.cn/problems/color-fill-lcci">08.10. Color Fill</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Implement the &quot;paint fill&quot; function that one might see on many image editing programs. That is, given a screen (represented by a two-dimensional array of colors), a point, and a new color, fill in the surrounding area until the color changes from the original color.</p>
 
 <p><strong>Example1:</strong></p>
@@ -75679,7 +75683,11 @@ to the starting pixel.</pre>
     <li>The value of each color in&nbsp;<code>image[i][j]</code>&nbsp;and&nbsp;<code>newColor</code>&nbsp;will be an integer in&nbsp;<code>[0, 65535]</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dfs">Solution 1: DFS</h3>
 <p>We design a function $dfs(i, j)$ to start filling color from $(i, j)$. If $(i, j)$ is not within the image range, or the color of $(i, j)$ is not the original color, or the color of $(i, j)$ has been filled with the new color, then return. Otherwise, fill the color of $(i, j)$ with the new color, and then recursively search the four directions: up, down, left, and right of $(i, j)$.</p>
 <p>The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the image, respectively.</p>
@@ -76019,6 +76027,10 @@ to the starting pixel.</pre>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-bfs">Solution 2: BFS</h3>
 <p>We can use the method of breadth-first search. Starting from the initial point, fill the color of the initial point with the new color, and then add the initial point to the queue. Each time a point is taken from the queue, the points in the four directions: up, down, left, and right are added to the queue, until the queue is empty.</p>
 <p>The time complexity is $O(m \times n)$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns in the image, respectively.</p>
@@ -76252,7 +76264,9 @@ to the starting pixel.</pre>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

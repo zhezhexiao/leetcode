@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2312-selling-pieces-of-wood"><a href="https://leetcode.com/problems/selling-pieces-of-wood">2312. Selling Pieces of Wood</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 298 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 298 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2363-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2363-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given two integers <code>m</code> and <code>n</code> that represent the height and width of a rectangular piece of wood. You are also given a 2D integer array <code>prices</code>, where <code>prices[i] = [h<sub>i</sub>, w<sub>i</sub>, price<sub>i</sub>]</code> indicates you can sell a rectangular piece of wood of height <code>h<sub>i</sub></code> and width <code>w<sub>i</sub></code> for <code>price<sub>i</sub></code> dollars.</p>
 
 <p>To cut a piece of wood, you must make a vertical or horizontal cut across the <strong>entire</strong> height or width of the piece to split it into two smaller pieces. After cutting a piece of wood into some number of smaller pieces, you can sell pieces according to <code>prices</code>. You may sell multiple pieces of the same shape, and you do not have to sell all the shapes. The grain of the wood makes a difference, so you <strong>cannot</strong> rotate a piece to swap its height and width.</p>
@@ -75717,7 +75721,11 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
     <li>All the shapes of wood <code>(h<sub>i</sub>, w<sub>i</sub>)</code> are pairwise <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memoization-search">Solution 1: Memoization Search</h3>
 <p>First, we define a 2D array $d$, where $d[i][j]$ represents the price of a wood block with height $i$ and width $j$.</p>
 <p>Then, we design a function $dfs(h, w)$ to denote the maximum amount of money obtained by cutting a wood block with height $h$ and width $w$. The answer will be $dfs(m, n)$.</p>
@@ -75987,6 +75995,10 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-dynamic-programming">Solution 2: Dynamic Programming</h3>
 <p>We can transform the memoization search in Solution 1 into dynamic programming.</p>
 <p>Similar to Solution 1, we define a 2D array $d$, where $d[i][j]$ represents the price of a wood block with height $i$ and width $j$. Initially, we iterate through the price array $prices$ and store the price $p$ of each wood block $(h, w, p)$ in $d[h][w]$, while the rest of the prices are set to $0$.</p>
@@ -76217,7 +76229,9 @@ Notice that we cannot rotate the 1 x 4 piece of wood to obtain a 4 x 1 piece of 
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

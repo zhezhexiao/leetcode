@@ -80281,11 +80281,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="567"><a href="https://leetcode.cn/problems/permutation-in-string">567. 字符串的排列</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个字符串&nbsp;<code>s1</code>&nbsp;和&nbsp;<code>s2</code> ，写一个函数来判断 <code>s2</code> 是否包含 <code>s1</code><strong>&nbsp;</strong>的排列。如果是，返回 <code>true</code> ；否则，返回 <code>false</code> 。</p>
 
@@ -80317,7 +80319,11 @@
     <li><code>s1</code> 和 <code>s2</code> 仅包含小写字母</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：滑动窗口</h3>
 <p>我们观察发现，题目实际上等价于判断字符串 $s2$ 中是否存在窗口大小为 $n$，且窗口内的字符及其个数与字符串 $s1$ 相同的子串。</p>
 <p>因此，我们先用哈希表或数组 $cnt1$ 统计字符串 $s1$ 中每个字符出现的次数，然后遍历字符串 $s2$，维护一个窗口大小为 $n$ 的滑动窗口，用哈希表或数组 $cnt2$ 统计窗口内每个字符出现的次数，当 $cnt1 = cnt2$ 时，说明窗口内的字符及其个数与字符串 $s1$ 相同，返回 <code>true</code> 即可。</p>
@@ -80691,6 +80697,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：滑动窗口优化</h3>
 <p>在方法一中，我们每次加入和移除一个字符时，都需要比较两个哈希表或数组，时间复杂度较高。我们可以维护一个变量 $diff$，表示两个大小为 $n$ 的字符串中，有多少种字符出现的个数不同。当 $diff=0$ 时，说明两个字符串中的字符个数相同。</p>
 <p>时间复杂度 $O(n + m)$，空间复杂度 $O(C)$。其中 $n$ 和 $m$ 分别为字符串 $s1$ 和 $s2$ 的长度；而 $C$ 为字符集的大小，本题中 $C=26$。</p>
@@ -81020,6 +81030,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_5">方法三</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Go</label></div>
 <div class="tabbed-content">
@@ -81079,7 +81093,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

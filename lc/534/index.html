@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="534-iii"><a href="https://leetcode.cn/problems/game-play-analysis-iii">534. 游戏玩法分析 III 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Activity</code></p>
 
@@ -80325,7 +80327,11 @@ Activity table:
 请注意，对于每个玩家，我们只关心玩家的登录日期。
 </pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：使用窗口函数</h3>
 <p>我们可以使用窗口函数 <code>SUM() OVER()</code>，按照 <code>player_id</code> 分组，按照 <code>event_date</code> 排序，计算每个用户截止到当前日期的游戏总数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -80352,6 +80358,10 @@ Activity table:
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：使用自连接 + 分组</h3>
 <p>我们也可以使用自连接，将 <code>Activity</code> 表自连接，连接条件为 <code>t1.player_id = t2.player_id AND t1.event_date &gt;= t2.event_date</code>，然后按照 <code>t1.player_id</code> 和 <code>t1.event_date</code> 分组，累计 <code>t2.games_played</code>，得到每个用户截止到当前日期的游戏总数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -80380,6 +80390,10 @@ Activity table:
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_5">方法三</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">MySQL</label></div>
 <div class="tabbed-content">
@@ -80405,7 +80419,9 @@ Activity table:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

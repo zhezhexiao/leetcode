@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1670-design-front-middle-back-queue"><a href="https://leetcode.com/problems/design-front-middle-back-queue">1670. Design Front Middle Back Queue</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 40 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 40 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1610-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1610-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Design a queue that supports <code>push</code> and <code>pop</code> operations in the front, middle, and back.</p>
 
 <p>Implement the <code>FrontMiddleBack</code> class:</p>
@@ -75725,7 +75729,11 @@ q.popFront();     // return -1 -&gt; [] (The queue is empty)
     <li>At most&nbsp;<code>1000</code>&nbsp;calls will be made to&nbsp;<code>pushFront</code>,&nbsp;<code>pushMiddle</code>,&nbsp;<code>pushBack</code>, <code>popFront</code>, <code>popMiddle</code>, and <code>popBack</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-two-deques">Solution 1: Two Deques</h3>
 <p>We use two deques, where $q_1$ stores the first half, and $q_2$ stores the second half. The <code>rebalance</code> function is used to maintain the balance between the two queues, i.e., keeping the length of $q_2$ greater than or equal to the length of $q_1$, and the difference in length does not exceed $1$.</p>
 <p>In the <code>pushFront</code>, <code>pushMiddle</code>, and <code>pushBack</code> functions, we only need to add elements to $q_1$ or $q_2$, and call the <code>rebalance</code> function.</p>
@@ -77093,7 +77101,9 @@ q.popFront();     // return -1 -&gt; [] (The queue is empty)
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="275-h-index-ii"><a href="https://leetcode.com/problems/h-index-ii">275. H-Index II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an array of integers <code>citations</code> where <code>citations[i]</code> is the number of citations a researcher received for their <code>i<sup>th</sup></code> paper and <code>citations</code> is sorted in <strong>ascending order</strong>, return <em>the researcher&#39;s h-index</em>.</p>
 
 <p>According to the <a href="https://en.wikipedia.org/wiki/H-index" target="_blank">definition of h-index on Wikipedia</a>: The h-index is defined as the maximum value of <code>h</code> such that the given researcher has published at least <code>h</code> papers that have each been cited at least <code>h</code> times.</p>
@@ -75688,7 +75692,11 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
     <li><code>citations</code> is sorted in <strong>ascending order</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>We notice that if there are at least $x$ papers with citation counts greater than or equal to $x$, then for any $y \lt x$, its citation count must also be greater than or equal to $y$. This exhibits monotonicity.</p>
 <p>Therefore, we use binary search to enumerate $h$ and obtain the maximum $h$ that satisfies the condition. Since we need to satisfy that $h$ papers are cited at least $h$ times, we have $citations[n - mid] \ge mid$.</p>
@@ -75907,7 +75915,9 @@ Since the researcher has 3 papers with at least 3 citations each and the remaini
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

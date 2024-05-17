@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="741"><a href="https://leetcode.cn/problems/cherry-pickup">741. 摘樱桃</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个 <code>n x n</code> 的网格 <code>grid</code> ，代表一块樱桃地，每个格子由以下三种数字的一种来表示：</p>
 
@@ -80313,7 +80315,11 @@
     <li><code>grid[n - 1][n - 1] != -1</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划</h3>
 <p>根据题目描述，玩家从 $(0, 0)$ 出发，到达 $(n-1, n-1)$ 后，又重新返回到起始点 $(0, 0)$，我们可以视为玩家两次从 $(0, 0)$ 出发，到达 $(n-1, n-1)$。</p>
 <p>因此，我们定义 $f[k][i_1][i_2]$ 表示两次都走了 $k$ 步，分别到达 $(i_1, k-i_1)$ 和 $(i_2, k-i_2)$ 时，能够摘到的最多樱桃数。初始时 $f[0][0][0] = grid[0][0]$。其余 $f[k][i_1][i_2]$ 的初始值为负无穷。答案为 $\max(0, f[2n-2][n-1][n-1])$。</p>
@@ -80717,7 +80723,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

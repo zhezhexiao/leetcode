@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2036-maximum-alternating-subarray-sum"><a href="https://leetcode.com/problems/maximum-alternating-subarray-sum">2036. Maximum Alternating Subarray Sum 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>A <strong>subarray</strong> of a <strong>0-indexed</strong> integer array is a contiguous <strong>non-empty</strong> sequence of elements within an array.</p>
 
 <p>The <strong>alternating subarray sum</strong> of a subarray that ranges from index <code>i</code> to <code>j</code> (<strong>inclusive</strong>, <code>0 &lt;= i &lt;= j &lt; nums.length</code>) is <code>nums[i] - nums[i+1] + nums[i+2] - ... +/- nums[j]</code>.</p>
@@ -75702,7 +75706,11 @@ The alternating subarray sum is 1.
     <li><code>-10<sup>5</sup> &lt;= nums[i] &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
 <p>We define $f$ as the maximum sum of the alternating subarray ending with $nums[i]$, and define $g$ as the maximum sum of the alternating subarray ending with $-nums[i]$. Initially, both $f$ and $g$ are $-\infty$.</p>
 <p>Next, we traverse the array $nums$. For position $i$, we need to maintain the values of $f$ and $g$, i.e., $f = \max(g, 0) + nums[i]$, and $g = f - nums[i]$. The answer is the maximum value among all $f$ and $g$.</p>
@@ -75825,7 +75833,9 @@ The alternating subarray sum is 1.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

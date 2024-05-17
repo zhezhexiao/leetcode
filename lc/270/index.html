@@ -80278,11 +80278,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="270"><a href="https://leetcode.cn/problems/closest-binary-search-tree-value">270. 最接近的二叉搜索树值 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你二叉搜索树的根节点 <code>root</code> 和一个目标值 <code>target</code> ，请在该二叉搜索树中找到最接近目标值 <code>target</code> 的数值。如果有多个答案，返回最小的那个。</p>
 <p>&nbsp;</p>
@@ -80311,7 +80313,11 @@
     <li><code>-10<sup>9</sup> &lt;= target &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：中序遍历</h3>
 <p>我们用一个变量 $mi$ 维护最小的差值，用一个变量 $ans$ 维护答案。初始时 $mi=\infty$, $ans=root.val$。</p>
 <p>接下来，进行中序遍历，每次计算当前节点与目标值 $target$ 的差的绝对值 $t$。如果 $t \lt mi$，或者 $t = mi$ 且当前节点的值小于 $ans$，则更新 $mi$ 和 $ans$。</p>
@@ -80632,6 +80638,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：二分查找</h3>
 <p>与方法一类似，我们用一个变量 $mi$ 维护最小的差值，用一个变量 $ans$ 维护答案。初始时 $mi=\infty$, $ans=root.val$。</p>
 <p>接下来，进行二分查找，每次计算当前节点与目标值 $target$ 的差的绝对值 $t$。如果 $t \lt mi$，或者 $t = mi$ 且当前节点的值小于 $ans$，则更新 $mi$ 和 $ans$。如果当前节点的值大于 $target$，则查找左子树，否则查找右子树。当我们遍历到叶子节点时，就可以结束二分查找了。</p>
@@ -80928,7 +80938,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

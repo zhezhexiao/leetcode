@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="683-k-empty-slots"><a href="https://leetcode.com/problems/k-empty-slots">683. K Empty Slots 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You have <code>n</code> bulbs in a row numbered from <code>1</code> to <code>n</code>. Initially, all the bulbs are turned off. We turn on <strong>exactly one</strong> bulb every day until all bulbs are on after <code>n</code> days.</p>
 
 <p>You are given an array <code>bulbs</code>&nbsp;of length <code>n</code>&nbsp;where <code>bulbs[i] = x</code> means that on the <code>(i+1)<sup>th</sup></code> day, we will turn on the bulb at position <code>x</code>&nbsp;where&nbsp;<code>i</code>&nbsp;is&nbsp;<strong>0-indexed</strong>&nbsp;and&nbsp;<code>x</code>&nbsp;is&nbsp;<strong>1-indexed.</strong></p>
@@ -75703,7 +75707,11 @@ We return 2 because on the second day, there were two on bulbs with one off bulb
     <li><code>0 &lt;= k &lt;= 2 * 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-indexed-tree">Solution 1: Binary Indexed Tree</h3>
 <p>We can use a Binary Indexed Tree to maintain the prefix sum of the bulbs. Every time we turn on a bulb, we update the corresponding position in the Binary Indexed Tree. Then we check if the $k$ bulbs to the left or right of the current bulb are all turned off and the $(k+1)$-th bulb is already turned on. If either of these conditions is met, we return the current day.</p>
 <p>The time complexity is $O(n \times \log n)$ and the space complexity is $O(n)$, where $n$ is the number of bulbs.</p>
@@ -76141,7 +76149,9 @@ We return 2 because on the second day, there were two on bulbs with one off bulb
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

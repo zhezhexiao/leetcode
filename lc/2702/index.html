@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2702"><a href="https://leetcode.cn/problems/minimum-operations-to-make-numbers-non-positive">2702. 使数字变为非正数的最小操作次数 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个 <strong>下标从0开始</strong> 的整数数组 <code>nums</code>，以及两个整数 <code>x</code> 和 <code>y</code>。在每一次操作中，你需要选择一个满足条件 <code>0 &lt;= i &lt; nums.length</code> 的下标 <code>i</code>&nbsp;，并执行以下操作：</p>
 
@@ -80298,7 +80300,11 @@
     <li><code>1 &lt;= y &lt; x &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：二分查找</h3>
 <p>我们注意到，如果一个操作次数 $t$ 能够使得所有的数都小于等于 $0$，那么对于任意 $t' &gt; t$，操作次数 $t'$ 也能够使得所有的数都小于等于 $0$。因此我们可以使用二分查找的方法找到最小的操作次数。</p>
 <p>我们定义二分查找的左边界 $l=0$，右边界 $r=\max(nums)$。每一次二分查找，我们找到中间值 $mid=\lfloor\frac{l+r}{2}\rfloor$，然后判断是否存在一种操作方法使得操作次数不超过 $mid$，使得所有的数都小于等于 $0$。如果存在，那么我们就更新右边界 $r = mid$，否则我们就更新左边界 $l = mid + 1$。最终当 $l=r$ 时，我们就找到了最小的操作次数，返回 $l$ 即可。</p>
@@ -80557,7 +80563,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

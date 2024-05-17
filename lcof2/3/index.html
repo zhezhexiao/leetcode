@@ -80234,9 +80234,11 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="offer-ii-003-n-1"><a href="https://leetcode.cn/problems/w3tCBm">剑指 Offer II 003. 前 n 个数字二进制中 1 的个数</a></h1>
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个非负整数 <code>n</code><b>&nbsp;</b>，请计算 <code>0</code> 到 <code>n</code> 之间的每个数字的二进制表示中 1 的个数，并输出一个数组。</p>
 
@@ -80289,7 +80291,11 @@
 
 <p><meta charset="UTF-8" />注意：本题与主站 338&nbsp;题相同：<a href="https://leetcode.cn/problems/counting-bits/">https://leetcode.cn/problems/counting-bits/</a></p>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划</h3>
 <p>我们定义 $f[i]$ 表示整数 $i$ 的二进制表示中 $1$ 的个数。那么对于一个整数 $i$，它的二进制表示中 $1$ 的个数为 $f[i \wedge (i - 1)] + 1$，其中 $i \wedge (i - 1)$ 是将 $i$ 的二进制表示中的最低位的 $1$ 变成 $0$ 之后的数，显然 $i \wedge (i - 1) \lt i$，且 $f[i \wedge (i - 1)]$ 已经被计算出来了，因此我们可以得到状态转移方程：</p>
 <p>$$
@@ -80388,7 +80394,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

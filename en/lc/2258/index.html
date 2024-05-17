@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2258-escape-the-spreading-fire"><a href="https://leetcode.com/problems/escape-the-spreading-fire">2258. Escape the Spreading Fire</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 77 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 77 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2346-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2346-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> 2D integer array <code>grid</code> of size <code>m x n</code> which represents a field. Each cell has one of three values:</p>
 
 <ul>
@@ -75725,7 +75729,11 @@ Thus, 10<sup>9</sup> is returned.
     <li><code>grid[0][0] == grid[m - 1][n - 1] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search-bfs">Solution 1: Binary Search + BFS</h3>
 <p>We notice that if a stay time $t$ satisfies the condition, then all stay times less than $t$ also satisfy the condition. Therefore, we can consider using binary search to find the maximum stay time that satisfies the condition.</p>
 <p>We define the left boundary of binary search as $l=-1$ and the right boundary as $r=m \times n$. In each iteration of binary search, we take the midpoint $mid$ of $l$ and $r$ as the current stay time and check if it satisfies the condition. If it does, we update $l$ to $mid$, otherwise we update $r$ to $mid-1$. Finally, if $l=m \times n$, it means there is no stay time that satisfies the condition, so we return $10^9$, otherwise we return $l$.</p>
@@ -76517,7 +76525,9 @@ Thus, 10<sup>9</sup> is returned.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

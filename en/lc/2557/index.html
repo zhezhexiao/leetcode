@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2557-maximum-number-of-integers-to-choose-from-a-range-ii"><a href="https://leetcode.com/problems/maximum-number-of-integers-to-choose-from-a-range-ii">2557. Maximum Number of Integers to Choose From a Range II 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>banned</code> and two integers <code>n</code> and <code>maxSum</code>. You are choosing some number of integers following the below rules:</p>
 
 <ul>
@@ -75706,7 +75710,11 @@ All these integers are in the range [1, 7], all do not appear in banned, and the
     <li><code>1 &lt;= maxSum &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-deduplication-sorting-binary-search">Solution 1: Deduplication + Sorting + Binary Search</h3>
 <p>We can add $0$ and $n + 1$ to the array <code>banned</code>, then deduplicate and sort the array <code>banned</code>.</p>
 <p>Next, we enumerate every two adjacent elements $i$ and $j$ in the array <code>banned</code>. The range of selectable integers is $[i + 1, j - 1]$. We use binary search to enumerate the number of elements we can select in this range, find the maximum number of selectable elements, and then add it to $ans$. At the same time, we subtract the sum of these elements from <code>maxSum</code>. If <code>maxSum</code> is less than $0$, we break the loop. Return the answer.</p>
@@ -75935,7 +75943,9 @@ All these integers are in the range [1, 7], all do not appear in banned, and the
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

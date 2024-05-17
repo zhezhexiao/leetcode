@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2305-fair-distribution-of-cookies"><a href="https://leetcode.com/problems/fair-distribution-of-cookies">2305. Fair Distribution of Cookies</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 297 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 297 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1886-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1886-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>cookies</code>, where <code>cookies[i]</code> denotes the number of cookies in the <code>i<sup>th</sup></code> bag. You are also given an integer <code>k</code> that denotes the number of children to distribute <strong>all</strong> the bags of cookies to. All the cookies in the same bag must go to the same child and cannot be split up.</p>
 
 <p>The <strong>unfairness</strong> of a distribution is defined as the <strong>maximum</strong> <strong>total</strong> cookies obtained by a single child in the distribution.</p>
@@ -75714,7 +75718,11 @@ It can be shown that there is no distribution with an unfairness less than 7.
     <li><code>2 &lt;= k &lt;= cookies.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-backtracking-pruning">Solution 1: Backtracking + Pruning</h3>
 <p>First, we sort the array $cookies$ in descending order (to reduce the number of searches), and then create an array $cnt$ of length $k$ to store the number of cookies each child gets. Also, we use a variable $ans$ to maintain the current minimum degree of unfairness, initialized to a very large value.</p>
 <p>Next, we start from the first snack pack. For the current snack pack $i$, we enumerate each child $j$. If the cookies $cookies[i]$ in the current snack pack are given to child $j$, making the degree of unfairness greater than or equal to $ans$, or the number of cookies the current child already has is the same as the previous child, then we don't need to consider giving the cookies in the current snack pack to child $j$, just skip it (pruning). Otherwise, we give the cookies $cookies[i]$ in the current snack pack to child $j$, and then continue to consider the next snack pack. When we have considered all the snack packs, we update the value of $ans$, then backtrack to the previous snack pack, and continue to enumerate which child to give the cookies in the current snack pack to.</p>
@@ -75983,7 +75991,9 @@ It can be shown that there is no distribution with an unfairness less than 7.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

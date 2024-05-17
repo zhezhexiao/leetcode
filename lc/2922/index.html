@@ -80245,11 +80245,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2922-iii"><a href="https://leetcode.cn/problems/market-analysis-iii">2922. 市场分析 III 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：&nbsp;<code>Users</code></p>
 
@@ -80345,7 +80347,11 @@ Items table:
 因为卖家 ID 为 2 和 3 的卖家都有一件商品列入计数，所以他们都将显示在输出中。
 </pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：等值连接 + 分组 + 子查询</h3>
 <p>我们可以使用等值连接，将 <code>Orders</code> 表和 <code>Users</code> 表按照 <code>seller_id</code> 进行连接，接着再按照 <code>item_id</code> 连接 <code>Items</code>，筛选出 <code>item_brand</code> 不等于 <code>favorite_brand</code> 的记录，然后按照 <code>seller_id</code> 进行分组，统计每个 <code>seller_id</code> 对应的 <code>item_id</code> 的个数，最后再使用子查询，找出 <code>item_id</code> 个数最多的 <code>seller_id</code>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -80384,7 +80390,9 @@ Items table:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

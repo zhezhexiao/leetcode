@@ -80284,11 +80284,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="173"><a href="https://leetcode.cn/problems/binary-search-tree-iterator">173. 二叉搜索树迭代器</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>实现一个二叉搜索树迭代器类<code>BSTIterator</code> ，表示一个按中序遍历二叉搜索树（BST）的迭代器：</p>
 <div class="original__bRMd">
@@ -80348,7 +80350,11 @@ bSTIterator.hasNext(); // 返回 False
     <li>你可以设计一个满足下述条件的解决方案吗？<code>next()</code> 和 <code>hasNext()</code> 操作均摊时间复杂度为 <code>O(1)</code> ，并使用 <code>O(h)</code> 内存。其中 <code>h</code> 是树的高度。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：递归</h3>
 <p>初始化数据时，递归中序遍历，将二叉搜索树每个结点的值保存在列表 <code>vals</code> 中。用 <code>cur</code> 指针记录外部即将遍历的位置，初始化为 0。</p>
 <p>调用 <code>next()</code> 时，返回 <code>vals[cur]</code>，同时 <code>cur</code> 指针自增。调用 <code>hasNext()</code> 时，判断 <code>cur</code> 指针是否已经达到 <code>len(vals)</code> 个数，若是，说明已经遍历结束，返回 false，否则返回 true。</p>
@@ -80998,6 +81004,10 @@ bSTIterator.hasNext(); // 返回 False
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：栈迭代</h3>
 <p>初始化时，从根节点一路遍历所有左子节点，压入栈 <code>stack</code> 中。</p>
 <p>调用 <code>next()</code>时，弹出栈顶元素 <code>cur</code>，获取 <code>cur</code> 的右子节点 <code>node</code>，若 <code>node</code> 不为空，一直循环压入左节点。最后返回 <code>cur.val</code> 即可。调用 <code>hasNext()</code> 时，判断 <code>stack</code> 是否为空，空则表示迭代结束。</p>
@@ -81473,7 +81483,9 @@ bSTIterator.hasNext(); // 返回 False
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

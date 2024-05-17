@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2743"><a href="https://leetcode.cn/problems/count-substrings-without-repeating-character">2743. 计算没有重复字符的子字符串数量 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定你一个只包含小写英文字母的字符串 <code>s</code> 。如果一个子字符串不包含任何字符至少出现两次（换句话说，它不包含重复字符），则称其为 <strong>特殊</strong> 子字符串。你的任务是计算 <strong>特殊</strong> 子字符串的数量。例如，在字符串 <code>"pop"</code> 中，子串 <code>"po"</code> 是一个特殊子字符串，然而 <code>"pop"</code> 不是 <strong>特殊</strong> 子字符串（因为 <code>'p'</code> 出现了两次）。</p>
 
@@ -80306,7 +80308,11 @@
     <li><code>s</code> 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：计数 + 双指针</h3>
 <p>我们用两个指针 $j$ 和 $i$ 分别表示当前子串的左右边界，用一个长度为 $26$ 的数组 $cnt$ 统计当前子串中每个字符出现的次数。我们从左到右遍历字符串，每次遍历到位置 $i$ 时，将 $s[i]$ 出现的次数加一，然后判断 $s[i]$ 是否出现了至少两次，如果是，那么我们需要将 $s[j]$ 出现的次数减一，并将 $j$ 右移一位，直到 $s[i]$ 出现的次数不超过一次为止。这样一来，我们就得到以 $s[i]$ 结尾的最长特殊子串的长度，即 $i - j + 1$，那么以 $s[i]$ 结尾的特殊子串的数量就是 $i - j + 1$。最后我们将每个位置结尾的特殊子串的数量累加起来，即为答案。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 $s$ 的长度；而 $C$ 是字符集的大小，这里字符集为小写英文字母，因此 $C = 26$。</p>
@@ -80470,7 +80476,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

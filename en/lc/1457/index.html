@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1457-pseudo-palindromic-paths-in-a-binary-tree"><a href="https://leetcode.com/problems/pseudo-palindromic-paths-in-a-binary-tree">1457. Pseudo-Palindromic Paths in a Binary Tree</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 190 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 190 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1405-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1405-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a binary tree where node values are digits from 1 to 9. A path in the binary tree is said to be <strong>pseudo-palindromic</strong> if at least one permutation of the node values in the path is a palindrome.</p>
 
 <p><em>Return the number of <strong>pseudo-palindromic</strong> paths going from the root node to leaf nodes.</em></p>
@@ -75713,7 +75717,11 @@
     <li><code>1 &lt;= Node.val &lt;= 9</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dfs-bit-manipulation">Solution 1: DFS + Bit Manipulation</h3>
 <p>A path is a pseudo-palindromic path if and only if the number of nodes with odd occurrences in the path is $0$ or $1$.</p>
 <p>Since the range of the binary tree node values is from $1$ to $9$, for each path from root to leaf, we can use a $10$-bit binary number $mask$ to represent the occurrence status of the node values in the current path. The $i$th bit of $mask$ is $1$ if the node value $i$ appears an odd number of times in the current path, and $0$ if it appears an even number of times. Therefore, a path is a pseudo-palindromic path if and only if $mask \&amp;(mask - 1) = 0$, where $\&amp;$ represents the bitwise AND operation.</p>
@@ -76080,7 +76088,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

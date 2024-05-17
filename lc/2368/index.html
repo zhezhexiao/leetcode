@@ -80290,11 +80290,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2368"><a href="https://leetcode.cn/problems/reachable-nodes-with-restrictions">2368. 受限条件下可到达节点的数目</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 305 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 305 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1476-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1476-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 305 场周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 305 场周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1476-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1476-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现有一棵由 <code>n</code> 个节点组成的无向树，节点编号从 <code>0</code> 到 <code>n - 1</code> ，共有 <code>n - 1</code> 条边。</p>
 
@@ -80337,7 +80339,11 @@
     <li><code>restricted</code> 中的所有值 <strong>互不相同</strong></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="dfs">方法一：DFS</h3>
 <p>我们首先根据给定的边构建一个邻接表 $g$，其中 $g[i]$ 表示与节点 $i$ 相邻的节点列表。然后我们定义一个哈希表 $vis$，用于记录受限节点或者已经访问过的节点，初始时将受限节点加入到 $vis$ 中。</p>
 <p>接下来我们定义一个深度优先搜索函数 $dfs(i)$，表示从节点 $i$ 出发，可以到达的节点数。在 $dfs(i)$ 函数中，我们首先将节点 $i$ 加入到 $vis$ 中，然后遍历节点 $i$ 的相邻节点 $j$，如果 $j$ 不在 $vis$ 中，我们递归调用 $dfs(j)$，并将返回值加到结果中。</p>
@@ -80593,6 +80599,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="bfs">方法二：BFS</h3>
 <p>与方法一类似，我们首先根据给定的边构建一个邻接表 $g$，然后定义一个哈希表 $vis$，用于记录受限节点或者已经访问过的节点，初始时将受限节点加入到 $vis$ 中。</p>
 <p>接下来我们使用广度优先搜索遍历整个图，统计可以到达的节点数。我们定义一个队列 $q$，初始时将节点 $0$ 加入到 $q$ 中，并且将节点 $0$ 加入到 $vis$ 中。然后我们不断从 $q$ 中取出节点 $i$，累加答案，并将节点 $i$ 的相邻节点中未访问过的节点加入到 $q$ 中，并将这些节点加入到 $vis$ 中。</p>
@@ -80856,7 +80866,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

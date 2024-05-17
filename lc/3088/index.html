@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3088"><a href="https://leetcode.cn/problems/make-string-anti-palindrome">3088. 使字符串反回文 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>我们称一个长度为偶数的字符串&nbsp;<code>s</code>&nbsp;为&nbsp;<strong>反回文</strong>&nbsp;的，如果对于每一个下标&nbsp;<code>0 &lt;= i &lt; n</code>&nbsp;，<code>s[i] != s[n - i - 1]</code>。</p>
 
@@ -80319,7 +80321,11 @@
     <li><code>s</code> 只包含小写英文字母。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：贪心 + 排序</h3>
 <p>题目要求我们将字符串 $s$ 变成字典序最小的反回文字符串，我们不妨先对字符串 $s$ 进行排序。</p>
 <p>接下来，我们只需要比较中间的两个字符 $s[m]$ 和 $s[m-1]$ 是否相等，如果相等，我们就在后半部分找到第一个不等于 $s[m]$ 的字符 $s[i]$，用一个指针 $j$ 指向 $m$，然后交换 $s[i]$ 和 $s[j]$。如果找不到这样的字符 $s[i]$，说明字符串 $s$ 无法变成反回文字符串，返回 <code>"1"</code>。否则，执行交换操作，并向右移动 $i$ 和 $j$，比较 $s[j]$ 和 $s[n-j-1]$ 是否相等，如果相等，继续执行交换操作，直到 $i$ 超出字符串长度。</p>
@@ -80528,7 +80534,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

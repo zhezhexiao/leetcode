@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1684-count-the-number-of-consistent-strings"><a href="https://leetcode.com/problems/count-the-number-of-consistent-strings">1684. Count the Number of Consistent Strings</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 41 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 41 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1288-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1288-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a string <code>allowed</code> consisting of <strong>distinct</strong> characters and an array of strings <code>words</code>. A string is <strong>consistent </strong>if all characters in the string appear in the string <code>allowed</code>.</p>
 
 <p>Return<em> the number of <strong>consistent</strong> strings in the array </em><code>words</code>.</p>
@@ -75716,7 +75720,11 @@
     <li><code>words[i]</code> and <code>allowed</code> contain only lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-or-array">Solution 1: Hash Table or Array</h3>
 <p>A straightforward approach is to use a hash table or array $s$ to record the characters in <code>allowed</code>. Then iterate over the <code>words</code> array, for each string $w$, determine whether it is composed of characters in <code>allowed</code>. If so, increment the answer.</p>
 <p>The time complexity is $O(m)$, and the space complexity is $O(C)$. Here, $m$ is the total length of all strings, and $C$ is the size of the character set <code>allowed</code>. In this problem, $C \leq 26$.</p>
@@ -75966,6 +75974,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-bit-manipulation">Solution 2: Bit Manipulation</h3>
 <p>We can also use a single integer to represent the occurrence of characters in each string. In this integer, each bit in the binary representation indicates whether a character appears.</p>
 <p>We simply define a function $f(w)$ that can convert a string $w$ into an integer. Each bit in the binary representation of the integer indicates whether a character appears. For example, the string <code>ab</code> can be converted into the integer $3$, which is represented in binary as $11$. The string <code>abd</code> can be converted into the integer $11$, which is represented in binary as $1011$.</p>
@@ -76215,7 +76227,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

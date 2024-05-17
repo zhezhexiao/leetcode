@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2846-minimum-edge-weight-equilibrium-queries-in-a-tree"><a href="https://leetcode.com/problems/minimum-edge-weight-equilibrium-queries-in-a-tree">2846. Minimum Edge Weight Equilibrium Queries in a Tree</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 361 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 361 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2507-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2507-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There is an undirected tree with <code>n</code> nodes labeled from <code>0</code> to <code>n - 1</code>. You are given the integer <code>n</code> and a 2D integer array <code>edges</code> of length <code>n - 1</code>, where <code>edges[i] = [u<sub>i</sub>, v<sub>i</sub>, w<sub>i</sub>]</code> indicates that there is an edge between nodes <code>u<sub>i</sub></code> and <code>v<sub>i</sub></code> with weight <code>w<sub>i</sub></code> in the tree.</p>
 
 <p>You are also given a 2D integer array <code>queries</code> of length <code>m</code>, where <code>queries[i] = [a<sub>i</sub>, b<sub>i</sub>]</code>. For each query, find the <strong>minimum number of operations</strong> required to make the weight of every edge on the path from <code>a<sub>i</sub></code> to <code>b<sub>i</sub></code> equal. In one operation, you can choose any edge of the tree and change its weight to any value.</p>
@@ -75720,7 +75724,11 @@ For each queries[i], it can be shown that answer[i] is the minimum number of ope
     <li><code>0 &lt;= a<sub>i</sub>, b<sub>i</sub> &lt; n</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-lifting-for-lca">Solution 1: Binary Lifting for LCA</h3>
 <p>The problem asks for the minimum number of operations to make all edge weights the same on the path between any two points. This is essentially the length of the path between these two points, minus the number of times the most frequently occurring edge appears on the path.</p>
 <p>The length of the path between two points can be obtained by finding the LCA (Lowest Common Ancestor) using binary lifting. Let's denote the two points as $u$ and $v$, and their LCA as $x$. Then, the path length from $u$ to $v$ is $depth(u) + depth(v) - 2 \times depth(x)$.</p>
@@ -76232,7 +76240,9 @@ For each queries[i], it can be shown that answer[i] is the minimum number of ope
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2309-greatest-english-letter-in-upper-and-lower-case"><a href="https://leetcode.com/problems/greatest-english-letter-in-upper-and-lower-case">2309. Greatest English Letter in Upper and Lower Case</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 298 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 298 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1242-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1242-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given a string of English letters <code>s</code>, return <em>the <strong>greatest </strong>English letter which occurs as <strong>both</strong> a lowercase and uppercase letter in</em> <code>s</code>. The returned letter should be in <strong>uppercase</strong>. If no such letter exists, return <em>an empty string</em>.</p>
 
 <p>An English letter <code>b</code> is <strong>greater</strong> than another letter <code>a</code> if <code>b</code> appears <strong>after</strong> <code>a</code> in the English alphabet.</p>
@@ -75711,7 +75715,11 @@ There is no letter that appears in both lower and upper case.
     <li><code>s</code> consists of lowercase and uppercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-enumeration">Solution 1: Hash Table + Enumeration</h3>
 <p>First, we use a hash table $ss$ to record all the letters that appear in the string $s$. Then we start enumerating from the last letter of the uppercase alphabet. If both the uppercase and lowercase forms of the current letter are in $ss$, we return that letter.</p>
 <p>At the end of the enumeration, if no letter that meets the conditions is found, we return an empty string.</p>
@@ -75916,6 +75924,10 @@ There is no letter that appears in both lower and upper case.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-bit-manipulation-space-optimization">Solution 2: Bit Manipulation (Space Optimization)</h3>
 <p>We can use two integers $mask1$ and $mask2$ to record the lowercase and uppercase letters that appear in the string $s$, respectively. The $i$-th bit of $mask1$ indicates whether the $i$-th lowercase letter appears, and the $i$-th bit of $mask2$ indicates whether the $i$-th uppercase letter appears.</p>
 <p>Then we perform a bitwise AND operation on $mask1$ and $mask2$. The $i$-th bit of the resulting $mask$ indicates whether the $i$-th letter appears in both uppercase and lowercase.</p>
@@ -76045,7 +76057,9 @@ There is no letter that appears in both lower and upper case.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

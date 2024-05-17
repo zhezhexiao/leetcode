@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2143"><a href="https://leetcode.cn/problems/choose-numbers-from-two-arrays-in-range">2143. 在两个数组的区间中选取数字 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你两个 <strong>下标从 0 开始</strong>，长度为 <code>n</code> 的整数数组 <code>nums1</code> 和 <code>nums2</code>。</p>
 
@@ -80320,7 +80322,11 @@
     <li><code>0 &lt;= nums1[i], nums2[i] &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划</h3>
 <p>我们定义 $f[i][j]$ 表示以第 $i$ 个元素结尾，且从 $nums1$ 中选取的数字和与从 $nums2$ 中选取的数字和之差为 $j$ 的平衡区间的个数。由于差值可能为负数，因此，我们统一将 $j$ 加上 $s_2 = \sum_{k=0}^{n-1}nums2[k]$，这样就可以保证 $j$ 为非负整数。</p>
 <p>考虑 $f[i][j]$，我们可以单独将第 $i$ 个元素视为一个区间，那么 $f[i][nums1[i] + s_2]$ 和 $f[i][-nums2[i] + s_2]$ 都会增加 $1$。此外，如果 $i \gt 0$，我们也可以将第 $i$ 个元素添加到前面的某个区间中，我们在 $[0, s_1 + s_2]$ 范围内枚举 $j$，如果 $j \geq a$，那么 $f[i][j]$ 会增加 $f[i - 1][j - a]$，如果 $j + b \leq s_1 + s_2$，那么 $f[i][j]$ 会增加 $f[i - 1][j + b]$。</p>
@@ -80608,7 +80614,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

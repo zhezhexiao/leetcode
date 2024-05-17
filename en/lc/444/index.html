@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="444-sequence-reconstruction"><a href="https://leetcode.com/problems/sequence-reconstruction">444. Sequence Reconstruction 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> of length <code>n</code> where <code>nums</code> is a permutation of the integers in the range <code>[1, n]</code>. You are also given a 2D integer array <code>sequences</code> where <code>sequences[i]</code> is a subsequence of <code>nums</code>.</p>
 
 <p>Check if <code>nums</code> is the shortest possible and the only <strong>supersequence</strong>. The shortest <strong>supersequence</strong> is a sequence <strong>with the shortest length</strong> and has all <code>sequences[i]</code> as subsequences. There could be multiple valid <strong>supersequences</strong> for the given array <code>sequences</code>.</p>
@@ -75723,7 +75727,11 @@ Since nums is the only shortest supersequence, we return true.
     <li><code>sequences[i]</code> is a subsequence of <code>nums</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-topological-sorting">Solution 1: Topological Sorting</h3>
 <p>We can first traverse each subsequence <code>seq</code>. For each pair of adjacent elements $a$ and $b$, we establish a directed edge $a \to b$. At the same time, we count the in-degree of each node, and finally add all nodes with an in-degree of $0$ to the queue.</p>
 <p>When the number of nodes in the queue is equal to $1$, we take out the head node $i$, remove $i$ from the graph, and decrease the in-degree of all adjacent nodes of $i$ by $1$. If the in-degree of the adjacent nodes becomes $0$ after decreasing, add these nodes to the queue. Repeat the above operation until the length of the queue is not $1$. At this point, check whether the queue is empty. If it is not empty, it means there are multiple shortest supersequences, return <code>false</code>; if it is empty, it means there is only one shortest supersequence, return <code>true</code>.</p>
@@ -76008,7 +76016,9 @@ Since nums is the only shortest supersequence, we return true.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

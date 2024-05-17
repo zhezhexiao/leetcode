@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2247-k"><a href="https://leetcode.cn/problems/maximum-cost-of-trip-with-k-highways">2247. K 条高速公路的最大旅行费用 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>一系列高速公路连接从 <code>0</code> 到 <code>n - 1</code> 的 <code>n</code> 个城市。给定一个二维整数数组 <code>highways</code>，其中 <code>highways[i] = [city1<sub>i</sub>, city2<sub>i</sub>, toll<sub>i</sub>]</code> 表示有一条高速公路连接 <code>city1<sub>i</sub></code> 和<code>city2<sub>i</sub></code>，允许一辆汽车从 <code>city1<sub>i</sub></code> 前往 <code>city2<sub>i</sub></code>，<strong>反之亦然</strong>，费用为 <code>toll<sub>i</sub></code>。</p>
 
@@ -80314,7 +80316,11 @@
     </li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：状态压缩动态规划</h3>
 <p>我们注意到，题目要求正好经过 $k$ 条公路，而每个城市最多只能访问一次，城市的数量为 $n$，因此，我们最多只能经过 $n - 1$ 条公路。所以，如果 $k \ge n$，那么我们无法满足题目要求，直接返回 $-1$ 即可。</p>
 <p>另外，我们也可以发现，城市数量 $n$ 不超过 $15$，这提示我们可以考虑使用状态压缩动态规划的方法求解本题。我们用一个长度为 $n$ 的二进制数表示当前已经经过的城市，其中第 $i$ 位为 $1$ 表示已经经过了第 $i$ 个城市，为 $0$ 表示还没有经过第 $i$ 个城市。</p>
@@ -80686,7 +80692,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2836-maximize-value-of-function-in-a-ball-passing-game"><a href="https://leetcode.com/problems/maximize-value-of-function-in-a-ball-passing-game">2836. Maximize Value of Function in a Ball Passing Game</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 360 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 360 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2768-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2768-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>receiver</code> of length <code>n</code> and an integer <code>k</code>. <code>n</code> players are playing a ball-passing game.</p>
 
 <p>You choose the starting player, <code>i</code>. The game proceeds as follows: player <code>i</code> passes the ball to player <code>receiver[i]</code>, who then passes it to <code>receiver[receiver[i]]</code>, and so on, for <code>k</code> passes in total. The game&#39;s score is the sum of the indices of the players who touched the ball, including repetitions, i.e. <code>i + receiver[i] + receiver[receiver[i]] + ... + receiver<sup>(k)</sup>[i]</code>.</p>
@@ -75772,7 +75776,11 @@
     <li><code>1 &lt;= k &lt;= 10<sup>10</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dynamic-programming-binary-lifting">Solution 1: Dynamic Programming + Binary Lifting</h3>
 <p>The problem asks us to find the maximum sum of the player IDs who have touched the ball within $k$ passes starting from each player $i$. If we solve it by brute force, we need to traverse upwards $k$ times starting from $i$, with a time complexity of $O(k)$, which will obviously time out.</p>
 <p>We can use dynamic programming combined with binary lifting to handle this.</p>
@@ -76019,7 +76027,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

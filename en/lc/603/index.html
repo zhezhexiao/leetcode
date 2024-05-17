@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="603-consecutive-available-seats"><a href="https://leetcode.com/problems/consecutive-available-seats">603. Consecutive Available Seats 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <code>Cinema</code></p>
 
 <pre>
@@ -75715,7 +75719,11 @@ Cinema table:
 +---------+
 </pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-self-join">Solution 1: Self-Join</h3>
 <p>We can use a self-join to join the <code>Seat</code> table with itself, and then filter out the records where the <code>id</code> of the left seat is equal to the <code>id</code> of the right seat minus $1$, and where both seats are empty.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -75736,6 +75744,10 @@ Cinema table:
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-window-function">Solution 2: Window Function</h3>
 <p>We can use the <code>LAG</code> and <code>LEAD</code> functions (or <code>SUM() OVER(ROWS BETWEEN 1 PRECEDING AND 1 FOLLOWING)</code>) to obtain the information of adjacent seats, and then filter out the consecutive empty seats and sort them in a unique way.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -75768,6 +75780,10 @@ Cinema table:
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-3">Solution 3</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">MySQL</label></div>
 <div class="tabbed-content">
@@ -75805,7 +75821,9 @@ Cinema table:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

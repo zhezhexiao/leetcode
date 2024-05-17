@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="900-rle-iterator"><a href="https://leetcode.com/problems/rle-iterator">900. RLE Iterator</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>We can use run-length encoding (i.e., <strong>RLE</strong>) to encode a sequence of integers. In a run-length encoded array of even length <code>encoding</code> (<strong>0-indexed</strong>), for all even <code>i</code>, <code>encoding[i]</code> tells us the number of times that the non-negative integer value <code>encoding[i + 1]</code> is repeated in the sequence.</p>
 
 <ul>
@@ -75712,7 +75716,11 @@ but the second term did not exist. Since the last term exhausted does not exist,
     <li>At most <code>1000</code> calls will be made to <code>next</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-maintain-two-pointers">Solution 1: Maintain Two Pointers</h3>
 <p>We define two pointers $i$ and $j$, where pointer $i$ points to the current run-length encoding being read, and pointer $j$ points to which character in the current run-length encoding is being read. Initially, $i = 0$, $j = 0$.</p>
 <p>Each time we call <code>next(n)</code>, we judge whether the remaining number of characters in the current run-length encoding $encoding[i] - j$ is less than $n$. If it is, we subtract $n$ by $encoding[i] - j$, add $2$ to $i$, and set $j$ to $0$, then continue to judge the next run-length encoding. If it is not, we add $n$ to $j$ and return $encoding[i + 1]$.</p>
@@ -76012,7 +76020,9 @@ but the second term did not exist. Since the last term exhausted does not exist,
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

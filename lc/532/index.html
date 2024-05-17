@@ -80278,11 +80278,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="532-k-diff"><a href="https://leetcode.cn/problems/k-diff-pairs-in-an-array">532. 数组中的 k-diff 数对</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>nums</code> 和一个整数&nbsp;<code>k</code>，请你在数组中找出<strong> 不同的&nbsp;</strong>k-diff 数对，并返回不同的 <strong>k-diff 数对</strong> 的数目。</p>
 
@@ -80333,7 +80335,11 @@
     <li><code>0 &lt;= k &lt;= 10<sup>7</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表</h3>
 <p>由于 $k$ 是一个定值，因此用哈希表 $ans$ 记录数对的较小值，就能够确定较大的值。最后返回 ans 的大小作为答案。</p>
 <p>遍历数组 $nums$，当前遍历到的数 $nums[j]$，我们记为 $v$，用哈希表 $vis$ 记录此前遍历到的所有数字。若 $v-k$ 在 $vis$ 中，则将 $v-k$ 添加至 $ans$；若 $v+k$ 在 $vis$ 中，则将 $v$ 添加至 $ans$。</p>
@@ -80518,11 +80524,17 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：排序 + 双指针</h3>
 <p>只需要统计组合的数量，因此可以改动原数组，对其排序，使用双指针来统计。</p>
 <p>声明 <code>left</code> 与 <code>right</code> 指针，初始化为 0 和 1。根据 <code>abs(nums[left] - nums[right])</code> 与 <code>k</code> 值对比结果移动指针。</p>
 <p>需要注意的是，<strong>不能出现重复的组合</strong>，所以移动指针时，不能仅仅是 <code>+1</code>，需要到一个不等于当前值的位置。</p>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="90-subsets-ii"><a href="https://leetcode.com/problems/subsets-ii">90. Subsets II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an integer array <code>nums</code> that may contain duplicates, return <em>all possible</em> <span data-keyword="subset"><em>subsets</em></span><em> (the power set)</em>.</p>
 
 <p>The solution set <strong>must not</strong> contain duplicate subsets. Return the solution in <strong>any order</strong>.</p>
@@ -75691,7 +75695,11 @@
     <li><code>-10 &lt;= nums[i] &lt;= 10</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting-dfs">Solution 1: Sorting + DFS</h3>
 <p>We can first sort the array $nums$ to facilitate deduplication.</p>
 <p>Then, we design a function $dfs(i)$, which represents searching for subsets starting from the $i$-th element. The execution logic of the function $dfs(i)$ is as follows:</p>
@@ -75987,6 +75995,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-sorting-binary-enumeration">Solution 2: Sorting + Binary Enumeration</h3>
 <p>Similar to Solution 1, we first sort the array $nums$ to facilitate deduplication.</p>
 <p>Next, we enumerate a binary number $mask$ in the range of $[0, 2^n)$, where the binary representation of $mask$ is an $n$-bit bit string. If the $i$-th bit of $mask$ is $1$, it means to select $nums[i]$, and $0$ means not to select $nums[i]$. Note that if the $i - 1$ bit of $mask$ is $0$, and $nums[i] = nums[i - 1]$, it means that in the current enumerated scheme, the $i$-th element and the $i - 1$-th element are the same. To avoid repetition, we skip this situation. Otherwise, we add the subset corresponding to $mask$ to the answer array.</p>
@@ -76276,7 +76288,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

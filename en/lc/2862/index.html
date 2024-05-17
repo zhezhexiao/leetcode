@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2862-maximum-element-sum-of-a-complete-subset-of-indices"><a href="https://leetcode.com/problems/maximum-element-sum-of-a-complete-subset-of-indices">2862. Maximum Element-Sum of a Complete Subset of Indices</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 363 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 363 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2291-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2291-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>1</strong><strong>-indexed</strong> array <code>nums</code>. Your task is to select a <strong>complete subset</strong> from <code>nums</code> where every pair of selected indices multiplied is a <span data-keyword="perfect-square">perfect square,</span>. i. e. if you select <code>a<sub>i</sub></code> and <code>a<sub>j</sub></code>, <code>i * j</code> must be a perfect square.</p>
 
 <p>Return the <em>sum</em> of the complete subset with the <em>maximum sum</em>.</p>
@@ -75698,7 +75702,11 @@
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
 <p>We note that if a number can be expressed in the form of $k \times j^2$, then all numbers of this form have the same $k$.</p>
 <p>Therefore, we can enumerate $k$ in the range $[1,..n]$, and then start enumerating $j$ from $1$, each time adding the value of $nums[k \times j^2 - 1]$ to $t$, until $k \times j^2 &gt; n$. At this point, update the answer to $ans = \max(ans, t)$.</p>
@@ -75894,7 +75902,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

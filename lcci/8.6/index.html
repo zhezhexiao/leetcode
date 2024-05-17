@@ -80243,11 +80243,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="0806"><a href="https://leetcode.cn/problems/hanota-lcci">面试题 08.06. 汉诺塔问题</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在经典汉诺塔问题中，有 3 根柱子及 N 个不同大小的穿孔圆盘，盘子可以滑入任意一根柱子。一开始，所有盘子自上而下按升序依次套在第一根柱子上(即每一个盘子只能放在更大的盘子上面)。移动圆盘时受到以下限制:<br>
 (1) 每次只能移动一个盘子;<br>
@@ -80268,7 +80270,11 @@
     <li>A中盘子的数目不大于14个。</li>
 </ol>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：递归</h3>
 <p>我们设计一个函数 $dfs(n, a, b, c)$，表示将 $n$ 个盘子从 $a$ 移动到 $c$，其中 $b$ 为辅助柱子。</p>
 <p>我们先将 $n - 1$ 个盘子从 $a$ 移动到 $b$，然后将第 $n$ 个盘子从 $a$ 移动到 $c$，最后将 $n - 1$ 个盘子从 $b$ 移动到 $c$。</p>
@@ -80467,6 +80473,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start-->
+
 <h3 id="_4">方法二：迭代（栈）</h3>
 <p>我们可以用栈来模拟递归的过程。</p>
 <p>我们定义一个结构体 $Task$，表示一个任务，其中 $n$ 表示盘子的数目，而 $a$, $b$, $c$ 表示三根柱子。</p>
@@ -80709,7 +80719,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

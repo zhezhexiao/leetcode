@@ -80260,11 +80260,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2180"><a href="https://leetcode.cn/problems/count-integers-with-even-digit-sum">2180. 统计各位数字之和为偶数的整数个数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 281 场周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 281 场周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1257-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1257-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 281 场周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 281 场周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1257-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1257-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个正整数 <code>num</code> ，请你统计并返回 <strong>小于或等于</strong> <code>num</code> 且各位数字之和为 <strong>偶数</strong> 的正整数的数目。</p>
 
@@ -80299,7 +80301,11 @@
     <li><code>1 &lt;= num &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：枚举</h3>
 <p>一种最简单直接的方法是枚举 $[1,..num]$ 的所有整数 $x$，判断 $x$ 各位数字之和是否为偶数，是则答案加一。</p>
 <p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(1)$。其中 $n$ 为 $num$ 的值。</p>
@@ -80445,6 +80451,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：数学</h3>
 <p>我们观察发现，在 $[0,..x]$ 的所有数中，每 $10$ 个数中，就有 $5$ 个数的各位数字之和为偶数。例如，在 $[0,..9]$ 中，每 $10$ 个数中，就有 $5$ 个数的各位数字之和为偶数，分别是 $0,2,4,6,8$。</p>
 <p>因此，我们可以先算出 $num$ 中有多少个 $10$ 的倍数，然后乘以 $5$ 再减去 $1$（排除 $0$ 这个偶数），可以得到初始答案 $ans=\left\lfloor \frac{num}{10} \right\rfloor \times 5 - 1$。</p>
@@ -80566,7 +80576,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2855-minimum-right-shifts-to-sort-the-array"><a href="https://leetcode.com/problems/minimum-right-shifts-to-sort-the-array">2855. Minimum Right Shifts to Sort the Array</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 113 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 113 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1379-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1379-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> array <code>nums</code> of length <code>n</code> containing <strong>distinct</strong> positive integers. Return <em>the <strong>minimum</strong> number of <strong>right shifts</strong> required to sort </em><code>nums</code><em> and </em><code>-1</code><em> if this is not possible.</em></p>
 
 <p>A <strong>right shift</strong> is defined as shifting the element at index <code>i</code> to index <code>(i + 1) % n</code>, for all indices.</p>
@@ -75689,7 +75693,11 @@ Now nums is sorted; therefore the answer is 2.
     <li><code>nums</code> contains distinct integers.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-direct-traversal">Solution 1: Direct Traversal</h3>
 <p>First, we use a pointer $i$ to traverse the array $nums$ from left to right, finding a continuous increasing sequence until $i$ reaches the end of the array or $nums[i - 1] &gt; nums[i]$. Next, we use another pointer $k$ to traverse the array $nums$ from $i + 1$, finding a continuous increasing sequence until $k$ reaches the end of the array or $nums[k - 1] &gt; nums[k]$ and $nums[k] &gt; nums[0]$. If $k$ reaches the end of the array, it means the array is already increasing, so we return $n - i$; otherwise, we return $-1$.</p>
 <p>The time complexity is $O(n)$, and the space complexity is $O(1)$. Here, $n$ is the length of the array $nums$.</p>
@@ -75839,7 +75847,9 @@ Now nums is sorted; therefore the answer is 2.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

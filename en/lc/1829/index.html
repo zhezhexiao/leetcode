@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1829-maximum-xor-for-each-query"><a href="https://leetcode.com/problems/maximum-xor-for-each-query">1829. Maximum XOR for Each Query</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 50 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 50 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1523-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1523-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>sorted</strong> array <code>nums</code> of <code>n</code> non-negative integers and an integer <code>maximumBit</code>. You want to perform the following query <code>n</code> <strong>times</strong>:</p>
 
 <ol>
@@ -75722,7 +75726,11 @@
     <li><code>nums</code>​​​ is sorted in <strong>ascending</strong> order.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-bitwise-operation-enumeration">Solution 1: Bitwise Operation + Enumeration</h3>
 <p>First, we preprocess the XOR sum $xs$ of the array <code>nums</code>, i.e., $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$.</p>
 <p>Next, we enumerate each element $x$ in the array <code>nums</code> from back to front. The current XOR sum is $xs$. We need to find a number $k$ such that the value of $xs \oplus k$ is as large as possible, and $k \lt 2^{maximumBit}$.</p>
@@ -76030,6 +76038,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-enumeration-optimization">Solution 2: Enumeration Optimization</h3>
 <p>Similar to Solution 1, we first preprocess the XOR sum $xs$ of the array <code>nums</code>, i.e., $xs=nums[0] \oplus nums[1] \oplus \cdots \oplus nums[n-1]$.</p>
 <p>Next, we calculate $2^{maximumBit} - 1$, which is $2^{maximumBit}$ minus $1$, denoted as $mask$. Then, we enumerate each element $x$ in the array <code>nums</code> from back to front. The current XOR sum is $xs$, then $k=xs \oplus mask$ is the answer to each query. Then, we update $xs$ to $xs \oplus x$ and continue to enumerate the next element.</p>
@@ -76284,7 +76296,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="130-surrounded-regions"><a href="https://leetcode.com/problems/surrounded-regions">130. Surrounded Regions</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an <code>m x n</code> matrix <code>board</code> containing <code>&#39;X&#39;</code> and <code>&#39;O&#39;</code>, <em>capture all regions that are 4-directionally&nbsp;surrounded by</em> <code>&#39;X&#39;</code>.</p>
 
 <p>A region is <strong>captured</strong> by flipping all <code>&#39;O&#39;</code>s into <code>&#39;X&#39;</code>s in that surrounded region.</p>
@@ -75716,7 +75720,11 @@ The other three &#39;O&#39; form a surrounded region, so they are flipped.
     <li><code>board[i][j]</code> is <code>&#39;X&#39;</code> or <code>&#39;O&#39;</code>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-depth-first-search-dfs">Solution 1: Depth-First Search (DFS)</h3>
 <p>We can start from the boundary of the matrix, taking each 'O' on the matrix boundary as a starting point, and perform depth-first search. All 'O's found in the search are replaced with '.'.</p>
 <p>Then we traverse the matrix again, for each position:</p>
@@ -76235,6 +76243,10 @@ The other three &#39;O&#39; form a surrounded region, so they are flipped.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-union-find-set">Solution 2: Union-Find Set</h3>
 <p>We can also use a union-find set, connecting each 'O' on the matrix boundary with a super node $m \times n$, and connecting each 'O' in the matrix with the 'O's above, below, left, and right of it.</p>
 <p>Then we traverse this matrix, for each position, if it is 'O' and it is not connected to the super node, then we replace it with 'X'.</p>
@@ -76609,7 +76621,9 @@ The other three &#39;O&#39; form a surrounded region, so they are flipped.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

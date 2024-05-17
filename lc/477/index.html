@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="477"><a href="https://leetcode.cn/problems/total-hamming-distance">477. 汉明距离总和</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>两个整数的&nbsp;<a href="https://baike.baidu.com/item/%E6%B1%89%E6%98%8E%E8%B7%9D%E7%A6%BB/475174?fr=aladdin">汉明距离</a> 指的是这两个数字的二进制数对应位不同的数量。</p>
 
@@ -80296,7 +80298,11 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
     <li>给定输入的对应答案符合 <strong>32-bit</strong> 整数范围</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：位运算</h3>
 <p>我们在 $[0, 31]$ 的范围内枚举每一位，对于当前枚举的位 $i$，我们统计所有数字中的第 $i$ 位为 $1$ 的个数 $a$，那么这些数字中的第 $i$ 位为 $0$ 的个数就是 $b = n - a$，其中 $n$ 是数组的长度。这样的话，在第 $i$ 位上的汉明距离之和就是 $a \times b$，我们把所有的位的汉明距离相加即为答案。</p>
 <p>时间复杂度 $O(n \times \log M)$，其中 $n$ 和 $M$ 分别是数组的长度和数组中的元素的最大值。空间复杂度 $O(1)$。</p>
@@ -80458,7 +80464,9 @@ HammingDistance(4, 14) + HammingDistance(4, 2) + HammingDistance(14, 2) = 2 + 2 
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

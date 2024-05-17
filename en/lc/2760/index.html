@@ -75660,10 +75660,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2760-longest-even-odd-subarray-with-threshold"><a href="https://leetcode.com/problems/longest-even-odd-subarray-with-threshold">2760. Longest Even Odd Subarray With Threshold</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 352 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 352 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1420-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1420-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code> and an integer <code>threshold</code>.</p>
 
 <p>Find the length of the <strong>longest subarray</strong> of <code>nums</code> starting at index <code>l</code> and ending at index <code>r</code> <code>(0 &lt;= l &lt;= r &lt; nums.length)</code> that satisfies the following conditions:</p>
@@ -75715,7 +75719,11 @@ Hence, the answer is the length of the subarray, 3. We can show that 3 is the ma
     <li><code>1 &lt;= threshold &lt;= 100</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration">Solution 1: Enumeration</h3>
 <p>We enumerate all $l$ in the range $[0,..n-1]$. If $nums[l]$ satisfies $nums[l] \bmod 2 = 0$ and $nums[l] \leq threshold$, then we start from $l+1$ to find the largest $r$ that meets the condition. At this time, the length of the longest odd-even subarray with $nums[l]$ as the left endpoint is $r - l$. We take the maximum of all $r - l$ as the answer.</p>
 <p>The time complexity is $O(n^2)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
@@ -75869,6 +75877,10 @@ Hence, the answer is the length of the subarray, 3. We can show that 3 is the ma
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-optimized-enumeration">Solution 2: Optimized Enumeration</h3>
 <p>We notice that the problem actually divides the array into several disjoint subarrays that meet the condition. We only need to find the longest one among these subarrays. Therefore, when enumerating $l$ and $r$, we don't need to backtrack, we just need to traverse from left to right once.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
@@ -76050,7 +76062,9 @@ Hence, the answer is the length of the subarray, 3. We can show that 3 is the ma
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

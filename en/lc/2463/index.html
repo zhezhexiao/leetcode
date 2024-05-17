@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2463-minimum-total-distance-traveled"><a href="https://leetcode.com/problems/minimum-total-distance-traveled">2463. Minimum Total Distance Traveled</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 318 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 318 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2453-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2453-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There are some robots and factories on the X-axis. You are given an integer array <code>robot</code> where <code>robot[i]</code> is the position of the <code>i<sup>th</sup></code> robot. You are also given a 2D integer array <code>factory</code> where <code>factory[j] = [position<sub>j</sub>, limit<sub>j</sub>]</code> indicates that <code>position<sub>j</sub></code> is the position of the <code>j<sup>th</sup></code> factory and that the <code>j<sup>th</sup></code> factory can repair at most <code>limit<sub>j</sub></code> robots.</p>
 
 <p>The positions of each robot are <strong>unique</strong>. The positions of each factory are also <strong>unique</strong>. Note that a robot can be <strong>in the same position</strong> as a factory initially.</p>
@@ -75720,7 +75724,11 @@ The total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we canno
     <li>The input will be generated such that it is always possible to repair every robot.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-memoization-search">Solution 1: Memoization Search</h3>
 <p>First, we sort the robots and factories in ascending order. Then we define a function $dfs(i, j)$ to represent the minimum total moving distance starting from the $i$-th robot and the $j$-th factory.</p>
 <p>For $dfs(i, j)$, if the $j$-th factory does not repair the robot, then $dfs(i, j) = dfs(i, j+1)$. If the $j$-th factory repairs the robot, we can enumerate the number of robots repaired by the $j$-th factory and find the minimum total moving distance. That is, $dfs(i, j) = min(dfs(i + k + 1, j + 1) + \sum_{t = 0}^{k} |robot[i + t] - factory[j][0]|)$.</p>
@@ -75983,7 +75991,9 @@ The total distance is |2 - 1| + |(-2) - (-1)| = 2. It can be shown that we canno
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2641-cousins-in-binary-tree-ii"><a href="https://leetcode.com/problems/cousins-in-binary-tree-ii">2641. Cousins in Binary Tree II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 102 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 102 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1676-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1676-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given the <code>root</code> of a binary tree, replace the value of each node in the tree with the <strong>sum of all its cousins&#39; values</strong>.</p>
 
 <p>Two nodes of a binary tree are <strong>cousins</strong> if they have the same depth with different parents.</p>
@@ -75724,7 +75728,11 @@
     <li><code>1 &lt;= Node.val &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-two-dfs-traversals">Solution 1: Two DFS Traversals</h3>
 <p>We create a list $s$ to record the sum of the node values at each level of the binary tree, where $s[depth]$ represents the sum of the node values at the $depth$-th level (the root node is at level $0$).</p>
 <p>Next, we perform a DFS traversal to calculate the values in the array $s$. Then, we perform another DFS traversal to update the values of each node's children. The value of a child node is equal to the sum of the node values at its level minus the value of the child node and its sibling nodes.</p>
@@ -76191,6 +76199,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-breadth-first-search-bfs">Solution 2: Breadth-First Search (BFS)</h3>
 <p>First, we update the root node's value to $0$, and use a queue $q$ to store all nodes at each level, initially enqueueing the root node.</p>
 <p>Then, we traverse the queue, calculate the sum $s$ of all child nodes' values at each level, then calculate the sum $sub$ of each child node and its sibling nodes' values, and then update each child node's value to $s - sub$.</p>
@@ -76622,7 +76634,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

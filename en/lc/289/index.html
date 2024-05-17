@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="289-game-of-life"><a href="https://leetcode.com/problems/game-of-life">289. Game of Life</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>According to&nbsp;<a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank">Wikipedia&#39;s article</a>: &quot;The <b>Game of Life</b>, also known simply as <b>Life</b>, is a cellular automaton devised by the British mathematician John Horton Conway in 1970.&quot;</p>
 
 <p>The board is made up of an <code>m x n</code> grid of cells, where each cell has an initial state: <b>live</b> (represented by a <code>1</code>) or <b>dead</b> (represented by a <code>0</code>). Each cell interacts with its <a href="https://en.wikipedia.org/wiki/Moore_neighborhood" target="_blank">eight neighbors</a> (horizontal, vertical, diagonal) using the following four rules (taken from the above Wikipedia article):</p>
@@ -75707,7 +75711,11 @@
     <li>In this question, we represent the board using a 2D array. In principle, the board is infinite, which would cause problems when the active area encroaches upon the border of the array (i.e., live cells reach the border). How would you address these problems?</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-in-place-marking">Solution 1: In-place marking</h3>
 <p>Let's define two new states. State $2$ indicates that the living cell becomes dead in the next state, and state $-1$ indicates that the dead cell becomes alive in the next state. Therefore, for the current grid we are traversing, if the grid is greater than $0$, it means that the current grid is a living cell, otherwise it is a dead cell.</p>
 <p>So we can traverse the entire board, for each grid, count the number of living neighbors around the grid, and use the variable $live$ to represent it. If the current grid is a living cell, then when $live \lt 2$ or $live \gt 3$, the next state of the current grid is a dead cell, that is, state $2$; if the current grid is a dead cell, then when $live = 3$, the next state of the current grid is an active cell, that is, state $-1$.</p>
@@ -76211,7 +76219,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

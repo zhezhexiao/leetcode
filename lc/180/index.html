@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="180"><a href="https://leetcode.cn/problems/consecutive-numbers">180. 连续出现的数字</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>表：<code>Logs</code></p>
 
@@ -80316,7 +80318,11 @@ Result 表：
 +-----------------+
 <strong>解释：</strong>1 是唯一连续出现至少三次的数字。</pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：两次连接</h3>
 <p>我们可以使用两次连接来解决这个问题。</p>
 <p>我们首先进行一次自连接，连接条件是 <code>l1.num = l2.num</code> 并且 <code>l1.id = l2.id - 1</code>，这样我们就可以找出所有至少连续出现两次的数字。然后，我们再进行一次自连接，连接条件是 <code>l2.num = l3.num</code> 并且 <code>l2.id = l3.id - 1</code>，这样我们就可以找出所有至少连续出现三次的数字。最后，我们只需要筛选出去重的 <code>l2.num</code> 即可。</p>
@@ -80366,6 +80372,10 @@ Result 表：
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：窗口函数</h3>
 <p>我们可以使用窗口函数 <code>LAG</code> 和 <code>LEAD</code> 来获取上一行的 <code>num</code> 和下一行的 <code>num</code>，记录在字段 $a$ 和 $b$ 中。最后，我们只需要筛选出 $a =num$ 并且 $b = num$ 的行，这些行就是至少连续出现三次的数字。注意，我们需要使用 <code>DISTINCT</code> 关键字来对结果去重。</p>
 <p>我们也可以对数字进行分组，具体做法是使用 <code>IF</code> 函数来判断当前行与前一行的 <code>num</code> 是否相等，如果相等则记为 $0$，否则记为 $1$，然后使用窗口函数 <code>SUM</code> 来计算前缀和，这样计算出的前缀和就是分组的标识。最后，我们只需要按照分组标识进行分组，然后筛选出每组中的行数大于等于 $3$ 的数字即可。同样，我们需要使用 <code>DISTINCT</code> 关键字来对结果去重。</p>
@@ -80399,6 +80409,10 @@ Result 表：
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_5">方法三</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">MySQL</label></div>
 <div class="tabbed-content">
@@ -80438,7 +80452,9 @@ Result 表：
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

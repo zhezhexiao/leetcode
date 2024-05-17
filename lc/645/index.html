@@ -80281,11 +80281,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="645"><a href="https://leetcode.cn/problems/set-mismatch">645. 错误的集合</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>集合 <code>s</code> 包含从 <code>1</code> 到 <code>n</code> 的整数。不幸的是，因为数据错误，导致集合里面某一个数字复制了成了集合里面的另外一个数字的值，导致集合 <strong>丢失了一个数字</strong> 并且 <strong>有一个数字重复</strong> 。</p>
 
@@ -80318,7 +80320,11 @@
     <li><code>1 <= nums[i] <= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：数学</h3>
 <p>我们用 $s_1$ 表示 $[1,..n]$ 所有数字的和，用 $s_2$ 表示数组 $nums$ 去重后的数字和，用 $s$ 表示数组 $nums$ 的数字和。</p>
 <p>那么 $s - s_2$ 就是重复的数字，而 $s_1 - s_2$ 就是缺失的数字。</p>
@@ -80475,6 +80481,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：哈希表</h3>
 <p>我们也可以一种更加直观的方法，直接用哈希表 $cnt$ 统计数组 $nums$ 中每个数字出现的次数。</p>
 <p>接下来遍历 $x \in [1, n]$，如果 $cnt[x] = 2$，那么 $x$ 就是重复的数字，如果 $cnt[x] = 0$，那么 $x$ 就是缺失的数字。</p>
@@ -80709,6 +80719,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_5">方法三：位运算</h3>
 <p>根据异或运算的性质，对于整数 $x$，有 $x \oplus x = 0$ 以及 $x \oplus 0 = x$，因此我们对数组 $nums$ 中的所有元素以及 $i \in [1, n]$ 的所有数字进行异或运算，可以消除出现两次的数字，最终只留下缺失的数字和重复的数字的异或结果，即 $xs = a \oplus b$。</p>
 <p>由于这两个数字不相等，因此异或结果中至少存在一位为 $1$。我们通过 $lowbit$ 运算找到异或结果中最低位的 $1$，然后将数组 $nums$ 中所有数字以及 $i \in [1, n]$ 的所有数字按照该位是否为 $1$ 分为两组，这样两个数字就被分到了不同的组中。其中一组数字的异或结果为 $a$，另一组数字的异或结果为 $b$。那么这两个数字就是我们要找的答案。</p>
@@ -80952,7 +80966,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

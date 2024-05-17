@@ -80254,11 +80254,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1303"><a href="https://leetcode.cn/problems/find-the-team-size">1303. 求团队人数 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>员工表：<code>Employee</code></p>
 
@@ -80315,7 +80317,11 @@ ID 为 4 的员工是 team_id 为 7 的团队的成员，
 ID 为 5、6 的员工是 team_id 为 9 的团队的成员。
 </pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：分组统计 + 等值连接</h3>
 <p>我们可以先统计出每个团队的人数，记录在 <code>T</code> 表中，然后我们将 <code>Employee</code> 表与 <code>T</code> 表按照 <code>team_id</code> 进行等值连接，即可得到每个员工所在团队的总人数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -80346,6 +80352,10 @@ ID 为 5、6 的员工是 team_id 为 9 的团队的成员。
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：左连接</h3>
 <p>我们也可以使用左连接，将 <code>Employee</code> 表按照 <code>team_id</code> 进行自连接，然后按照 <code>employee_id</code> 进行分组，统计每个员工所在团队的总人数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -80366,7 +80376,9 @@ ID 为 5、6 的员工是 team_id 为 9 的团队的成员。
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

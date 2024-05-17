@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2814"><a href="https://leetcode.cn/problems/minimum-time-takes-to-reach-destination-without-drowning">2814. 避免淹死并到达目的地的最短时间 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>现给定一个 <code>n * m</code> 的索引从 <strong>0</strong> 开始的二维字符串网格 <code>land</code>，目前你站在为&nbsp;<code>"S"</code> 的单元格上，你需要到达为&nbsp;<code>"D"</code> 的单元格。在这片区域上还有另外三种类型的单元格：</p>
 
@@ -80329,7 +80331,11 @@
     <li><strong>恰好</strong>有一个单元格等于 <code>"D"</code>。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="bfs">方法一：两次 BFS</h3>
 <p>我们先跑一次 BFS，求出每个点到水域的最短距离，记录在数组 $g$ 中。然后再跑一次 BFS，从单元格 $(s_i, s_j)$ 出发，求出到达目标单元格 $(d_i, d_j)$ 的最短距离。在此过程中，如果当前单元格 $(i, j)$ 的相邻单元格 $(x, y)$ 满足 $g[x][y] \gt t + 1$，那么我们就可以从 $(x, y)$ 走到 $(i, j)$。</p>
 <p>时间复杂度 $O(m \times n)$，空间复杂度 $O(m \times n)$。其中 $m$ 和 $n$ 分别是数组 $land$ 的行数和列数。</p>
@@ -80983,7 +80989,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

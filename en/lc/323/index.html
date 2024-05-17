@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="323-number-of-connected-components-in-an-undirected-graph"><a href="https://leetcode.com/problems/number-of-connected-components-in-an-undirected-graph">323. Number of Connected Components in an Undirected Graph 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You have a graph of <code>n</code> nodes. You are given an integer <code>n</code> and an array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> indicates that there is an edge between <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> in the graph.</p>
 
 <p>Return <em>the number of connected components in the graph</em>.</p>
@@ -75707,7 +75711,11 @@
     <li>There are no repeated edges.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-dfs">Solution 1: DFS</h3>
 <p>First, we construct an adjacency list $g$ based on the given edges, where $g[i]$ represents all neighbor nodes of node $i$.</p>
 <p>Then we traverse all nodes. For each node, we use DFS to traverse all its adjacent nodes and mark them as visited until all its adjacent nodes have been visited. In this way, we have found a connected component, and the answer is incremented by one. Then we continue to traverse the next unvisited node until all nodes have been visited.</p>
@@ -76010,6 +76018,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-union-find">Solution 2: Union-Find</h3>
 <p>We can use a union-find set to maintain the connected components in the graph.</p>
 <p>First, we initialize a union-find set, then traverse all the edges. For each edge $(a, b)$, we merge nodes $a$ and $b$ into the same connected component. If the merge is successful, it means that nodes $a$ and $b$ were not in the same connected component before, and the number of connected components decreases by one.</p>
@@ -76435,7 +76447,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

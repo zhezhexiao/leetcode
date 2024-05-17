@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2302-count-subarrays-with-score-less-than-k"><a href="https://leetcode.com/problems/count-subarrays-with-score-less-than-k">2302. Count Subarrays With Score Less Than K</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 80 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 80 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1808-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1808-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>The <strong>score</strong> of an array is defined as the <strong>product</strong> of its sum and its length.</p>
 
 <ul>
@@ -75722,7 +75726,11 @@ Thus, there are 5 subarrays having scores less than 5.
     <li><code>1 &lt;= k &lt;= 10<sup>15</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-prefix-sum-binary-search">Solution 1: Prefix Sum + Binary Search</h3>
 <p>First, we calculate the prefix sum array $s$ of the array $nums$, where $s[i]$ represents the sum of the first $i$ elements of the array $nums$.</p>
 <p>Next, we enumerate each element of the array $nums$ as the last element of the subarray. For each element, we can find the maximum length $l$ such that $s[i] - s[i - l] \times l &lt; k$ by binary search. The number of subarrays with this element as the last element is $l$, and we add all $l$ to get the answer.</p>
@@ -75903,6 +75911,10 @@ Thus, there are 5 subarrays having scores less than 5.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-two-pointers">Solution 2: Two Pointers</h3>
 <p>We can use two pointers to maintain a sliding window, so that the sum of the elements in the window is less than $k$. The number of subarrays with the current element as the last element is the length of the window, and we add all window lengths to get the answer.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the array $nums$. The space complexity is $O(1)$.</p>
@@ -76016,7 +76028,9 @@ Thus, there are 5 subarrays having scores less than 5.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

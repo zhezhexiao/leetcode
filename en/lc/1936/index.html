@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1936-add-minimum-number-of-rungs"><a href="https://leetcode.com/problems/add-minimum-number-of-rungs">1936. Add Minimum Number of Rungs</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 250 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 250 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1322-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1322-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>strictly increasing</strong> integer array <code>rungs</code> that represents the <strong>height</strong> of rungs on a ladder. You are currently on the <strong>floor</strong> at height <code>0</code>, and you want to reach the last rung.</p>
 
 <p>You are also given an integer <code>dist</code>. You can only climb to the next highest rung if the distance between where you are currently at (the floor or on a rung) and the next rung is <strong>at most</strong> <code>dist</code>. You are able to insert rungs at any positive <strong>integer</strong> height if a rung is not already there.</p>
@@ -75703,7 +75707,11 @@ The ladder will now have rungs at [<u>1</u>,3,4,6,7].
     <li><code>rungs</code> is <strong>strictly increasing</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-simulation">Solution 1: Greedy + Simulation</h3>
 <p>According to the problem description, we know that every time we plan to climb a new rung, we need to ensure that the height difference between the new rung and the current position does not exceed <code>dist</code>. Otherwise, we need to greedily insert a new rung at a distance of $dist$ from the current position, climb a new rung, and the total number of rungs to be inserted is $\lfloor \frac{b - a - 1}{dist} \rfloor$, where $a$ and $b$ are the current position and the height of the new rung, respectively. The answer is the sum of all inserted rungs.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of <code>rungs</code>. The space complexity is $O(1)$.</p>
@@ -75833,7 +75841,9 @@ The ladder will now have rungs at [<u>1</u>,3,4,6,7].
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80278,11 +80278,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="473"><a href="https://leetcode.cn/problems/matchsticks-to-square">473. 火柴拼正方形</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>你将得到一个整数数组 <code>matchsticks</code> ，其中 <code>matchsticks[i]</code> 是第 <code>i</code>&nbsp;个火柴棒的长度。你要用 <strong>所有的火柴棍</strong>&nbsp;拼成一个正方形。你 <strong>不能折断</strong> 任何一根火柴棒，但你可以把它们连在一起，而且每根火柴棒必须 <strong>使用一次</strong> 。</p>
 
@@ -80317,7 +80319,11 @@
     <li><code>1 &lt;= matchsticks[i] &lt;= 10<sup>8</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：排序 + 回溯</h3>
 <p>用 $edges[i]$ 记录正方形每条边当前的长度，对于第 $u$ 根火柴，尝试把它加到 $edges[i]$ 每条边，若加入后 $edges[i]$ 不超过正方形期望长度 $x$，则继续往下递归 $u+1$ 根火柴。若所有火柴都能被加入，说明满足拼成正方形的要求。</p>
 <p>这里对 $matchsticks$ 从大到小排序，可以减少搜索次数。</p>
@@ -80614,6 +80620,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：状态压缩 + 记忆化搜索</h3>
 <p>记当前火柴被划分的情况为 $state$。对于第 $i$ 个数，若 $state  \&amp;  (1&lt;&lt;i)=0$，说明第 $i$ 个火柴棒未被划分。我们的目标是从全部数字中凑出 $k$ 个和为 $s$ 的子集。</p>
 <p>记当前子集的和为 $t$。在未划分第 $i$ 个火柴棒时：</p>
@@ -80668,7 +80678,8 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+<!-- problem:end -->
 
 
 

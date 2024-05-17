@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="673"><a href="https://leetcode.cn/problems/number-of-longest-increasing-subsequence">673. 最长递增子序列的个数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个未排序的整数数组<meta charset="UTF-8" />&nbsp;<code>nums</code>&nbsp;，&nbsp;<em>返回最长递增子序列的个数</em>&nbsp;。</p>
 
@@ -80311,7 +80313,11 @@
     <li><code>-10<sup>6</sup>&nbsp;&lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划</h3>
 <p>我们定义 $f[i]$ 表示以 $nums[i]$ 结尾的最长递增子序列的长度，定义 $cnt[i]$ 表示以 $nums[i]$ 结尾的最长递增子序列的个数。初始时 $f[i]=1$, $cnt[i]=1$。另外，定义 $mx$ 表示最长递增子序列的长度，定义 $ans$ 表示最长递增子序列的个数。</p>
 <p>对于每一个 $nums[i]$，我们枚举 $nums[0:i-1]$ 中的所有元素 $nums[j]$，如果 $nums[j] \lt nums[i]$，则 $nums[i]$ 可以接在 $nums[j]$ 后面，形成一个更长的递增子序列。如果 $f[i] \lt f[j] + 1$，说明以 $nums[i]$ 结尾的最长递增子序列的长度增加了，那么我们需要更新 $f[i]=f[j]+1$，并且 $cnt[i]=cnt[j]$。如果 $f[i]=f[j]+1$，说明我们找到了一条长度与之前相同的最长递增子序列，那么我们需要将 $cnt[i]$ 增加 $cnt[j]$。然后，如果 $mx \lt f[i]$，说明最长递增子序列的长度增加了，那么我们需要更新 $mx=f[i]$，并且 $ans=cnt[i]$。如果 $mx=f[i]$，说明我们找到了一条长度与之前相同的最长递增子序列，那么我们需要将 $ans$ 增加 $cnt[i]$。</p>
@@ -80641,6 +80647,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：树状数组</h3>
 <p>我们可以用树状数组维护前缀区间的最长递增子序列的长度和个数。我们将数组 $nums$ 中的元素去重并排序，得到数组 $arr$，然后我们枚举 $nums$ 中的每一个元素 $x$，在数组 $arr$ 中二分查找 $x$ 的位置 $i$，然后查询 $[1,i-1]$ 的最长递增子序列的长度和个数，记为 $v$ 和 $cnt$，然后更新 $[i]$ 的最长递增子序列的长度和个数为 $v+1$ 和 $\max(cnt,1)$。最后，我们查询 $[1,m]$ 的最长递增子序列的长度和个数，其中 $m$ 是数组 $arr$ 的长度，即为答案。</p>
 <p>时间复杂度 $O(n \times \log n)$，空间复杂度 $O(n)$。其中 $n$ 是数组 $nums$ 的长度。</p>
@@ -81312,7 +81322,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2307"><a href="https://leetcode.cn/problems/check-for-contradictions-in-equations">2307. 检查方程中的矛盾之处 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由字符串二维数组&nbsp;<code>equations</code> 和实数数组&nbsp;&nbsp;<code>values</code>&nbsp;，其中 <code>equations[i] = [A<sub>i</sub>, B<sub>i</sub>]</code>，<code>values[i]</code> 表示 <code>A<sub>i</sub> / B<sub>i</sub> = values[i]</code>.。</p>
 
@@ -80318,7 +80320,11 @@ a = 3, b = 1 和 c = 2.
     <li><code>values[i]</code> 小数点后最多 2 位。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：带权并查集</h3>
 <p>我们先将字符串转换成从 $0$ 开始的整数，然后遍历所有的等式，将等式中的两个字符串映射成对应的整数 $a$ 和 $b$，如果这两个整数不在同一个集合中，就将它们合并到同一个集合中，并且记录下两个整数的权值，即 $a$ 与 $b$ 的比值。如果这两个整数在同一个集合中，就判断它们的权值是否满足等式，如果不满足就返回 <code>true</code>。</p>
 <p>时间复杂度 $O(n \times \log n)$ 或 $O(n \times \alpha(n))$，空间复杂度 $O(n)$。其中 $n$ 是等式的数量。</p>
@@ -80742,7 +80748,9 @@ a = 3, b = 1 和 c = 2.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

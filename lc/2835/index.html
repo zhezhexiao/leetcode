@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2835"><a href="https://leetcode.cn/problems/minimum-operations-to-form-subsequence-with-target-sum">2835. 使子序列的和等于目标的最少操作次数</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 360 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 360 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2207-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2207-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 360 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 360 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2207-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2207-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0</strong>&nbsp;开始的数组&nbsp;<code>nums</code>&nbsp;，它包含 <strong>非负</strong>&nbsp;整数，且全部为 <code>2</code>&nbsp;的幂，同时给你一个整数&nbsp;<code>target</code>&nbsp;。</p>
 
@@ -80318,7 +80320,11 @@
     <li><code>1 &lt;= target &lt; 2<sup>31</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：贪心 + 位运算</h3>
 <p>观察题目中的操作，我们发现，每次操作实际上是把一个大于 $1$ 的数拆分为两个相等的数，这意味着操作后数组的元素和不会发生变化。因此，如果数组的元素和 $s$ 小于 $target$，则无法通过题目描述的操作得到和为 $target$ 的子序列，直接返回 $-1$ 即可。否则，我们一定可以通过拆分操作，使得数组某个子序列的元素和等于 $target$。</p>
 <p>另外，拆分操作实际上会把二进制高位为 $1$ 的数置为 $0$，并把低一位的数加上 $2$。因此，我们先用一个长度为 $32$ 的数组记录数组 $nums$ 所有元素的二进制表示中每个二进制位上 $1$ 的出现次数。</p>
@@ -80707,7 +80713,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

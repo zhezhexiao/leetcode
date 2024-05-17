@@ -75654,10 +75654,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1501-countries-you-can-safely-invest-in"><a href="https://leetcode.com/problems/countries-you-can-safely-invest-in">1501. Countries You Can Safely Invest In 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table <code>Person</code>:</p>
 
 <pre>
@@ -75769,7 +75773,11 @@ Global call duration average = (2 * (33 + 4 + 59 + 102 + 330 + 5 + 13 + 3 + 1 + 
 Since Peru is the only country where the average call duration is greater than the global average, it is the only recommended country.
 </pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-equi-join-group-by-subquery">Solution 1: Equi-Join + Group By + Subquery</h3>
 <p>We can use an equi-join to join the <code>Person</code> table and the <code>Calls</code> table on the condition of <code>Person.id = Calls.caller_id</code> or <code>Person.id = Calls.callee_id</code>, and then join the result with the <code>Country</code> table on the condition of <code>left(phone_number, 3) = country_code</code>. After that, we can group by country and calculate the average call duration for each country. Finally, we can use a subquery to find the countries whose average call duration is greater than the global average call duration.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -75802,6 +75810,10 @@ Since Peru is the only country where the average call duration is greater than t
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2">Solution 2</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
 <div class="tabbed-content">
@@ -75835,7 +75847,9 @@ Since Peru is the only country where the average call duration is greater than t
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

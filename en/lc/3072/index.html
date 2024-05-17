@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3072-distribute-elements-into-two-arrays-ii"><a href="https://leetcode.com/problems/distribute-elements-into-two-arrays-ii">3072. Distribute Elements Into Two Arrays II</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 387 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 387 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2052-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2052-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>1-indexed</strong> array of integers <code>nums</code> of length <code>n</code>.</p>
 
 <p>We define a function <code>greaterCount</code> such that <code>greaterCount(arr, val)</code> returns the number of elements in <code>arr</code> that are <strong>strictly greater</strong> than <code>val</code>.</p>
@@ -75727,7 +75731,11 @@ Hence, the array result formed by concatenation is [3,3,3,3].
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-discretization-binary-indexed-tree">Solution 1: Discretization + Binary Indexed Tree</h3>
 <p>We can use two binary indexed trees <code>tree1</code> and <code>tree2</code> to maintain the number of elements in <code>arr1</code> and <code>arr2</code> that are less than or equal to a certain number. Each time, we query the number of elements that are less than or equal to the current number in the binary indexed tree, then the number of elements that are greater than the current number is the length of the current array minus the query result. Then we can decide which array to add the current number to based on this difference.</p>
 <p>Since the range of numbers given in the problem is very large, we need to discretize these numbers. We can sort these numbers and remove duplicates, then use binary search to find the position of each number in the sorted array.</p>
@@ -76374,7 +76382,9 @@ Hence, the array result formed by concatenation is [3,3,3,3].
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="303-"><a href="https://leetcode.cn/problems/range-sum-query-immutable">303. 区域和检索 - 数组不可变</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 &nbsp;<code>nums</code>，处理以下类型的多个查询:</p>
 
@@ -80305,7 +80307,11 @@ numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
     <li>最多调用 <code>10<sup>4</sup></code> 次 <code>sumRange</code><strong> </strong>方法</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：前缀和</h3>
 <p>我们创建一个长度为 $n + 1$ 的前缀和数组 $s$，其中 $s[i]$ 表示前 $i$ 个元素的前缀和，即 $s[i] = \sum_{j=0}^{i-1} nums[j]$，那么索引 $[left, right]$ 之间的元素的和就可以表示为 $s[right + 1] - s[left]$。</p>
 <p>初始化前缀和数组 $s$ 的时间复杂度为 $O(n)$，查询的时间复杂度为 $O(1)$。空间复杂度 $O(n)$。</p>
@@ -80743,7 +80749,9 @@ numArray.sumRange(0, 5); // return -3 ((-2) + 0 + 3 + (-5) + 2 + (-1))
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

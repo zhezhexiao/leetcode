@@ -75672,10 +75672,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1099-two-sum-less-than-k"><a href="https://leetcode.com/problems/two-sum-less-than-k">1099. Two Sum Less Than K 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 3 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 3 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1245-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1245-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given an array <code>nums</code> of integers and&nbsp;integer <code>k</code>, return the maximum <code>sum</code> such that there exists <code>i &lt; j</code> with <code>nums[i] + nums[j] = sum</code> and <code>sum &lt; k</code>. If no <code>i</code>, <code>j</code> exist satisfying this equation, return <code>-1</code>.</p>
 
 <p>&nbsp;</p>
@@ -75704,7 +75708,11 @@
     <li><code>1 &lt;= k &lt;= 2000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting-binary-search">Solution 1: Sorting + Binary Search</h3>
 <p>We can first sort the array $nums$, and initialize the answer as $-1$.</p>
 <p>Next, we enumerate each element $nums[i]$ in the array, and find the maximum $nums[j]$ in the array that satisfies $nums[j] + nums[i] &lt; k$. Here, we can use binary search to speed up the search process. If we find such a $nums[j]$, then we can update the answer, i.e., $ans = \max(ans, nums[i] + nums[j])$.</p>
@@ -75872,6 +75880,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-sorting-two-pointers">Solution 2: Sorting + Two Pointers</h3>
 <p>Similar to Solution 1, we can first sort the array $nums$, and initialize the answer as $-1$.</p>
 <p>Next, we use two pointers $i$ and $j$ to point to the left and right ends of the array, respectively. Each time we judge whether $s = nums[i] + nums[j]$ is less than $k$. If it is less than $k$, then we can update the answer, i.e., $ans = \max(ans, s)$, and move $i$ one step to the right, otherwise move $j$ one step to the left.</p>
@@ -76005,7 +76017,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

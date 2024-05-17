@@ -80254,11 +80254,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="182"><a href="https://leetcode.cn/problems/duplicate-emails">182. 查找重复的电子邮箱</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><meta charset="UTF-8" /></p>
 
@@ -80305,7 +80307,11 @@ Person 表:
 +---------+
 <strong>解释:</strong> a@b.com 出现了两次。</pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：分组统计</h3>
 <p>我们可以使用 <code>GROUP BY</code> 语句，按照 <code>email</code> 字段进行分组，然后使用 <code>HAVING</code> 语句，筛选出现次数大于 $1$ 的 <code>email</code>。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">MySQL</label></div>
@@ -80344,6 +80350,10 @@ Person 表:
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：自连接</h3>
 <p>我们可以使用自连接的方法，将 <code>Person</code> 表自身连接一次，然后筛选出 <code>id</code> 不同，但 <code>email</code> 相同的记录。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -80362,7 +80372,9 @@ Person 表:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

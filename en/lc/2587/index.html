@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2587-rearrange-array-to-maximize-prefix-score"><a href="https://leetcode.com/problems/rearrange-array-to-maximize-prefix-score">2587. Rearrange Array to Maximize Prefix Score</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 336 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 336 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1336-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1336-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. You can rearrange the elements of <code>nums</code> to <strong>any order</strong> (including the given order).</p>
 
 <p>Let <code>prefix</code> be the array containing the prefix sums of <code>nums</code> after rearranging it. In other words, <code>prefix[i]</code> is the sum of the elements from <code>0</code> to <code>i</code> in <code>nums</code> after rearranging it. The <strong>score</strong> of <code>nums</code> is the number of positive integers in the array <code>prefix</code>.</p>
@@ -75700,7 +75704,11 @@ It can be shown that 6 is the maximum score we can obtain.
     <li><code>-10<sup>6</sup> &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-sorting">Solution 1: Greedy + Sorting</h3>
 <p>To maximize the number of positive integers in the prefix sum array, we need to make the elements in the prefix sum array as large as possible, that is, to add as many positive integers as possible. Therefore, we can sort the array $nums$ in descending order, then traverse the array, maintaining the prefix sum $s$. If $s \leq 0$, it means that there can be no more positive integers in the current position and the positions after it, so we can directly return the current position.</p>
 <p>Otherwise, after the traversal, we return the length of the array.</p>
@@ -75871,7 +75879,9 @@ It can be shown that 6 is the maximum score we can obtain.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

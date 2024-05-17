@@ -80275,11 +80275,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2577"><a href="https://leetcode.cn/problems/minimum-time-to-visit-a-cell-in-a-grid">2577. 在网格图中访问一个格子的最少时间</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 334 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 334 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2381-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2381-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 334 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 334 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2381-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2381-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个&nbsp;<code>m x n</code>&nbsp;的矩阵&nbsp;<code>grid</code>&nbsp;，每个元素都为 <strong>非负</strong>&nbsp;整数，其中&nbsp;<code>grid[row][col]</code>&nbsp;表示可以访问格子&nbsp;<code>(row, col)</code>&nbsp;的&nbsp;<strong>最早</strong>&nbsp;时间。也就是说当你访问格子&nbsp;<code>(row, col)</code>&nbsp;时，最少已经经过的时间为&nbsp;<code>grid[row][col]</code>&nbsp;。</p>
 
@@ -80331,7 +80333,11 @@
     <li><code>grid[0][0] == 0</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：最短路 + 优先队列（小根堆）</h3>
 <p>我们观察发现，如果在格子 $(0, 0)$ 处无法移动，即 $grid[0][1] \gt 1$ 且 $grid[1][0] \gt 1$，那么我们在格子 $(0, 0)$ 无法再移动，此时返回 $-1$ 即可。而对于其他情况，我们都可以移动。</p>
 <p>接下来，我们定义 $dist[i][j]$ 表示 $(i, j)$ 处的最早到达时间，初始时 $dist[0][0] = 0$，而其他位置的 $dist$ 均初始化为 $\infty$。</p>
@@ -80630,7 +80636,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

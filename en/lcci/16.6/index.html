@@ -75643,10 +75643,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1606-smallest-difference"><a href="https://leetcode.cn/problems/smallest-difference-lcci">16.06. Smallest Difference</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given two arrays of integers, compute the pair of values (one value in each array) with the smallest (non-negative) difference. Return the difference.</p>
 
 <p><strong>Example: </strong></p>
@@ -75667,7 +75671,11 @@
     <li>The result is in the range [-2147483648, 2147483647]</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting-binary-search">Solution 1: Sorting + Binary Search</h3>
 <p>We can sort the array $b$, and for each element $x$ in array $a$, perform a binary search in array $b$ to find the element $y$ closest to $x$. Then, the absolute difference between $x$ and $y$ is the absolute difference between $x$ and the closest element in $b$.</p>
 <p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of array $b$.</p>
@@ -75947,6 +75955,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-sorting-two-pointers">Solution 2: Sorting + Two Pointers</h3>
 <p>We can sort both arrays $a$ and $b$, and use two pointers $i$ and $j$ to maintain the current positions in the two arrays. Initially, $i$ and $j$ point to the beginning of arrays $a$ and $b$, respectively. At each step, we calculate the absolute difference between $a[i]$ and $b[j]$, and update the answer. If one of the elements pointed to by $i$ and $j$ is smaller than the other, we move the pointer pointing to the smaller element forward by one step. The traversal ends when at least one of the pointers goes beyond the array range.</p>
 <p>The time complexity is $O(n \times \log n)$, and the space complexity is $O(\log n)$. Here, $n$ is the length of arrays $a$ and $b$.</p>
@@ -76134,7 +76146,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

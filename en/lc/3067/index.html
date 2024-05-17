@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="3067-count-pairs-of-connectable-servers-in-a-weighted-tree-network"><a href="https://leetcode.com/problems/count-pairs-of-connectable-servers-in-a-weighted-tree-network">3067. Count Pairs of Connectable Servers in a Weighted Tree Network</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 125 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 125 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1908-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1908-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an unrooted weighted tree with <code>n</code> vertices representing servers numbered from <code>0</code> to <code>n - 1</code>, an array <code>edges</code> where <code>edges[i] = [a<sub>i</sub>, b<sub>i</sub>, weight<sub>i</sub>]</code> represents a bidirectional edge between vertices <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code> of weight <code>weight<sub>i</sub></code>. You are also given an integer <code>signalSpeed</code>.</p>
 
 <p>Two servers <code>a</code> and <code>b</code> are <strong>connectable</strong> through a server <code>c</code> if:</p>
@@ -75708,7 +75712,11 @@ It can be shown that no two servers are connectable through servers other than 0
     <li>The input is generated such that <code>edges</code> represents a valid tree.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-enumeration-dfs">Solution 1: Enumeration + DFS</h3>
 <p>First, we construct an adjacency list <code>g</code> based on the edges given in the problem, where <code>g[a]</code> represents all the neighbor nodes of node <code>a</code> and their corresponding edge weights.</p>
 <p>Then, we can enumerate each node <code>a</code> as the connecting intermediate node, and calculate the number of nodes <code>t</code> that start from the neighbor node <code>b</code> of <code>a</code> and whose distance to node <code>a</code> can be divided by <code>signalSpeed</code> through depth-first search. Then, the number of connectable node pairs of node <code>a</code> increases by <code>s * t</code>, where <code>s</code> represents the cumulative number of nodes that start from the neighbor node <code>b</code> of <code>a</code> and whose distance to node <code>a</code> cannot be divided by <code>signalSpeed</code>. Then we update <code>s</code> to <code>s + t</code>.</p>
@@ -76038,7 +76046,9 @@ It can be shown that no two servers are connectable through servers other than 0
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

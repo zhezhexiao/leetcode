@@ -75666,10 +75666,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2070-most-beautiful-item-for-each-query"><a href="https://leetcode.com/problems/most-beautiful-item-for-each-query">2070. Most Beautiful Item for Each Query</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 65 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 65 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1724-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1724-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a 2D integer array <code>items</code> where <code>items[i] = [price<sub>i</sub>, beauty<sub>i</sub>]</code> denotes the <strong>price</strong> and <strong>beauty</strong> of an item respectively.</p>
 
 <p>You are also given a <strong>0-indexed</strong> integer array <code>queries</code>. For each <code>queries[j]</code>, you want to determine the <strong>maximum beauty</strong> of an item whose <strong>price</strong> is <strong>less than or equal</strong> to <code>queries[j]</code>. If no such item exists, then the answer to this query is <code>0</code>.</p>
@@ -75721,7 +75725,11 @@ Hence, the answer to the query is 0.
     <li><code>1 &lt;= price<sub>i</sub>, beauty<sub>i</sub>, queries[j] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-sorting-offline-query">Solution 1: Sorting + Offline Query</h3>
 <p>For each query, we need to find the maximum beauty value among the items with a price less than or equal to the query price. We can use the offline query method, first sort the items by price, and then sort the queries by price.</p>
 <p>Next, we traverse the queries from small to large. For each query, we use a pointer $i$ to point to the item array. If the price of the item is less than or equal to the query price, we update the current maximum beauty value and move the pointer $i$ to the right until the price of the item is greater than the query price. We record the current maximum beauty value, which is the answer to the current query. Continue to traverse the next query until all queries are processed.</p>
@@ -75934,6 +75942,10 @@ Hence, the answer to the query is 0.
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-sorting-binary-search">Solution 2: Sorting + Binary Search</h3>
 <p>We can sort the items by price, and then preprocess the maximum beauty value of the items that are less than or equal to each price, recorded in the array $mx$ or the original $items$ array.</p>
 <p>For each query, we can use binary search to find the index $j$ of the first item with a price greater than the query price, then $j - 1$ is the index of the item with the maximum beauty value and a price less than or equal to the query price, which is added to the answer.</p>
@@ -76140,7 +76152,9 @@ Hence, the answer to the query is 0.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

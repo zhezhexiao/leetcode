@@ -75663,10 +75663,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2477-minimum-fuel-cost-to-report-to-the-capital"><a href="https://leetcode.com/problems/minimum-fuel-cost-to-report-to-the-capital">2477. Minimum Fuel Cost to Report to the Capital</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 320 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 320 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2011-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2011-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>There is a tree (i.e., a connected, undirected graph with no cycles) structure country network consisting of <code>n</code> cities numbered from <code>0</code> to <code>n - 1</code> and exactly <code>n - 1</code> roads. The capital city is city <code>0</code>. You are given a 2D integer array <code>roads</code> where <code>roads[i] = [a<sub>i</sub>, b<sub>i</sub>]</code> denotes that there exists a <strong>bidirectional road</strong> connecting cities <code>a<sub>i</sub></code> and <code>b<sub>i</sub></code>.</p>
 
 <p>There is a meeting for the representatives of each city. The meeting is in the capital city.</p>
@@ -75729,7 +75733,11 @@ It can be proven that 7 is the minimum number of liters of fuel needed.
     <li><code>1 &lt;= seats &lt;= 10<sup>5</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-dfs">Solution 1: Greedy + DFS</h3>
 <p>According to the problem description, we can find that all cars will only drive towards the capital (node $0$).</p>
 <p>Suppose there is a node $a$, its next node is $b$, and node $a$ needs to pass through node $b$ to reach the capital. In order to make the vehicles (fuel consumption) of node $a$ as small as possible, we should greedily let the vehicles of the child nodes of node $a$ converge to node $a$ first, and then distribute the vehicles according to the number of seats $seats$. The minimum number of vehicles (fuel consumption) needed to reach node $b$ is $\lceil \frac{sz}{seats} \rceil$. Where $sz$ represents the number of nodes in the subtree with node $a$ as the root.</p>
@@ -76045,7 +76053,9 @@ It can be proven that 7 is the minimum number of liters of fuel needed.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

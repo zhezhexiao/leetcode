@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1215"><a href="https://leetcode.cn/problems/stepping-numbers">1215. 步进数 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 10 场双周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 10 场双周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1674-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1674-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 10 场双周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 10 场双周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1674-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1674-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>如果一个整数上的每一位数字与其相邻位上的数字的绝对差都是 <code>1</code>，那么这个数就是一个「步进数」。</p>
 
@@ -80279,7 +80281,11 @@
     <li><code>0 &lt;= low &lt;= high &lt;= 2 * 10^9</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="bfs">方法一：BFS</h3>
 <p>首先，如果 $low$ 为 $0$，那么我们需要将 $0$ 加入答案中。</p>
 <p>接下来，我们创建一个队列 $q$，并将 $1 \sim 9$ 加入队列中。然后我们不断从队列中取出元素，记当前元素为 $v$，如果 $v$ 大于 $high$，那么我们就停止搜索；如果 $v$ 在 $[low, high]$ 的范围内，那么我们将 $v$ 加入答案中。然后，我们需要将 $v$ 的最后一位数字记为 $x$，如果 $x \gt 0$，那么我们将 $v \times 10 + x - 1$ 加入队列中；如果 $x \lt 9$，那么我们将 $v \times 10 + x + 1$ 加入队列中。重复上述操作，直到队列为空。</p>
@@ -80558,7 +80564,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

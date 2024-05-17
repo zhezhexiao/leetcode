@@ -75651,10 +75651,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2594-minimum-time-to-repair-cars"><a href="https://leetcode.com/problems/minimum-time-to-repair-cars">2594. Minimum Time to Repair Cars</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 100 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 100 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1915-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1915-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>ranks</code> representing the <strong>ranks</strong> of some mechanics. <font face="monospace">ranks<sub>i</sub></font> is the rank of the <font face="monospace">i<sup>th</sup></font> mechanic<font face="monospace">.</font> A mechanic with a rank <code>r</code> can repair <font face="monospace">n</font> cars in <code>r * n<sup>2</sup></code> minutes.</p>
 
 <p>You are also given an integer <code>cars</code> representing the total number of cars waiting in the garage to be repaired.</p>
@@ -75698,7 +75702,11 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
     <li><code>1 &lt;= cars &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>We notice that the longer the repair time, the more cars are repaired. Therefore, we can use the repair time as the target of binary search, and binary search for the minimum repair time.</p>
 <p>We define the left and right boundaries of the binary search as $left=0$, $right=ranks[0] \times cars \times cars$. Next, we binary search for the repair time $mid$, and the number of cars each mechanic can repair is $\lfloor \sqrt{\frac{mid}{r}} \rfloor$, where $\lfloor x \rfloor$ represents rounding down. If the number of cars repaired is greater than or equal to $cars$, it means that the repair time $mid$ is feasible, we reduce the right boundary to $mid$, otherwise we increase the left boundary to $mid+1$.</p>
@@ -75856,7 +75864,9 @@ It can be proved that the cars cannot be repaired in less than 16 minutes.​​
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

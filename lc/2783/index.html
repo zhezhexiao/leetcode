@@ -80245,11 +80245,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2783"><a href="https://leetcode.cn/problems/flight-occupancy-and-waitlist-analysis">2783. 航班入座率和等待名单分析 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p><code><font face="monospace">Flights</font></code>表</p>
 
@@ -80324,7 +80326,11 @@ Passengers table:
 - 航班 2 的座位容量为 2。由于有 2 名乘客预订了机票，每个人都可以获得座位。结果是，有 2 名乘客成功预订了座位，且没有乘客在等待名单上。
 - 航班 3 的座位容量为 1。由于有 2 名乘客预订了机票，只有 1 名乘客可以获得座位。因此，有 1 名乘客成功预订，并且有 1 名乘客在等待名单上。</pre>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：左连接 + 分组</h3>
 <p>我们可以使用左连接将 <code>Flights</code> 和 <code>Passengers</code> 表连接起来，然后按照 <code>flight_id</code> 分组，统计每个航班的乘客数量。</p>
 <p>对于每个航班，我们可以使用 <code>count(passenger_id)</code> 统计乘客数量，取 <code>capacity</code> 和 <code>count(passenger_id)</code> 的最小值作为已预订的乘客数量，取 <code>count(passenger_id) - capacity</code> 和 $0$ 的最大值作为等待名单上的乘客数量。</p>
@@ -80354,7 +80360,9 @@ Passengers table:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

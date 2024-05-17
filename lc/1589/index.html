@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1589"><a href="https://leetcode.cn/problems/maximum-sum-obtained-of-any-permutation">1589. 所有排列中的最大和</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 35 场双周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 35 场双周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1871-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1871-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 35 场双周赛 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 35 场双周赛 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1871-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1871-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>有一个整数数组&nbsp;<code>nums</code>&nbsp;，和一个查询数组&nbsp;<code>requests</code>&nbsp;，其中&nbsp;<code>requests[i] = [start<sub>i</sub>, end<sub>i</sub>]</code>&nbsp;。第&nbsp;<code>i</code>&nbsp;个查询求&nbsp;<code>nums[start<sub>i</sub>] + nums[start<sub>i</sub> + 1] + ... + nums[end<sub>i</sub> - 1] + nums[end<sub>i</sub>]</code>&nbsp;的结果&nbsp;，<code>start<sub>i</sub></code> 和&nbsp;<code>end<sub>i</sub></code>&nbsp;数组索引都是 <strong>从 0 开始</strong> 的。</p>
 
@@ -80316,7 +80318,11 @@ requests[1] -&gt; nums[0] + nums[1] = 3 + 5  = 8
     <li><code>0 &lt;= start<sub>i</sub>&nbsp;&lt;= end<sub>i</sub>&nbsp;&lt;&nbsp;n</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：差分数组 + 排序 + 贪心</h3>
 <p>我们观察发现，对于一次查询操作，会返回该查询区间 $[l, r]$ 中的所有元素之和。而题目要求的是所有查询操作的结果之和的最大值，也即是说，我们要累计所有查询操作的结果，使得这些结果之和最大。因此，如果一个下标 $i$ 在查询操作中出现的次数越多，那么我们就应该赋给下标 $i$ 一个较大的值，这样才能使得所有查询操作的结果之和最大。</p>
 <p>因此，我们可以用差分数组的思想，统计每个下标在查询操作中出现的次数，然后对这些次数从小到大进行排序，然后对数组 $nums$ 也从小到大进行排序，这样就能保证每个下标 $i$ 在查询操作中出现的次数越多，该下标对应的值 $nums[i]$ 就越大。接下来，我们只需要将这些下标对应的值 $nums[i]$ 与其在查询操作中出现的次数相乘，然后累加起来，就是所有查询操作的结果之和的最大值。</p>
@@ -80547,7 +80553,9 @@ requests[1] -&gt; nums[0] + nums[1] = 3 + 5  = 8
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

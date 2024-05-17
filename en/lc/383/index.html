@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="383-ransom-note"><a href="https://leetcode.com/problems/ransom-note">383. Ransom Note</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given two strings <code>ransomNote</code> and <code>magazine</code>, return <code>true</code><em> if </em><code>ransomNote</code><em> can be constructed by using the letters from </em><code>magazine</code><em> and </em><code>false</code><em> otherwise</em>.</p>
 
 <p>Each letter in <code>magazine</code> can only be used once in <code>ransomNote</code>.</p>
@@ -75686,7 +75690,11 @@
     <li><code>ransomNote</code> and <code>magazine</code> consist of lowercase English letters.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-or-array">Solution 1: Hash Table or Array</h3>
 <p>We can use a hash table or an array $cnt$ of length $26$ to record the number of times each character appears in the string <code>magazine</code>. Then traverse the string <code>ransomNote</code>, for each character $c$ in it, we decrease the number of $c$ by $1$ in $cnt$. If the number of $c$ is less than $0$ after the decrease, it means that the number of $c$ in <code>magazine</code> is not enough, so it cannot be composed of <code>ransomNote</code>, just return $false$.</p>
 <p>Otherwise, after the traversal, it means that each character in <code>ransomNote</code> can be found in <code>magazine</code>. Therefore, return $true$.</p>
@@ -75903,7 +75911,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

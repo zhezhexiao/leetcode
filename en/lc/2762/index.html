@@ -75675,10 +75675,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2762-continuous-subarrays"><a href="https://leetcode.com/problems/continuous-subarrays">2762. Continuous Subarrays</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 352 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 352 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1940-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1940-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> integer array <code>nums</code>. A subarray of <code>nums</code> is called <strong>continuous</strong> if:</p>
 
 <ul>
@@ -75726,7 +75730,11 @@ Total continuous subarrays = 3 + 2 + 1 = 6.
     <li><code>1 &lt;= nums[i] &lt;= 10<sup>9</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-ordered-list-two-pointers">Solution 1: Ordered List + Two Pointers</h3>
 <p>We can use two pointers, $i$ and $j$, to maintain the left and right endpoints of the current subarray, and use an ordered list to maintain all elements in the current subarray.</p>
 <p>Iterate through the array $nums$. For the current number $nums[i]$ we're iterating over, we add it to the ordered list. If the difference between the maximum and minimum values in the ordered list is greater than $2$, we then loop to move the pointer $i$ to the right, continuously removing $nums[i]$ from the ordered list, until the list is empty or the maximum difference between elements in the ordered list is not greater than $2$. At this point, the number of uninterrupted subarrays is $j - i + 1$, which we add to the answer.</p>
@@ -75896,7 +75904,9 @@ Total continuous subarrays = 3 + 2 + 1 = 6.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

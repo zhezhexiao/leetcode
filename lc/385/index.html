@@ -80266,11 +80266,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="385"><a href="https://leetcode.cn/problems/mini-parser">385. 迷你语法分析器</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个字符串 s 表示一个整数嵌套列表，实现一个解析它的语法分析器并返回解析的结果&nbsp;<code>NestedInteger</code> 。</p>
 
@@ -80310,7 +80312,11 @@
     <li>输入中的所有值的范围是&nbsp;<code>[-10<sup>6</sup>, 10<sup>6</sup>]</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：递归</h3>
 <p>我们首先判断字符串 $s$ 是否为空或是一个空列表，如果是的话，直接返回一个空的 <code>NestedInteger</code> 即可。如果 $s$ 是一个整数，我们直接返回一个包含这个整数的 <code>NestedInteger</code>。否则，我们从左到右遍历字符串 $s$，如果当前深度为 $0$，并且遇到了逗号或者字符串 $s$ 的末尾，则我们截取出一个子串并递归调用函数解析该子串，将返回值加入到列表中。否则，如果当前遇到了左括号，我们将深度加 $1$，并继续遍历。如果遇到了右括号，我们将深度减 $1$，继续遍历。</p>
 <p>遍历结束后，返回答案。</p>
@@ -80871,6 +80877,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：栈</h3>
 <p>我们可以使用栈来模拟递归的过程。</p>
 <p>我们首先判断字符串 $s$ 是否是一个整数，如果是，直接返回一个包含这个整数的 <code>NestedInteger</code>。否则，我们从左到右遍历字符串 $s$，对于当前遍历到的字符 $c$：</p>
@@ -81534,7 +81544,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

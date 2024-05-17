@@ -75669,10 +75669,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2955-number-of-same-end-substrings"><a href="https://leetcode.com/problems/number-of-same-end-substrings">2955. Number of Same-End Substrings 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>s</code>, and a 2D array of integers <code>queries</code>, where <code>queries[i] = [l<sub>i</sub>, r<sub>i</sub>]</code> indicates a substring of <code>s</code> starting from the index <code>l<sub>i</sub></code> and ending at the index <code>r<sub>i</sub></code> (both <strong>inclusive</strong>), i.e. <code>s[l<sub>i</sub>..r<sub>i</sub>]</code>.</p>
 
 <p>Return <em>an array </em><code>ans</code><em> where</em> <code>ans[i]</code> <em>is the number of <strong>same-end</strong> substrings of</em> <code>queries[i]</code>.</p>
@@ -75713,7 +75717,11 @@
     <li><code>0 &lt;= l<sub>i</sub> &lt;= r<sub>i</sub> &lt; s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-prefix-sum-enumeration">Solution 1: Prefix Sum + Enumeration</h3>
 <p>We can preprocess the prefix sum for each letter and record it in the array $cnt$, where $cnt[i][j]$ represents the number of times the $i$-th letter appears in the first $j$ characters. In this way, for each interval $[l, r]$, we can enumerate each letter $c$ in the interval, quickly calculate the number of times $c$ appears in the interval $x$ using the prefix sum array. We can arbitrarily choose two of them to form a tail-equal substring, the number of substrings is $C_x^2=\frac{x(x-1)}{2}$, plus the situation where each letter in the interval can form a tail-equal substring alone, there are $r - l + 1$ letters in total. Therefore, for each query $[l, r]$, the number of tail-equal substrings that meet the conditions is $r - l + 1 + \sum_{c \in \Sigma} \frac{x_c(x_c-1)}{2}$, where $x_c$ represents the number of times the letter $c$ appears in the interval $[l, r]$.</p>
 <p>The time complexity is $O((n + m) \times |\Sigma|)$, and the space complexity is $O(n \times |\Sigma|)$. Here, $n$ and $m$ are the lengths of the string $s$ and the number of queries, respectively, and $\Sigma$ represents the set of letters appearing in the string $s$, in this problem $|\Sigma|=26$.</p>
@@ -75999,7 +76007,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

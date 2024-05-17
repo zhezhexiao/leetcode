@@ -80272,11 +80272,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2502"><a href="https://leetcode.cn/problems/design-memory-allocator">2502. 设计内存分配器</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 323 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 323 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1745-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1745-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 323 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 323 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1745-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1745-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数 <code>n</code> ，表示下标从 <strong>0</strong> 开始的内存数组的大小。所有内存单元开始都是空闲的。</p>
 
@@ -80335,7 +80337,11 @@ loc.free(7); // 释放 mID 为 7 的所有内存单元。内存数组保持原�
     <li>最多调用 <code>allocate</code> 和 <code>free</code> 方法 <code>1000</code> 次</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：暴力模拟</h3>
 <p>题目数据范围不大，可以直接用数组模拟内存空间。</p>
 <p>初始化时，将数组中的每个元素置为 0，表示空闲。</p>
@@ -80664,6 +80670,10 @@ loc.free(7); // 释放 mID 为 7 的所有内存单元。内存数组保持原�
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：哈希表 + 有序集合</h3>
 <p>我们可以用有序集合维护所有已分配的内存单元的起始下标和结束下标，其中起始下标为键，结束下标为值；另外用哈希表维护 <code>mID</code> 和其对应的内存单元的起始下标。</p>
 <p>当调用 <code>allocate</code> 方法时，遍历有序集合，找到第一个长度大于等于 <code>size</code> 的空闲区间，将其分配给 <code>mID</code>，并更新有序集合。然后将 <code>mID</code> 和其对应的内存单元的起始下标加入哈希表。</p>
@@ -81013,7 +81023,9 @@ loc.free(7); // 释放 mID 为 7 的所有内存单元。内存数组保持原�
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

@@ -75654,10 +75654,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="184-department-highest-salary"><a href="https://leetcode.com/problems/department-highest-salary">184. Department Highest Salary</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Table: <code>Employee</code></p>
 
 <pre>
@@ -75730,7 +75734,11 @@ Department table:
 <strong>Explanation:</strong> Max and Jim both have the highest salary in the IT department and Henry has the highest salary in the Sales department.
 </pre>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-equi-join-subquery">Solution 1: Equi-Join + Subquery</h3>
 <p>We can use an equi-join to join the <code>Employee</code> table and the <code>Department</code> table based on <code>Employee.departmentId = Department.id</code>, and then use a subquery to find the highest salary for each department. Finally, we can use a <code>WHERE</code> clause to filter out the employees with the highest salary in each department.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">MySQL</label></div>
@@ -75761,6 +75769,10 @@ Department table:
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-equi-join-window-function">Solution 2: Equi-Join + Window Function</h3>
 <p>We can use an equi-join to join the <code>Employee</code> table and the <code>Department</code> table based on <code>Employee.departmentId = Department.id</code>, and then use the window function <code>rank()</code>, which assigns a rank to each employee in each department based on their salary. Finally, we can select the rows with a rank of $1$ for each department.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">MySQL</label></div>
@@ -75805,7 +75817,9 @@ Department table:
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

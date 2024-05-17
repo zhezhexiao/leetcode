@@ -80263,11 +80263,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1871-vii"><a href="https://leetcode.cn/problems/jump-game-vii">1871. 跳跃游戏 VII</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 242 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 242 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1896-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1896-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 242 场周赛 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 242 场周赛 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1896-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1896-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个下标从 <strong>0 </strong>开始的二进制字符串 <code>s</code> 和两个整数 <code>minJump</code> 和 <code>maxJump</code> 。一开始，你在下标 <code>0</code> 处，且该位置的值一定为 <code>'0'</code> 。当同时满足如下条件时，你可以从下标 <code>i</code> 移动到下标 <code>j</code> 处：</p>
 
@@ -80308,7 +80310,11 @@
     <li><code>1 <= minJump <= maxJump < s.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：前缀和 + 动态规划</h3>
 <p>我们定义一个长度为 $n+1$ 的前缀和数组 $pre$，其中 $pre[i]$ 表示 $s$ 的前 $i$ 个位置中能够到达的个数。定义一个长度为 $n$ 的布尔数组 $f$，其中 $f[i]$ 表示 $s[i]$ 是否能够到达。初始时 $pre[1] = 1$，而 $f[0] = true$。</p>
 <p>考虑 $i \in [1, n)$，如果 $s[i] = 0$，那么我们需要判断 $s$ 的前 $i$ 个位置中是否存在一个位置 $j$，满足 $j$ 能够到达且 $j$ 到 $i$ 的距离在 $[minJump, maxJump]$ 之间。如果存在这样的位置 $j$，那么我们就有 $f[i] = true$，否则 $f[i] = false$。在判断 $j$ 是否存在时，我们可以通过前缀和数组 $pre$ 在 $O(1)$ 的时间内判断是否存在这样的位置 $j$。</p>
@@ -80540,7 +80546,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

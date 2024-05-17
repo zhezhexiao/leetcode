@@ -80266,11 +80266,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1340-v"><a href="https://leetcode.cn/problems/jump-game-v">1340. 跳跃游戏 V</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 174 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 174 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1866-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1866-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 174 场周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 174 场周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1866-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1866-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组&nbsp;<code>arr</code> 和一个整数&nbsp;<code>d</code> 。每一步你可以从下标&nbsp;<code>i</code>&nbsp;跳到：</p>
 
@@ -80334,7 +80336,11 @@
     <li><code>1 &lt;= d &lt;= arr.length</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：记忆化搜索</h3>
 <p>我们设计一个函数 $dfs(i)$，表示从下标 $i$ 开始跳跃能够访问的最大下标数。我们可以枚举 $i$ 的所有合法的跳跃目标 $j$，即 $i - d \leq j \leq i + d$，并且 $arr[i] \gt arr[j]$。对于每个合法的 $j$，我们可以递归地计算 $dfs(j)$，并取其中的最大值。最终的答案即为所有 $i$ 的 $dfs(i)$ 的最大值。</p>
 <p>我们可以使用记忆化搜索来优化这个过程，即使用一个数组 $f$ 记录每个下标的 $dfs$ 值，避免重复计算。</p>
@@ -80583,6 +80589,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：排序 + 动态规划</h3>
 <p>我们可以将数组 $arr$ 中的每个元素 $x$ 与其下标 $i$ 组成一个元组 $(x, i)$，并将这些元组按照 $x$ 从小到大排序。</p>
 <p>接下来定义 $f[i]$ 表示从下标 $i$ 开始跳跃能够访问的最大下标数。初始时 $f[i] = 1$，即每个下标都可以单独作为一次跳跃。</p>
@@ -80787,7 +80797,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

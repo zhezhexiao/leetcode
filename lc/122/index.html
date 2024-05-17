@@ -80275,11 +80275,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="122-ii"><a href="https://leetcode.cn/problems/best-time-to-buy-and-sell-stock-ii">122. 买卖股票的最佳时机 II</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个整数数组 <code>prices</code> ，其中&nbsp;<code>prices[i]</code> 表示某支股票第 <code>i</code> 天的价格。</p>
 
@@ -80322,7 +80324,11 @@
     <li><code>0 &lt;= prices[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：贪心</h3>
 <p>从第二天开始，如果当天股价大于前一天股价，则在前一天买入，当天卖出，即可获得利润。如果当天股价小于前一天股价，则不买入，不卖出。也即是说，所有上涨交易日都做买卖，所有下跌交易日都不做买卖，最终获得的利润是最大的。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 为数组 <code>prices</code> 的长度。空间复杂度 $O(1)$。</p>
@@ -80476,6 +80482,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：动态规划</h3>
 <p>我们设 $f[i][j]$ 表示第 $i$ 天交易完后的最大利润，其中 $j$ 表示当前是否持有股票，持有股票时 $j=0$，不持有股票时 $j=1$。初始状态为 $f[0][0]=-prices[0]$，其余状态均为 $0$。</p>
 <p>如果当前持有股票，那么可能是前一天就持有股票，今天什么都不做，即 $f[i][0]=f[i-1][0]$；也可能是前一天不持有股票，今天买入股票，即 $f[i][0]=f[i-1][1]-prices[i]$。</p>
@@ -80615,6 +80625,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_5">方法三：动态规划（空间优化）</h3>
 <p>我们可以发现，在方法二中，第 $i$ 天的状态，只与第 $i-1$ 天的状态有关，因此我们可以只用两个变量来维护第 $i-1$ 天的状态，从而将空间复杂度优化到 $O(1)$。</p>
 <p>时间复杂度 $O(n)$，其中 $n$ 为数组 <code>prices</code> 的长度。空间复杂度 $O(1)$。</p>
@@ -80726,7 +80740,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

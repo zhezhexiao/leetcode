@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2871-split-array-into-maximum-number-of-subarrays"><a href="https://leetcode.com/problems/split-array-into-maximum-number-of-subarrays">2871. Split Array Into Maximum Number of Subarrays</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 114 Q3-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 114 Q3-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1749-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1749-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an array <code>nums</code> consisting of <strong>non-negative</strong> integers.</p>
 
 <p>We define the score of subarray <code>nums[l..r]</code> such that <code>l &lt;= r</code> as <code>nums[l] AND nums[l + 1] AND ... AND nums[r]</code> where <strong>AND</strong> is the bitwise <code>AND</code> operation.</p>
@@ -75707,7 +75711,11 @@ It can be shown that we cannot split the array into more than 1 subarray with a 
     <li><code>0 &lt;= nums[i] &lt;= 10<sup>6</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-greedy-bitwise-operation">Solution 1: Greedy + Bitwise Operation</h3>
 <p>We initialize a variable $score$ to record the score of the current subarray, and set $score=-1$ initially. Then we traverse the array, for each element $num$, we perform a bitwise AND operation between $score$ and $num$, and assign the result to $score$. If $score=0$, it means the score of the current subarray is 0, so we can split the current subarray and reset $score$ to $-1$. Finally, we return the number of split subarrays.</p>
 <p>The time complexity is $O(n)$, where $n$ is the length of the array. The space complexity is $O(1)$.</p>
@@ -75849,7 +75857,9 @@ It can be shown that we cannot split the array into more than 1 subarray with a 
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

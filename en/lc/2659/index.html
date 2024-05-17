@@ -75690,10 +75690,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2659-make-array-empty"><a href="https://leetcode.com/problems/make-array-empty">2659. Make Array Empty</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 103 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 103 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2281-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2281-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> containing <strong>distinct</strong> numbers, and you can perform the following operations <strong>until the array is empty</strong>:</p>
 
 <ul>
@@ -75819,7 +75823,11 @@
     <li>All values in <code>nums</code> are <strong>distinct</strong>.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-sorting-fenwick-tree">Solution 1: Hash Table + Sorting + Fenwick Tree</h3>
 <p>First, we use a hash table $pos$ to record the position of each element in array $nums$. Then, we sort array $nums$. The initial answer is the position of the minimum element in array $nums$ plus 1, which is $ans = pos[nums[0]] + 1$.</p>
 <p>Next, we traverse the sorted array $nums$, the indexes of the two adjacent elements $a$ and $b$ are $i = pos[a]$, $j = pos[b]$. The number of operations needed to move the second element $b$ to the first position of the array and delete it is equal to the interval between the two indexes, minus the number of indexes deleted between the two indexes, and add the number of operations to the answer. We can use a Fenwick tree or an ordered list to maintain the deleted indexes between two indexes, so that we can find the number of deleted indexes between two indexes in $O(\log n)$ time. Note that if $i \gt j$, then we need to increase $n - k$ operations, where $k$ is the current position.</p>
@@ -76241,6 +76249,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2">Solution 2</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
 <div class="tabbed-content">
@@ -76310,7 +76322,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

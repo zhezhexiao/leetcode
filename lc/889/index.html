@@ -80278,11 +80278,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="889"><a href="https://leetcode.cn/problems/construct-binary-tree-from-preorder-and-postorder-traversal">889. 根据前序和后序遍历构造二叉树</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个整数数组，<code>preorder</code>&nbsp;和 <code>postorder</code> ，其中 <code>preorder</code> 是一个具有 <strong>无重复</strong> 值的二叉树的前序遍历，<code>postorder</code> 是同一棵树的后序遍历，重构并返回二叉树。</p>
 
@@ -80320,7 +80322,11 @@
     <li>保证 <code>preorder</code>&nbsp;和 <code>postorder</code>&nbsp;是同一棵二叉树的前序遍历和后序遍历</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：递归</h3>
 <p>前序遍历的顺序是：根节点 -&gt; 左子树 -&gt; 右子树，后序遍历的顺序是：左子树 -&gt; 右子树 -&gt; 根节点。</p>
 <p>因此，二叉树的根节点一定是前序遍历的第一个节点，也是后序遍历的最后一个节点。</p>
@@ -80687,6 +80693,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：递归的另一种写法</h3>
 <p>我们也可以设计一个递归函数 $dfs(i, j, n)$，其中 $i$ 和 $j$ 表示前序遍历和后序遍历的起点，而 $n$ 表示节点个数。这个函数的功能是根据前序遍历 $[i, i + n - 1]$ 和后序遍历 $[j, j + n - 1]$ 构造出二叉树的根节点。那么答案就是 $dfs(0, 0, n)$，其中 $n$ 是前序遍历的长度。</p>
 <p>函数 $dfs(i, j, n)$ 的执行步骤如下：</p>
@@ -81047,7 +81057,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

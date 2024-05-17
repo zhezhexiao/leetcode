@@ -80266,11 +80266,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2309"><a href="https://leetcode.cn/problems/greatest-english-letter-in-upper-and-lower-case">2309. 兼具大小写的最好英文字母</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 298 场周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 298 场周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1242-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1242-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 298 场周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 298 场周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-简单-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1242-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1242-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个由英文字母组成的字符串 <code>s</code> ，请你找出并返回 <code>s</code> 中的 <strong>最好</strong> 英文字母。返回的字母必须为大写形式。如果不存在满足条件的字母，则返回一个空字符串。</p>
 
@@ -80316,7 +80318,11 @@
     <li><code>s</code> 由小写和大写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 枚举</h3>
 <p>我们先用哈希表 $ss$ 记录字符串 $s$ 中出现的所有字母，然后从大写字母表的最后一个字母开始枚举，如果当前字母的大写和小写形式都在 $ss$ 中，则返回该字母。</p>
 <p>枚举结束后，如果没有找到符合条件的字母，则返回空字符串。</p>
@@ -80521,6 +80527,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：位运算（空间优化）</h3>
 <p>我们可以用两个整数 $mask1$ 和 $mask2$ 分别记录字符串 $s$ 中出现的小写字母和大写字母，其中 $mask1$ 的第 $i$ 位表示第 $i$ 个小写字母是否出现，而 $mask2$ 的第 $i$ 位表示第 $i$ 个大写字母是否出现。</p>
 <p>然后我们将 $mask1$ 和 $mask2$ 进行与运算，得到的结果 $mask$ 的第 $i$ 位表示第 $i$ 个字母的大小写是否同时出现。</p>
@@ -80650,7 +80660,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

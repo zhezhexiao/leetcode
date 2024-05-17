@@ -75675,10 +75675,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2577-minimum-time-to-visit-a-cell-in-a-grid"><a href="https://leetcode.com/problems/minimum-time-to-visit-a-cell-in-a-grid">2577. Minimum Time to Visit a Cell In a Grid</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 334 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 334 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2381-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2381-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <code>m x n</code> matrix <code>grid</code> consisting of <b>non-negative</b> integers where <code>grid[row][col]</code> represents the <strong>minimum</strong> time required to be able to visit the cell <code>(row, col)</code>, which means you can visit the cell <code>(row, col)</code> only when the time you visit it is greater than or equal to <code>grid[row][col]</code>.</p>
 
 <p>You are standing in the <strong>top-left</strong> cell of the matrix in the <code>0<sup>th</sup></code> second, and you must move to <strong>any</strong> adjacent cell in the four directions: up, down, left, and right. Each move you make takes 1 second.</p>
@@ -75736,7 +75740,11 @@ The final time is 7. It can be shown that it is the minimum time possible.
 .spoilerbutton[value="Hide Message"] + .spoiler {padding:5px;}
 </style>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-shortest-path-priority-queue-min-heap">Solution 1: Shortest Path + Priority Queue (Min Heap)</h3>
 <p>We observe that if we cannot move at the cell $(0, 0)$, i.e., $grid[0][1] &gt; 1$ and $grid[1][0] &gt; 1$, then we cannot move at the cell $(0, 0)$ anymore, and we should return $-1$. For other cases, we can move.</p>
 <p>Next, we define $dist[i][j]$ to represent the earliest arrival time at $(i, j)$. Initially, $dist[0][0] = 0$, and the $dist$ of other positions are all initialized to $\infty$.</p>
@@ -76035,7 +76043,9 @@ The final time is 7. It can be shown that it is the minimum time possible.
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

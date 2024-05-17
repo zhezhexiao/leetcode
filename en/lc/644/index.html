@@ -75657,10 +75657,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="644-maximum-average-subarray-ii"><a href="https://leetcode.com/problems/maximum-average-subarray-ii">644. Maximum Average Subarray II 🔒</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Hard-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an integer array <code>nums</code> consisting of <code>n</code> elements, and an integer <code>k</code>.</p>
 
 <p>Find a contiguous subarray whose <strong>length is greater than or equal to</strong> <code>k</code> that has the maximum average value and return <em>this value</em>. Any answer with a calculation error less than <code>10<sup>-5</sup></code> will be accepted.</p>
@@ -75695,7 +75699,11 @@ Note that we do not consider the subarrays of length &lt; 4.
     <li><code>-10<sup>4</sup> &lt;= nums[i] &lt;= 10<sup>4</sup></code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-search">Solution 1: Binary Search</h3>
 <p>We note that if the average value of a subarray with length greater than or equal to $k$ is $v$, then the maximum average number must be greater than or equal to $v$, otherwise the maximum average number must be less than $v$. Therefore, we can use binary search to find the maximum average number.</p>
 <p>What are the left and right boundaries of binary search? The left boundary $l$ must be the minimum value in the array, and the right boundary $r$ is the maximum value in the array. Next, we binary search the midpoint $mid$, and judge whether there exists a subarray with length greater than or equal to $k$ whose average value is greater than or equal to $mid$. If it exists, then we update the left boundary $l$ to $mid$, otherwise we update the right boundary $r$ to $mid$. When the difference between the left and right boundaries is less than a very small non-negative number, i.e., $r - l &lt; \epsilon$, we can get the maximum average number, where $\epsilon$ represents a very small positive number, which can be $10^{-5}$.</p>
@@ -76063,7 +76071,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

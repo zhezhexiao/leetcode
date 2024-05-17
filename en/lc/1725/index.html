@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1725-number-of-rectangles-that-can-form-the-largest-square"><a href="https://leetcode.com/problems/number-of-rectangles-that-can-form-the-largest-square">1725. Number Of Rectangles That Can Form The Largest Square</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Weekly Contest 224 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Weekly Contest 224 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Easy-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1229-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1229-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given an array <code>rectangles</code> where <code>rectangles[i] = [l<sub>i</sub>, w<sub>i</sub>]</code> represents the <code>i<sup>th</sup></code> rectangle of length <code>l<sub>i</sub></code> and width <code>w<sub>i</sub></code>.</p>
 
 <p>You can cut the <code>i<sup>th</sup></code> rectangle to form a square with a side length of <code>k</code> if both <code>k &lt;= l<sub>i</sub></code> and <code>k &lt;= w<sub>i</sub></code>. For example, if you have a rectangle <code>[4,6]</code>, you can cut it to get a square with a side length of at most <code>4</code>.</p>
@@ -75699,7 +75703,11 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-single-pass">Solution 1: Single Pass</h3>
 <p>We define a variable $ans$ to record the count of squares with the current maximum side length, and another variable $mx$ to record the current maximum side length.</p>
 <p>We traverse the array $rectangles$. For each rectangle $[l, w]$, we take $x = \min(l, w)$. If $mx &lt; x$, it means we have found a larger side length, so we update $mx$ to $x$ and update $ans$ to $1$. If $mx = x$, it means we have found a side length equal to the current maximum side length, so we increase $ans$ by $1$.</p>
@@ -75855,7 +75863,9 @@ The largest possible square is of length 5, and you can get it out of 3 rectangl
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

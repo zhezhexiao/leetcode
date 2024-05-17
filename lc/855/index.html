@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="855"><a href="https://leetcode.cn/problems/exam-room">855. 考场就座</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>在考场里，一排有&nbsp;<code>N</code>&nbsp;个座位，分别编号为&nbsp;<code>0, 1, 2, ..., N-1</code>&nbsp;。</p>
 
@@ -80295,7 +80297,11 @@ seat() -&gt; 5，学生最后坐在 5 号座位上。
     <li>保证在调用&nbsp;<code>ExamRoom.leave(p)</code>&nbsp;时有学生正坐在座位 <code>p</code> 上。</li>
 </ol>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：有序集合 + 哈希表</h3>
 <p>考虑到每次 $seat()$ 时都需要找到最大距离的座位，我们可以使用有序集合来保存座位区间。有序集合的每个元素为一个二元组 $(l, r)$，表示 $l$ 和 $r$ 之间（不包括 $l$ 和 $r$）的座位可以坐学生。初始时有序集合中只有一个元素 $(-1, n)$，表示 $(-1, n)$ 之间的座位可以坐学生。</p>
 <p>另外，我们使用两个哈希表 <code>left</code> 和 <code>right</code> 来维护每个有学生的座位的左右邻居学生，方便我们在 $leave(p)$ 时合并两个座位区间。</p>
@@ -80798,7 +80804,9 @@ seat() -&gt; 5，学生最后坐在 5 号座位上。
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

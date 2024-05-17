@@ -75645,10 +75645,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1115-print-foobar-alternately"><a href="https://leetcode.com/problems/print-foobar-alternately">1115. Print FooBar Alternately</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Suppose you are given the following code:</p>
 
 <pre>
@@ -75701,7 +75705,11 @@ class FooBar {
     <li><code>1 &lt;= n &lt;= 1000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-multithreading-semaphore">Solution 1: Multithreading + Semaphore</h3>
 <p>We use two semaphores $f$ and $b$ to control the execution order of the two threads, where $f$ is initially set to $1$ and $b$ is set to $0$, indicating that thread $A$ executes first.</p>
 <p>When thread $A$ executes, it first performs the $acquire$ operation on $f$, which changes the value of $f$ to $0$. Thread $A$ then gains the right to use $f$ and can execute the $foo$ function. After that, it performs the $release$ operation on $b$, changing the value of $b$ to $1$. This allows thread $B$ to gain the right to use $b$ and execute the $bar$ function.</p>
@@ -75880,7 +75888,9 @@ class FooBar {
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

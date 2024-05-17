@@ -75678,10 +75678,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2707-extra-characters-in-a-string"><a href="https://leetcode.com/problems/extra-characters-in-a-string">2707. Extra Characters in a String</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Source-Biweekly Contest 105 Q2-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-Biweekly Contest 105 Q2-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1735-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1735-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>You are given a <strong>0-indexed</strong> string <code>s</code> and a dictionary of words <code>dictionary</code>. You have to break <code>s</code> into one or more <strong>non-overlapping</strong> substrings such that each substring is present in <code>dictionary</code>. There may be some <strong>extra characters</strong> in <code>s</code> which are not present in any of the substrings.</p>
 
 <p>Return <em>the <strong>minimum</strong> number of extra characters left over if you break up </em><code>s</code><em> optimally.</em></p>
@@ -75715,7 +75719,11 @@
     <li><code>dictionary</code> contains distinct words</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table-dynamic-programming">Solution 1: Hash Table + Dynamic Programming</h3>
 <p>We can use a hash table $ss$ to record all words in the dictionary, which allows us to quickly determine whether a string is in the dictionary.</p>
 <p>Next, we define $f[i]$ to represent the minimum number of extra characters in the first $i$ characters of string $s$, initially $f[0] = 0$.</p>
@@ -75939,6 +75947,10 @@ $$</p>
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="solution-2-trie-dynamic-programming">Solution 2: Trie + Dynamic Programming</h3>
 <p>We can use a trie to optimize the time complexity of Solution 1.</p>
 <p>Specifically, we first insert each word in the dictionary into the trie $root$ in reverse order, then we define $f[i]$ to represent the minimum number of extra characters in the first $i$ characters of string $s$, initially $f[0] = 0$.</p>
@@ -76330,7 +76342,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

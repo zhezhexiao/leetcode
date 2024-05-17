@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="305-ii"><a href="https://leetcode.cn/problems/number-of-islands-ii">305. 岛屿数量 II 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个大小为 <code>m x n</code> 的二进制网格 <code>grid</code> 。网格表示一个地图，其中，<code>0</code> 表示水，<code>1</code> 表示陆地。最初，<code>grid</code> 中的所有单元格都是水单元格（即，所有单元格都是 <code>0</code>）。</p>
 
@@ -80307,7 +80309,11 @@
 
 <p><strong>进阶：</strong>你可以设计一个时间复杂度 <code>O(k log(mn))</code> 的算法解决此问题吗？（其中 <code>k == positions.length</code>）</p>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：并查集</h3>
 <p>我们用一个二维数组 $grid$ 来表示一个地图，其中 $0$ 和 $1$ 分别表示水和陆地。初始时 $grid$ 中的所有单元格都是水单元格（即所有单元格都是 $0$），用一个变量 $cnt$ 来记录岛屿的数量。而岛屿之间的连通关系可以用一个并查集 $uf$ 来维护。</p>
 <p>接下来，我们遍历数组 $positions$ 中的每个位置 $(i, j)$，如果 $grid[i][j]$ 为 $1$，说明该位置已经是陆地，我们直接将 $cnt$ 添加到答案中；否则，我们将 $grid[i][j]$ 的值改为 $1$，并且将 $cnt$ 的值增加 $1$。然后，我们遍历该位置的上下左右四个方向，如果某个方向的位置为 $1$，并且该位置与 $(i, j)$ 不属于同一个连通分量，那么我们就将该位置与 $(i, j)$ 进行合并，同时将 $cnt$ 的值减少 $1$。遍历完该位置的上下左右四个方向之后，我们将 $cnt$ 添加到答案中。</p>
@@ -80912,7 +80918,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

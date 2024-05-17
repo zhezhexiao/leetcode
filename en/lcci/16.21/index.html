@@ -75634,10 +75634,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1621-sum-swap"><a href="https://leetcode.cn/problems/sum-swap-lcci">16.21. Sum Swap</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Given two arrays of integers, find a pair of values (one value from each array) that you can swap to give the two arrays the same sum.</p>
 
 <p>Return an array, where the first element is the element in the first array that will be swapped, and the second element is another one in the second array. If there are more than one answers, return any one of them. If there is no answer, return an empty array.</p>
@@ -75666,7 +75670,11 @@
     <li><code>1 &lt;= array1.length, array2.length &lt;= 100000</code></li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-hash-table">Solution 1: Hash Table</h3>
 <p>We first calculate the sum of the two arrays, and then calculate the difference $diff$ between the sums. If $diff$ is odd, it means that the sums of the two arrays cannot be equal, so we directly return an empty array.</p>
 <p>If $diff$ is even, we can traverse one of the arrays. Suppose the current element being traversed is $a$, then we need to find an element $b$ in the other array such that $a - b = diff / 2$, i.e., $b = a - diff / 2$. We can use a hash table to quickly check whether $b$ exists. If it exists, it means that we have found a pair of elements that meet the conditions, and we can return them directly.</p>
@@ -75933,7 +75941,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

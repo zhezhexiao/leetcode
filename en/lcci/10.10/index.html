@@ -75634,10 +75634,14 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1010-rank-from-stream"><a href="https://leetcode.cn/problems/rank-from-stream-lcci">10.10. Rank from Stream</a></h1>
 <p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-Medium-4051B5?style=flat-square"></a></p>
 
 <h2 id="description">Description</h2>
+<!-- description:start -->
+
 <p>Imagine you are reading in a stream of integers. Periodically, you wish to be able to look up the rank of a number <code>x</code> (the number of values less than or equal to <code>x</code>). lmplement the data structures and algorithms to support these operations. That is, implement the method <code>track (int x)</code>, which is called when each number is generated, and the method <code>getRankOfNumber(int x)</code>, which returns the number of values less than or equal to <code>x</code>.</p>
 
 <p><b>Note:&nbsp;</b>This problem is slightly different from the original one in the book.</p>
@@ -75665,7 +75669,11 @@
     <li>The number of calls of both&nbsp;<code>track</code>&nbsp;and&nbsp;<code>getRankOfNumber</code>&nbsp;methods are less than or equal to 2000.</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="solutions">Solutions</h2>
+<!-- solution:start -->
+
 <h3 id="solution-1-binary-indexed-tree">Solution 1: Binary Indexed Tree</h3>
 <p>We can use a Binary Indexed Tree (also known as a Fenwick Tree) to maintain the count of numbers that are less than or equal to the current number among the added numbers.</p>
 <p>We create a Binary Indexed Tree with a length of $50010$. For the <code>track</code> method, we increment the current number and add it to the Binary Indexed Tree. For the <code>getRankOfNumber</code> method, we directly query the count of numbers that are less than or equal to $x + 1$ in the Binary Indexed Tree.</p>
@@ -76210,7 +76218,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

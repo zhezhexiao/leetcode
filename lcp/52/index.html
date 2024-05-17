@@ -22,7 +22,7 @@
     
     
       
-        <title>LCP 52. 二叉搜索树染色 - LeetCode Wiki</title>
+        <title>52 - LeetCode Wiki</title>
       
     
     
@@ -121,7 +121,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              LCP 52. 二叉搜索树染色
+              52
             
           </span>
         </div>
@@ -80150,11 +80150,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="lcp-52"><a href="https://leetcode.cn/problems/QO5KpG">LCP 52. 二叉搜索树染色</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>欢迎各位勇者来到力扣城，本次试炼主题为「二叉搜索树染色」。</p>
 <p>每位勇士面前设有一个<strong>二叉搜索树</strong>的模型，模型的根节点为 <code>root</code>，树上的各个节点值均不重复。初始时，所有节点均为蓝色。现在按顺序对这棵二叉树进行若干次操作， <code>ops[i] = [type, x, y]</code> 表示第 <code>i</code> 次操作为：</p>
@@ -80199,7 +80201,11 @@
 <li><code>0 &lt;= ops[i][1] &lt;= ops[i][2] &lt;= 10^9</code></li>
 <li><code>0 &lt;= 节点值 &lt;= 10^9</code></li>
 </ul>
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：有序集合 + 倒序遍历</h3>
 <p>我们先遍历一遍二叉树，将所有节点的值加入到有序集合中。</p>
 <p>接下来，由于节点的染色状态只跟最后一个操作有关，因此，我们可以倒序遍历操作数组。对于每个操作 $(t, x, y)$，我们在有序集合中找到所有值在 $[x, y]$ 范围内的节点，将其从有序集合中删除。如果 $t = 1$，说明这些节点被染成了红色，我们将其数量累加到答案种。</p>
@@ -81535,7 +81541,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

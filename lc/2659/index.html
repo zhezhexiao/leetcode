@@ -80290,11 +80290,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2659"><a href="https://leetcode.cn/problems/make-array-empty">2659. 将数组清空</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 103 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 103 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-2281-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-2281-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 103 场双周赛 Q4-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 103 场双周赛 Q4-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-困难-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-2281-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-2281-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给你一个包含若干 <strong>互不相同</strong>&nbsp;整数的数组&nbsp;<code>nums</code>&nbsp;，你需要执行以下操作 <strong>直到</strong><strong>数组为空</strong>&nbsp;：</p>
 
@@ -80427,7 +80429,11 @@
     <li><code>nums</code>&nbsp;中的元素 <strong>互不相同</strong>&nbsp;。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 排序 + 树状数组</h3>
 <p>我们先用哈希表 $pos$ 记录数组 $nums$ 中每个元素的位置，接下来对数组 $nums$ 进行排序，那么数组最小值的下标为 $pos[nums[0]]$，移动到数组的第一个位置并且删除，需要 $pos[nums[0]] + 1$ 次操作，因此初始答案为 $ans = pos[nums[0]] + 1$。</p>
 <p>接下来，我们遍历排序后的数组 $nums$，相邻两个元素 $a$ 和 $b$ 的下标分别为 $i=pos[a]$, $j=pos[b]$。那么将第二个元素 $b$ 移动到数组第一个位置并且删除所需要的操作数，等于两个下标的间隔，减去两个下标之间此前删除的下标个数，累加操作数到答案中。我们可以用树状数组或者有序列表维护已删除的下标，这样就可以在 $O(\log n)$ 的时间内求出两个下标之间已删除的下标个数。注意，如果 $i \gt j$，那么需要额外增加 $n - k$ 次操作，其中 $k$ 是当前遍历到的位置。</p>
@@ -80849,6 +80855,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二</h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
 <div class="tabbed-content">
@@ -80918,7 +80928,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

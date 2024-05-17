@@ -80257,11 +80257,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="1244"><a href="https://leetcode.cn/problems/design-a-leaderboard">1244. 力扣排行榜 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/来源-第 12 场双周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/来源-第 12 场双周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/分数-1354-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/分数-1354-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Source-第 12 场双周赛 Q1-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Source-第 12 场双周赛 Q1-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a> <a class="glightbox" href="https://img.shields.io/badge/Rating-1354-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Rating-1354-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>新一轮的「力扣杯」编程大赛即将启动，为了动态显示参赛者的得分数据，需要设计一个排行榜 Leaderboard。</p>
 
@@ -80318,7 +80320,11 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
     <li>最多进行 <code>1000</code> 次函数调用</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：哈希表 + 有序列表</h3>
 <p>我们用哈希表 $d$ 记录每个参赛者的分数，用有序列表 $rank$ 记录所有参赛者的分数。</p>
 <p>当调用 <code>addScore</code> 函数时，我们先判断参赛者是否在哈希表 $d$ 中，如果不在，我们将其分数加入有序列表 $rank$ 中，否则我们先将其分数从有序列表 $rank$ 中删除，再将其分数加入有序列表 $rank$ 中，最后更新哈希表 $d$ 中的分数。时间复杂度 $O(\log n)$。</p>
@@ -80681,7 +80687,9 @@ leaderboard.top(3);           // returns 141 = 51 + 51 + 39;
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

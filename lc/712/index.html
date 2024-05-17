@@ -80251,11 +80251,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="712-ascii"><a href="https://leetcode.cn/problems/minimum-ascii-delete-sum-for-two-strings">712. 两个字符串的最小 ASCII 删除和</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定两个字符串<code>s1</code>&nbsp;和&nbsp;<code>s2</code>，返回 <em>使两个字符串相等所需删除字符的&nbsp;<strong>ASCII&nbsp;</strong>值的最小和&nbsp;</em>。</p>
 
@@ -80291,7 +80293,11 @@
     <li><code>s1</code>&nbsp;和&nbsp;<code>s2</code>&nbsp;由小写英文字母组成</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：动态规划</h3>
 <p>我们定义 $f[i][j]$ 表示使得 $s_1$ 的前 $i$ 个字符和 $s_2$ 的前 $j$ 个字符相等所需删除字符的 ASCII 值的最小和。那么答案就是 $f[m][n]$。</p>
 <p>如果 $s_1[i-1] = s_2[j-1]$，那么 $f[i][j] = f[i-1][j-1]$。否则，我们可以删除 $s_1[i-1]$ 或者 $s_2[j-1]$ 中的一个，使得 $f[i][j]$ 达到最小。因此，状态转移方程如下：</p>
@@ -80605,7 +80611,9 @@ $$</p>
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 

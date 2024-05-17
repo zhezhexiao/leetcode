@@ -80266,11 +80266,13 @@
   
 
 
+<!-- problem:start -->
+
 <h1 id="2936"><a href="https://leetcode.cn/problems/number-of-equal-numbers-blocks">2936. 包含相等值数字块的数量 🔒</a></h1>
-<p><a class="glightbox" href="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/难度-中等-4051B5?style=flat-square"></a></p>
+<p><a class="glightbox" href="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square" data-type="image" data-width="auto" data-height="auto" data-desc-position="bottom"><img src="https://img.shields.io/badge/Difficulty-中等-4051B5?style=flat-square"></a></p>
 
 <h2 id="_1">题目描述</h2>
-<!-- 这里写题目描述 -->
+<!-- description:start -->
 
 <p>给定一个整数数组 <code>nums</code>，其&nbsp;<strong>下标从 0 开始</strong>。对于 <code>nums</code>，有以下性质：</p>
 
@@ -80331,7 +80333,11 @@
     <li><code>nums</code> 的所有元素之和最多为<meta charset="UTF-8" />&nbsp;<code>10<sup>15</sup></code>。</li>
 </ul>
 
+<!-- description:end -->
+
 <h2 id="_2">解法</h2>
+<!-- solution:start -->
+
 <h3 id="_3">方法一：二分查找</h3>
 <p>我们可以使用二分查找来找到每个块的右边界。具体地，我们从左到右遍历数组，对于每个下标 $i$，我们使用二分查找找到最小的下标 $j$，使得 $[i,j)$ 之间的所有元素都等于 $nums[i]$。然后我们将 $i$ 更新为 $j$，并继续遍历数组，直到 $i$ 大于等于数组的长度。</p>
 <p>时间复杂度 $O(m \times \log n)$，其中 $m$ 是数组 $num$ 中不同元素的个数，而 $n$ 是数组 $num$ 的长度。空间复杂度 $O(1)$。</p>
@@ -80573,6 +80579,10 @@
 </div>
 </div>
 </div>
+<!-- solution:end -->
+
+<!-- solution:start -->
+
 <h3 id="_4">方法二：分治</h3>
 <p>我们可以使用分治的方法来计算答案。具体地，我们将数组分成两个子数组，递归地计算每个子数组的答案，然后将答案合并起来。如果第一个子数组的最后一个元素和第二个子数组的第一个元素相等，那么我们需要将答案减一。</p>
 <p>时间复杂度 $O(\log n)$，空间复杂度 $O(\log n)$。其中 $n$ 是数组 $num$ 的长度。</p>
@@ -80722,7 +80732,9 @@
 </div>
 </div>
 </div>
-<!-- end -->
+<!-- solution:end -->
+
+<!-- problem:end -->
 
 
 
