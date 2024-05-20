@@ -39220,9 +39220,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-state-compression-prefix-sum" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: State Compression + Prefix Sum
     </span>
   </a>
   
@@ -75821,8 +75821,14 @@
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
+<h3 id="solution-1-state-compression-prefix-sum">Solution 1: State Compression + Prefix Sum</h3>
+<p>According to the problem description, the characters in the "super awesome substring" can be swapped to obtain a palindrome string. Therefore, there is at most one digit character in the "super awesome substring" that appears an odd number of times, and the rest of the digit characters appear an even number of times.</p>
+<p>We can use an integer $st$ to represent the parity of the digit characters in the current prefix string, where the $i$-th bit of $st$ represents the parity of the digit character $i$, i.e., the $i$-th bit of $st$ is $1$ means that the digit character $i$ appears an odd number of times, and $0$ means that the digit character $i$ appears an even number of times.</p>
+<p>If the substring $s[j,..i]$ is a "super awesome string", then the state $st$ of the prefix string $s[0,..i]$ and the state $st'$ of the prefix string $s[0,..j-1]$ differ by at most one bit in binary. This is because, if the binary bits are different, it means that the parity is different, and if the parity is different, it means that the number of times the digit appears in the substring $s[j,..i]$ is odd.</p>
+<p>So, we can use a hash table or array to record the first occurrence of all states $st$. If the state $st$ of the current prefix string already exists in the hash table, it means that all bits in the binary of the state $st$ of the current prefix string and the state $st'$ of the prefix string $s[0,..j-1]$ are the same, i.e., the substring $s[j,..i]$ is a "super awesome string", and we update the maximum value of the answer. Or, we can enumerate each bit, flip the $i$-th bit of the state $st$ of the current prefix string, i.e., $st \oplus 2^i$, and then check whether $st \oplus 2^i$ is in the hash table. If it is, it means that only the $i$-th bit in the binary of the state $st$ of the current prefix string and the state $st' \oplus 2^i$ of the prefix string $s[0,..j-1]$ is different, i.e., the substring $s[j,..i]$ is a "super awesome string", and we update the maximum value of the answer.</p>
+<p>Finally, return the answer.</p>
+<p>The time complexity is $O(n \times C)$, and the space complexity is $O(2^C)$. Where $n$ and $C$ are the length of the string $s$ and the number of types of digit characters, respectively.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -75993,6 +75999,56 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">longestAwesome</span><span class="p">(</span><span class="nx">s</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">d</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">1024</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">st</span><span class="p">,</span><span class="w"> </span><span class="nx">ans</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">];</span>
+<span class="w">    </span><span class="nx">d</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">st</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">v</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">st</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">ans</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">d</span><span class="p">[</span><span class="nx">st</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">d</span><span class="p">[</span><span class="nx">st</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">st</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">v</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">ans</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">d</span><span class="p">[</span><span class="nx">st</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">v</span><span class="p">)]);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>

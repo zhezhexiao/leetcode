@@ -80435,10 +80435,10 @@
 <p>根据题目描述，“超赞子字符串”中的字符可以通过交换得到回文字符串，因此，“超赞子字符串”中最多有一个数字字符出现奇数次，其余数字字符出现偶数次。</p>
 <p>我们可以用一个整数 $st$ 来表示当前前缀字符串中数字字符出现的奇偶性，其中 $st$ 的第 $i$ 位表示数字字符 $i$ 出现的奇偶性，即 $st$ 的第 $i$ 位为 $1$ 表示数字字符 $i$ 出现奇数次，为 $0$ 表示数字字符 $i$ 出现偶数次。</p>
 <p>而如果子字符串 $s[j,..i]$ 是“超赞字符串”，那么前缀字符串 $s[0,..i]$ 的状态 $st$ 与前缀字符串 $s[0,..j-1]$ 的状态 $st'$ 的二进制位中，最多只有一位不同。这是因为，二进制位不同，表示奇偶性不同，而奇偶性不同，就意味着子字符串 $s[j,..i]$ 中该数字出现的次数为奇数次。</p>
-<p>所以，我们可以用哈希表或数组记录所有状态 $st$ 第一次出现的位置。若当前前缀字符串的状态 $st$ 在哈希表中已经存在，那么说明当前前缀字符串的状态 $st$ 与前缀字符串 $s[0,..j-1]$ 的状态 $st'$ 的二进制位中，所有位都相同，即子字符串 $s[j,..i]$ 是“超赞字符串”，更新答案的最大值。或者，我们可以枚举每一位，将当前前缀字符串的状态 $st$ 的第 $i$ 位取反，即 $st \oplus (1 &lt;&lt; i)$，然后判断 $st \oplus (1 &lt;&lt; i)$ 是否在哈希表中，若在，那么说明当前前缀字符串的状态 $st$ 与前缀字符串 $s[0,..j-1]$ 的状态 $st' \oplus (1 &lt;&lt; i)$ 的二进制位中，只有第 $i$ 位不同，即子字符串 $s[j,..i]$ 是“超赞字符串”，更新答案的最大值。</p>
+<p>所以，我们可以用哈希表或数组记录所有状态 $st$ 第一次出现的位置。若当前前缀字符串的状态 $st$ 在哈希表中已经存在，那么说明当前前缀字符串的状态 $st$ 与前缀字符串 $s[0,..j-1]$ 的状态 $st'$ 的二进制位中，所有位都相同，即子字符串 $s[j,..i]$ 是“超赞字符串”，更新答案的最大值。或者，我们可以枚举每一位，将当前前缀字符串的状态 $st$ 的第 $i$ 位取反，即 $st \oplus 2^i$，然后判断 $st \oplus 2^i$ 是否在哈希表中，若在，那么说明当前前缀字符串的状态 $st$ 与前缀字符串 $s[0,..j-1]$ 的状态 $st' \oplus 2^i$ 的二进制位中，只有第 $i$ 位不同，即子字符串 $s[j,..i]$ 是“超赞字符串”，更新答案的最大值。</p>
 <p>最后，返回答案即可。</p>
 <p>时间复杂度 $O(n \times C)$，空间复杂度 $O(2^C)$。其中 $n$ 和 $C$ 分别为字符串 $s$ 的长度和数字字符的种类数。</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:5"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
@@ -80609,6 +80609,56 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span>
+<span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">longestAwesome</span><span class="p">(</span><span class="nx">s</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">d</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Array</span><span class="p">(</span><span class="mf">1024</span><span class="p">).</span><span class="nx">fill</span><span class="p">(</span><span class="o">-</span><span class="mf">1</span><span class="p">);</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">st</span><span class="p">,</span><span class="w"> </span><span class="nx">ans</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">];</span>
+<span class="w">    </span><span class="nx">d</span><span class="p">[</span><span class="mf">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="s1">&#39;0&#39;</span><span class="p">.</span><span class="nx">charCodeAt</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">st</span><span class="w"> </span><span class="o">^=</span><span class="w"> </span><span class="mf">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">v</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">st</span><span class="p">]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">ans</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">d</span><span class="p">[</span><span class="nx">st</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">d</span><span class="p">[</span><span class="nx">st</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">i</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">10</span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="nx">v</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">d</span><span class="p">[</span><span class="nx">st</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">v</span><span class="p">)]</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nx">ans</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">ans</span><span class="p">,</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">d</span><span class="p">[</span><span class="nx">st</span><span class="w"> </span><span class="o">^</span><span class="w"> </span><span class="p">(</span><span class="mf">1</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="nx">v</span><span class="p">)]);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ans</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>

@@ -59380,18 +59380,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-brute-force-simulation" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Brute Force Simulation
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-hash-table-ordered-set" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Hash Table + Ordered Set
     </span>
   </a>
   
@@ -75856,7 +75856,12 @@ loc.free(7); // Free all memory units with mID 7. The memory array remains the s
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-brute-force-simulation">Solution 1: Brute Force Simulation</h3>
+<p>The data range of the problem is not large, so we can directly use an array to simulate the memory space.</p>
+<p>During initialization, set each element in the array to $0$, indicating it's free.</p>
+<p>When the <code>allocate</code> method is called, traverse the array, find <code>size</code> consecutive free memory units, set them to <code>mID</code>, and return the first index.</p>
+<p>When the <code>free</code> method is called, traverse the array, set all memory units equal to <code>mID</code> to $0$, indicating they are free.</p>
+<p>The time complexity is $O(n \times q)$, and the space complexity is $O(n)$, where $n$ and $q$ are the size of the memory space and the number of method calls, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -76183,7 +76188,11 @@ loc.free(7); // Free all memory units with mID 7. The memory array remains the s
 
 <!-- solution:start -->
 
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-hash-table-ordered-set">Solution 2: Hash Table + Ordered Set</h3>
+<p>We can use an ordered set to maintain the start and end indices of all allocated memory units, where the start index is the key and the end index is the value. Additionally, we use a hash table to maintain the <code>mID</code> and its corresponding start index of the memory unit.</p>
+<p>When the <code>allocate</code> method is called, we traverse the ordered set, find the first free interval with a length greater than or equal to <code>size</code>, allocate it to <code>mID</code>, and update the ordered set. Then we add the <code>mID</code> and its corresponding start index of the memory unit to the hash table.</p>
+<p>When the <code>free</code> method is called, we find the start index of the memory unit corresponding to <code>mID</code> from the hash table, then delete it from the ordered set, and then delete <code>mID</code> from the hash table.</p>
+<p>The time complexity is $O(q \log n)$, and the space complexity is $O(n)$, where $n$ and $q$ are the size of the memory space and the number of method calls, respectively.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:4"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

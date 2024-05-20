@@ -59401,18 +59401,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-offline-query-bfs-priority-queue-min-heap" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Solution 2
+      Solution 1: Offline Query + BFS + Priority Queue (Min Heap)
     </span>
   </a>
   
@@ -75860,7 +75851,12 @@
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-offline-query-bfs-priority-queue-min-heap">Solution 1: Offline Query + BFS + Priority Queue (Min Heap)</h3>
+<p>According to the problem description, each query is independent, the order of the queries does not affect the result, and we are required to start from the top left corner each time, counting the number of cells that can be accessed and whose value is less than the current query value.</p>
+<p>Therefore, we can first sort the <code>queries</code> array, and then process each query in ascending order.</p>
+<p>We use a priority queue (min heap) to maintain the smallest cell value that we have currently accessed, and use an array or hash table <code>vis</code> to record whether the current cell has been visited. Initially, we add the data $(grid[0][0], 0, 0)$ of the top left cell as a tuple to the priority queue, and set <code>vis[0][0]</code> to <code>True</code>.</p>
+<p>For each query <code>queries[i]</code>, we judge whether the minimum value of the current priority queue is less than <code>queries[i]</code>. If it is, we pop the current minimum value, increment the counter <code>cnt</code>, and add the four cells above, below, left, and right of the current cell to the priority queue, noting to check whether they have been visited. Repeat the above operation until the minimum value of the current priority queue is greater than or equal to <code>queries[i]</code>, at which point <code>cnt</code> is the answer to the current query.</p>
+<p>The time complexity is $O(k \times \log k + m \times n \log(m \times n))$, and the space complexity is $O(m \times n)$. Where $m$ and $n$ are the number of rows and columns of the grid, and $k$ is the number of queries. We need to sort the <code>queries</code> array, which has a time complexity of $O(k \times \log k)$. Each cell in the matrix will be visited at most once, and the time complexity of each enqueue and dequeue operation is $O(\log(m \times n))$. Therefore, the total time complexity is $O(k \times \log k + m \times n \log(m \times n))$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -76141,81 +76137,6 @@
 <span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">h</span><span class="w"> </span><span class="nx">hp</span><span class="p">)</span><span class="w"> </span><span class="nx">Swap</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">h</span><span class="p">[</span><span class="nx">i</span><span class="p">],</span><span class="w"> </span><span class="nx">h</span><span class="p">[</span><span class="nx">j</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">h</span><span class="p">[</span><span class="nx">j</span><span class="p">],</span><span class="w"> </span><span class="nx">h</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="w"> </span><span class="p">}</span>
 <span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">h</span><span class="w"> </span><span class="o">*</span><span class="nx">hp</span><span class="p">)</span><span class="w"> </span><span class="nx">Push</span><span class="p">(</span><span class="nx">v</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="o">*</span><span class="nx">h</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="o">*</span><span class="nx">h</span><span class="p">,</span><span class="w"> </span><span class="nx">v</span><span class="p">.(</span><span class="nx">tuple</span><span class="p">))</span><span class="w"> </span><span class="p">}</span>
 <span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">h</span><span class="w"> </span><span class="o">*</span><span class="nx">hp</span><span class="p">)</span><span class="w"> </span><span class="nx">Pop</span><span class="p">()</span><span class="w"> </span><span class="kt">any</span><span class="w">          </span><span class="p">{</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">*</span><span class="nx">h</span><span class="p">;</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">a</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="o">*</span><span class="nx">h</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">a</span><span class="p">[:</span><span class="nb">len</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="nx">v</span><span class="w"> </span><span class="p">}</span>
-</code></pre></div></td></tr></table></div>
-</div>
-</div>
-</div>
-<!-- solution:end -->
-
-<!-- solution:start -->
-
-<h3 id="solution-2">Solution 2</h3>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span>
-<span class="normal">30</span>
-<span class="normal">31</span>
-<span class="normal">32</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">Solution</span><span class="p">:</span>
-    <span class="k">def</span> <span class="nf">maxPoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">queries</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-        <span class="k">def</span> <span class="nf">find</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">!=</span> <span class="n">x</span><span class="p">:</span>
-                <span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
-            <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
-
-        <span class="k">def</span> <span class="nf">union</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-            <span class="n">pa</span><span class="p">,</span> <span class="n">pb</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">find</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">pa</span> <span class="o">==</span> <span class="n">pb</span><span class="p">:</span>
-                <span class="k">return</span>
-            <span class="n">p</span><span class="p">[</span><span class="n">pa</span><span class="p">]</span> <span class="o">=</span> <span class="n">pb</span>
-            <span class="n">size</span><span class="p">[</span><span class="n">pb</span><span class="p">]</span> <span class="o">+=</span> <span class="n">size</span><span class="p">[</span><span class="n">pa</span><span class="p">]</span>
-
-        <span class="n">m</span><span class="p">,</span> <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-        <span class="n">arr</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">((</span><span class="n">grid</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">m</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
-        <span class="n">k</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">queries</span><span class="p">)</span>
-        <span class="n">ans</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">k</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">m</span> <span class="o">*</span> <span class="n">n</span><span class="p">))</span>
-        <span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-        <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">queries</span><span class="p">),</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-            <span class="k">while</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="ow">and</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">:</span>
-                <span class="n">_</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-                <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">pairwise</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
-                    <span class="n">c</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span> <span class="o">+</span> <span class="n">y</span>
-                    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="n">m</span> <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">d</span> <span class="o">&lt;</span> <span class="n">n</span> <span class="ow">and</span> <span class="n">grid</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">d</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">:</span>
-                        <span class="n">union</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="n">d</span><span class="p">)</span>
-                <span class="n">j</span> <span class="o">+=</span> <span class="mi">1</span>
-            <span class="k">if</span> <span class="n">grid</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">:</span>
-                <span class="n">ans</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">size</span><span class="p">[</span><span class="n">find</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
-        <span class="k">return</span> <span class="n">ans</span>
 </code></pre></div></td></tr></table></div>
 </div>
 </div>

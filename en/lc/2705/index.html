@@ -63643,9 +63643,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-recursion" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Recursion
     </span>
   </a>
   
@@ -75800,7 +75800,11 @@
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-recursion">Solution 1: Recursion</h3>
+<p>If <code>obj</code> is not an object or is null, the function will return it as is, because there's no need to check for keys in non-object values.</p>
+<p>If <code>obj</code> is an array, it will use <code>obj.filter(Boolean)</code> to filter out falsy values (like <code>null</code>, <code>undefined</code>, <code>false</code>, 0, ""), then use <code>map(compactObject)</code> to recursively call <code>compactObject</code> on each element. This ensures that nested arrays are also compacted.</p>
+<p>If <code>obj</code> is an object, it will create a new empty object <code>compactedObj</code>. It will iterate over all keys of <code>obj</code>, and for each key, it will recursively call <code>compactObject</code> on the corresponding value, then store the result in the value variable. If the value is truthy (i.e., not falsy), it will assign it to the compacted object with the corresponding key.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">TypeScript</label><label for="__tabbed_1_2">JavaScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -75820,26 +75824,22 @@
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">Obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Record</span><span class="o">&lt;</span><span class="nx">any</span><span class="p">,</span><span class="w"> </span><span class="nx">any</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="normal">17</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kr">type</span><span class="w"> </span><span class="nx">Obj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">Record</span><span class="o">&lt;</span><span class="nx">any</span><span class="p">,</span><span class="w"> </span><span class="nx">any</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="kd">function</span><span class="w"> </span><span class="nx">compactObject</span><span class="p">(</span><span class="nx">obj</span><span class="o">:</span><span class="w"> </span><span class="kt">Obj</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Obj</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">obj</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;object&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">obj</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">obj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">temp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
-<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">item</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">                </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;object&#39;</span><span class="p">)</span><span class="w"> </span><span class="nx">temp</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">compactObject</span><span class="p">(</span><span class="nx">item</span><span class="p">));</span>
-<span class="w">                </span><span class="k">else</span><span class="w"> </span><span class="nx">temp</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span>
-<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">compactObject</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">compactedValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">compactObject</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">compactedValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">acc</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">compactedValue</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">temp</span><span class="p">;</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="p">[</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">]</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">obj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">value</span><span class="p">)</span><span class="w"> </span><span class="ow">delete</span><span class="w"> </span><span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span>
-<span class="w">        </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="ow">typeof</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;object&#39;</span><span class="p">)</span><span class="w"> </span><span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">compactObject</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">obj</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">acc</span><span class="p">;</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{}</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">Obj</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </div>
@@ -75861,23 +75861,25 @@
 <span class="normal">15</span>
 <span class="normal">16</span>
 <span class="normal">17</span>
-<span class="normal">18</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">compactObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">obj</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;object&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
+<span class="cm"> * @param {Object|Array} obj</span>
+<span class="cm"> * @return {Object|Array}</span>
+<span class="cm"> */</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">compactObject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">obj</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="ow">typeof</span><span class="w"> </span><span class="nx">obj</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="s1">&#39;object&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">obj</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
-
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">obj</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">).</span><span class="nx">map</span><span class="p">(</span><span class="nx">compactObject</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">obj</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">compactObject</span><span class="p">).</span><span class="nx">filter</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
-
-<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span>
-<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">obj</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">compactObject</span><span class="p">(</span><span class="nx">obj</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">Boolean</span><span class="p">(</span><span class="nx">value</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
-<span class="w">            </span><span class="nx">result</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">value</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nb">Object</span><span class="p">.</span><span class="nx">entries</span><span class="p">(</span><span class="nx">obj</span><span class="p">).</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">])</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">compactedValue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">compactObject</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">compactedValue</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">acc</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">compactedValue</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
-<span class="w">    </span><span class="p">}</span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">result</span><span class="p">;</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">acc</span><span class="p">;</span>
+<span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="p">{});</span>
 <span class="p">};</span>
 </code></pre></div></td></tr></table></div>
 </div>
