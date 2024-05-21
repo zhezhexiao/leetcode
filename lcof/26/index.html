@@ -73861,7 +73861,7 @@
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
-      方法一
+      方法一：递归
     </span>
   </a>
   
@@ -80419,7 +80419,16 @@
 <h2 id="_2">解法</h2>
 <!-- solution:start -->
 
-<h3 id="_3">方法一</h3>
+<h3 id="_3">方法一：递归</h3>
+<p>我们设计一个函数 $\text{dfs}(A, B)$，用于判断树 A 中以节点 A 为根节点的子树是否包含树 B。</p>
+<p>函数 $\text{dfs}(A, B)$ 的执行步骤如下：</p>
+<ol>
+<li>如果树 B 为空，则树 B 是树 A 的子结构，返回 <code>true</code>；</li>
+<li>如果树 A 为空，或者树 A 的根节点的值不等于树 B 的根节点的值，则树 B 不是树 A 的子结构，返回 <code>false</code>；</li>
+<li>判断树 A 的左子树是否包含树 B，即调用 $\text{dfs}(A.left, B)$，并且判断树 A 的右子树是否包含树 B，即调用 $\text{dfs}(A.right, B)$。如果其中有一个函数返回 <code>false</code>，则树 B 不是树 A 的子结构，返回 <code>false</code>；否则，返回 <code>true</code>。</li>
+</ol>
+<p>在函数 <code>isSubStructure</code> 中，我们首先判断树 A 和树 B 是否为空，如果其中有一个为空，则树 B 不是树 A 的子结构，返回 <code>false</code>。然后，我们调用 $\text{dfs}(A, B)$，判断树 A 是否包含树 B。如果是，则返回 <code>true</code>；否则，递归判断树 A 的左子树是否包含树 B，以及树 A 的右子树是否包含树 B。如果其中有一个返回 <code>true</code>，则树 B 是树 A 的子结构，返回 <code>true</code>；否则，返回 <code>false</code>。</p>
+<p>时间复杂度 $O(n \times m)$，空间复杂度 $O(n)$。其中 $n$ 和 $m$ 分别是树 A 和树 B 的节点个数。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label><label for="__tabbed_1_8">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -80546,7 +80555,13 @@
 <span class="normal">19</span>
 <span class="normal">20</span>
 <span class="normal">21</span>
-<span class="normal">22</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="cm">/**</span>
 <span class="cm"> * Definition for a binary tree node.</span>
 <span class="cm"> * struct TreeNode {</span>
 <span class="cm"> *     int val;</span>
@@ -80558,13 +80573,19 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">Solution</span><span class="w"> </span><span class="p">{</span>
 <span class="k">public</span><span class="o">:</span>
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">isSubStructure</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">A</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">A</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">isSubStructure</span><span class="p">(</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">isSubStructure</span><span class="p">(</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="kt">bool</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"> </span><span class="n">TreeNode</span><span class="o">*</span><span class="w"> </span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
-<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">A</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">A</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">B</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">B</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">A</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">A</span><span class="o">-&gt;</span><span class="n">val</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">B</span><span class="o">-&gt;</span><span class="n">val</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nb">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="o">-&gt;</span><span class="n">left</span><span class="p">)</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">dfs</span><span class="p">(</span><span class="n">A</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">,</span><span class="w"> </span><span class="n">B</span><span class="o">-&gt;</span><span class="n">right</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">};</span>
