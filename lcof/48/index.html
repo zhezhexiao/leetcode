@@ -80432,7 +80432,7 @@
 
 <h3 id="_3">方法一：双指针 + 哈希表</h3>
 <p>我们用双指针 $j$ 和 $i$ 分别表示子串的左右边界，其中 $j$ 是滑动窗口的左边界，$i$ 是滑动窗口的右边界，用哈希表 $vis$ 记录每个字符是否出现过。</p>
-<p>遍历字符串 $s$，如果此时 $s[i]$ 在哈希表 $vis$ 中存在，说明 $s[i]$ 重复了，我们需要将左边界 $j$ 右移，直到 $s[i]$ 不在哈希表 $vis$ 中为止，然后将 $s[i]$ 加入哈希表 $vis$ 中。此时，我们更新无重复字符子串的最大长度，即 $ans = max(ans, i - j + 1)$。</p>
+<p>遍历字符串 $s$，如果此时 $s[i]$ 在哈希表 $vis$ 中存在，说明 $s[i]$ 重复了，我们需要将左边界 $j$ 右移，直到 $s[i]$ 不在哈希表 $vis$ 中为止，然后将 $s[i]$ 加入哈希表 $vis$ 中。此时，我们更新无重复字符子串的最大长度，即 $ans = \max(ans, i - j + 1)$。</p>
 <p>遍历结束后，我们返回 $ans$ 即可。</p>
 <p>时间复杂度 $O(n)$，空间复杂度 $O(C)$。其中 $n$ 是字符串 $s$ 的长度；而 $C$ 是字符集的大小。</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label><label for="__tabbed_1_7">JavaScript</label><label for="__tabbed_1_8">C#</label></div>

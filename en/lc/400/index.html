@@ -15240,9 +15240,9 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-mathematics" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Mathematics
     </span>
   </a>
   
@@ -75827,7 +75827,12 @@
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-mathematics">Solution 1: Mathematics</h3>
+<p>The smallest and largest integers with $k$ digits are $10^{k-1}$ and $10^k-1$ respectively, so the total number of digits for $k$-digit numbers is $k \times 9 \times 10^{k-1}$.</p>
+<p>We use $k$ to represent the number of digits of the current number, and $cnt$ to represent the total number of numbers with the current number of digits. Initially, $k=1$, $cnt=9$.</p>
+<p>Each time we subtract $cnt \times k$ from $n$, when $n$ is less than or equal to $cnt \times k$, it means that the number corresponding to $n$ is within the range of numbers with the current number of digits. At this time, we can calculate the corresponding number.</p>
+<p>The specific method is to first calculate which number of the current number of digits corresponds to $n$, and then calculate which digit of this number it is, so as to get the number on this digit.</p>
+<p>The time complexity is $O(\log_{10} n)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">JavaScript</label><label for="__tabbed_1_6">C#</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
