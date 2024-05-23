@@ -11000,18 +11000,18 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#solution-1" class="md-nav__link">
+  <a href="#solution-1-dynamic-programming" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 1
+      Solution 1: Dynamic Programming
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-dynamic-programming-space-optimization" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Dynamic Programming (Space Optimization)
     </span>
   </a>
   
@@ -75865,7 +75865,24 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 <h2 id="solutions">Solutions</h2>
 <!-- solution:start -->
 
-<h3 id="solution-1">Solution 1</h3>
+<h3 id="solution-1-dynamic-programming">Solution 1: Dynamic Programming</h3>
+<p>We define $f[i]$ as the maximum total amount that can be robbed from the first $i$ houses, initially $f[0]=0$, $f[1]=nums[0]$.</p>
+<p>Consider the case where $i \gt 1$, the $i$th house has two options:</p>
+<ul>
+<li>Do not rob the $i$th house, the total amount of robbery is $f[i-1]$;</li>
+<li>Rob the $i$th house, the total amount of robbery is $f[i-2]+nums[i-1]$;</li>
+</ul>
+<p>Therefore, we can get the state transition equation:</p>
+<p>$$
+f[i]=
+\begin{cases}
+0, &amp; i=0 \
+nums[0], &amp; i=1 \
+\max(f[i-1],f[i-2]+nums[i-1]), &amp; i \gt 1
+\end{cases}
+$$</p>
+<p>The final answer is $f[n]$, where $n$ is the length of the array.</p>
+<p>The time complexity is $O(n)$, and the space complexity is $O(n)$. Where $n$ is the length of the array.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -76004,7 +76021,8 @@ Total amount you can rob = 2 + 9 + 1 = 12.
 
 <!-- solution:start -->
 
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-dynamic-programming-space-optimization">Solution 2: Dynamic Programming (Space Optimization)</h3>
+<p>We notice that when $i \gt 2$, $f[i]$ is only related to $f[i-1]$ and $f[i-2]$. Therefore, we can use two variables instead of an array to reduce the space complexity to $O(1)$.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:5"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><input id="__tabbed_2_4" name="__tabbed_2" type="radio" /><input id="__tabbed_2_5" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python3</label><label for="__tabbed_2_2">Java</label><label for="__tabbed_2_3">C++</label><label for="__tabbed_2_4">Go</label><label for="__tabbed_2_5">TypeScript</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">

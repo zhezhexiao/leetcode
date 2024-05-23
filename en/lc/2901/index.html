@@ -67772,9 +67772,9 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#solution-2" class="md-nav__link">
+  <a href="#solution-2-dynamic-programming-hash-table" class="md-nav__link">
     <span class="md-ellipsis">
-      Solution 2
+      Solution 2: Dynamic Programming + Hash Table
     </span>
   </a>
   
@@ -75919,8 +75919,6 @@
 <p>We traverse $i$ and $j \in [0, i)$, and if $groups[i] \neq groups[j]$, $f[i] \lt f[j] + 1$, and the Hamming distance between $words[i]$ and $words[j]$ is $1$, we update $f[i] = f[j] + 1$, $g[i] = j$, and update $mx = \max(mx, f[i])$.</p>
 <p>Finally, we find the index $i$ corresponding to the maximum value in the $f$ array, and then continuously search backwards from $i$ until we find $g[i] = -1$, which gives us the longest adjacent non-equal subsequence.</p>
 <p>The time complexity is $O(n^2 \times L)$, and the space complexity is $O(n)$. Here, $L$ represents the maximum length of a word.</p>
-<p><strong>Optimization: Space for Time</strong></p>
-<p>In <strong>Solution 1</strong>, we need to enumerate all $i$ and $j$ combinations, a step that can be optimized by maintaining a wildcard hash table. For each string $word[i]$, we enumerate each character, replace it with a wildcard, and then use the replaced string as the key and add its subscript to the list which is the value in the hash table. This allows us to find all $word[j]$ with a Hamming distance of 1 from $word[i]$ in $O(L)$ time. Although the time complexity is still $O(n^2 \times L)$, the average complexity is reduced.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python3</label><label for="__tabbed_1_2">Java</label><label for="__tabbed_1_3">C++</label><label for="__tabbed_1_4">Go</label><label for="__tabbed_1_5">TypeScript</label><label for="__tabbed_1_6">Rust</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -76415,7 +76413,8 @@
 
 <!-- solution:start -->
 
-<h3 id="solution-2">Solution 2</h3>
+<h3 id="solution-2-dynamic-programming-hash-table">Solution 2: Dynamic Programming + Hash Table</h3>
+<p>In Solution 1, we need to enumerate all $i$ and $j$ combinations, a step that can be optimized by maintaining a wildcard hash table. For each string $word[i]$, we enumerate each character, replace it with a wildcard, and then use the replaced string as the key and add its subscript to the list which is the value in the hash table. This allows us to find all $word[j]$ with a Hamming distance of 1 from $word[i]$ in $O(L)$ time. Although the time complexity is still $O(n^2 \times L)$, the average complexity is reduced.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Java</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
